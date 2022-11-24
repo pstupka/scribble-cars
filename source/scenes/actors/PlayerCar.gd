@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-onready var front_light := $FrontLight
-onready var back_light := $BackLight
+onready var front_light := $Pivot/FrontLight
+onready var back_light := $Pivot/BackLight
 
 export var speed := 150.0
 var direction := Vector2.ZERO
@@ -10,6 +10,8 @@ var previous_direction := Vector2.ZERO
 
 func _ready() -> void:
 	scale.x = -1
+	modulate = Color("#262626")
+	Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
 
 
 func _input(event: InputEvent):
@@ -30,10 +32,16 @@ func _physics_process(delta: float) -> void:
 			flip()
 	
 	position.y += speed * delta * direction.y
-	position.y = clamp(position.y, 350, 420)
+	position.y = clamp(position.y, 360, 430)
 
 
 func flip() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "scale:x", -sign(direction.x), 0.2)
 
+func _on_time_of_day_changed(state):
+	match state:
+		States.DAY:
+			modulate = Color("#ffffff")
+		States.NIGHT:
+			modulate = Color("#262626")

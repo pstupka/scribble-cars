@@ -8,11 +8,25 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "States",
+"language": "GDScript",
+"path": "res://source/globals/states.gd"
+} ]
+_global_script_class_icons={
+"States": ""
+}
+
 [application]
 
 config/name="Scribble Cars"
 run/main_scene="res://source/scenes/Main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Events="*res://source/globals/events.gd"
 
 [display]
 

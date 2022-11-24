@@ -1,16 +1,25 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a: int = 2
-# var b: String = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var current_state = States.NIGHT setget set_state
+onready var background_modulate = $ParallaxBackground/CanvasModulate
+onready var foreground_modulate = $ParallaxBackground2/CanvasModulate3
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
+func _input(event):
+	if event.is_action_pressed("lights"):
+		if current_state == States.NIGHT:
+			set_state(States.DAY)
+		else:
+			set_state(States.NIGHT)
+
+
+func set_state(new_state):
+	match new_state:
+		States.DAY:
+			background_modulate.color = Color("#ffffff")
+			foreground_modulate.color = Color("#ffffff")
+		States.NIGHT:
+			background_modulate.color = Color("#262626")
+			foreground_modulate.color = Color("#262626")
+	current_state = new_state
+	Events.emit_signal("time_of_day_changed", current_state)
