@@ -10,12 +10,12 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
-"class": "States",
+"class": "Globals",
 "language": "GDScript",
-"path": "res://source/globals/states.gd"
+"path": "res://source/globals/globals.gd"
 } ]
 _global_script_class_icons={
-"States": ""
+"Globals": ""
 }
 
 [application]

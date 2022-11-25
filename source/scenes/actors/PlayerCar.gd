@@ -10,7 +10,7 @@ var previous_direction := Vector2.ZERO
 
 func _ready() -> void:
 	scale.x = -1
-	modulate = Color("#262626")
+	modulate = Color("#676767")
 	Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
 
 
@@ -41,7 +41,7 @@ func flip() -> void:
 
 func _on_time_of_day_changed(state):
 	match state:
-		States.DAY:
-			modulate = Color("#ffffff")
-		States.NIGHT:
-			modulate = Color("#262626")
+		Globals.DAY:
+			modulate = Globals.DAY_MODULATE
+		Globals.NIGHT:
+			modulate = Globals.NIGHT_MODULATE

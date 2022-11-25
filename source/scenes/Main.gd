@@ -1,25 +1,25 @@
 extends Node2D
 
-var current_state = States.NIGHT setget set_state
+var current_state = Globals.NIGHT setget set_state
 onready var background_modulate = $ParallaxBackground/CanvasModulate
-onready var foreground_modulate = $ParallaxBackground2/CanvasModulate3
+onready var foreground_modulate = $ParallaxBackground2/CanvasModulate2
 
 
 func _input(event):
 	if event.is_action_pressed("lights"):
-		if current_state == States.NIGHT:
-			set_state(States.DAY)
+		if current_state == Globals.NIGHT:
+			set_state(Globals.DAY)
 		else:
-			set_state(States.NIGHT)
+			set_state(Globals.NIGHT)
 
 
 func set_state(new_state):
 	match new_state:
-		States.DAY:
-			background_modulate.color = Color("#ffffff")
-			foreground_modulate.color = Color("#ffffff")
-		States.NIGHT:
-			background_modulate.color = Color("#262626")
-			foreground_modulate.color = Color("#262626")
+		Globals.DAY:
+			background_modulate.color = Globals.DAY_MODULATE
+			foreground_modulate.color = Globals.DAY_MODULATE
+		Globals.NIGHT:
+			background_modulate.color = Globals.NIGHT_MODULATE
+			foreground_modulate.color = Color("#565656")
 	current_state = new_state
 	Events.emit_signal("time_of_day_changed", current_state)
