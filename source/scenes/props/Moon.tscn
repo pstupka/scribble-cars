@@ -7,12 +7,10 @@
 
 [node name="MoonFill" type="Sprite" parent="."]
 modulate = Color( 1, 0.9925, 0.95, 1 )
-position = Vector2( 1.125, 101.375 )
-scale = Vector2( -0.25, 0.25 )
+scale = Vector2( -0.2, -0.2 )
 texture = ExtResource( 1 )
 
 [node name="MoonOutline" type="Sprite" parent="."]
 modulate = Color( 4, 4, 4, 1 )
-position = Vector2( 1.125, 101.375 )
-scale = Vector2( -0.25, 0.25 )
+scale = Vector2( -0.2, -0.2 )
 texture = ExtResource( 2 )
