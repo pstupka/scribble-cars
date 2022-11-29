@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
-onready var front_light := $Pivot/FrontLight
-onready var back_light := $Pivot/BackLight
+onready var front_light := $Pivot/AnimationPivot/FrontLight
+onready var back_light := $Pivot/AnimationPivot/BackLight
+onready var pivot = $Pivot
 
 export var speed := 150.0
 var direction := Vector2.ZERO
@@ -9,7 +10,7 @@ var previous_direction := Vector2.ZERO
 
 
 func _ready() -> void:
-	scale.x = -1
+	pivot.scale.x = -1
 	Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
 
 
@@ -30,7 +31,7 @@ func _physics_process(delta: float) -> void:
 
 func flip() -> void:
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "scale:x", -sign(direction.x), 0.2)
+	tween.tween_property(pivot, "scale:x", -sign(direction.x), 0.2)
 
 
 func _on_time_of_day_changed(state):
@@ -42,3 +43,13 @@ func _on_time_of_day_changed(state):
 			front_light.enabled = true
 			back_light.enabled = true
 	
+
+
+func _on_WrapAreaL_area_entered(area):
+	if area.is_in_group("wrapable"):
+		area.global_position.x = $WrapAreaL/TargetPosition.global_position.x
+
+
+func _on_WrapAreaR_area_entered(area):
+	if area.is_in_group("wrapable"):
+		area.global_position.x = $WrapAreaR/TargetPosition.global_position.x
