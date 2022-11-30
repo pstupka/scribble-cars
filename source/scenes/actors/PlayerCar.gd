@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+onready var animation_player = $AnimationPlayer
 onready var front_light := $Pivot/AnimationPivot/FrontLight
 onready var back_light := $Pivot/AnimationPivot/BackLight
 onready var pivot = $Pivot
@@ -7,11 +8,19 @@ onready var pivot = $Pivot
 export var speed := 150.0
 var direction := Vector2.ZERO
 var previous_direction := Vector2.ZERO
-
+export var is_jumping = false
 
 func _ready() -> void:
+	is_jumping = false
 	pivot.scale.x = -1
 	Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
+
+
+
+func _input(event):
+	if event.is_action_pressed("jump") and not is_jumping:
+		is_jumping = true
+		animation_player.play("jump")
 
 
 func _physics_process(delta: float) -> void:
@@ -27,6 +36,10 @@ func _physics_process(delta: float) -> void:
 	
 	position.y += speed * delta * direction.y
 	position.y = clamp(position.y, Globals.ROAD_MIN_POSITION, Globals.ROAD_MAX_POSITION)
+	
+	if not is_jumping and not animation_player.is_playing():
+		if direction:
+			animation_player.play("move")
 
 
 func flip() -> void:
