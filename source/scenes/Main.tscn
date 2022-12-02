@@ -4,12 +4,10 @@
 [ext_resource path="res://assets/sprites/ground.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/road_fill.png" type="Texture" id=3]
 [ext_resource path="res://source/scenes/Main.gd" type="Script" id=4]
-[ext_resource path="res://source/scenes/actors/Car1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://source/scenes/actors/player_car.tscn" type="PackedScene" id=5]
 [ext_resource path="res://source/scenes/props/trees/Tree.tscn" type="PackedScene" id=6]
 [ext_resource path="res://source/scenes/props/Cloud2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://source/scenes/props/trees/Tree2.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/sprites/tree1.png" type="Texture" id=9]
-[ext_resource path="res://assets/sprites/tree2.png" type="Texture" id=10]
 [ext_resource path="res://source/utils/move_parallax_layer.gd" type="Script" id=11]
 [ext_resource path="res://source/utils/day_night_utils/day_night_modulate.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/sprites/stars/star1.png" type="Texture" id=13]
@@ -29,6 +27,14 @@ gradient = SubResource( 2 )
 width = 1400
 height = 500
 fill_to = Vector2( 0, 1 )
+
+[sub_resource type="StreamTexture" id=4]
+flags = 4
+load_path = "res://.import/tree1.png-1e3faf9e6f29f6130483ec280db52e2e.stex"
+
+[sub_resource type="StreamTexture" id=5]
+flags = 4
+load_path = "res://.import/tree2.png-ace9e53cbdcd30804c407509a5d8c602.stex"
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -175,17 +181,17 @@ texture = ExtResource( 16 )
 
 [node name="MoonSun" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0, 0.98 )
-motion_mirroring = Vector2( 1024, 0 )
+motion_mirroring = Vector2( 1400, 0 )
 
 [node name="Sun" parent="ParallaxBackground/MoonSun" instance=ExtResource( 19 )]
-position = Vector2( 1200, 110 )
+position = Vector2( 300, 110 )
 
 [node name="DayNightTween" parent="ParallaxBackground/MoonSun/Sun" instance=ExtResource( 17 )]
 day_position = 110.0
 night_position = 500.0
 
 [node name="Moon" parent="ParallaxBackground/MoonSun" instance=ExtResource( 18 )]
-position = Vector2( 1200, 500 )
+position = Vector2( 1100, 500 )
 
 [node name="DayNightTween" parent="ParallaxBackground/MoonSun/Moon" instance=ExtResource( 17 )]
 day_position = 500.0
@@ -240,22 +246,22 @@ night_color = Color( 0.337255, 0.482353, 0.47451, 1 )
 [node name="Tree1" type="Sprite" parent="ParallaxBackground/Ground"]
 position = Vector2( 42.8, 186.5 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 9 )
+texture = SubResource( 4 )
 
 [node name="Tree3" type="Sprite" parent="ParallaxBackground/Ground"]
 position = Vector2( 393.3, 182.25 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 9 )
+texture = SubResource( 4 )
 
 [node name="Tree4" type="Sprite" parent="ParallaxBackground/Ground"]
 position = Vector2( 1093.8, 180.5 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 9 )
+texture = SubResource( 4 )
 
 [node name="Tree2" type="Sprite" parent="ParallaxBackground/Ground"]
 position = Vector2( 492.3, 194.25 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 9 )
+texture = SubResource( 4 )
 
 [node name="Ground2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.4, 0.99 )
@@ -277,12 +283,12 @@ night_color = Color( 0.337255, 0.482353, 0.47451, 1 )
 [node name="Tree3" type="Sprite" parent="ParallaxBackground/Ground2"]
 position = Vector2( 222, 199.75 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 9 )
+texture = SubResource( 4 )
 
 [node name="Tree4" type="Sprite" parent="ParallaxBackground/Ground2"]
 position = Vector2( 931, 209.75 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 9 )
+texture = SubResource( 4 )
 
 [node name="Ground3" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2( -68, 65 )
@@ -350,6 +356,9 @@ texture = ExtResource( 1 )
 
 [node name="Actors" type="YSort" parent="."]
 
+[node name="Car1" parent="Actors" instance=ExtResource( 5 )]
+position = Vector2( 0, 440 )
+
 [node name="Tree" parent="Actors" instance=ExtResource( 6 )]
 position = Vector2( 389, 363 )
 
@@ -364,9 +373,6 @@ position = Vector2( 143, 344 )
 
 [node name="Tree5" parent="Actors" instance=ExtResource( 6 )]
 position = Vector2( 1011, 381 )
-
-[node name="Car1" parent="Actors" instance=ExtResource( 5 )]
-position = Vector2( 0, 440 )
 
 [node name="Tree6" parent="Actors" instance=ExtResource( 8 )]
 position = Vector2( 482, 544 )
@@ -404,12 +410,12 @@ night_color = Color( 0.337255, 0.482353, 0.47451, 1 )
 [node name="Tree5" type="Sprite" parent="ParallaxBackground2/Ground4"]
 position = Vector2( 316, 633 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 10 )
+texture = SubResource( 5 )
 
 [node name="Tree6" type="Sprite" parent="ParallaxBackground2/Ground4"]
 position = Vector2( 797.5, 560.25 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 10 )
+texture = SubResource( 5 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )

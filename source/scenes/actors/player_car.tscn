@@ -3,7 +3,8 @@
 [ext_resource path="res://assets/sprites/car1_body.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/car1_outline.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/car1_wheels.png" type="Texture" id=3]
-[ext_resource path="res://source/scenes/actors/PlayerCar.gd" type="Script" id=5]
+[ext_resource path="res://resources/animations/car-animations.tres" type="Animation" id=4]
+[ext_resource path="res://source/scenes/actors/player_car.gd" type="Script" id=5]
 [ext_resource path="res://assets/sprites/smoke.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/light.png" type="Texture" id=7]
 
@@ -33,45 +34,6 @@ color_ramp = SubResource( 2 )
 [sub_resource type="CapsuleShape2D" id=6]
 radius = 19.0
 height = 132.0
-
-[sub_resource type="Animation" id=10]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("Pivot/AnimationPivot:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Pivot/AnimationPivot:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath(".:is_jumping")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
 
 [sub_resource type="Animation" id=9]
 resource_name = "jump"
@@ -134,7 +96,7 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 50, 400 )
 
-[node name="Car1" type="KinematicBody2D"]
+[node name="PlayerCar" type="KinematicBody2D"]
 script = ExtResource( 5 )
 
 [node name="Pivot" type="Node2D" parent="."]
@@ -159,14 +121,6 @@ position = Vector2( 15.5, -40.5 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 
-[node name="Particles2D" type="Particles2D" parent="Pivot/AnimationPivot"]
-position = Vector2( 91.064, -37.2806 )
-amount = 6
-lifetime = 1.5
-local_coords = false
-process_material = SubResource( 5 )
-texture = ExtResource( 6 )
-
 [node name="BackLight" type="Light2D" parent="Pivot/AnimationPivot"]
 position = Vector2( 154.042, -29.8421 )
 rotation = -1.5708
@@ -186,6 +140,14 @@ texture = ExtResource( 7 )
 color = Color( 1, 0.996078, 0.705882, 1 )
 range_layer_min = -1
 
+[node name="Particles2D" type="Particles2D" parent="Pivot/AnimationPivot"]
+position = Vector2( 91.064, -37.2806 )
+amount = 6
+lifetime = 1.5
+local_coords = false
+process_material = SubResource( 5 )
+texture = ExtResource( 6 )
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -70 )
 current = true
@@ -199,7 +161,7 @@ rotation = 1.5708
 shape = SubResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 10 )
+anims/RESET = ExtResource( 4 )
 anims/jump = SubResource( 9 )
 anims/move = SubResource( 7 )
 
