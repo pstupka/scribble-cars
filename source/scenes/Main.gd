@@ -1,10 +1,15 @@
 extends Node2D
 
 var current_state = Globals.DAY setget set_state
+onready var apple_timer = $AppleTimer
+
 onready var background_modulate = $ParallaxBackground/CanvasModulate
 onready var foreground_modulate = $ParallaxBackground2/CanvasModulate2
 onready var actors = $Actors
 
+func _ready():
+	randomize()
+	Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
 
 func _input(event):
 	if event.is_action_pressed("lights"):
@@ -27,3 +32,15 @@ func set_state(new_state):
 			actors.modulate = Globals.NIGHT_MODULATE
 	current_state = new_state
 	Events.emit_signal("time_of_day_changed", current_state)
+
+
+func _on_AppleTimer_timeout():
+	var trees = get_tree().get_nodes_in_group("tree")
+	trees[randi() % trees.size()].make_apple()
+
+func _on_time_of_day_changed(state):
+	match state:
+		Globals.DAY:
+			apple_timer.paused = false
+		Globals.NIGHT:
+			apple_timer.paused = true
