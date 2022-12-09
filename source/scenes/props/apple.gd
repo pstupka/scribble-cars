@@ -7,6 +7,7 @@ export var body_gravity := -10.0
 
 onready var apple_outline = $AppleOutline
 onready var apple_fill = $AppleFill
+onready var collision_shape_2d = $CollisionShape2D
 
 var is_destroying = false
 
@@ -20,14 +21,18 @@ func _ready():
 	tween.parallel()\
 		.set_trans(Tween.TRANS_LINEAR)\
 		.tween_property(self, "position:x", target_position.x + rand_range(-100,100), 2.0)
+	
+	tween.tween_callback(collision_shape_2d, "set_deferred", ["disabled", false])
 
 
 func destroy() -> void:
-	is_destroying = true
-	var tween = create_tween()
-	tween.tween_property($AppleOutline, "modulate", Color("00ffffff"), 0.4)
-	tween.parallel().tween_property($AppleFill, "modulate", Color("00ffffff"), 0.4)
-	tween.tween_callback(self, "queue_free").set_delay(1.0)
+	if not is_destroying:
+		is_destroying = true
+		var tween = create_tween()
+		tween.tween_property($AppleOutline, "modulate", Color("00ffffff"), 0.4)
+		tween.parallel().tween_property($AppleFill, "modulate", Color("00ffffff"), 0.4)
+		tween.tween_callback(self, "queue_free").set_delay(1.0)
+
 
 func _on_Apple_body_entered(body):
 	if body.is_in_group("player"):
@@ -36,5 +41,4 @@ func _on_Apple_body_entered(body):
 
 
 func _on_DestroyTimer_timeout():
-	if not is_destroying:
-		destroy()
+	destroy()

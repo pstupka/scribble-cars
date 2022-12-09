@@ -4,7 +4,7 @@ export var spawn_apple_timer = 10.0
 
 onready var animation_player = $AnimationPlayer
 onready var apple_scene = preload("res://source/scenes/props/Apple.tscn")
-onready var spawn_apple = $Pivot/SpawnApple
+onready var spawn_apple = $Pivot/SpawnApplePosition
 
 func _ready() -> void:
 	randomize()
