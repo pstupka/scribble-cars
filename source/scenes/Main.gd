@@ -36,7 +36,7 @@ func set_state(new_state):
 
 func _on_AppleTimer_timeout():
 	var trees = get_tree().get_nodes_in_group("tree")
-	trees[randi() % trees.size()].make_apple()
+	trees[randi() % trees.size()].make_fruit()
 
 func _on_time_of_day_changed(state):
 	match state:

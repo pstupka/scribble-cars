@@ -1,13 +1,19 @@
 extends Area2D
 
+var type = "Apple" setget set_type
+
 export var initial_speed = 100.0
 var target_position := Vector2.ZERO
 var speed := Vector2.ZERO
 export var body_gravity := -10.0 
 
-onready var apple_outline = $AppleOutline
-onready var apple_fill = $AppleFill
+
 onready var collision_shape_2d = $CollisionShape2D
+
+onready var apple = $Sprites/Apple
+onready var grape = $Sprites/Grape
+onready var sprites = $Sprites
+
 
 var is_destroying = false
 
@@ -24,13 +30,23 @@ func _ready():
 	
 	tween.tween_callback(collision_shape_2d, "set_deferred", ["disabled", false])
 
+	if randf() > 0.5:
+		set_type("Grape")
+
+func set_type(type) -> void:
+	match type:
+		"Apple":
+			apple.visible = true
+			grape.visible = false
+		"Grape":
+			apple.visible = false
+			grape.visible = true
 
 func destroy() -> void:
 	if not is_destroying:
 		is_destroying = true
 		var tween = create_tween()
-		tween.tween_property($AppleOutline, "modulate", Color("00ffffff"), 0.4)
-		tween.parallel().tween_property($AppleFill, "modulate", Color("00ffffff"), 0.4)
+		tween.tween_property(sprites, "modulate", Color("00ffffff"), 0.4)
 		tween.tween_callback(self, "queue_free").set_delay(1.0)
 
 
