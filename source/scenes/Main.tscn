@@ -19,8 +19,8 @@
 [ext_resource path="res://source/scenes/props/Sun.tscn" type="PackedScene" id=19]
 
 [sub_resource type="Gradient" id=2]
-offsets = PoolRealArray( 0.00448431, 0.605381, 0.726457, 1 )
-colors = PoolColorArray( 0.407843, 0.760784, 0.827451, 1, 0.608187, 0.921637, 0.984327, 1, 0.79507, 0.93198, 0.959361, 1, 0.94, 0.94, 0.94, 1 )
+offsets = PoolRealArray( 0.00448431, 0.609865, 0.793722, 1 )
+colors = PoolColorArray( 0.407843, 0.760784, 0.827451, 1, 0.608187, 0.921637, 0.984327, 1, 0.811903, 0.933316, 0.932753, 1, 0.94902, 0.941176, 0.898039, 1 )
 
 [sub_resource type="GradientTexture2D" id=3]
 gradient = SubResource( 2 )
@@ -43,6 +43,7 @@ glow_intensity = 2.0
 glow_strength = 1.01
 
 [node name="Main" type="Node2D"]
+position = Vector2( 1, 0 )
 script = ExtResource( 4 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -202,7 +203,7 @@ position = Vector2( -1200, -484 )
 day_color = Color( 0.52549, 0.52549, 0.52549, 1 )
 
 [node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.5, 0.9 )
+motion_scale = Vector2( 0.5, 0.95 )
 motion_mirroring = Vector2( 1200, 0 )
 script = ExtResource( 11 )
 
@@ -229,7 +230,7 @@ position = Vector2( 833, 119 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="Ground" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.2, 0.99 )
+motion_scale = Vector2( 0.2, 0.85 )
 motion_mirroring = Vector2( 1400, 0 )
 
 [node name="Ground" type="Sprite" parent="ParallaxBackground/Ground"]
@@ -264,7 +265,7 @@ scale = Vector2( 0.2, 0.2 )
 texture = SubResource( 4 )
 
 [node name="Ground2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.4, 0.99 )
+motion_scale = Vector2( 0.4, 0.92 )
 motion_mirroring = Vector2( 1400, 0 )
 
 [node name="Ground" type="Sprite" parent="ParallaxBackground/Ground2"]
@@ -292,7 +293,7 @@ texture = SubResource( 4 )
 
 [node name="Ground3" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2( -68, 65 )
-motion_scale = Vector2( 0.7, 0.99 )
+motion_scale = Vector2( 0.7, 0.95 )
 motion_mirroring = Vector2( 1400, 0 )
 
 [node name="Ground" type="Sprite" parent="ParallaxBackground/Ground3"]
@@ -360,19 +361,19 @@ texture = ExtResource( 1 )
 night_color = Color( 0.403922, 0.403922, 0.403922, 1 )
 
 [node name="Tree" parent="Trees_back" instance=ExtResource( 6 )]
-position = Vector2( 389, 363 )
+position = Vector2( 389, 369 )
 
 [node name="Tree2" parent="Trees_back" instance=ExtResource( 6 )]
-position = Vector2( -256, 366 )
+position = Vector2( -256, 372 )
 
 [node name="Tree3" parent="Trees_back" instance=ExtResource( 6 )]
-position = Vector2( 719, 347 )
+position = Vector2( 719, 353 )
 
 [node name="Tree4" parent="Trees_back" instance=ExtResource( 6 )]
-position = Vector2( 143, 344 )
+position = Vector2( 143, 350 )
 
 [node name="Tree5" parent="Trees_back" instance=ExtResource( 6 )]
-position = Vector2( 1011, 381 )
+position = Vector2( 1011, 387 )
 
 [node name="Actors" type="YSort" parent="."]
 
@@ -402,12 +403,12 @@ z_index = 10
 [node name="Ground4" type="ParallaxLayer" parent="ParallaxBackground2"]
 modulate = Color( 0.84, 0.84, 0.84, 1 )
 position = Vector2( 75, 51 )
-motion_scale = Vector2( 1.1, 0.99 )
+motion_scale = Vector2( 1.1, 1.1 )
 motion_mirroring = Vector2( 1400, 0 )
 
 [node name="Ground" type="Sprite" parent="ParallaxBackground2/Ground4"]
 modulate = Color( 0.541176, 0.690196, 0.376471, 1 )
-position = Vector2( -56, 537 )
+position = Vector2( -80, 606 )
 scale = Vector2( 1, 1.292 )
 texture = ExtResource( 2 )
 centered = false
@@ -418,12 +419,12 @@ day_color = Color( 0.541176, 0.690196, 0.376471, 1 )
 night_color = Color( 0.337255, 0.482353, 0.47451, 1 )
 
 [node name="Tree5" type="Sprite" parent="ParallaxBackground2/Ground4"]
-position = Vector2( 316, 633 )
+position = Vector2( 311, 669 )
 scale = Vector2( 0.5, 0.5 )
 texture = SubResource( 5 )
 
 [node name="Tree6" type="Sprite" parent="ParallaxBackground2/Ground4"]
-position = Vector2( 797.5, 560.25 )
+position = Vector2( 793, 596 )
 scale = Vector2( 0.5, 0.5 )
 texture = SubResource( 5 )
 

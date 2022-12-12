@@ -5,8 +5,8 @@
 [ext_resource path="res://assets/sprites/props/apple_fill.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/numbers.png" type="Texture" id=4]
 [ext_resource path="res://source/utils/day_night_utils/day_night_modulate.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/sprites/props/grape_fill.png" type="Texture" id=6]
-[ext_resource path="res://assets/sprites/props/grape_outline.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/props/pear_fill.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/props/pear_outline.png" type="Texture" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 34.0147
@@ -53,16 +53,16 @@ position = Vector2( -2, -22.75 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 
-[node name="Grape" type="Node2D" parent="Sprites"]
+[node name="Pear" type="Node2D" parent="Sprites"]
 visible = false
 
-[node name="GrapeFill" type="Sprite" parent="Sprites/Grape"]
+[node name="PearFill" type="Sprite" parent="Sprites/Pear"]
 self_modulate = Color( 0.929412, 0.882353, 0.619608, 1 )
 position = Vector2( -1.75, -27.5 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 6 )
 
-[node name="GrapeOutline" type="Sprite" parent="Sprites/Grape"]
+[node name="PearOutline" type="Sprite" parent="Sprites/Pear"]
 self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
 position = Vector2( -2.75, -26.5 )
 scale = Vector2( 0.5, 0.5 )

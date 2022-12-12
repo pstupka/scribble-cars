@@ -11,7 +11,7 @@ export var body_gravity := -10.0
 onready var collision_shape_2d = $CollisionShape2D
 
 onready var apple = $Sprites/Apple
-onready var grape = $Sprites/Grape
+onready var pear = $Sprites/Pear
 onready var sprites = $Sprites
 
 
@@ -26,21 +26,21 @@ func _ready():
 	
 	tween.parallel()\
 		.set_trans(Tween.TRANS_LINEAR)\
-		.tween_property(self, "position:x", target_position.x + rand_range(-100,100), 2.0)
+		.tween_property(self, "position:x", target_position.x + rand_range(50,150) * sign(rand_range(-1,1)) , 2.0)
 	
 	tween.tween_callback(collision_shape_2d, "set_deferred", ["disabled", false])
 
 	if randf() > 0.5:
-		set_type("Grape")
+		set_type("Pear")
 
 func set_type(type) -> void:
 	match type:
 		"Apple":
 			apple.visible = true
-			grape.visible = false
-		"Grape":
+			pear.visible = false
+		"Pear":
 			apple.visible = false
-			grape.visible = true
+			pear.visible = true
 
 func destroy() -> void:
 	if not is_destroying:
