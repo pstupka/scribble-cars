@@ -146,23 +146,30 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 10 )
 
 [node name="BackLight" type="Light2D" parent="Pivot/AnimationPivot"]
-position = Vector2( 184.947, -76.7619 )
+position = Vector2( 94, -79 )
 rotation = -1.5708
-scale = Vector2( 1.1, 0.7 )
+scale = Vector2( 1.2, 1 )
 enabled = false
 texture = ExtResource( 7 )
+offset = Vector2( 0, 123 )
 color = Color( 1, 0, 0, 1 )
 energy = 0.8
 range_layer_min = -1
 
 [node name="FrontLight" type="Light2D" parent="Pivot/AnimationPivot"]
-position = Vector2( -330.21, -45.2381 )
+position = Vector2( -78, -45 )
 rotation = 1.5708
-scale = Vector2( 2.5, 2 )
+scale = Vector2( 2.5, 3 )
 enabled = false
 texture = ExtResource( 7 )
+offset = Vector2( 0, 123 )
 color = Color( 1, 0.996078, 0.705882, 1 )
+energy = 1.1
 range_layer_min = -1
+shadow_enabled = true
+shadow_buffer_size = 1024
+shadow_filter = 1
+shadow_filter_smooth = 3.0
 
 [node name="Particles2D" type="Particles2D" parent="Pivot/AnimationPivot"]
 position = Vector2( 73, -40 )

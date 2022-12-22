@@ -37,7 +37,7 @@ jobs:
       - name: Zip Folder
         run: zip -r itch.zip build/windows
       - name: Deploy to itch.io
-        if: ${{ env.ITCH_IO=='true' }}
+        if: ${{ env.ITCH_IO == 'true' }}
         uses: josephbmanley/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
@@ -71,7 +71,7 @@ jobs:
       - name: Zip Folder
         run: zip -r itch.zip build/linux
       - name: Deploy to itch.io
-        if: ${{ env.ITCH_IO=='true' }}
+        if: ${{ env.ITCH_IO == 'true' }}
         uses: josephbmanley/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
@@ -114,7 +114,7 @@ jobs:
       - name: Zip Folder
         run: zip -r itch.zip build/web
       - name: Deploy to itch.io
-        if: ${{ env.ITCH_IO=='true' }}
+        if: ${{ env.ITCH_IO == 'true' }}
         uses: josephbmanley/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
@@ -124,7 +124,7 @@ jobs:
           PACKAGE: itch.zip
 
   export-mac:
-    if: true
+    if: false
     name: Mac Export
     runs-on: ubuntu-20.04
     container:
@@ -148,7 +148,7 @@ jobs:
       - name: Zip Folder
         run: zip -r itch.zip build/mac
       - name: Deploy to itch.io
-        if: ${{ env.ITCH_IO=='true' }}
+        if: ${{ env.ITCH_IO == 'true' }}
         uses: josephbmanley/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
@@ -177,9 +177,9 @@ jobs:
       - name: Android Debug Build
         run: |
           mkdir -v -p build/android
-          godot --verbose --export-debug "Android-CI-job (Do not edit)" ./build/android/$EXPORT_NAME.debug.apk
+          godot --verbose --export-debug "Android" ./build/android/$EXPORT_NAME.debug.apk
       - name: Android Release Build
-        if: ${{ env.RELEASE_ANDROID=='true' }}
+        if: ${{ env.RELEASE_ANDROID == 'true' }} 
         env:
           K8S_SECRET_RELEASE_KEYSTORE_BASE64: ${{ secrets.K8S_SECRET_RELEASE_KEYSTORE_BASE64 }}
           K8S_SECRET_RELEASE_KEYSTORE_USER: ${{ secrets.K8S_SECRET_RELEASE_KEYSTORE_USER  }}
