@@ -4,6 +4,9 @@ onready var animation_player = $AnimationPlayer
 onready var front_light := $Pivot/AnimationPivot/FrontLight
 onready var back_light := $Pivot/AnimationPivot/BackLight
 onready var pivot = $Pivot
+onready var sfx = $Sfx
+
+export var pitch_randomness = 0.05
 
 export var speed := 150.0
 var direction := Vector2.ZERO
@@ -11,6 +14,7 @@ var previous_direction := Vector2.ZERO
 export var is_jumping = false
 
 func _ready() -> void:
+	randomize()
 	is_jumping = false
 	pivot.scale.x = -1
 	Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
@@ -20,7 +24,23 @@ func _ready() -> void:
 func _input(event):
 	if event.is_action_pressed("jump") and not is_jumping:
 		is_jumping = true
+		Input.start_joy_vibration(0, 0.3, 0.0, 0.1)
+		Input.vibrate_handheld(100)
 		animation_player.play("jump")
+	if event.is_action_pressed("honk"):
+		for sound in sfx.get_children():
+			if sound.is_playing(): return
+		var honks_count = sfx.get_child_count()
+		var honk = sfx.get_child(rand_range(0,honks_count))
+		honk.pitch_scale = rand_range(1.0 - pitch_randomness, 1.0 + pitch_randomness)
+		honk.play()
+		var tween = create_tween()
+		Input.start_joy_vibration(0, 0.4, 0.0, 0.4)
+		Input.vibrate_handheld(400)
+		tween.tween_property(pivot, "scale:y", 1.2, 0.15) 
+		tween.tween_property(pivot, "scale:y", 1.0, 0.15)
+		tween.tween_property(pivot, "scale:y", 1.2, 0.15)
+		tween.tween_property(pivot, "scale:y", 1.0, 0.15)
 
 
 func _physics_process(delta: float) -> void:

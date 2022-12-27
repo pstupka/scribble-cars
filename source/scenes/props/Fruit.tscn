@@ -18,7 +18,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="Curve" id=4]
-_data = [ Vector2( 0.018018, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.4375 ), 0.0, 0.0, 0, 0 ]
+_data = [ Vector2( 0.018018, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.682955 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="CurveTexture" id=5]
 curve = SubResource( 4 )
@@ -79,7 +79,7 @@ disabled = true
 modulate = Color( 0.94902, 0.941176, 0.898039, 1 )
 material = SubResource( 3 )
 position = Vector2( 0, -23 )
-z_index = 5
+z_index = 50
 emitting = false
 amount = 1
 one_shot = true

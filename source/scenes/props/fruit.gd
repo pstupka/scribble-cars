@@ -33,8 +33,8 @@ func _ready():
 	if randf() > 0.5:
 		set_type("Pear")
 
-func set_type(type) -> void:
-	match type:
+func set_type(new_type) -> void:
+	match new_type:
 		"Apple":
 			apple.visible = true
 			pear.visible = false

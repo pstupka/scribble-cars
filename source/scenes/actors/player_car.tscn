@@ -1,5 +1,8 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=23 format=2]
 
+[ext_resource path="res://assets/audio/pibi.mp3" type="AudioStream" id=1]
+[ext_resource path="res://assets/audio/z_drogi.mp3" type="AudioStream" id=2]
+[ext_resource path="res://assets/audio/brum.mp3" type="AudioStream" id=3]
 [ext_resource path="res://resources/animations/car-animations.tres" type="Animation" id=4]
 [ext_resource path="res://source/scenes/actors/player_car.gd" type="Script" id=5]
 [ext_resource path="res://assets/sprites/smoke.png" type="Texture" id=6]
@@ -7,6 +10,8 @@
 [ext_resource path="res://assets/sprites/cars/car2_fill.png" type="Texture" id=8]
 [ext_resource path="res://assets/sprites/cars/car2_wheels.png" type="Texture" id=9]
 [ext_resource path="res://assets/sprites/cars/car2_outline.png" type="Texture" id=10]
+[ext_resource path="res://assets/audio/pibi2.mp3" type="AudioStream" id=11]
+[ext_resource path="res://assets/audio/jump.mp3" type="AudioStream" id=12]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.148387, 0.522581 )
@@ -91,6 +96,20 @@ tracks/3/keys = {
 "method": "set_deferred"
 } ]
 }
+tracks/4/type = "audio"
+tracks/4/path = NodePath("JumpSfx")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 12 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="Animation" id=7]
 resource_name = "move"
@@ -108,6 +127,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ) ]
 }
+tracks/1/type = "audio"
+tracks/1/path = NodePath("Brum")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 50, 400 )
@@ -117,8 +150,8 @@ extents = Vector2( 131.5, 19.5 )
 
 [node name="PlayerCar" type="KinematicBody2D" groups=["player"]]
 collision_layer = 2
-collision_mask = 5
 script = ExtResource( 5 )
+pitch_randomness = 0.1
 
 [node name="Pivot" type="Node2D" parent="."]
 
@@ -168,8 +201,6 @@ energy = 1.1
 range_layer_min = -1
 shadow_enabled = true
 shadow_buffer_size = 1024
-shadow_filter = 1
-shadow_filter_smooth = 3.0
 
 [node name="Particles2D" type="Particles2D" parent="Pivot/AnimationPivot"]
 position = Vector2( 73, -40 )
@@ -225,6 +256,29 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CarDiscoverArea"]
 position = Vector2( 0, -16 )
 shape = SubResource( 11 )
+
+[node name="Sfx" type="Node2D" parent="."]
+
+[node name="Honk" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 1 )
+bus = "Sfx"
+
+[node name="Pibi" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 11 )
+bus = "Sfx"
+
+[node name="ZDrogi" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 2 )
+bus = "Sfx"
+
+[node name="Brum" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -9.984
+bus = "Sfx"
+
+[node name="JumpSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+bus = "Sfx"
 
 [connection signal="area_entered" from="WrapAreaL" to="." method="_on_WrapAreaL_area_entered"]
 [connection signal="area_entered" from="WrapAreaR" to="." method="_on_WrapAreaR_area_entered"]

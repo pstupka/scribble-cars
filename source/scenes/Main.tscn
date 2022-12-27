@@ -283,7 +283,7 @@ motion_mirroring = Vector2( 1400, 0 )
 [node name="DayNightModulate3" parent="RoadParallax/Ground2" instance=ExtResource( 12 )]
 position = Vector2( -48, 13.022 )
 scale = Vector2( 1, 1.292 )
-night_color = Color( 0.576471, 0.576471, 0.576471, 1 )
+night_color = Color( 0.341176, 0.341176, 0.341176, 1 )
 
 [node name="Ground" type="Sprite" parent="RoadParallax/Ground2"]
 modulate = Color( 0.541176, 0.690196, 0.376471, 1 )
