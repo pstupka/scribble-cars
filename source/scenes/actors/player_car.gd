@@ -18,7 +18,9 @@ func _ready() -> void:
 	is_jumping = false
 	pivot.scale.x = -1
 	Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
-
+	
+	if OS.get_name() != "Android" and OS.get_name() != "HTML5": 
+		$MobileControls.queue_free()
 
 
 func _input(event):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/audio/pibi.mp3" type="AudioStream" id=1]
 [ext_resource path="res://assets/audio/z_drogi.mp3" type="AudioStream" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/sprites/cars/car2_outline.png" type="Texture" id=10]
 [ext_resource path="res://assets/audio/pibi2.mp3" type="AudioStream" id=11]
 [ext_resource path="res://assets/audio/jump.mp3" type="AudioStream" id=12]
+[ext_resource path="res://source/utils/mobile_controls.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.148387, 0.522581 )
@@ -152,6 +153,8 @@ extents = Vector2( 131.5, 19.5 )
 collision_layer = 2
 script = ExtResource( 5 )
 pitch_randomness = 0.1
+
+[node name="MobileControls" parent="." instance=ExtResource( 13 )]
 
 [node name="Pivot" type="Node2D" parent="."]
 
