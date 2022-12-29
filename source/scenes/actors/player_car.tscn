@@ -11,8 +11,8 @@
 [ext_resource path="res://assets/sprites/cars/car2_wheels.png" type="Texture" id=9]
 [ext_resource path="res://assets/sprites/cars/car2_outline.png" type="Texture" id=10]
 [ext_resource path="res://assets/audio/pibi2.mp3" type="AudioStream" id=11]
-[ext_resource path="res://assets/audio/jump.mp3" type="AudioStream" id=12]
 [ext_resource path="res://source/utils/mobile_controls.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/audio/hop.mp3" type="AudioStream" id=14]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.148387, 0.522581 )
@@ -38,7 +38,7 @@ color = Color( 0.780392, 0.780392, 0.780392, 1 )
 color_ramp = SubResource( 2 )
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 35, 101.5 )
+extents = Vector2( 25, 117.5 )
 
 [sub_resource type="Animation" id=9]
 resource_name = "jump"
@@ -96,20 +96,6 @@ tracks/3/keys = {
 "args": [ "disabled", false ],
 "method": "set_deferred"
 } ]
-}
-tracks/4/type = "audio"
-tracks/4/path = NodePath("JumpSfx")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"clips": [ {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 12 )
-} ],
-"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=7]
@@ -201,7 +187,10 @@ texture = ExtResource( 7 )
 offset = Vector2( 0, 123 )
 color = Color( 1, 0.996078, 0.705882, 1 )
 energy = 1.1
+range_z_min = -100
+range_z_max = 10
 range_layer_min = -1
+range_layer_max = 1
 shadow_enabled = true
 shadow_buffer_size = 1024
 
@@ -221,7 +210,7 @@ smoothing_enabled = true
 smoothing_speed = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -34 )
+position = Vector2( 0.499998, -24 )
 rotation = 1.5708
 shape = SubResource( 10 )
 
@@ -280,7 +269,7 @@ volume_db = -9.984
 bus = "Sfx"
 
 [node name="JumpSfx" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 12 )
+stream = ExtResource( 14 )
 bus = "Sfx"
 
 [connection signal="area_entered" from="WrapAreaL" to="." method="_on_WrapAreaL_area_entered"]

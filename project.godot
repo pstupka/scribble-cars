@@ -105,4 +105,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+batching/parameters/max_join_item_commands=4
 environment/default_environment="res://default_env.tres"

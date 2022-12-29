@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/sprites/trees/tree1_fill2.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/trees/tree1_outline.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/trees/tree1_fill1.png" type="Texture" id=3]
 [ext_resource path="res://source/scenes/props/trees/Tree.gd" type="Script" id=4]
+[ext_resource path="res://assets/audio/pop.mp3" type="AudioStream" id=5]
+[ext_resource path="res://assets/sprites/tree1.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 34.5, 107 )
@@ -87,6 +89,15 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource( 4 )
 
+[node name="Tree1" type="Sprite" parent="."]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -3.99998, -7 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 6 )
+centered = false
+offset = Vector2( -94, -565 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -111 )
 shape = SubResource( 1 )
@@ -122,3 +133,7 @@ anims/make_fruit = SubResource( 3 )
 position = Vector2( 1, 1 )
 scale = Vector2( 1.14653, 6.33083 )
 occluder = SubResource( 4 )
+
+[node name="PopSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "Sfx"

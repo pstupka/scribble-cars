@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/hop.mp3-33e0358995f886ed4a70e3d5a3c8947b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/hop.mp3"
+dest_files=[ "res://.import/hop.mp3-33e0358995f886ed4a70e3d5a3c8947b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

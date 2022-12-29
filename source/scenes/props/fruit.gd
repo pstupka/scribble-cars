@@ -1,5 +1,8 @@
 extends Area2D
 
+onready var mniam_sfx = $MniamSfx
+export var pitch_randomness = 0.05
+
 var type = "Apple" setget set_type
 
 export var initial_speed = 100.0
@@ -48,6 +51,8 @@ func destroy() -> void:
 		var tween = create_tween()
 		tween.tween_property(sprites, "modulate", Color("00ffffff"), 0.4)
 		tween.tween_callback(self, "queue_free").set_delay(1.0)
+		mniam_sfx.pitch_scale = rand_range(1.0 - pitch_randomness, 1.0 + pitch_randomness)
+		mniam_sfx.play()
 
 
 func _on_Apple_body_entered(body):

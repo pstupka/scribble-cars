@@ -5,6 +5,8 @@ onready var front_light := $Pivot/AnimationPivot/FrontLight
 onready var back_light := $Pivot/AnimationPivot/BackLight
 onready var pivot = $Pivot
 onready var sfx = $Sfx
+onready var jump_sfx = $JumpSfx
+
 
 export var pitch_randomness = 0.05
 
@@ -12,6 +14,7 @@ export var speed := 150.0
 var direction := Vector2.ZERO
 var previous_direction := Vector2.ZERO
 export var is_jumping = false
+var velocity
 
 func _ready() -> void:
 	randomize()
@@ -29,6 +32,9 @@ func _input(event):
 		Input.start_joy_vibration(0, 0.3, 0.0, 0.1)
 		Input.vibrate_handheld(100)
 		animation_player.play("jump")
+		jump_sfx.pitch_scale = rand_range(1.0 - pitch_randomness, 1.0 + pitch_randomness)
+		jump_sfx.play()
+		
 	if event.is_action_pressed("honk"):
 		for sound in sfx.get_children():
 			if sound.is_playing(): return
@@ -56,6 +62,7 @@ func _physics_process(delta: float) -> void:
 		if sign(previous_direction.x) != sign(direction.x):
 			flip()
 	
+#	velocity = move_and_slide(speed * direction)
 	position.y += speed * delta * direction.y
 	position.y = clamp(position.y, Globals.ROAD_MIN_POSITION, Globals.ROAD_MAX_POSITION)
 	
