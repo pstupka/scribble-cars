@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://assets/audio/pibi.mp3" type="AudioStream" id=1]
 [ext_resource path="res://assets/audio/z_drogi.mp3" type="AudioStream" id=2]
@@ -14,6 +14,10 @@
 [ext_resource path="res://source/scenes/actors/car.gd" type="Script" id=12]
 [ext_resource path="res://assets/sprites/star_05.png" type="Texture" id=13]
 [ext_resource path="res://assets/audio/hop.mp3" type="AudioStream" id=14]
+[ext_resource path="res://source/utils/day_night_utils/day_night_modulate.tscn" type="PackedScene" id=15]
+
+[sub_resource type="CanvasItemMaterial" id=12]
+blend_mode = 1
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.148387, 0.522581 )
@@ -153,19 +157,21 @@ position = Vector2( 7.93604, -30.7314 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 5 )
 
-[node name="SirenL" type="Light2D" parent="Pivot/AnimationPivot/Sprites"]
-position = Vector2( -6.06396, -88.7314 )
-texture = ExtResource( 13 )
-energy = 2.0
-range_item_cull_mask = 3
-
 [node name="Siren" type="Sprite" parent="Pivot/AnimationPivot/Sprites"]
 position = Vector2( -5.06396, -87.7314 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
+__meta__ = {
+"_editor_description_": "																								"
+}
 
 [node name="Star05" type="Sprite" parent="Pivot/AnimationPivot/Sprites/Siren"]
+light_mask = 0
+material = SubResource( 12 )
 texture = ExtResource( 13 )
+
+[node name="DayNightModulate" parent="Pivot/AnimationPivot/Sprites/Siren/Star05" instance=ExtResource( 15 )]
+night_color = Color( 4, 4, 4, 1 )
 
 [node name="Wheels" type="Sprite" parent="Pivot/AnimationPivot/Sprites"]
 self_modulate = Color( 0.270588, 0.266667, 0.309804, 1 )
@@ -180,7 +186,7 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 10 )
 
 [node name="BackLight" type="Light2D" parent="Pivot/AnimationPivot"]
-position = Vector2( 94, -79 )
+position = Vector2( 119, -47 )
 rotation = -1.5708
 scale = Vector2( 1.2, 1 )
 enabled = false
@@ -191,9 +197,9 @@ energy = 0.8
 range_layer_min = -1
 
 [node name="FrontLight" type="Light2D" parent="Pivot/AnimationPivot"]
-position = Vector2( -78, -45 )
+position = Vector2( -95, -40 )
 rotation = 1.5708
-scale = Vector2( 2.5, 3 )
+scale = Vector2( 1.5, 2 )
 enabled = false
 texture = ExtResource( 7 )
 offset = Vector2( 0, 123 )
