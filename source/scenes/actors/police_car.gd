@@ -16,6 +16,7 @@ var velocity
 func _ready():
 	Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
 	pivot.scale.x = -direction.x
+	_on_time_of_day_changed(Globals.daynight)
 
 func _on_time_of_day_changed(state):
 	match state:

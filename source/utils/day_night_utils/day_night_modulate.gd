@@ -5,6 +5,7 @@ export var night_color := Color("ffffff")
 
 func _ready() -> void:
 	Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
+	_on_time_of_day_changed(Globals.daynight)
 
 
 func _on_time_of_day_changed(state):

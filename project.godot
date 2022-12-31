@@ -8,16 +8,6 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "Node",
-"class": "Globals",
-"language": "GDScript",
-"path": "res://source/globals/globals.gd"
-} ]
-_global_script_class_icons={
-"Globals": ""
-}
-
 [application]
 
 config/name="Scribble Cars"
@@ -27,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Events="*res://source/globals/events.gd"
+Globals="*res://source/globals/globals.gd"
 
 [display]
 
