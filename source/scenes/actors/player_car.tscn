@@ -181,12 +181,11 @@ range_layer_min = -1
 [node name="FrontLight" type="Light2D" parent="Pivot/AnimationPivot"]
 position = Vector2( -78, -45 )
 rotation = 1.5708
-scale = Vector2( 2.5, 3 )
+scale = Vector2( 2.5, 2.98643 )
 enabled = false
 texture = ExtResource( 7 )
 offset = Vector2( 0, 123 )
 color = Color( 1, 0.996078, 0.705882, 1 )
-energy = 1.1
 range_z_min = -100
 range_z_max = 10
 range_layer_min = -1

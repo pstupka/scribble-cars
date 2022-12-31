@@ -7,10 +7,18 @@ onready var background_modulate = $ParallaxBackground/CanvasModulate
 onready var road_modulate = $RoadParallax/CanvasModulate
 onready var foreground_modulate = $ParallaxBackground2/CanvasModulate
 onready var actors = $Actors
+onready var player = $Actors/Player
+
+export var lanes_y_position = [410, 460]
+
+onready var car_templates = [
+	preload("res://source/scenes/actors/police_car.tscn")
+]
 
 func _ready():
 	randomize()
 	Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
+
 
 func _input(event):
 	if event.is_action_pressed("lights"):
@@ -48,3 +56,13 @@ func _on_time_of_day_changed(state):
 			apple_timer.paused = false
 		Globals.NIGHT:
 			apple_timer.paused = true
+
+
+func _on_CarSpawnTimer_timeout():
+	var car_instance = car_templates[0].instance()
+	var lane = stepify(randf(),1)
+	actors.add_child(car_instance)
+	car_instance.global_position = Vector2(player.global_position.x - (2*lane - 1)*1500, lanes_y_position[lane])
+	car_instance.direction = Vector2(2*lane - 1 , 0)
+	
+	

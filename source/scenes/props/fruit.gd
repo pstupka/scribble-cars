@@ -51,13 +51,14 @@ func destroy() -> void:
 		var tween = create_tween()
 		tween.tween_property(sprites, "modulate", Color("00ffffff"), 0.4)
 		tween.tween_callback(self, "queue_free").set_delay(1.0)
-		mniam_sfx.pitch_scale = rand_range(1.0 - pitch_randomness, 1.0 + pitch_randomness)
-		mniam_sfx.play()
+
 
 
 func _on_Apple_body_entered(body):
 	if body.is_in_group("player"):
 		$Particles2D.emitting = true
+		mniam_sfx.pitch_scale = rand_range(1.0 - pitch_randomness, 1.0 + pitch_randomness)
+		mniam_sfx.play()
 		destroy()
 
 
