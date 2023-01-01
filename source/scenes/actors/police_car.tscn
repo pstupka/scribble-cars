@@ -258,8 +258,8 @@ max_distance = 1000.0
 bus = "Sfx"
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-position = Vector2( 1.74999, -61 )
-scale = Vector2( 22.775, 8.8 )
+position = Vector2( 1.99994, -61 )
+scale = Vector2( 58.9, 8.8 )
 
 [connection signal="body_entered" from="CarDiscoverArea" to="." method="_on_CarDiscoverArea_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_screen_exited"]
