@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/audio/pibi.mp3" type="AudioStream" id=1]
 [ext_resource path="res://assets/audio/z_drogi.mp3" type="AudioStream" id=2]
@@ -38,7 +38,7 @@ color = Color( 0.780392, 0.780392, 0.780392, 1 )
 color_ramp = SubResource( 2 )
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 25, 117.5 )
+extents = Vector2( 16.5, 117.5 )
 
 [sub_resource type="Animation" id=9]
 resource_name = "jump"
@@ -80,23 +80,6 @@ tracks/2/keys = {
 "update": 1,
 "values": [ false ]
 }
-tracks/3/type = "method"
-tracks/3/path = NodePath("CarDiscoverArea/CollisionShape2D")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 1.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [ "disabled", true ],
-"method": "set_deferred"
-}, {
-"args": [ "disabled", false ],
-"method": "set_deferred"
-} ]
-}
 
 [sub_resource type="Animation" id=7]
 resource_name = "move"
@@ -131,9 +114,6 @@ tracks/1/keys = {
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 50, 400 )
-
-[sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 131.5, 19.5 )
 
 [node name="PlayerCar" type="KinematicBody2D" groups=["player"]]
 collision_layer = 2
@@ -181,12 +161,11 @@ range_layer_min = -1
 [node name="FrontLight" type="Light2D" parent="Pivot/AnimationPivot"]
 position = Vector2( -78, -45 )
 rotation = 1.5708
-scale = Vector2( 2.5, 3 )
+scale = Vector2( 2.5, 2.98643 )
 enabled = false
 texture = ExtResource( 7 )
 offset = Vector2( 0, 123 )
 color = Color( 1, 0.996078, 0.705882, 1 )
-energy = 1.1
 range_z_min = -100
 range_z_max = 10
 range_layer_min = -1
@@ -210,7 +189,7 @@ smoothing_enabled = true
 smoothing_speed = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.499998, -24 )
+position = Vector2( 0.500003, -25.5 )
 rotation = 1.5708
 shape = SubResource( 10 )
 
@@ -240,14 +219,6 @@ shape = SubResource( 8 )
 
 [node name="TargetPosition" type="Position2D" parent="WrapAreaR"]
 position = Vector2( -2100, 0 )
-
-[node name="CarDiscoverArea" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CarDiscoverArea"]
-position = Vector2( 0, -16 )
-shape = SubResource( 11 )
 
 [node name="Sfx" type="Node2D" parent="."]
 

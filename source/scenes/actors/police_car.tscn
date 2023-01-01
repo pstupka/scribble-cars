@@ -1,19 +1,18 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/audio/pibi.mp3" type="AudioStream" id=1]
 [ext_resource path="res://assets/audio/z_drogi.mp3" type="AudioStream" id=2]
-[ext_resource path="res://assets/audio/brum.mp3" type="AudioStream" id=3]
+[ext_resource path="res://assets/audio/ioio.mp3" type="AudioStream" id=3]
 [ext_resource path="res://resources/animations/car-animations.tres" type="Animation" id=4]
 [ext_resource path="res://assets/sprites/cars/police_fill.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/smoke.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/light.png" type="Texture" id=7]
 [ext_resource path="res://assets/sprites/cars/police_wheels.png" type="Texture" id=8]
-[ext_resource path="res://assets/sprites/cars/police_siren.png" type="Texture" id=9]
+[ext_resource path="res://source/scenes/Siren.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/sprites/cars/police_outline.png" type="Texture" id=10]
 [ext_resource path="res://assets/audio/pibi2.mp3" type="AudioStream" id=11]
-[ext_resource path="res://source/scenes/actors/car.gd" type="Script" id=12]
-[ext_resource path="res://assets/sprites/star_05.png" type="Texture" id=13]
-[ext_resource path="res://assets/audio/hop.mp3" type="AudioStream" id=14]
+[ext_resource path="res://source/scenes/actors/police_car.gd" type="Script" id=12]
+[ext_resource path="res://assets/audio/jump.mp3" type="AudioStream" id=13]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.148387, 0.522581 )
@@ -69,26 +68,42 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 0.8, 1.2 ), Vector2( 1, 1 ), Vector2( 1.05, 0.95 ), Vector2( 1.05, 0.95 ), Vector2( 1.2, 0.8 ), Vector2( 1, 1 ) ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath(".:is_jumping")
+tracks/2/type = "audio"
+tracks/2/path = NodePath("JumpSfx")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 1.5 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+} ],
+"times": PoolRealArray( 0 )
 }
 tracks/3/type = "method"
-tracks/3/path = NodePath("CarDiscoverArea/CollisionShape2D")
+tracks/3/path = NodePath("AnimationPlayer")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 1.1 ),
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "move", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("CarDiscoverArea/CollisionShape2D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [ "disabled", true ],
@@ -101,7 +116,8 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=7]
 resource_name = "move"
-length = 0.5
+length = 2.5
+loop = true
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pivot/AnimationPivot:scale")
@@ -110,10 +126,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.3, 0.5, 0.8, 1, 1.3, 1.5, 1.8, 2, 2.3, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ) ]
 }
 tracks/1/type = "audio"
 tracks/1/path = NodePath("Brum")
@@ -133,12 +149,12 @@ tracks/1/keys = {
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 131.5, 19.5 )
 
-[node name="Car" type="KinematicBody2D"]
+[node name="PoliceCar" type="KinematicBody2D"]
 light_mask = 0
-z_as_relative = false
-collision_layer = 8
-collision_mask = 2
+collision_layer = 0
+collision_mask = 0
 script = ExtResource( 12 )
+speed = 200
 
 [node name="Pivot" type="Node2D" parent="."]
 
@@ -153,19 +169,7 @@ position = Vector2( 7.93604, -30.7314 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 5 )
 
-[node name="SirenL" type="Light2D" parent="Pivot/AnimationPivot/Sprites"]
-position = Vector2( -6.06396, -88.7314 )
-texture = ExtResource( 13 )
-energy = 2.0
-range_item_cull_mask = 3
-
-[node name="Siren" type="Sprite" parent="Pivot/AnimationPivot/Sprites"]
-position = Vector2( -5.06396, -87.7314 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 9 )
-
-[node name="Star05" type="Sprite" parent="Pivot/AnimationPivot/Sprites/Siren"]
-texture = ExtResource( 13 )
+[node name="Siren" parent="Pivot/AnimationPivot/Sprites" instance=ExtResource( 9 )]
 
 [node name="Wheels" type="Sprite" parent="Pivot/AnimationPivot/Sprites"]
 self_modulate = Color( 0.270588, 0.266667, 0.309804, 1 )
@@ -180,7 +184,7 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 10 )
 
 [node name="BackLight" type="Light2D" parent="Pivot/AnimationPivot"]
-position = Vector2( 94, -79 )
+position = Vector2( 119, -47 )
 rotation = -1.5708
 scale = Vector2( 1.2, 1 )
 enabled = false
@@ -191,21 +195,20 @@ energy = 0.8
 range_layer_min = -1
 
 [node name="FrontLight" type="Light2D" parent="Pivot/AnimationPivot"]
-position = Vector2( -78, -45 )
+position = Vector2( -95, -40 )
 rotation = 1.5708
-scale = Vector2( 2.5, 3 )
+scale = Vector2( 1.5, 2 )
 enabled = false
 texture = ExtResource( 7 )
 offset = Vector2( 0, 123 )
 color = Color( 1, 0.996078, 0.705882, 1 )
-energy = 1.1
 range_layer_min = -1
 shadow_enabled = true
 shadow_buffer_size = 1024
 
 [node name="Particles2D" type="Particles2D" parent="Pivot/AnimationPivot"]
 position = Vector2( 129, -16.012 )
-amount = 6
+amount = 10
 lifetime = 1.5
 local_coords = false
 process_material = SubResource( 5 )
@@ -217,13 +220,14 @@ rotation = 1.5708
 shape = SubResource( 10 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "move"
 anims/RESET = ExtResource( 4 )
 anims/jump = SubResource( 9 )
 anims/move = SubResource( 7 )
 
 [node name="CarDiscoverArea" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 8
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CarDiscoverArea"]
 position = Vector2( 0, -16 )
@@ -243,11 +247,19 @@ bus = "Sfx"
 stream = ExtResource( 2 )
 bus = "Sfx"
 
-[node name="Brum" type="AudioStreamPlayer" parent="."]
+[node name="Brum" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
-volume_db = -9.984
+max_distance = 1000.0
 bus = "Sfx"
 
-[node name="JumpSfx" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 14 )
+[node name="JumpSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 13 )
+max_distance = 1000.0
 bus = "Sfx"
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 1.99994, -61 )
+scale = Vector2( 58.9, 8.8 )
+
+[connection signal="body_entered" from="CarDiscoverArea" to="." method="_on_CarDiscoverArea_body_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_screen_exited"]

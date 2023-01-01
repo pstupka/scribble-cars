@@ -31,6 +31,7 @@ func _input(event):
 		is_jumping = true
 		Input.start_joy_vibration(0, 0.3, 0.0, 0.1)
 		Input.vibrate_handheld(100)
+
 		animation_player.play("jump")
 		jump_sfx.pitch_scale = rand_range(1.0 - pitch_randomness, 1.0 + pitch_randomness)
 		jump_sfx.play()
