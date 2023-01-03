@@ -165,21 +165,22 @@ position = Vector2( 1.06396, -23.2806 )
 
 [node name="Fill" type="Sprite" parent="Pivot/AnimationPivot/Sprites"]
 self_modulate = Color( 0.294118, 0.501961, 0.792157, 1 )
-position = Vector2( 7.93604, -30.7314 )
+position = Vector2( 8.18604, -30.4694 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 5 )
 
 [node name="Siren" parent="Pivot/AnimationPivot/Sprites" instance=ExtResource( 9 )]
+position = Vector2( -4.81396, -87.4694 )
 
 [node name="Wheels" type="Sprite" parent="Pivot/AnimationPivot/Sprites"]
 self_modulate = Color( 0.270588, 0.266667, 0.309804, 1 )
-position = Vector2( 5.93604, 9.2686 )
+position = Vector2( 6.18604, 9.53061 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 8 )
 
 [node name="Outline" type="Sprite" parent="Pivot/AnimationPivot/Sprites"]
 self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
-position = Vector2( 3.93604, -37.7314 )
+position = Vector2( 4.18604, -37.4694 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 10 )
 
