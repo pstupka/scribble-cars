@@ -154,7 +154,7 @@ light_mask = 0
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 12 )
-speed = 200
+speed = 300
 
 [node name="Pivot" type="Node2D" parent="."]
 
@@ -259,8 +259,8 @@ max_distance = 1000.0
 bus = "Sfx"
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-position = Vector2( 1.99994, -61 )
-scale = Vector2( 58.9, 8.8 )
+position = Vector2( -1.52588e-05, -60 )
+rect = Rect2( -1500, -100, 3000, 200 )
 
 [connection signal="body_entered" from="CarDiscoverArea" to="." method="_on_CarDiscoverArea_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_screen_exited"]

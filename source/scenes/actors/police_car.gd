@@ -28,7 +28,7 @@ func _on_time_of_day_changed(state):
 			back_light.enabled = true
 
 
-func _physics_process(delta) -> void:
+func _physics_process(_delta) -> void:
 	velocity = move_and_slide(speed * direction)
 
 
