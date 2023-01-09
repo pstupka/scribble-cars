@@ -8,6 +8,7 @@ onready var sprites = $Pivot/AnimationPivot/Sprites
 onready var animation_player = $AnimationPlayer
 onready var jump_sfx = $JumpSfx
 
+var sun_position
 
 export var speed = 50
 var direction := Vector2.LEFT setget set_direction
