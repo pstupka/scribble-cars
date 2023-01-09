@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://assets/audio/pibi.mp3" type="AudioStream" id=1]
 [ext_resource path="res://assets/audio/z_drogi.mp3" type="AudioStream" id=2]
@@ -13,6 +13,10 @@
 [ext_resource path="res://assets/audio/pibi2.mp3" type="AudioStream" id=11]
 [ext_resource path="res://source/scenes/actors/police_car.gd" type="Script" id=12]
 [ext_resource path="res://assets/audio/jump.mp3" type="AudioStream" id=13]
+[ext_resource path="res://assets/sprites/cars/police_shadow.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/star_05.png" type="Texture" id=15]
+[ext_resource path="res://source/utils/day_night_utils/day_night_modulate.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/sprites/cars/car2_window.png" type="Texture" id=17]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.148387, 0.522581 )
@@ -36,6 +40,12 @@ orbit_velocity_random = 0.0
 scale_curve = SubResource( 4 )
 color = Color( 0.780392, 0.780392, 0.780392, 1 )
 color_ramp = SubResource( 2 )
+
+[sub_resource type="CanvasItemMaterial" id=12]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=13]
+blend_mode = 1
 
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 29.5, 101.5 )
@@ -113,6 +123,30 @@ tracks/4/keys = {
 "method": "set_deferred"
 } ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("Pivot/ShadowPivot:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5, 1, 1.1, 1.2, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.8, 1.2 ), Vector2( 1.5, 2 ), Vector2( 1.05, 0.95 ), Vector2( 1.05, 0.95 ), Vector2( 1.2, 0.8 ), Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Pivot/ShadowPivot:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.0470588 ), Color( 1, 1, 1, 0.0470588 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=7]
 resource_name = "move"
@@ -145,6 +179,18 @@ tracks/1/keys = {
 } ],
 "times": PoolRealArray( 0 )
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pivot/ShadowPivot:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.8, 1, 1.3, 1.5, 1.8, 2, 2.3, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ) ]
+}
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 131.5, 19.5 )
@@ -154,9 +200,17 @@ light_mask = 0
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 12 )
-speed = 200
+speed = 300
 
 [node name="Pivot" type="Node2D" parent="."]
+
+[node name="ShadowPivot" type="Node2D" parent="Pivot"]
+
+[node name="PoliceShadow" type="Sprite" parent="Pivot/ShadowPivot"]
+self_modulate = Color( 0.34902, 0.34902, 0.34902, 0.160784 )
+position = Vector2( 7, 32 )
+scale = Vector2( 0.5, -0.25 )
+texture = ExtResource( 14 )
 
 [node name="AnimationPivot" type="Node2D" parent="Pivot"]
 
@@ -165,46 +219,30 @@ position = Vector2( 1.06396, -23.2806 )
 
 [node name="Fill" type="Sprite" parent="Pivot/AnimationPivot/Sprites"]
 self_modulate = Color( 0.294118, 0.501961, 0.792157, 1 )
-position = Vector2( 7.93604, -30.7314 )
+position = Vector2( 8.18604, -30.4694 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 5 )
 
-[node name="Siren" parent="Pivot/AnimationPivot/Sprites" instance=ExtResource( 9 )]
-
 [node name="Wheels" type="Sprite" parent="Pivot/AnimationPivot/Sprites"]
 self_modulate = Color( 0.270588, 0.266667, 0.309804, 1 )
-position = Vector2( 5.93604, 9.2686 )
+position = Vector2( 6.18604, 9.53061 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 8 )
 
+[node name="Car2Window" type="Sprite" parent="Pivot/AnimationPivot/Sprites"]
+self_modulate = Color( 0.407843, 0.760784, 0.827451, 1 )
+position = Vector2( -9.15735, -54.7314 )
+scale = Vector2( 0.580711, 0.666667 )
+texture = ExtResource( 17 )
+
+[node name="Siren" parent="Pivot/AnimationPivot/Sprites" instance=ExtResource( 9 )]
+position = Vector2( -4.81396, -87.4694 )
+
 [node name="Outline" type="Sprite" parent="Pivot/AnimationPivot/Sprites"]
 self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
-position = Vector2( 3.93604, -37.7314 )
+position = Vector2( 4.18604, -37.4694 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 10 )
-
-[node name="BackLight" type="Light2D" parent="Pivot/AnimationPivot"]
-position = Vector2( 119, -47 )
-rotation = -1.5708
-scale = Vector2( 1.2, 1 )
-enabled = false
-texture = ExtResource( 7 )
-offset = Vector2( 0, 123 )
-color = Color( 1, 0, 0, 1 )
-energy = 0.8
-range_layer_min = -1
-
-[node name="FrontLight" type="Light2D" parent="Pivot/AnimationPivot"]
-position = Vector2( -95, -40 )
-rotation = 1.5708
-scale = Vector2( 1.5, 2 )
-enabled = false
-texture = ExtResource( 7 )
-offset = Vector2( 0, 123 )
-color = Color( 1, 0.996078, 0.705882, 1 )
-range_layer_min = -1
-shadow_enabled = true
-shadow_buffer_size = 1024
 
 [node name="Particles2D" type="Particles2D" parent="Pivot/AnimationPivot"]
 position = Vector2( 129, -16.012 )
@@ -214,7 +252,54 @@ local_coords = false
 process_material = SubResource( 5 )
 texture = ExtResource( 6 )
 
+[node name="BackLight" type="Light2D" parent="Pivot/AnimationPivot"]
+position = Vector2( 115, -36.012 )
+rotation = -1.5708
+scale = Vector2( 1.2, 1 )
+texture = ExtResource( 7 )
+offset = Vector2( 0, 123 )
+color = Color( 1, 0, 0, 1 )
+energy = 0.8
+range_layer_min = -1
+
+[node name="BackLight" type="Sprite" parent="Pivot/AnimationPivot/BackLight"]
+self_modulate = Color( 0.54, 0.1674, 0.1674, 1 )
+light_mask = 0
+material = SubResource( 12 )
+position = Vector2( 1.03751, 6.67712 )
+scale = Vector2( 0.146059, 0.208771 )
+texture = ExtResource( 15 )
+
+[node name="DayNightModulate" parent="Pivot/AnimationPivot/BackLight/BackLight" instance=ExtResource( 16 )]
+night_color = Color( 4, 4, 4, 1 )
+
+[node name="FrontLight" type="Light2D" parent="Pivot/AnimationPivot"]
+position = Vector2( -74, -32.012 )
+rotation = 1.5708
+scale = Vector2( 2.5, 2.98643 )
+texture = ExtResource( 7 )
+offset = Vector2( 0, 123 )
+color = Color( 1, 0.996078, 0.705882, 1 )
+range_z_min = -100
+range_z_max = 10
+range_layer_min = -1
+range_layer_max = 1
+shadow_enabled = true
+shadow_buffer_size = 1024
+
+[node name="Frontlight" type="Sprite" parent="Pivot/AnimationPivot/FrontLight"]
+self_modulate = Color( 0.65, 0.617825, 0.4355, 1 )
+material = SubResource( 13 )
+position = Vector2( -0.399952, 12.0545 )
+rotation = 1.57078
+scale = Vector2( 0.0463653, 0.0553866 )
+texture = ExtResource( 15 )
+
+[node name="DayNightModulate" parent="Pivot/AnimationPivot/FrontLight/Frontlight" instance=ExtResource( 16 )]
+night_color = Color( 4, 4, 4, 1 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -1.99099e-05, -28.5 )
 rotation = 1.5708
 shape = SubResource( 10 )
@@ -226,6 +311,7 @@ anims/jump = SubResource( 9 )
 anims/move = SubResource( 7 )
 
 [node name="CarDiscoverArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -258,8 +344,9 @@ max_distance = 1000.0
 bus = "Sfx"
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-position = Vector2( 1.99994, -61 )
-scale = Vector2( 58.9, 8.8 )
+visible = false
+position = Vector2( -1.52588e-05, -60 )
+rect = Rect2( -1500, -100, 3000, 200 )
 
 [connection signal="body_entered" from="CarDiscoverArea" to="." method="_on_CarDiscoverArea_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_screen_exited"]

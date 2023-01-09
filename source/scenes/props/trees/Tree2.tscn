@@ -80,6 +80,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="OccluderPolygon2D" id=4]
+cull_mode = 1
 polygon = PoolVector2Array( -19, 7, -14, -21, 13, -23, 11, 0 )
 
 [node name="Tree2" type="Area2D" groups=["tree", "wrapable"]]
@@ -109,7 +110,7 @@ scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 3 )
 
 [node name="Tree1Outline" type="Sprite" parent="Pivot"]
-light_mask = 3
+light_mask = 2
 position = Vector2( -4.76837e-07, -102 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 2 )
@@ -121,8 +122,13 @@ position = Vector2( 0, -211 )
 anims/RESET = SubResource( 3 )
 anims/make_fruit = SubResource( 2 )
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+[node name="NightOccluder" type="LightOccluder2D" parent="."]
 occluder = SubResource( 4 )
+
+[node name="DayOccluder" type="LightOccluder2D" parent="."]
+light_mask = 4
+occluder = SubResource( 4 )
+light_mask = 4
 
 [node name="PopSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )

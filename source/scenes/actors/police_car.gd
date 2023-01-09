@@ -8,6 +8,7 @@ onready var sprites = $Pivot/AnimationPivot/Sprites
 onready var animation_player = $AnimationPlayer
 onready var jump_sfx = $JumpSfx
 
+var sun_position
 
 export var speed = 50
 var direction := Vector2.LEFT setget set_direction
@@ -28,7 +29,7 @@ func _on_time_of_day_changed(state):
 			back_light.enabled = true
 
 
-func _physics_process(delta) -> void:
+func _physics_process(_delta) -> void:
 	velocity = move_and_slide(speed * direction)
 
 
