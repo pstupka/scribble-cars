@@ -7,7 +7,6 @@ onready var pivot = $Pivot
 onready var sfx = $Sfx
 onready var jump_sfx = $JumpSfx
 
-
 export var pitch_randomness = 0.05
 
 export var speed := 150.0
@@ -29,8 +28,10 @@ func _ready() -> void:
 func _input(event):
 	if event.is_action_pressed("jump") and not is_jumping:
 		is_jumping = true
-		Input.start_joy_vibration(0, 0.3, 0.0, 0.1)
-		Input.vibrate_handheld(100)
+		if (Input.get_connected_joypads().size() > 0):
+			Input.start_joy_vibration(0, 0.3, 0.0, 0.1)
+		if OS.get_name() != "Android" and OS.get_name() != "HTML5":
+			Input.vibrate_handheld(100)
 
 		animation_player.play("jump")
 		jump_sfx.pitch_scale = rand_range(1.0 - pitch_randomness, 1.0 + pitch_randomness)

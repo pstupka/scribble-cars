@@ -12,9 +12,8 @@ const ROAD_MAX_POSITION := 480.0
 
 var daynight := DAY setget set_daynight
 
+
 func set_daynight(new_state):
 	if new_state in [DAY, NIGHT]:
 		daynight = new_state
 		Events.emit_signal("time_of_day_changed", new_state)
-
-

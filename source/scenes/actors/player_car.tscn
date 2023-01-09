@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/audio/pibi.mp3" type="AudioStream" id=1]
 [ext_resource path="res://assets/audio/z_drogi.mp3" type="AudioStream" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/sprites/cars/car2_wheels.png" type="Texture" id=9]
 [ext_resource path="res://assets/sprites/cars/car2_outline.png" type="Texture" id=10]
 [ext_resource path="res://assets/audio/pibi2.mp3" type="AudioStream" id=11]
+[ext_resource path="res://assets/sprites/cars/car2_shadow.png" type="Texture" id=12]
 [ext_resource path="res://source/utils/mobile_controls.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/audio/hop.mp3" type="AudioStream" id=14]
 
@@ -80,6 +81,30 @@ tracks/2/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pivot/ShadowPivot:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5, 1, 1.1, 1.2, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.8, 1.2 ), Vector2( 1.5, 1.5 ), Vector2( 1.05, 0.95 ), Vector2( 1.05, 0.95 ), Vector2( 1.2, 0.8 ), Vector2( 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Pivot/ShadowPivot:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 1.05 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=7]
 resource_name = "move"
@@ -111,6 +136,18 @@ tracks/1/keys = {
 } ],
 "times": PoolRealArray( 0 )
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pivot/ShadowPivot:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ) ]
+}
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 50, 400 )
@@ -123,6 +160,14 @@ pitch_randomness = 0.1
 [node name="MobileControls" parent="." instance=ExtResource( 13 )]
 
 [node name="Pivot" type="Node2D" parent="."]
+
+[node name="ShadowPivot" type="Node2D" parent="Pivot"]
+
+[node name="Car2Shadow" type="Sprite" parent="Pivot/ShadowPivot"]
+self_modulate = Color( 0.34902, 0.34902, 0.34902, 0.160784 )
+position = Vector2( -3, 25 )
+scale = Vector2( 0.5, -0.25 )
+texture = ExtResource( 12 )
 
 [node name="AnimationPivot" type="Node2D" parent="Pivot"]
 
