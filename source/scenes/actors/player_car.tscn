@@ -270,6 +270,7 @@ texture = ExtResource( 18 )
 night_color = Color( 4, 4, 4, 1 )
 
 [node name="Particles2D" type="Particles2D" parent="Pivot/AnimationPivot"]
+light_mask = 0
 position = Vector2( 73, -40 )
 amount = 6
 lifetime = 1.5

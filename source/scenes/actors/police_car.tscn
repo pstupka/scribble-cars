@@ -245,6 +245,7 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 10 )
 
 [node name="Particles2D" type="Particles2D" parent="Pivot/AnimationPivot"]
+light_mask = 0
 position = Vector2( 129, -16.012 )
 amount = 10
 lifetime = 1.5
@@ -299,7 +300,6 @@ texture = ExtResource( 15 )
 night_color = Color( 4, 4, 4, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( -1.99099e-05, -28.5 )
 rotation = 1.5708
 shape = SubResource( 10 )
@@ -311,7 +311,6 @@ anims/jump = SubResource( 9 )
 anims/move = SubResource( 7 )
 
 [node name="CarDiscoverArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -344,9 +343,13 @@ max_distance = 1000.0
 bus = "Sfx"
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-visible = false
-position = Vector2( -1.52588e-05, -60 )
-rect = Rect2( -1500, -100, 3000, 200 )
+position = Vector2( 1.14441e-05, -60 )
+rect = Rect2( -300, -100, 600, 200 )
+
+[node name="ScreenExitedDelay" type="Timer" parent="VisibilityNotifier2D"]
+one_shot = true
 
 [connection signal="body_entered" from="CarDiscoverArea" to="." method="_on_CarDiscoverArea_body_entered"]
+[connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_screen_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_screen_exited"]
+[connection signal="timeout" from="VisibilityNotifier2D/ScreenExitedDelay" to="." method="_on_ScreenExitedDelay_timeout"]
