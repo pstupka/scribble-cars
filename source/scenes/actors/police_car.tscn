@@ -1,7 +1,5 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=26 format=2]
 
-[ext_resource path="res://assets/audio/pibi.mp3" type="AudioStream" id=1]
-[ext_resource path="res://assets/audio/z_drogi.mp3" type="AudioStream" id=2]
 [ext_resource path="res://assets/audio/ioio.mp3" type="AudioStream" id=3]
 [ext_resource path="res://resources/animations/car-animations.tres" type="Animation" id=4]
 [ext_resource path="res://assets/sprites/cars/police_fill.png" type="Texture" id=5]
@@ -10,7 +8,6 @@
 [ext_resource path="res://assets/sprites/cars/police_wheels.png" type="Texture" id=8]
 [ext_resource path="res://source/scenes/Siren.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/sprites/cars/police_outline.png" type="Texture" id=10]
-[ext_resource path="res://assets/audio/pibi2.mp3" type="AudioStream" id=11]
 [ext_resource path="res://source/scenes/actors/police_car.gd" type="Script" id=12]
 [ext_resource path="res://assets/audio/jump.mp3" type="AudioStream" id=13]
 [ext_resource path="res://assets/sprites/cars/police_shadow.png" type="Texture" id=14]
@@ -213,6 +210,7 @@ scale = Vector2( 0.5, -0.25 )
 texture = ExtResource( 14 )
 
 [node name="AnimationPivot" type="Node2D" parent="Pivot"]
+position = Vector2( 0, 0.012 )
 
 [node name="Sprites" type="Node2D" parent="Pivot/AnimationPivot"]
 position = Vector2( 1.06396, -23.2806 )
@@ -317,20 +315,6 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CarDiscoverArea"]
 position = Vector2( 0, -16 )
 shape = SubResource( 11 )
-
-[node name="Sfx" type="Node2D" parent="."]
-
-[node name="Honk" type="AudioStreamPlayer" parent="Sfx"]
-stream = ExtResource( 1 )
-bus = "Sfx"
-
-[node name="Pibi" type="AudioStreamPlayer" parent="Sfx"]
-stream = ExtResource( 11 )
-bus = "Sfx"
-
-[node name="ZDrogi" type="AudioStreamPlayer" parent="Sfx"]
-stream = ExtResource( 2 )
-bus = "Sfx"
 
 [node name="Brum" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )

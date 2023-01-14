@@ -1,11 +1,9 @@
 extends KinematicBody2D
 
+onready var pivot = $Pivot
 onready var front_light = $Pivot/AnimationPivot/FrontLight
 onready var back_light = $Pivot/AnimationPivot/BackLight
-onready var pivot = $Pivot
-onready var sprites = $Pivot/AnimationPivot/Sprites
 onready var animation_player = $AnimationPlayer
-onready var jump_sfx = $JumpSfx
 
 var screen_exit_delayed = false
 

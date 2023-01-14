@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Resource",
+"class": "CarResource",
+"language": "GDScript",
+"path": "res://resources/cars/car_resource.gd"
+} ]
+_global_script_class_icons={
+"CarResource": ""
+}
+
 [application]
 
 config/name="Scribble Cars"

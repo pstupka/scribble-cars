@@ -1,11 +1,11 @@
 extends KinematicBody2D
 
-onready var animation_player = $AnimationPlayer
-onready var front_light := $Pivot/AnimationPivot/FrontLight
-onready var back_light := $Pivot/AnimationPivot/BackLight
-onready var pivot = $Pivot
-onready var sfx = $Sfx
-onready var jump_sfx = $JumpSfx
+onready var animation_player = $Car/AnimationPlayer
+onready var front_light := $Car/AnimationPivot/FrontLight
+onready var back_light := $Car/AnimationPivot/BackLight
+onready var sfx = $Car/Sfx
+onready var jump_sfx = $Car/JumpSfx
+onready var pivot: Node2D = $Car
 
 export var pitch_randomness = 0.05
 
@@ -20,6 +20,7 @@ func _ready() -> void:
 	is_jumping = false
 	pivot.scale.x = -1
 	Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
+	animation_player.connect("animation_finished", self, "_on_car_animation_finished")
 	
 	if OS.get_name() != "Android" and OS.get_name() != "HTML5": 
 		$MobileControls.queue_free()
@@ -80,6 +81,10 @@ func flip() -> void:
 	tween.tween_property(pivot, "scale:x", -sign(direction.x), 0.2)
 
 
+func change_car():
+	if is_jumping: return
+
+
 func _on_time_of_day_changed(state):
 	match state:
 		Globals.DAY:
@@ -88,7 +93,11 @@ func _on_time_of_day_changed(state):
 		Globals.NIGHT:
 			front_light.enabled = true
 			back_light.enabled = true
-	
+
+
+func _on_car_animation_finished(anim_name: String):
+	if (anim_name == "jump"):
+		is_jumping = false
 
 
 func _on_WrapAreaL_area_entered(area):
