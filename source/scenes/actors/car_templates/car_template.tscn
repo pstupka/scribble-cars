@@ -1,9 +1,10 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://source/utils/day_night_utils/day_night_modulate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/audio/hop.mp3" type="AudioStream" id=2]
 [ext_resource path="res://assets/sprites/cars/car2_backlight.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/cars/car2_fill.png" type="Texture" id=4]
+[ext_resource path="res://source/scenes/actors/car_templates/car_template.gd" type="Script" id=5]
 [ext_resource path="res://assets/sprites/light.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/smoke.png" type="Texture" id=7]
 [ext_resource path="res://assets/sprites/star_05.png" type="Texture" id=8]
@@ -17,7 +18,7 @@
 [ext_resource path="res://assets/audio/z_drogi.mp3" type="AudioStream" id=16]
 [ext_resource path="res://assets/audio/brum.mp3" type="AudioStream" id=17]
 
-[sub_resource type="CanvasItemMaterial" id=13]
+[sub_resource type="CanvasItemMaterial" id=19]
 blend_mode = 1
 
 [sub_resource type="CanvasItemMaterial" id=12]
@@ -146,6 +147,8 @@ tracks/2/keys = {
 }
 
 [node name="Car" type="Node2D"]
+script = ExtResource( 5 )
+color = Color( 0.705882, 0.321569, 0.321569, 1 )
 
 [node name="ShadowPivot" type="Node2D" parent="."]
 
@@ -209,9 +212,9 @@ energy = 0.8
 range_layer_min = -1
 
 [node name="BackLight" type="Sprite" parent="AnimationPivot/BackLight"]
-self_modulate = Color( 0.54, 0.1674, 0.1674, 1 )
+self_modulate = Color( 0.541176, 0.168627, 0.168627, 1 )
 light_mask = 0
-material = SubResource( 13 )
+material = SubResource( 19 )
 position = Vector2( 1.03751, 6.67712 )
 scale = Vector2( 0.146059, 0.208771 )
 texture = ExtResource( 8 )
@@ -254,10 +257,12 @@ local_coords = false
 process_material = SubResource( 5 )
 texture = ExtResource( 7 )
 
-[node name="Brum" type="AudioStreamPlayer" parent="."]
+[node name="Brum" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 17 )
 volume_db = -9.984
+max_distance = 1000.0
 bus = "Sfx"
+area_mask = 2
 
 [node name="JumpSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )

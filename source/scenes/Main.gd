@@ -10,9 +10,7 @@ onready var player = $Actors/Player
 
 export var lanes_y_position = [410, 460]
 
-onready var car_templates = [
-	preload("res://source/scenes/actors/police_car.tscn")
-]
+onready var random_car = preload("res://source/scenes/actors/random_car.tscn")
 
 func _ready():
 	randomize()
@@ -49,10 +47,11 @@ func _on_time_of_day_changed(state):
 
 
 func _on_CarSpawnTimer_timeout():
-	var car_instance = car_templates[0].instance()
+	var car_instance = random_car.instance()
 	var lane = stepify(randf(),1)
 	actors.add_child(car_instance)
 	car_instance.global_position = Vector2(player.global_position.x - (2*lane - 1)*1500, lanes_y_position[lane])
 	car_instance.direction = Vector2(2*lane - 1 , 0)
 	
+	$CarSpawnTimer.wait_time = rand_range(1.44, 2.51)
 	
