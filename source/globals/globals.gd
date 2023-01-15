@@ -12,6 +12,22 @@ const ROAD_MAX_POSITION := 480.0
 
 var daynight := DAY setget set_daynight
 
+var car_templates : Array = [
+	preload("res://source/scenes/actors/car_templates/car1.tscn"),
+	preload("res://source/scenes/actors/car_templates/car_police.tscn"),
+	preload("res://source/scenes/actors/car_templates/car_template.tscn"),
+]
+
+var available_colors = [
+	Color("cf8acb"),
+	Color("7b7243"),
+	Color("b45252"),
+	Color("4b80ca"),
+	Color("6a536e"),
+	Color("567b79"),
+	Color("d3a068"),
+	Color("646365"),
+]
 
 func set_daynight(new_state):
 	if new_state in [DAY, NIGHT]:

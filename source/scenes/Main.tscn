@@ -495,7 +495,7 @@ wait_time = 10.0
 autostart = true
 
 [node name="CarSpawnTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 5.61
 autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

@@ -1,25 +1,27 @@
 extends KinematicBody2D
 
-onready var animation_player = $AnimationPlayer
-onready var front_light := $Pivot/AnimationPivot/FrontLight
-onready var back_light := $Pivot/AnimationPivot/BackLight
-onready var pivot = $Pivot
-onready var sfx = $Sfx
-onready var jump_sfx = $JumpSfx
+onready var car := $Car
 
 export var pitch_randomness = 0.05
 
-export var speed := 150.0
+
 var direction := Vector2.ZERO
 var previous_direction := Vector2.ZERO
 export var is_jumping = false
 var velocity
 
+var car_templates : Array = [
+	preload("res://source/scenes/actors/car_templates/car1.tscn"),
+	preload("res://source/scenes/actors/car_templates/car_police.tscn"),
+	preload("res://source/scenes/actors/car_templates/car_template.tscn"),
+]
+
+
 func _ready() -> void:
 	randomize()
 	is_jumping = false
-	pivot.scale.x = -1
-	Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
+
+	car.animation_player.connect("animation_finished", self, "_on_car_animation_finished")
 	
 	if OS.get_name() != "Android" and OS.get_name() != "HTML5": 
 		$MobileControls.queue_free()
@@ -30,63 +32,68 @@ func _input(event):
 		is_jumping = true
 		if (Input.get_connected_joypads().size() > 0):
 			Input.start_joy_vibration(0, 0.3, 0.0, 0.1)
-		if OS.get_name() != "Android" and OS.get_name() != "HTML5":
+		if OS.get_name() == "Android" or OS.get_name() == "HTML5":
 			Input.vibrate_handheld(100)
-
-		animation_player.play("jump")
-		jump_sfx.pitch_scale = rand_range(1.0 - pitch_randomness, 1.0 + pitch_randomness)
-		jump_sfx.play()
+		car.jump()
 		
 	if event.is_action_pressed("honk"):
-		for sound in sfx.get_children():
-			if sound.is_playing(): return
-		var honks_count = sfx.get_child_count()
-		var honk = sfx.get_child(rand_range(0,honks_count))
-		honk.pitch_scale = rand_range(1.0 - pitch_randomness, 1.0 + pitch_randomness)
-		honk.play()
-		var tween = create_tween()
-		Input.start_joy_vibration(0, 0.4, 0.0, 0.4)
-		Input.vibrate_handheld(400)
-		tween.tween_property(pivot, "scale:y", 1.2, 0.15) 
-		tween.tween_property(pivot, "scale:y", 1.0, 0.15)
-		tween.tween_property(pivot, "scale:y", 1.2, 0.15)
-		tween.tween_property(pivot, "scale:y", 1.0, 0.15)
-
-
+		car.honk()
+	
+	if event.is_action_pressed("change_car"):
+		change_car()
+	
 func _physics_process(delta: float) -> void:
 	previous_direction = direction
 	direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	direction.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	
-	
-	position.x += speed * delta * direction.x
+
 	if direction.x != 0:
 		if sign(previous_direction.x) != sign(direction.x):
 			flip()
 	
 #	velocity = move_and_slide(speed * direction)
-	position.y += speed * delta * direction.y
+	position += car.speed * delta * direction
 	position.y = clamp(position.y, Globals.ROAD_MIN_POSITION, Globals.ROAD_MAX_POSITION)
 	
-	if not is_jumping and not animation_player.is_playing():
+	if not is_jumping and not car.animation_player.is_playing():
 		if direction:
-			animation_player.play("move")
+			car.animation_player.play("move")
 
 
 func flip() -> void:
 	var tween = get_tree().create_tween()
-	tween.tween_property(pivot, "scale:x", -sign(direction.x), 0.2)
+	tween.tween_property(car, "scale:x", -sign(direction.x), 0.2)
 
 
-func _on_time_of_day_changed(state):
-	match state:
-		Globals.DAY:
-			front_light.enabled = false
-			back_light.enabled = false
-		Globals.NIGHT:
-			front_light.enabled = true
-			back_light.enabled = true
+func change_car():
+	if is_jumping: return
+	var face_direction = sign(car.scale.x)
+	car.visible = false
+	car.animation_player.stop()
+	car.queue_free()
+	var new_car_tmpl = car_templates.pop_front()
+	var new_car = new_car_tmpl.instance()
 	
+	car_templates.push_back(new_car_tmpl)
+	
+	add_child(new_car)
+	car = new_car
+	car.scale.x = face_direction
+	
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_property(car, "scale:y", 1.0, 1.2).from(0.0)
+	
+	car.animation_player.connect("animation_finished", self, "_on_car_animation_finished")
+
+
+func _on_car_animation_finished(anim_name: String):
+	if (anim_name == "jump"):
+		is_jumping = false
+	if anim_name == "move" and not direction:
+		car.animation_player.stop(true)
+		
 
 
 func _on_WrapAreaL_area_entered(area):
