@@ -8,9 +8,7 @@ export var spawn_apple_timer = 10.0
 onready var animation_player = $AnimationPlayer
 onready var fruit_scene = preload("res://source/scenes/props/Fruit.tscn")
 onready var spawn_position = $Pivot/SpawnPosition
-onready var night_occluder: = $NightOccluder
-onready var day_occluder: = $DayOccluder
-
+onready var shadow: Node2D = $Shadow
 
 export var pitch_randomness = 0.05
 
@@ -32,11 +30,6 @@ func spawn_fruit() -> void:
 	pop_sfx.play()
 
 func _on_time_of_day_changed(state):
-	match state:
-		Globals.DAY:
-			night_occluder.visible = false
-			day_occluder.visible = true
-		Globals.NIGHT:
-			night_occluder.visible = true
-			day_occluder.visible = false
+	pass
+
 

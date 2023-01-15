@@ -1,11 +1,11 @@
 extends Node2D
 
 onready var animation_player = $AnimationPlayer
-onready var front_light := $AnimationPivot/FrontLight
-onready var back_light := $AnimationPivot/BackLight
+
 onready var sfx = $Sfx
 onready var jump_sfx = $JumpSfx
 onready var car_fill = $AnimationPivot/Sprites/CarFill
+onready var front_light_rays: Sprite = $AnimationPivot/FrontLight/FrontLightRays
 
 
 export var speed := 150.0
@@ -53,8 +53,7 @@ func set_color(new_color) -> void:
 func _on_time_of_day_changed(state):
 	match state:
 		Globals.DAY:
-			front_light.enabled = false
-			back_light.enabled = false
+			front_light_rays.visible = false
 		Globals.NIGHT:
-			front_light.enabled = true
-			back_light.enabled = true
+			front_light_rays.visible = true
+

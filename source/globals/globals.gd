@@ -14,8 +14,8 @@ var daynight := DAY setget set_daynight
 
 var car_templates : Array = [
 	preload("res://source/scenes/actors/car_templates/car1.tscn"),
-	preload("res://source/scenes/actors/car_templates/car_police.tscn"),
 	preload("res://source/scenes/actors/car_templates/car_template.tscn"),
+	preload("res://source/scenes/actors/car_templates/car_police.tscn"),
 ]
 
 var available_colors = [

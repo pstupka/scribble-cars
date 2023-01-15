@@ -15,7 +15,6 @@ func _ready():
 	car = new_car
 	car.scale.x = -direction.x
 	car.color = Globals.available_colors[randi() % Globals.available_colors.size()]
-	var animation =  car.animation_player.get_animation("move")
 	car.animation_player.connect("animation_finished", self, "_on_car_animation_finished")
 	car.animation_player.play("move")
 
@@ -29,10 +28,8 @@ func set_direction(new_direction):
 	direction.x = new_direction.x
 
 
-
 func _on_car_animation_finished(anim_name: String):
 	car.animation_player.play("move")
-		
 
 
 func _on_screen_entered() -> void:
@@ -51,4 +48,4 @@ func _on_CarDiscoverArea_body_entered(body):
 
 
 func _on_ScreenExitedDelay_timeout() -> void:
-	screen_exit_delayed = false
+	screen_exit_delayed = true

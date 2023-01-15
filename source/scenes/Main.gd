@@ -53,5 +53,5 @@ func _on_CarSpawnTimer_timeout():
 	car_instance.global_position = Vector2(player.global_position.x - (2*lane - 1)*1500, lanes_y_position[lane])
 	car_instance.direction = Vector2(2*lane - 1 , 0)
 	
-	$CarSpawnTimer.wait_time = rand_range(1.44, 2.51)
+	$CarSpawnTimer.wait_time = rand_range(5.44, 10.51)
 	
