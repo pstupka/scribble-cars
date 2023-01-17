@@ -21,8 +21,8 @@ func _ready() -> void:
 
 func jump() -> void:
 	animation_player.play("jump")
-#	jump_sfx.pitch_scale = rand_range(1.0 - PITCH_RAND, 1.0 + PITCH_RAND)
-#	jump_sfx.play()
+	jump_sfx.pitch_scale = rand_range(1.0 - PITCH_RAND, 1.0 + PITCH_RAND)
+	jump_sfx.play()
 
 
 func honk() -> void:
@@ -31,12 +31,12 @@ func honk() -> void:
 	var honks_count = sfx.get_child_count()
 	var honk = sfx.get_child(rand_range(0,honks_count))
 	honk.pitch_scale = rand_range(1.0 - PITCH_RAND, 1.0 + PITCH_RAND)
-#	honk.play()
+	honk.play()
 	var tween = create_tween()
 	if (Input.get_connected_joypads().size() > 0):
 		Input.start_joy_vibration(0, 0.4, 0.0, 0.4)
 	if OS.get_name() == "Android" or OS.get_name() == "HTML5":
-		Input.vibrate_handheld(400)
+		Input.vibrate_handheld(200)
 	tween.tween_property($AnimationPivot, "scale:y", 1.2, 0.15) 
 	tween.tween_property($AnimationPivot, "scale:y", 1.0, 0.15)
 	tween.tween_property($AnimationPivot, "scale:y", 1.2, 0.15)
