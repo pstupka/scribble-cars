@@ -32,10 +32,10 @@ func _ready() -> void:
 func _input(event):
 	if event.is_action_pressed("jump") and not is_jumping:
 		is_jumping = true
-		if (Input.get_connected_joypads().size() > 0):
-			Input.start_joy_vibration(0, 0.3, 0.0, 0.1)
-		if OS.get_name() == "Android" or OS.get_name() == "HTML5":
-			Input.vibrate_handheld(100)
+#		if (Input.get_connected_joypads().size() > 0):
+#			Input.start_joy_vibration(0, 0.3, 0.0, 0.1)
+#		if OS.get_name() == "Android" or OS.get_name() == "HTML5":
+#			Input.vibrate_handheld(100)
 		car.jump()
 		
 	if event.is_action_pressed("honk"):
