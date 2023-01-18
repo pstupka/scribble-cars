@@ -15,6 +15,7 @@ var car_templates : Array = [
 	preload("res://source/scenes/actors/car_templates/car_police.tscn"),
 	preload("res://source/scenes/actors/car_templates/car3.tscn"),
 	preload("res://source/scenes/actors/car_templates/bus2.tscn"),
+	preload("res://source/scenes/actors/car_templates/car_ambulance.tscn"),
 	preload("res://source/scenes/actors/car_templates/car_template.tscn"), # This should be last item
 ]
 
