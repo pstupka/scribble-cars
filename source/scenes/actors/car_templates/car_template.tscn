@@ -132,7 +132,7 @@ tracks/1/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": null
+"stream": ExtResource( 17 )
 } ],
 "times": PoolRealArray( 0 )
 }
@@ -243,7 +243,7 @@ texture = ExtResource( 7 )
 
 [node name="Brum" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 17 )
-volume_db = -9.984
+volume_db = -5.0
 max_distance = 1000.0
 bus = "Sfx"
 area_mask = 2

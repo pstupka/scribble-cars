@@ -11,6 +11,7 @@ export var is_jumping = false
 var velocity
 
 var car_templates : Array = [
+	preload("res://source/scenes/actors/car_templates/tractor.tscn"),
 	preload("res://source/scenes/actors/car_templates/car1.tscn"),
 	preload("res://source/scenes/actors/car_templates/car_police.tscn"),
 	preload("res://source/scenes/actors/car_templates/car3.tscn"),
