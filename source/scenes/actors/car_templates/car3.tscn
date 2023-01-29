@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/sprites/star_05.png" type="Texture" id=7]
 [ext_resource path="res://assets/audio/pibi.mp3" type="AudioStream" id=8]
 [ext_resource path="res://assets/sprites/light.png" type="Texture" id=9]
-[ext_resource path="res://assets/sprites/smoke.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/fume2.png" type="Texture" id=10]
 [ext_resource path="res://assets/sprites/cars/car3_outline.png" type="Texture" id=11]
 [ext_resource path="res://assets/sprites/cars/car3_window.png" type="Texture" id=12]
 [ext_resource path="res://assets/sprites/cars/car3_shadow.png" type="Texture" id=13]
@@ -31,24 +31,25 @@ blend_mode = 1
 offsets = PoolRealArray( 0, 0.148387, 0.522581 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.535484, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=14]
+[sub_resource type="GradientTexture" id=22]
 gradient = SubResource( 1 )
 
 [sub_resource type="Curve" id=3]
-_data = [ Vector2( 0.0224719, 0.203409 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+_data = [ Vector2( 0.00561798, 0.0761364 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.730682 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=15]
+[sub_resource type="CurveTexture" id=23]
 curve = SubResource( 3 )
 
 [sub_resource type="ParticlesMaterial" id=5]
 flag_disable_z = true
-gravity = Vector3( 0, 0, 0 )
+spread = 30.0
+gravity = Vector3( 0, -98, 0 )
 initial_velocity = 100.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-scale_curve = SubResource( 15 )
+scale_curve = SubResource( 23 )
 color = Color( 0.780392, 0.780392, 0.780392, 1 )
-color_ramp = SubResource( 14 )
+color_ramp = SubResource( 22 )
 
 [sub_resource type="Animation" id=16]
 length = 0.001
@@ -246,9 +247,9 @@ night_color = Color( 1.5, 1.5, 1.5, 1 )
 
 [node name="Particles2D" type="Particles2D" parent="AnimationPivot"]
 light_mask = 0
-position = Vector2( 73, -40 )
+position = Vector2( 93, -35.012 )
 amount = 6
-lifetime = 1.5
+lifetime = 1.2
 local_coords = false
 process_material = SubResource( 5 )
 texture = ExtResource( 10 )

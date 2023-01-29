@@ -28,7 +28,7 @@ func set_direction(new_direction):
 	direction.x = new_direction.x
 
 
-func _on_car_animation_finished(anim_name: String):
+func _on_car_animation_finished(_anim_name: String):
 	car.animation_player.play("move")
 
 

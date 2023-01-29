@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/sprites/cars/car2_fill.png" type="Texture" id=4]
 [ext_resource path="res://source/scenes/actors/car_templates/car_template.gd" type="Script" id=5]
 [ext_resource path="res://assets/sprites/light.png" type="Texture" id=6]
-[ext_resource path="res://assets/sprites/smoke.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/fume2.png" type="Texture" id=7]
 [ext_resource path="res://assets/sprites/star_05.png" type="Texture" id=8]
 [ext_resource path="res://assets/sprites/cars/car2_window.png" type="Texture" id=9]
 [ext_resource path="res://assets/audio/pibi.mp3" type="AudioStream" id=10]
@@ -27,28 +27,29 @@ blend_mode = 1
 [sub_resource type="CanvasItemMaterial" id=20]
 blend_mode = 1
 
-[sub_resource type="Gradient" id=1]
+[sub_resource type="Gradient" id=21]
 offsets = PoolRealArray( 0, 0.148387, 0.522581 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.535484, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=14]
-gradient = SubResource( 1 )
+[sub_resource type="GradientTexture" id=22]
+gradient = SubResource( 21 )
 
-[sub_resource type="Curve" id=3]
-_data = [ Vector2( 0.0224719, 0.203409 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+[sub_resource type="Curve" id=23]
+_data = [ Vector2( 0.00561798, 0.0761364 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.730682 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=15]
-curve = SubResource( 3 )
+[sub_resource type="CurveTexture" id=24]
+curve = SubResource( 23 )
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticlesMaterial" id=25]
 flag_disable_z = true
-gravity = Vector3( 0, 0, 0 )
+spread = 30.0
+gravity = Vector3( 0, -98, 0 )
 initial_velocity = 100.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-scale_curve = SubResource( 15 )
+scale_curve = SubResource( 24 )
 color = Color( 0.780392, 0.780392, 0.780392, 1 )
-color_ramp = SubResource( 14 )
+color_ramp = SubResource( 22 )
 
 [sub_resource type="Animation" id=16]
 length = 0.001
@@ -234,11 +235,11 @@ offset = Vector2( 0, 123 )
 
 [node name="Particles2D" type="Particles2D" parent="AnimationPivot"]
 light_mask = 0
-position = Vector2( 73, -40 )
+position = Vector2( 68, -36.012 )
 amount = 6
-lifetime = 1.5
+lifetime = 1.2
 local_coords = false
-process_material = SubResource( 5 )
+process_material = SubResource( 25 )
 texture = ExtResource( 7 )
 
 [node name="Brum" type="AudioStreamPlayer2D" parent="."]

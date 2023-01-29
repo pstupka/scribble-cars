@@ -1,34 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://assets/sprites/sun_fill.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/sun.png" type="Texture" id=2]
-[ext_resource path="res://source/scenes/props/sun.gd" type="Script" id=3]
-
-[sub_resource type="Gradient" id=1]
-offsets = PoolRealArray( 0, 0.0167598, 0.597765 )
-colors = PoolColorArray( 0.117676, 0.117676, 0.117676, 1, 0.472781, 0.472781, 0.472781, 0.519685, 0.968627, 0.968627, 0.968627, 0 )
-
-[sub_resource type="GradientTexture2D" id=2]
-gradient = SubResource( 1 )
-fill = 1
-fill_from = Vector2( 0.754167, 0.216667 )
-fill_to = Vector2( 1, 1 )
 
 [node name="Sun" type="Node2D"]
-script = ExtResource( 3 )
-
-[node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 1408.56, 3.77029 )
-scale = Vector2( 27.4531, 14.1378 )
-texture = SubResource( 2 )
-offset = Vector2( -20, 20 )
-color = Color( 0.976471, 0.694118, 0.266667, 1 )
-range_layer_min = -1
-range_layer_max = 10
-range_item_cull_mask = 4
-shadow_color = Color( 0, 0, 0, 1 )
-shadow_buffer_size = 1024
-shadow_item_cull_mask = 4
 
 [node name="SunFill" type="Sprite" parent="."]
 modulate = Color( 2, 2, 2, 1 )

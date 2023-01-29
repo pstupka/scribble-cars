@@ -29,7 +29,7 @@ func spawn_fruit() -> void:
 	pop_sfx.pitch_scale = rand_range(1.0 - pitch_randomness, 1.0 + pitch_randomness)
 	pop_sfx.play()
 
-func _on_time_of_day_changed(state):
+func _on_time_of_day_changed(_state):
 	pass
 
 
