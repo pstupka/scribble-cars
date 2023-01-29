@@ -8,12 +8,13 @@ func _ready() -> void:
 
 
 func _on_time_of_day_changed(state):
-	if tween:
-		tween.kill() # Abort the previous animation.
-	tween = create_tween()
-
-	match state:
-		Globals.DAY:
-			tween.tween_callback($Light2D, "set_enabled", [true]).set_delay(0.3)
-		Globals.NIGHT:
-			tween.tween_callback($Light2D, "set_enabled", [false])
+	pass
+#	if tween:
+#		tween.kill() # Abort the previous animation.
+#	tween = create_tween()
+#
+#	match state:
+#		Globals.DAY:
+#			tween.tween_callback($Light2D, "set_enabled", [true]).set_delay(0.3)
+#		Globals.NIGHT:
+#			tween.tween_callback($Light2D, "set_enabled", [false])

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://assets/sprites/road_outline.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/ground.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://source/scenes/props/Cloud2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://source/scenes/props/trees/Tree2.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/audio/ukulele.mp3" type="AudioStream" id=9]
+[ext_resource path="res://assets/sprites/bg_line1.png" type="Texture" id=10]
 [ext_resource path="res://source/utils/move_parallax_layer.gd" type="Script" id=11]
 [ext_resource path="res://source/utils/day_night_utils/day_night_modulate.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/sprites/stars/star1.png" type="Texture" id=13]
@@ -18,6 +19,9 @@
 [ext_resource path="res://source/utils/day_night_utils/day_night_tween.tscn" type="PackedScene" id=17]
 [ext_resource path="res://source/scenes/props/Moon.tscn" type="PackedScene" id=18]
 [ext_resource path="res://source/scenes/props/Sun.tscn" type="PackedScene" id=19]
+[ext_resource path="res://assets/sprites/bg_mountains.png" type="Texture" id=20]
+[ext_resource path="res://assets/sprites/bg_line2.png" type="Texture" id=21]
+[ext_resource path="res://assets/sprites/FGLine1.png" type="Texture" id=22]
 
 [sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0.00448431, 0.609865, 0.793722, 1 )
@@ -257,17 +261,26 @@ position = Vector2( -48, 13.022 )
 scale = Vector2( 1, 1.292 )
 night_color = Color( 0.176471, 0.176471, 0.176471, 1 )
 
-[node name="Ground" type="Sprite" parent="ParallaxBackground/Ground"]
-modulate = Color( 0.541176, 0.690196, 0.376471, 1 )
-light_mask = 4
-position = Vector2( -3, 166 )
-texture = ExtResource( 2 )
-centered = false
+[node name="MountainsFill" type="Polygon2D" parent="ParallaxBackground/Ground"]
+light_mask = 5
+color = Color( 0.52549, 0.505882, 0.533333, 1 )
+antialiased = true
+polygon = PoolVector2Array( 635, 195, 676, 174, 706, 130, 714, 114, 717, 98, 720, 87, 725, 76, 745, 37, 753, 22, 770, 29, 782, 44, 784, 72, 786, 83, 799, 125, 816, 145, 830, 143, 840, 140, 853, 137, 881, 123, 908, 109, 917, 104, 924, 101, 932, 99, 968, 91, 994, 115, 1005, 130, 1011, 140, 1019, 156, 1023, 172, 1047, 193 )
 
-[node name="DayNightModulate2" parent="ParallaxBackground/Ground/Ground" instance=ExtResource( 12 )]
-position = Vector2( 0, -184 )
-day_color = Color( 0.541176, 0.690196, 0.376471, 1 )
-night_color = Color( 0.337255, 0.482353, 0.47451, 1 )
+[node name="BgMountains" type="Sprite" parent="ParallaxBackground/Ground"]
+self_modulate = Color( 0.270588, 0.266667, 0.309804, 1 )
+position = Vector2( 869, 111 )
+texture = ExtResource( 20 )
+
+[node name="BgFill" type="Polygon2D" parent="ParallaxBackground/Ground"]
+light_mask = 5
+color = Color( 0.541176, 0.690196, 0.376471, 1 )
+polygon = PoolVector2Array( -16, 145, 4, 146, 106, 162, 174, 166, 211, 172, 253, 177, 286, 179, 319, 179, 385, 181, 439, 168, 493, 168, 553, 177, 585, 184, 601, 183, 613, 180, 625, 178, 639, 177, 647, 178, 664, 177, 743, 176, 874, 177, 938, 183, 978, 184, 1050, 181, 1107, 170, 1136, 164, 1174, 156, 1270, 142, 1384, 145, 1385, 342, -16, 342 )
+
+[node name="BgLine1" type="Sprite" parent="ParallaxBackground/Ground"]
+self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
+position = Vector2( 685, 164 )
+texture = ExtResource( 10 )
 
 [node name="Tree1" type="Sprite" parent="ParallaxBackground/Ground"]
 light_mask = 4
@@ -304,53 +317,65 @@ motion_scale = Vector2( 0.2, 0.92 )
 motion_mirroring = Vector2( 1400, 0 )
 
 [node name="DayNightModulate3" parent="RoadParallax/Ground2" instance=ExtResource( 12 )]
-position = Vector2( -48, 13.022 )
+position = Vector2( 22, 78 )
 scale = Vector2( 1, 1.292 )
 night_color = Color( 0.341176, 0.341176, 0.341176, 1 )
 
-[node name="Ground" type="Sprite" parent="RoadParallax/Ground2"]
-modulate = Color( 0.541176, 0.690196, 0.376471, 1 )
-self_modulate = Color( 0.81, 0.81, 0.81, 1 )
+[node name="BgFill" type="Polygon2D" parent="RoadParallax/Ground2"]
+self_modulate = Color( 0.79, 0.79, 0.79, 1 )
 light_mask = 5
-position = Vector2( -55, 220.75 )
-scale = Vector2( 1, 1.292 )
-texture = ExtResource( 2 )
-centered = false
+color = Color( 0.541176, 0.690196, 0.376471, 1 )
+polygon = PoolVector2Array( -177, 237, -35, 210, 127, 201, 236, 189, 368, 201, 421, 197, 528, 197, 647, 173, 745, 173, 1130, 217, 1201, 236, 1216, 238, 1226, 237, 1223, 332, -181, 345 )
 
-[node name="DayNightModulate2" parent="RoadParallax/Ground2/Ground" instance=ExtResource( 12 )]
-position = Vector2( 0, -184 )
-day_color = Color( 0.541176, 0.690196, 0.376471, 1 )
-night_color = Color( 0.337255, 0.482353, 0.47451, 1 )
+[node name="BgLine2" type="Sprite" parent="RoadParallax/Ground2"]
+self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
+position = Vector2( 525, 205 )
+texture = ExtResource( 21 )
 
 [node name="Tree3" type="Sprite" parent="RoadParallax/Ground2"]
 light_mask = 5
-position = Vector2( 215, 169.75 )
+position = Vector2( 185, 191 )
 scale = Vector2( 0.3, 0.3 )
 texture = SubResource( 4 )
 
 [node name="Tree4" type="Sprite" parent="RoadParallax/Ground2"]
 light_mask = 5
-position = Vector2( 924, 179.75 )
+position = Vector2( 924, 184 )
 scale = Vector2( 0.3, 0.3 )
 texture = SubResource( 4 )
 
 [node name="Ground3" type="ParallaxLayer" parent="RoadParallax"]
 position = Vector2( -68, 65 )
-motion_scale = Vector2( 0.85, 0.95 )
+motion_scale = Vector2( 0.9, 0.95 )
 motion_mirroring = Vector2( 1400, 0 )
 
-[node name="Ground" type="Sprite" parent="RoadParallax/Ground3"]
+[node name="DayNightModulate" parent="RoadParallax/Ground3" instance=ExtResource( 12 )]
+position = Vector2( -48, 13.022 )
+scale = Vector2( 1, 1.292 )
+night_color = Color( 0.59, 0.59, 0.59, 1 )
+
+[node name="BgFill" type="Polygon2D" parent="RoadParallax/Ground3"]
 modulate = Color( 0.541176, 0.690196, 0.376471, 1 )
-self_modulate = Color( 0.94, 0.94, 0.94, 1 )
+light_mask = 5
+position = Vector2( 1280, 33.5 )
+scale = Vector2( -1, 1 )
+polygon = PoolVector2Array( -16, 145, 4, 146, 106, 162, 174, 166, 211, 172, 253, 177, 286, 179, 319, 179, 385, 181, 439, 168, 493, 168, 553, 177, 585, 184, 601, 183, 613, 180, 625, 178, 639, 177, 647, 178, 664, 177, 743, 176, 874, 177, 938, 183, 978, 184, 1050, 181, 1107, 170, 1136, 164, 1174, 156, 1270, 142, 1384, 145, 1384, 654, -16, 656 )
+
+[node name="Ground" type="Sprite" parent="RoadParallax/Ground3"]
+visible = false
+modulate = Color( 0.541176, 0.690196, 0.376471, 1 )
+self_modulate = Color( 0.941176, 0.941176, 0.941176, 1 )
 light_mask = 5
 position = Vector2( -31, 202 )
 scale = Vector2( 1.1, 1 )
 texture = ExtResource( 2 )
 centered = false
 
-[node name="DayNightModulate2" parent="RoadParallax/Ground3/Ground" instance=ExtResource( 12 )]
-day_color = Color( 0.541176, 0.690196, 0.376471, 1 )
-night_color = Color( 0.337255, 0.482353, 0.47451, 1 )
+[node name="BgLine1" type="Sprite" parent="RoadParallax/Ground3"]
+self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
+position = Vector2( 598, 198.5 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 10 )
 
 [node name="Road" type="ParallaxLayer" parent="RoadParallax"]
 position = Vector2( -4, -4 )
@@ -465,17 +490,23 @@ position = Vector2( 75, 51 )
 motion_scale = Vector2( 1.1, 1.1 )
 motion_mirroring = Vector2( 1400, 0 )
 
+[node name="DayNightModulate2" parent="ParallaxBackground2/Ground4" instance=ExtResource( 12 )]
+position = Vector2( -80, 368.272 )
+scale = Vector2( 1, 1.292 )
+night_color = Color( 0.341176, 0.341176, 0.341176, 1 )
+
 [node name="Ground" type="Sprite" parent="ParallaxBackground2/Ground4"]
-modulate = Color( 0.541176, 0.690196, 0.376471, 1 )
-position = Vector2( -80, 606 )
+modulate = Color( 0.4187, 0.53, 0.2915, 1 )
+position = Vector2( -86, 606 )
 scale = Vector2( 1, 1.292 )
 texture = ExtResource( 2 )
 centered = false
 
-[node name="DayNightModulate2" parent="ParallaxBackground2/Ground4/Ground" instance=ExtResource( 12 )]
-position = Vector2( 0, -184 )
-day_color = Color( 0.541176, 0.690196, 0.376471, 1 )
-night_color = Color( 0.337255, 0.482353, 0.47451, 1 )
+[node name="FgLine1" type="Sprite" parent="ParallaxBackground2/Ground4"]
+self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
+position = Vector2( 606, 633 )
+scale = Vector2( 1, 1.292 )
+texture = ExtResource( 22 )
 
 [node name="Tree5" type="Sprite" parent="ParallaxBackground2/Ground4"]
 position = Vector2( 311, 669 )

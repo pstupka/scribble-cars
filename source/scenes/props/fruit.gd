@@ -26,6 +26,7 @@ func _ready():
 	
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
 	tween.tween_property(self, "position:y", target_position.y, 2.0)
+	tween.parallel().tween_property(sprites, "scale:y", 1.0, 2.0).from(0.7)
 	
 	tween.parallel()\
 		.set_trans(Tween.TRANS_LINEAR)\

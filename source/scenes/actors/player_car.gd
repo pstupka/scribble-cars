@@ -7,7 +7,8 @@ export var pitch_randomness = 0.05
 
 var direction := Vector2.ZERO
 var previous_direction := Vector2.ZERO
-export var is_jumping = false
+export var is_jumping := false
+var is_flipping := false 
 var velocity
 
 var car_templates : Array = [
@@ -66,12 +67,14 @@ func _physics_process(delta: float) -> void:
 
 
 func flip() -> void:
+	is_flipping = true 
 	var tween = get_tree().create_tween()
 	tween.tween_property(car, "scale:x", -sign(direction.x), 0.2)
+	tween.tween_callback(self, "set_deferred", ["is_flipping", false])
 
 
 func change_car():
-	if is_jumping: return
+	if is_jumping or is_flipping: return
 	var face_direction = sign(car.scale.x)
 	car.visible = false
 	car.animation_player.stop()
