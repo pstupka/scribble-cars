@@ -8,6 +8,8 @@ onready var foreground_modulate = $ParallaxBackground2/CanvasModulate
 onready var actors = $Actors
 onready var player = $Actors/Player
 
+
+
 export var lanes_y_position = [410, 460]
 
 onready var random_car = preload("res://source/scenes/actors/random_car.tscn")
@@ -15,7 +17,11 @@ onready var random_car = preload("res://source/scenes/actors/random_car.tscn")
 func _ready():
 	randomize()
 	Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
-
+	$EnterTweener.connect("enter_tween_completed", self, "_on_enter_tween_completed")
+	
+	yield(get_tree().create_timer(0.1),"timeout")
+	get_tree().paused = true
+	$EnterTweener.apply_tween()
 
 func _input(event):
 	if event.is_action_pressed("lights"):
@@ -54,4 +60,6 @@ func _on_CarSpawnTimer_timeout():
 	car_instance.direction = Vector2(2*lane - 1 , 0)
 	
 	$CarSpawnTimer.wait_time = rand_range(5.44, 10.51)
-	
+
+func _on_enter_tween_completed():
+	get_tree().paused = false

@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "DayNightRotate",
 "language": "GDScript",
 "path": "res://source/utils/day_night_utils/day_night_rotate.gd"
+}, {
+"base": "Node",
+"class": "EnterTweener",
+"language": "GDScript",
+"path": "res://source/utils/enter_tween.gd"
 } ]
 _global_script_class_icons={
 "CarResource": "",
-"DayNightRotate": ""
+"DayNightRotate": "",
+"EnterTweener": ""
 }
 
 [application]
