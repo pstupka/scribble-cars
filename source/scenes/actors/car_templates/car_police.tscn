@@ -156,7 +156,6 @@ can_change_color = false
 color = Color( 0.294118, 0.501961, 0.792157, 1 )
 
 [node name="ShadowPivot" type="Node2D" parent="."]
-scale = Vector2( 0.9, 1.1 )
 
 [node name="PoliceShadow" type="Sprite" parent="ShadowPivot"]
 self_modulate = Color( 0.34902, 0.34902, 0.34902, 0.160784 )
@@ -166,7 +165,6 @@ texture = ExtResource( 14 )
 
 [node name="AnimationPivot" type="Node2D" parent="."]
 position = Vector2( 0, 0.012 )
-scale = Vector2( 0.9, 1.1 )
 
 [node name="Sprites" type="Node2D" parent="AnimationPivot"]
 position = Vector2( 1.06396, -23.2806 )
@@ -198,10 +196,9 @@ position = Vector2( 4.18604, -37.4694 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 13 )
 
-[node name="Particles2D2" type="Particles2D" parent="AnimationPivot"]
+[node name="Particles2D" type="Particles2D" parent="AnimationPivot"]
 light_mask = 0
 position = Vector2( 131.111, -20.0109 )
-scale = Vector2( 1, 1 )
 amount = 6
 lifetime = 1.2
 local_coords = false

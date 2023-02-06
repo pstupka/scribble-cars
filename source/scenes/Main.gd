@@ -37,7 +37,7 @@ func _on_AppleTimer_timeout():
 
 
 func _on_time_of_day_changed(state):
-	match state:
+	match state: 
 		Globals.DAY:
 			apple_timer.paused = false
 			background_modulate.color = Globals.DAY_MODULATE

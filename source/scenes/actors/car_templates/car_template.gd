@@ -25,11 +25,14 @@ func jump() -> void:
 	jump_sfx.play()
 
 
-func honk() -> void:
+func honk(random:bool = false) -> void:
 	for sound in sfx.get_children():
 		if sound.is_playing(): return
 	var honks_count = sfx.get_child_count()
-	var honk = sfx.get_child(rand_range(0,honks_count))
+	var honk 
+	if random: honk = sfx.get_child(rand_range(0,honks_count))
+	else:
+		honk = sfx.get_child(0)
 	honk.pitch_scale = rand_range(1.0 - PITCH_RAND, 1.0 + PITCH_RAND)
 	honk.play()
 	var tween = create_tween()
