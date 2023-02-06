@@ -18,6 +18,7 @@ func _ready() -> void:
 	Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
 	_on_time_of_day_changed(Globals.daynight)
 	set_color(color)
+	set_animation_loop("move", false)
 
 func jump() -> void:
 	animation_player.play("jump")
@@ -51,6 +52,10 @@ func set_color(new_color) -> void:
 	color = new_color
 	if car_fill:
 		car_fill.self_modulate = new_color
+
+
+func set_animation_loop(anim_name: String, loop: bool) -> void:
+	animation_player.get_animation(anim_name).set_loop(loop)
 
 
 func _on_time_of_day_changed(state):

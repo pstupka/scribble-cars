@@ -22,6 +22,7 @@ func _ready():
 	yield(get_tree().create_timer(0.1),"timeout")
 	get_tree().paused = true
 	$EnterTweener.apply_tween()
+	Globals.score = 0
 
 func _input(event):
 	if event.is_action_pressed("lights"):

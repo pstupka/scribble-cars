@@ -12,6 +12,8 @@ const ROAD_MAX_POSITION := 480.0
 
 var daynight := DAY setget set_daynight
 
+var score: int
+
 var car_templates : Array = [
 	preload("res://source/scenes/actors/car_templates/car1.tscn"),
 	preload("res://source/scenes/actors/car_templates/car_police.tscn"),
