@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=2]
 
-[sub_resource type="Shader" id=1]
+[sub_resource type="Shader" id=15]
 code = "shader_type canvas_item;
 
 uniform sampler2D flowMap; //Displacement map
@@ -20,26 +20,18 @@ void fragment(){
 	//COLOR = texture(TEXTURE, vec2(UV.x,UV.y) + normal.xy); //Apply offset
 	COLOR = texture(TEXTURE, vec2(UV.x,UV.y) + offset.xy - vec2(0.5,0.5)*strength); //We need to remove the displacement 
 }
+"
 
-
-// TEST CLOCK
-/*
-void fragment(){
-	float c = clock(TIME);
-	COLOR = vec4( c, c, c, 1);
-}
-*/"
-
-[sub_resource type="OpenSimplexNoise" id=2]
+[sub_resource type="OpenSimplexNoise" id=16]
 seed = 5
 
 [sub_resource type="NoiseTexture" id=3]
 seamless = true
-noise = SubResource( 2 )
+noise = SubResource( 16 )
 
 [resource]
-shader = SubResource( 1 )
-shader_param/strength = 0.04
-shader_param/speed = 5.0
+shader = SubResource( 15 )
+shader_param/strength = 0.01
+shader_param/speed = 10.0
 shader_param/frames = 6
 shader_param/flowMap = SubResource( 3 )
