@@ -32,12 +32,12 @@
 [ext_resource path="res://resources/shaders/wind_sway_shader.tres" type="Material" id=30]
 [ext_resource path="res://source/scenes/menu/pause-menu.tscn" type="PackedScene" id=31]
 
-[sub_resource type="Gradient" id=11]
+[sub_resource type="Gradient" id=13]
 offsets = PoolRealArray( 0, 0.195402, 0.318966, 0.385057, 1 )
 colors = PoolColorArray( 0.407843, 0.760784, 0.827451, 1, 0.407843, 0.760784, 0.827451, 1, 0.601415, 0.805903, 0.750313, 1, 0.947912, 0.937853, 0.882309, 1, 0.94902, 0.941176, 0.898039, 1 )
 
 [sub_resource type="GradientTexture2D" id=12]
-gradient = SubResource( 11 )
+gradient = SubResource( 13 )
 width = 1400
 height = 800
 fill_to = Vector2( 0, 1 )
@@ -131,10 +131,10 @@ position = Vector2( -640, -75 )
 texture = SubResource( 12 )
 centered = false
 
-[node name="DayNightModulate4" parent="ParallaxBackground/Sky/Sky" instance=ExtResource( 12 )]
+[node name="DayNightModulate" parent="ParallaxBackground/Sky/Sky" instance=ExtResource( 12 )]
 position = Vector2( 22, 78 )
 scale = Vector2( 1, 1.292 )
-night_color = Color( 0.12549, 0.12549, 0.12549, 1 )
+night_color = Color( 0.262745, 0.262745, 0.415686, 1 )
 
 [node name="Stars" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.05, 0.9 )
@@ -347,72 +347,74 @@ night_color = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
 
 [node name="MountainsFill" type="Polygon2D" parent="ParallaxBackground/Ground/MountainsPivot"]
 light_mask = 5
+position = Vector2( -1, -16.5 )
 color = Color( 0.52549, 0.505882, 0.533333, 1 )
 antialiased = true
 polygon = PoolVector2Array( 635, 195, 676, 174, 706, 130, 714, 114, 717, 98, 720, 87, 725, 76, 745, 37, 753, 22, 770, 29, 782, 44, 784, 72, 786, 83, 799, 125, 816, 145, 830, 143, 840, 140, 853, 137, 881, 123, 908, 109, 917, 104, 924, 101, 932, 99, 968, 91, 994, 115, 1005, 130, 1011, 140, 1019, 156, 1023, 172, 1047, 193 )
 
 [node name="BgMountains" type="Sprite" parent="ParallaxBackground/Ground/MountainsPivot"]
 self_modulate = Color( 0.270588, 0.266667, 0.309804, 1 )
-position = Vector2( 869, 111 )
+position = Vector2( 868, 94.5 )
 texture = ExtResource( 20 )
 
 [node name="GrassPivot" type="Node2D" parent="ParallaxBackground/Ground"]
 
 [node name="BgFill" type="Polygon2D" parent="ParallaxBackground/Ground/GrassPivot"]
 light_mask = 5
+position = Vector2( -1, -18.5 )
 color = Color( 0.541176, 0.690196, 0.376471, 1 )
 polygon = PoolVector2Array( -16, 145, 4, 146, 106, 162, 174, 166, 211, 172, 253, 177, 286, 179, 319, 179, 385, 181, 439, 168, 493, 168, 553, 177, 585, 184, 601, 183, 613, 180, 625, 178, 639, 177, 647, 178, 664, 177, 743, 176, 874, 177, 938, 183, 978, 184, 1050, 181, 1107, 170, 1136, 164, 1174, 156, 1270, 142, 1384, 145, 1385, 342, -16, 342 )
 
 [node name="BgLine1" type="Sprite" parent="ParallaxBackground/Ground/GrassPivot"]
 self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
-position = Vector2( 685, 164 )
+position = Vector2( 684, 145.5 )
 texture = ExtResource( 10 )
 
 [node name="Tree5" type="Sprite" parent="ParallaxBackground/Ground"]
 light_mask = 4
-position = Vector2( 339.1, 166 )
+position = Vector2( 339.1, 146 )
 scale = Vector2( 0.15, 0.15 )
 texture = SubResource( 4 )
 
 [node name="Tree6" type="Sprite" parent="ParallaxBackground/Ground"]
 light_mask = 4
-position = Vector2( 409.3, 164.725 )
+position = Vector2( 409.3, 144.725 )
 scale = Vector2( 0.15, 0.15 )
 texture = SubResource( 4 )
 
 [node name="Tree7" type="Sprite" parent="ParallaxBackground/Ground"]
 light_mask = 4
-position = Vector2( 549.4, 164.375 )
+position = Vector2( 549.4, 144.375 )
 scale = Vector2( 0.15, 0.15 )
 texture = SubResource( 4 )
 
 [node name="Tree8" type="Sprite" parent="ParallaxBackground/Ground"]
 light_mask = 4
-position = Vector2( 429.1, 167.125 )
+position = Vector2( 429.1, 147.125 )
 scale = Vector2( 0.15, 0.15 )
 texture = SubResource( 4 )
 
 [node name="Tree1" type="Sprite" parent="ParallaxBackground/Ground"]
 light_mask = 4
-position = Vector2( 39.8, 152.5 )
+position = Vector2( 39.8, 132.5 )
 scale = Vector2( 0.2, 0.2 )
 texture = SubResource( 4 )
 
 [node name="Tree3" type="Sprite" parent="ParallaxBackground/Ground"]
 light_mask = 4
-position = Vector2( 390.3, 148.25 )
+position = Vector2( 390.3, 128.25 )
 scale = Vector2( 0.2, 0.2 )
 texture = SubResource( 4 )
 
 [node name="Tree4" type="Sprite" parent="ParallaxBackground/Ground"]
 light_mask = 4
-position = Vector2( 1090.8, 146.5 )
+position = Vector2( 1090.8, 126.5 )
 scale = Vector2( 0.2, 0.2 )
 texture = SubResource( 4 )
 
 [node name="Tree2" type="Sprite" parent="ParallaxBackground/Ground"]
 light_mask = 4
-position = Vector2( 489.3, 160.25 )
+position = Vector2( 489.3, 140.25 )
 scale = Vector2( 0.2, 0.2 )
 texture = SubResource( 4 )
 
@@ -766,7 +768,7 @@ position = Vector2( 208, 374 )
 
 [node name="Player" parent="Actors" instance=ExtResource( 5 )]
 position = Vector2( 0, 440 )
-camera_y_offset = -120.0
+camera_y_offset = -100.0
 
 [node name="Trees_front" type="Node2D" parent="."]
 
