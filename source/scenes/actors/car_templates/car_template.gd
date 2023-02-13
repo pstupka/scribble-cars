@@ -26,7 +26,7 @@ func jump() -> void:
 	jump_sfx.play()
 
 
-func honk(random:bool = false) -> void:
+func honk(random:bool = true) -> void:
 	for sound in sfx.get_children():
 		if sound.is_playing(): return
 	var honks_count = sfx.get_child_count()

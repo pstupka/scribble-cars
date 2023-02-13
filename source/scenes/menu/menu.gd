@@ -12,10 +12,13 @@ onready var menu_button_content := [
 ]
 
 onready var animation_player: AnimationPlayer = $AnimationPlayer
+onready var title_label: RichTextLabel = $MarginContainer/VBoxContainer/TitleLabel
+ 
 
 export(Color) var button_tint := Color("edc8c4")
 
 func _ready() -> void:
+	randomize()
 	for i in range(menu_buttons.size()):
 		_connect_menu_button(menu_buttons[i])
 		
@@ -30,6 +33,7 @@ func _ready() -> void:
 		button_content.set_animation_loop("move", true)
 	
 	menu_buttons[0].grab_focus()
+	
 
 func _connect_menu_button(button: Button) -> void:
 	button.connect("focus_entered", self, "_on_menu_button_focus_entered",[button])
@@ -38,7 +42,9 @@ func _connect_menu_button(button: Button) -> void:
 	button.connect("mouse_exited", self, "_on_menu_button_mouse_exited",[button])
 	button.connect("pressed", self, "_on_menu_button_pressed",[button])
 
+
 func start_menu_button_animation(button) -> void:
+	$PikSfx.play()
 	button.modulate = button_tint
 	if button.get_child_count() == 0 or button.disabled: return
 	
@@ -47,7 +53,6 @@ func start_menu_button_animation(button) -> void:
 	
 	item_to_animate.get_node("AnimationPivot/Particles2D").emitting = true
 	item_to_animate.get_node("AnimationPlayer").play("move")
-
 
 
 func stop_menu_button_animation(button) -> void:
@@ -59,15 +64,14 @@ func stop_menu_button_animation(button) -> void:
 	item_to_animate.get_node("AnimationPlayer").stop(false)
 
 
-
 func _on_menu_button_focus_entered(button) -> void:
 	start_menu_button_animation(button)
 
 
 func _on_menu_button_focus_exited(button) -> void:
 	stop_menu_button_animation(button)
-	
-	
+
+
 func _on_menu_button_mouse_entered(button) -> void:
 	start_menu_button_animation(button)
 
@@ -80,6 +84,7 @@ func _on_menu_button_mouse_exited(button) -> void:
 
 func _on_menu_button_pressed(button) -> void:
 	if not animation_player.get_animation_list().has(button.name): return
+	if animation_player.is_playing(): return
 	animation_player.play(button.name)
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
 	tween.tween_property(button.get_child(0), "global_position:y", 800.0, 1.0)
@@ -88,6 +93,12 @@ func _on_menu_button_pressed(button) -> void:
 	tween.parallel().tween_property(button.get_child(0), "scale:x", 0.8, 0.2)
 	
 	button.get_child(0).honk(false)
+	
+	for button in menu_buttons:
+		if button.is_connected("focus_entered", self, "_on_menu_button_focus_entered"):
+			button.disconnect("focus_entered", self, "_on_menu_button_focus_entered")
+		if button.is_connected("mouse_entered", self, "_on_menu_button_mouse_entered"):
+			button.disconnect("mouse_entered", self, "_on_menu_button_mouse_entered")
 
 
 func _on_AnimationPlayer_animation_finished(anim_name: String):

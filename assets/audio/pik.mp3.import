@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/pik.mp3-3b822df25d25cb456d0d91e8c0fefd76.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/pik.mp3"
+dest_files=[ "res://.import/pik.mp3-3b822df25d25cb456d0d91e8c0fefd76.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

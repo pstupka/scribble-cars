@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/littleidea.mp3-567c33f0d495f033afc4fb87b8508e65.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/littleidea.mp3"
+dest_files=[ "res://.import/littleidea.mp3-567c33f0d495f033afc4fb87b8508e65.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

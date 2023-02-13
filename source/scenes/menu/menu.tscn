@@ -1,16 +1,17 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://source/scenes/menu/menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/LittleThings-ZX5Z.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/sprites/cars/car2_outline.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/ui_menu_button_a1.png" type="Texture" id=4]
-
-[sub_resource type="DynamicFont" id=1]
-size = 125
-font_data = ExtResource( 2 )
+[ext_resource path="res://assets/audio/cute.mp3" type="AudioStream" id=5]
+[ext_resource path="res://assets/audio/pik.mp3" type="AudioStream" id=6]
+[ext_resource path="res://assets/sprites/ui/paper-texture-dark.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=31]
 size = 125
+outline_size = 4
+outline_color = Color( 0.129412, 0.129412, 0.137255, 1 )
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=9]
@@ -42,7 +43,7 @@ resource_name = "Area1Button"
 length = 1.2
 step = 0.01
 tracks/0/type = "value"
-tracks/0/path = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainer/Area1Button:self_modulate")
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/AreaChooseContainer/MarginContainer/Area1Button:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -54,7 +55,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainer2/Area2Button:self_modulate")
+tracks/1/path = NodePath("MarginContainer/VBoxContainer/AreaChooseContainer/MarginContainer2/Area2Button:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -66,7 +67,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainer3/Area3Button:self_modulate")
+tracks/2/path = NodePath("MarginContainer/VBoxContainer/AreaChooseContainer/MarginContainer3/Area3Button:self_modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -78,7 +79,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainer4/Area4Button:self_modulate")
+tracks/3/path = NodePath("MarginContainer/VBoxContainer/AreaChooseContainer/MarginContainer4/Area4Button:self_modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -99,10 +100,10 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 0.74 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 0.294118, 0.501961, 0.792157, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Color( 0.407843, 0.760784, 0.827451, 1 ), Color( 0.407843, 0.760784, 0.827451, 0 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("MarginContainer/VBoxContainer/RichTextLabel:percent_visible")
+tracks/5/path = NodePath("MarginContainer/VBoxContainer/TitleLabel:percent_visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -113,11 +114,23 @@ tracks/5/keys = {
 "update": 0,
 "values": [ 1.0, 0.0 ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("BackgroundMusic:volume_db")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1.04 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -36.344 ]
+}
 
 [sub_resource type="Animation" id=11]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("MarginContainer/VBoxContainer/GridContainer/MarginContainer/Area1Button:modulate")
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/AreaChooseContainer/MarginContainer/Area1Button:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -129,7 +142,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("MarginContainer/VBoxContainer/TitleLabel:modulate")
+tracks/1/path = NodePath("BackgroundMusic:volume_db")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -138,8 +151,12 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"values": [ 0.0 ]
 }
+
+[sub_resource type="CanvasItemMaterial" id=32]
+blend_mode = 2
+light_mode = 1
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -150,7 +167,7 @@ button_tint = Color( 1.2, 1.2, 1.2, 1 )
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.294118, 0.501961, 0.792157, 1 )
+color = Color( 0.407843, 0.760784, 0.827451, 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_right = 1024.0
@@ -167,19 +184,10 @@ margin_right = 944.0
 margin_bottom = 550.0
 custom_constants/separation = 25
 
-[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer"]
-visible = false
-margin_right = 864.0
-margin_bottom = 125.0
-custom_colors/font_color = Color( 0.94902, 0.941176, 0.898039, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "Scribble Cars"
-align = 1
-valign = 1
-
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="TitleLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 margin_right = 864.0
 margin_bottom = 128.0
+rect_clip_content = false
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.37
 custom_fonts/normal_font = SubResource( 31 )
@@ -190,13 +198,7 @@ text = "Scribble Cars
 "
 scroll_active = false
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
-visible = false
-margin_top = 150.0
-margin_right = 864.0
-margin_bottom = 150.0
-
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+[node name="AreaChooseContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 153.0
 margin_right = 864.0
 margin_bottom = 500.0
@@ -205,13 +207,13 @@ size_flags_vertical = 3
 custom_constants/vseparation = 30
 columns = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/AreaChooseContainer"]
 margin_right = 430.0
 margin_bottom = 159.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Area1Button" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainer"]
+[node name="Area1Button" type="Button" parent="MarginContainer/VBoxContainer/AreaChooseContainer/MarginContainer"]
 unique_name_in_owner = true
 margin_right = 430.0
 margin_bottom = 159.0
@@ -227,14 +229,14 @@ icon = ExtResource( 4 )
 icon_align = 1
 expand_icon = true
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/AreaChooseContainer"]
 margin_left = 434.0
 margin_right = 864.0
 margin_bottom = 159.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Area2Button" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainer2"]
+[node name="Area2Button" type="Button" parent="MarginContainer/VBoxContainer/AreaChooseContainer/MarginContainer2"]
 unique_name_in_owner = true
 margin_right = 430.0
 margin_bottom = 159.0
@@ -251,14 +253,14 @@ icon = ExtResource( 3 )
 icon_align = 1
 expand_icon = true
 
-[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/AreaChooseContainer"]
 margin_top = 189.0
 margin_right = 430.0
 margin_bottom = 347.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Area3Button" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainer3"]
+[node name="Area3Button" type="Button" parent="MarginContainer/VBoxContainer/AreaChooseContainer/MarginContainer3"]
 unique_name_in_owner = true
 margin_right = 430.0
 margin_bottom = 158.0
@@ -275,7 +277,7 @@ icon = ExtResource( 3 )
 icon_align = 1
 expand_icon = true
 
-[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer/AreaChooseContainer"]
 margin_left = 434.0
 margin_top = 189.0
 margin_right = 864.0
@@ -283,7 +285,7 @@ margin_bottom = 347.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Area4Button" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/MarginContainer4"]
+[node name="Area4Button" type="Button" parent="MarginContainer/VBoxContainer/AreaChooseContainer/MarginContainer4"]
 unique_name_in_owner = true
 margin_right = 430.0
 margin_bottom = 158.0
@@ -303,5 +305,23 @@ expand_icon = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Area1Button = SubResource( 10 )
 anims/RESET = SubResource( 11 )
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+bus = "Background"
+
+[node name="PikSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "Sfx"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource( 32 )
+margin_left = -125.0
+margin_top = -91.0
+margin_right = 1795.0
+margin_bottom = 949.0
+mouse_filter = 2
+texture = ExtResource( 7 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

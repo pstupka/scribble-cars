@@ -1,9 +1,11 @@
 extends KinematicBody2D
 
 onready var car := $Car
+onready var camera: Camera2D = $Camera2D
+
 
 export var pitch_randomness = 0.05
-
+export(float, -150.0, 150.0) var camera_y_offset = -70.0
 
 var direction := Vector2.ZERO
 var previous_direction := Vector2.ZERO
@@ -25,7 +27,8 @@ var car_templates : Array = [
 func _ready() -> void:
 	randomize()
 	is_jumping = false
-
+	camera.position.y = camera_y_offset
+	
 	car.animation_player.connect("animation_finished", self, "_on_car_animation_finished")
 	
 	if OS.get_name() != "Android" and OS.get_name() != "HTML5": 
