@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://source/scenes/actors/random_car.gd" type="Script" id=1]
 
@@ -6,7 +6,10 @@
 extents = Vector2( 29.5, 101.5 )
 
 [sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 131.5, 19.5 )
+extents = Vector2( 131.25, 19.5 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 29, 25.75 )
 
 [node name="RandomCar" type="KinematicBody2D"]
 light_mask = 0
@@ -21,10 +24,11 @@ shape = SubResource( 10 )
 
 [node name="CarDiscoverArea" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 10
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CarDiscoverArea"]
-position = Vector2( 0, -16 )
+position = Vector2( 0.25, -16 )
 shape = SubResource( 11 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
@@ -34,6 +38,28 @@ rect = Rect2( -300, -100, 600, 200 )
 [node name="ScreenExitedDelay" type="Timer" parent="VisibilityNotifier2D"]
 one_shot = true
 
+[node name="StopArea" type="Area2D" parent="." groups=["obstacle"]]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StopArea"]
+position = Vector2( -107, -27 )
+shape = SubResource( 12 )
+disabled = true
+
+[node name="StopArea2" type="Area2D" parent="." groups=["obstacle"]]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StopArea2"]
+position = Vector2( 113, -25 )
+shape = SubResource( 12 )
+disabled = true
+
+[connection signal="area_entered" from="CarDiscoverArea" to="." method="_on_CarDiscoverArea_area_entered"]
+[connection signal="area_exited" from="CarDiscoverArea" to="." method="_on_CarDiscoverArea_area_exited"]
 [connection signal="body_entered" from="CarDiscoverArea" to="." method="_on_CarDiscoverArea_body_entered"]
 [connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_screen_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_screen_exited"]

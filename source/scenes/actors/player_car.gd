@@ -5,7 +5,7 @@ onready var camera: Camera2D = $Camera2D
 
 
 export var pitch_randomness = 0.05
-export(float, -150.0, 150.0) var camera_y_offset = -70.0
+export(float, -300.0, 150.0) var camera_y_offset = -70.0
 
 var direction := Vector2.ZERO
 var previous_direction := Vector2.ZERO
@@ -60,8 +60,8 @@ func _physics_process(delta: float) -> void:
 		if sign(previous_direction.x) != sign(direction.x):
 			flip()
 	
-#	velocity = move_and_slide(speed * direction)
-	position += car.speed * delta * direction
+	velocity = move_and_slide(car.speed * direction)
+#	position += car.speed * delta * direction
 	position.y = clamp(position.y, Globals.ROAD_MIN_POSITION, Globals.ROAD_MAX_POSITION)
 	
 	if not is_jumping and not car.animation_player.is_playing():
@@ -109,8 +109,12 @@ func _on_car_animation_finished(anim_name: String):
 func _on_WrapAreaL_area_entered(area):
 	if area.is_in_group("wrapable"):
 		area.global_position.x = $WrapAreaL/TargetPosition.global_position.x
+	if area.is_in_group("streetlight"):
+		area.get_parent().global_position.x = $WrapAreaL/TargetPosition.global_position.x
 
 
 func _on_WrapAreaR_area_entered(area):
 	if area.is_in_group("wrapable"):
 		area.global_position.x = $WrapAreaR/TargetPosition.global_position.x
+	if area.is_in_group("streetlight"):
+		area.get_parent().global_position.x = $WrapAreaR/TargetPosition.global_position.x

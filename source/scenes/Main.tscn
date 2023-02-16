@@ -113,7 +113,7 @@ glow_enabled = true
 glow_intensity = 2.0
 glow_strength = 1.01
 
-[node name="Main" type="Node2D"]
+[node name="Forest" type="Node2D"]
 position = Vector2( 1, 0 )
 script = ExtResource( 4 )
 
@@ -743,26 +743,65 @@ texture = ExtResource( 1 )
 [node name="DayNightModulate" parent="Trees_back" instance=ExtResource( 12 )]
 night_color = Color( 0.309804, 0.301961, 0.4, 1 )
 
-[node name="Tree" parent="Trees_back" instance=ExtResource( 6 )]
+[node name="Group1" type="Node2D" parent="Trees_back"]
+
+[node name="Tree" parent="Trees_back/Group1" instance=ExtResource( 6 )]
 position = Vector2( 71, 356 )
 
-[node name="Tree2" parent="Trees_back" instance=ExtResource( 6 )]
+[node name="Tree2" parent="Trees_back/Group1" instance=ExtResource( 6 )]
 position = Vector2( 714, 371 )
 
-[node name="Tree3" parent="Trees_back" instance=ExtResource( 6 )]
-position = Vector2( 821, 369 )
-
-[node name="Tree4" parent="Trees_back" instance=ExtResource( 6 )]
-position = Vector2( 881, 391 )
-
-[node name="Tree5" parent="Trees_back" instance=ExtResource( 6 )]
+[node name="Tree5" parent="Trees_back/Group1" instance=ExtResource( 6 )]
 position = Vector2( 1115, 374 )
 
-[node name="Tree6" parent="Trees_back" instance=ExtResource( 6 )]
+[node name="Tree7" parent="Trees_back/Group1" instance=ExtResource( 6 )]
+position = Vector2( 210, 356 )
+
+[node name="Tree15" parent="Trees_back/Group1" instance=ExtResource( 6 )]
+position = Vector2( 1456, 391 )
+
+[node name="Tree18" parent="Trees_back/Group1" instance=ExtResource( 6 )]
+position = Vector2( 783, 374 )
+
+[node name="Tree11" parent="Trees_back/Group1" instance=ExtResource( 6 )]
+position = Vector2( -225, 379 )
+
+[node name="Group2" type="Node2D" parent="Trees_back"]
+
+[node name="Tree3" parent="Trees_back/Group2" instance=ExtResource( 6 )]
+position = Vector2( 821, 369 )
+
+[node name="Tree6" parent="Trees_back/Group2" instance=ExtResource( 6 )]
 position = Vector2( 342, 359 )
 
-[node name="Tree7" parent="Trees_back" instance=ExtResource( 6 )]
-position = Vector2( 208, 374 )
+[node name="Tree9" parent="Trees_back/Group2" instance=ExtResource( 6 )]
+position = Vector2( -392, 359 )
+
+[node name="Tree17" parent="Trees_back/Group2" instance=ExtResource( 8 )]
+position = Vector2( 452, 358 )
+
+[node name="Tree10" parent="Trees_back/Group2" instance=ExtResource( 6 )]
+position = Vector2( -285, 357 )
+
+[node name="Tree13" parent="Trees_back/Group2" instance=ExtResource( 6 )]
+position = Vector2( -796, 376 )
+
+[node name="Group3" type="Node2D" parent="Trees_back"]
+
+[node name="Tree16" parent="Trees_back/Group3" instance=ExtResource( 6 )]
+position = Vector2( 1690, 374 )
+
+[node name="Tree12" parent="Trees_back/Group3" instance=ExtResource( 8 )]
+position = Vector2( 1033, 349 )
+
+[node name="Tree19" parent="Trees_back/Group3" instance=ExtResource( 8 )]
+position = Vector2( -467, 357 )
+
+[node name="Tree20" parent="Trees_back/Group3" instance=ExtResource( 6 )]
+position = Vector2( 183, 359 )
+
+[node name="Tree14" parent="Trees_back/Group3" instance=ExtResource( 6 )]
+position = Vector2( -898, 362 )
 
 [node name="Actors" type="YSort" parent="."]
 
@@ -775,14 +814,35 @@ camera_y_offset = -100.0
 [node name="DayNightModulate" parent="Trees_front" instance=ExtResource( 12 )]
 night_color = Color( 0.309804, 0.301961, 0.4, 1 )
 
-[node name="Tree6" parent="Trees_front" instance=ExtResource( 8 )]
-position = Vector2( 482, 544 )
+[node name="Group1" type="Node2D" parent="Trees_front"]
 
-[node name="Tree7" parent="Trees_front" instance=ExtResource( 8 )]
-position = Vector2( 270, 589 )
+[node name="Tree6" parent="Trees_front/Group1" instance=ExtResource( 8 )]
+position = Vector2( 1606, 553 )
 
-[node name="Tree8" parent="Trees_front" instance=ExtResource( 8 )]
-position = Vector2( -447, 570 )
+[node name="Tree7" parent="Trees_front/Group1" instance=ExtResource( 8 )]
+position = Vector2( 1394, 598 )
+
+[node name="Group2" type="Node2D" parent="Trees_front"]
+
+[node name="Tree8" parent="Trees_front/Group2" instance=ExtResource( 8 )]
+position = Vector2( 677, 579 )
+
+[node name="Tree9" parent="Trees_front/Group2" instance=ExtResource( 6 )]
+position = Vector2( -1116, 566 )
+
+[node name="Tree17" parent="Trees_front/Group2" instance=ExtResource( 6 )]
+position = Vector2( 836, 581 )
+
+[node name="Group3" type="Node2D" parent="Trees_front"]
+
+[node name="Tree4" parent="Trees_front/Group3" instance=ExtResource( 6 )]
+position = Vector2( 800, 613 )
+
+[node name="Tree19" parent="Trees_front/Group3" instance=ExtResource( 6 )]
+position = Vector2( -541, 566 )
+
+[node name="Tree12" parent="Trees_front/Group3" instance=ExtResource( 6 )]
+position = Vector2( -72, 584 )
 
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
 layer = 10
@@ -847,7 +907,7 @@ bus = "Background"
 
 [node name="EnterTweener" type="Node" parent="."]
 script = ExtResource( 23 )
-node_paths = [ NodePath("../ParallaxBackground/Sky/Sky"), NodePath("../ParallaxBackground2/Ground4/GrassPivot"), NodePath("../RoadParallax/Ground3/GrassPivot"), NodePath("../RoadParallax/Ground2/GrassPivot"), NodePath("../ParallaxBackground/Ground/GrassPivot"), NodePath("../ParallaxBackground/Ground/MountainsPivot"), NodePath("../ParallaxBackground2/Ground4/Tree5"), NodePath("../ParallaxBackground2/Ground4/Tree6"), NodePath("../Trees_front/Tree6"), NodePath("../Trees_front/Tree7"), NodePath("../Trees_front/Tree8"), NodePath("../RoadParallax/Ground3/Flowers"), NodePath("../RoadParallax/Ground3/Flowers2"), NodePath("../RoadParallax/Ground3/Flowers3"), NodePath("../Trees_back/Tree"), NodePath("../Trees_back/Tree2"), NodePath("../Trees_back/Tree3"), NodePath("../Trees_back/Tree4"), NodePath("../Trees_back/Tree5"), NodePath("../Trees_back/Tree6"), NodePath("../Trees_back/Tree7"), NodePath("../RoadParallax/Road/Road1"), NodePath("../RoadParallax/Ground2/Tree3"), NodePath("../RoadParallax/Ground2/Tree4"), NodePath("../ParallaxBackground/Ground/Tree5"), NodePath("../ParallaxBackground/Ground/Tree6"), NodePath("../ParallaxBackground/Ground/Tree7"), NodePath("../ParallaxBackground/Ground/Tree8"), NodePath("../ParallaxBackground/Ground/Tree1"), NodePath("../ParallaxBackground/Ground/Tree3"), NodePath("../ParallaxBackground/Ground/Tree4"), NodePath("../ParallaxBackground/Ground/Tree2"), NodePath("../ParallaxBackground/Clouds"), NodePath("../ParallaxBackground/Clouds2"), NodePath("../ParallaxBackground/MoonSun"), NodePath("../ParallaxBackground/Stars"), NodePath("../Actors/Player") ]
+node_paths = [ NodePath("../ParallaxBackground/Sky/Sky"), NodePath("../ParallaxBackground2/Ground4/GrassPivot"), NodePath("../RoadParallax/Ground3/GrassPivot"), NodePath("../RoadParallax/Ground2/GrassPivot"), NodePath("../ParallaxBackground/Ground/GrassPivot"), NodePath("../ParallaxBackground/Ground/MountainsPivot"), NodePath("../ParallaxBackground2/Ground4/Tree5"), NodePath("../ParallaxBackground2/Ground4/Tree6"), NodePath("../RoadParallax/Ground3/Flowers"), NodePath("../RoadParallax/Ground3/Flowers2"), NodePath("../RoadParallax/Ground3/Flowers3"), NodePath("../Trees_front/Group1"), NodePath("../Trees_front/Group3"), NodePath("../Trees_front/Group2"), NodePath("../RoadParallax/Road/Road1"), NodePath("../RoadParallax/Ground2/Tree3"), NodePath("../RoadParallax/Ground2/Tree4"), NodePath("../Trees_back/Group3"), NodePath("../Trees_back/Group2"), NodePath("../Trees_back/Group1"), NodePath("../ParallaxBackground/Ground/Tree5"), NodePath("../ParallaxBackground/Ground/Tree6"), NodePath("../ParallaxBackground/Ground/Tree7"), NodePath("../ParallaxBackground/Ground/Tree8"), NodePath("../ParallaxBackground/Ground/Tree1"), NodePath("../ParallaxBackground/Ground/Tree3"), NodePath("../ParallaxBackground/Ground/Tree4"), NodePath("../ParallaxBackground/Ground/Tree2"), NodePath("../ParallaxBackground/Clouds"), NodePath("../ParallaxBackground/Clouds2"), NodePath("../ParallaxBackground/MoonSun"), NodePath("../ParallaxBackground/Stars"), NodePath("../Actors/Player") ]
 object_time_offset = 0.05
 
 [connection signal="timeout" from="AppleTimer" to="." method="_on_AppleTimer_timeout"]

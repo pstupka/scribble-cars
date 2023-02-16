@@ -22,7 +22,12 @@ func apply_tween():
 				
 	for i in range(node_paths.size()):
 		var object = get_node(node_paths[i])
-		tween.parallel().tween_property(object, "position:y", object.position.y, tween_duration) \
+		if object.is_class("ColorRect"): 
+			tween.parallel().tween_property(object, "rect_position:y", object.rect_position.y, tween_duration) \
+			.from(object.rect_position.y + 1000) \
+			.set_delay(0.2 + i*object_time_offset)
+		else: 
+			tween.parallel().tween_property(object, "position:y", object.position.y, tween_duration) \
 			.from(object.position.y + 1000) \
 			.set_delay(0.2 + i*object_time_offset)
 		tween.parallel().tween_callback(object, "set_visible", [true]) \

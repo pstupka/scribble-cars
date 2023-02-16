@@ -8,7 +8,8 @@ onready var menu_buttons := [
 ]
 
 onready var menu_button_content := [
-	preload("res://source/scenes/actors/car_templates/car_template.tscn")
+	preload("res://source/scenes/actors/car_templates/car_template.tscn"),
+	preload("res://source/scenes/actors/car_templates/car3.tscn")
 ]
 
 onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -26,7 +27,7 @@ func _ready() -> void:
 		var button_content = menu_button_content[i].instance()
 		menu_buttons[i].add_child(button_content)
 		
-		button_content.position = Vector2(220,115)
+		button_content.position = Vector2(210,130)
 		button_content.scale = Vector2(-0.7, 0.7)
 		button_content.get_node("AnimationPivot/Particles2D").emitting = false
 		button_content.get_node("ShadowPivot").hide()
@@ -104,3 +105,4 @@ func _on_menu_button_pressed(button) -> void:
 func _on_AnimationPlayer_animation_finished(anim_name: String):
 	match anim_name:
 		"Area1Button": return get_tree().change_scene("res://source/scenes/Main.tscn")
+		"Area2Button": return get_tree().change_scene("res://source/scenes/levels/city.tscn")

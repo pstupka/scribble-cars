@@ -4,12 +4,13 @@ extends KinematicBody2D
 var screen_exit_delayed = false
 
 export var speed = 50
+export var can_move := true
 var direction := Vector2.LEFT setget set_direction
 var velocity
 var car = null
 
 func _ready():
-	randomize()	
+	randomize()
 	var new_car = Globals.car_templates[randi() % Globals.car_templates.size()].instance()
 	add_child(new_car)
 	car = new_car
@@ -19,6 +20,10 @@ func _ready():
 	car.animation_player.play("move")
 
 func _physics_process(_delta) -> void:
+	if not can_move:
+		if car.animation_player.get_current_animation() == "move": car.animation_player.stop()
+		return
+	if not car.animation_player.is_playing(): car.animation_player.play("move")
 	velocity = move_and_slide(car.speed * direction)
 
 
@@ -30,7 +35,6 @@ func set_direction(new_direction):
 
 func _on_car_animation_finished(_anim_name: String):
 	car.animation_player.play("move")
-
 
 func _on_screen_entered() -> void:
 	screen_exit_delayed = false
@@ -49,3 +53,16 @@ func _on_CarDiscoverArea_body_entered(body):
 
 func _on_ScreenExitedDelay_timeout() -> void:
 	screen_exit_delayed = true
+
+
+func _on_CarDiscoverArea_area_entered(area: Area2D) -> void:
+	if area.is_in_group("obstacle"):
+		can_move = false
+		$StopArea/CollisionShape2D.set_deferred("disabled", false)
+		$StopArea2/CollisionShape2D.set_deferred("disabled", false)
+
+func _on_CarDiscoverArea_area_exited(area: Area2D) -> void:
+	if area.is_in_group("obstacle"):
+		can_move = true
+		$StopArea/CollisionShape2D.set_deferred("disabled", true)
+		$StopArea2/CollisionShape2D.set_deferred("disabled", true)
