@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://source/scenes/levels/city.gd" type="Script" id=1]
 [ext_resource path="res://source/scenes/actors/player_car.tscn" type="PackedScene" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://source/utils/enter_tween.gd" type="Script" id=22]
 [ext_resource path="res://source/scenes/props/Cloud3.tscn" type="PackedScene" id=23]
 [ext_resource path="res://source/scenes/props/Cloud4.tscn" type="PackedScene" id=24]
+[ext_resource path="res://assets/audio/Bike Rides - The Green Orbs.mp3" type="AudioStream" id=25]
 
 [sub_resource type="Gradient" id=11]
 offsets = PoolRealArray( 0, 0.324713, 0.462644, 0.62069, 1 )
@@ -422,5 +423,11 @@ autostart = true
 script = ExtResource( 22 )
 node_paths = [ NodePath("../ParallaxBackground/BuildingsBg/CityBg2"), NodePath("../ParallaxBackground/BuildingsBg/CityBg"), NodePath("../ParallaxBackground/BuildingsBg3/CityBg3"), NodePath("../ParallaxBackground/BuildingsBg3/CityBg4"), NodePath("../ParallaxBackground/BuildingsBg2/CityBg2"), NodePath("../ParallaxBackground/BuildingsBg2/CityBg4"), NodePath("../RoadParallax/Buildings/City"), NodePath("../RoadParallax/Road/Road1"), NodePath("../RoadParallax/Buildings/ColorRect"), NodePath("../Actors/Player"), NodePath("../ParallaxBackground/Clouds2/Pivot"), NodePath("../ParallaxBackground/Clouds/Pivot"), NodePath("../ParallaxBackground/MoonSun/Sun"), NodePath("../ParallaxBackground/Sky/Sky"), NodePath("../Actors/Streetlight2"), NodePath("../ParallaxBackground/MoonSun/Moon"), NodePath("../ParallaxBackground/Stars/Pivot") ]
 object_time_offset = 0.05
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 25 )
+autoplay = true
+bus = "Background"
 
 [connection signal="timeout" from="CarSpawnTimer" to="." method="_on_CarSpawnTimer_timeout"]

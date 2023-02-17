@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/sprites/props/streetligths_outline.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/props/streetlights_fill.png" type="Texture" id=2]
@@ -14,7 +14,10 @@ extents = Vector2( 26, 134.5 )
 extents = Vector2( 29, 36.5 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 145, 44.5 )
+extents = Vector2( 100.5, 44.5 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 120.5, 49 )
 
 [node name="Streetlight" type="YSort"]
 script = ExtResource( 6 )
@@ -29,7 +32,6 @@ scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 2 )
 
 [node name="Lights" type="Node2D" parent="Line2"]
-scale = Vector2( 1, 1 )
 
 [node name="RedLight" type="Sprite" parent="Line2/Lights"]
 self_modulate = Color( 0.705882, 0.321569, 0.321569, 1 )
@@ -137,5 +139,16 @@ disabled = true
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerStop"]
-position = Vector2( 9, 34.5 )
+position = Vector2( 10.5, 34.5 )
 shape = SubResource( 3 )
+
+[node name="PlayerDiscoveryArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDiscoveryArea"]
+position = Vector2( 11.5, 33 )
+shape = SubResource( 4 )
+
+[connection signal="body_entered" from="PlayerDiscoveryArea" to="." method="_on_PlayerDiscoveryArea_body_entered"]
+[connection signal="body_exited" from="PlayerDiscoveryArea" to="." method="_on_PlayerDiscoveryArea_body_exited"]
