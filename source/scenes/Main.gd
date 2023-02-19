@@ -7,7 +7,7 @@ onready var road_modulate = $RoadParallax/CanvasModulate
 onready var foreground_modulate = $ParallaxBackground2/CanvasModulate
 onready var actors = $Actors
 onready var player = $Actors/Player
-
+export var scene_type = "forest"
 
 export var lanes_y_position = [410, 460]
 

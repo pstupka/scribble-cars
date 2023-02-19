@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://source/scenes/menu/menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/LittleThings-ZX5Z.ttf" type="DynamicFontData" id=2]
@@ -14,6 +14,22 @@ size = 125
 outline_size = 4
 outline_color = Color( 0.129412, 0.129412, 0.137255, 1 )
 font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=34]
+size = 64
+outline_size = 5
+outline_color = Color( 0.129412, 0.129412, 0.137255, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=35]
+
+[sub_resource type="StyleBoxEmpty" id=36]
+
+[sub_resource type="StyleBoxEmpty" id=37]
+
+[sub_resource type="StyleBoxEmpty" id=38]
+
+[sub_resource type="StyleBoxEmpty" id=39]
 
 [sub_resource type="DynamicFont" id=9]
 size = 64
@@ -44,7 +60,7 @@ resource_name = "Area1Button"
 length = 1.2
 step = 0.01
 tracks/0/type = "value"
-tracks/0/path = NodePath("MarginContainer/VBoxContainer/AreaChooseContainer/MarginContainer/Area1Button:self_modulate")
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer/MarginContainer/Area1Button:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -56,7 +72,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("MarginContainer/VBoxContainer/AreaChooseContainer/MarginContainer2/Area2Button:modulate")
+tracks/1/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer/MarginContainer2/Area2Button:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -68,7 +84,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("MarginContainer/VBoxContainer/AreaChooseContainer/MarginContainer3/Area3Button:modulate")
+tracks/2/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer/MarginContainer3/Area3Button:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -80,7 +96,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("MarginContainer/VBoxContainer/AreaChooseContainer/MarginContainer4/Area4Button:modulate")
+tracks/3/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer/MarginContainer4/Area4Button:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -133,7 +149,7 @@ resource_name = "Area2Button"
 length = 1.2
 step = 0.01
 tracks/0/type = "value"
-tracks/0/path = NodePath("MarginContainer/VBoxContainer/AreaChooseContainer/MarginContainer/Area1Button:modulate")
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer/MarginContainer/Area1Button:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -145,7 +161,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("MarginContainer/VBoxContainer/AreaChooseContainer/MarginContainer2/Area2Button:self_modulate")
+tracks/1/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer/MarginContainer2/Area2Button:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -157,7 +173,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("MarginContainer/VBoxContainer/AreaChooseContainer/MarginContainer3/Area3Button:modulate")
+tracks/2/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer/MarginContainer3/Area3Button:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -169,7 +185,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("MarginContainer/VBoxContainer/AreaChooseContainer/MarginContainer4/Area4Button:modulate")
+tracks/3/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer/MarginContainer4/Area4Button:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -220,7 +236,7 @@ tracks/6/keys = {
 [sub_resource type="Animation" id=11]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("MarginContainer/VBoxContainer/AreaChooseContainer/MarginContainer/Area1Button:modulate")
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer/MarginContainer/Area1Button:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -275,8 +291,9 @@ margin_bottom = 550.0
 custom_constants/separation = 25
 
 [node name="TitleLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 margin_right = 864.0
-margin_bottom = 128.0
+margin_bottom = 500.0
 rect_clip_content = false
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.37
@@ -288,22 +305,96 @@ text = "Scribble Cars
 "
 scroll_active = false
 
-[node name="AreaChooseContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 153.0
+[node name="MainMenuButtons" type="CanvasLayer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MainMenuButtons"]
+margin_left = 80.0
+margin_top = 203.0
+margin_right = 944.0
+margin_bottom = 550.0
+size_flags_vertical = 3
+custom_constants/margin_top = 70
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer"]
+margin_top = 70.0
 margin_right = 864.0
-margin_bottom = 500.0
+margin_bottom = 347.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_right = 864.0
+margin_bottom = 65.0
+custom_colors/font_color_focus = Color( 0.705882, 0.321569, 0.321569, 1 )
+custom_colors/font_color = Color( 0.94902, 0.941176, 0.898039, 1 )
+custom_colors/font_color_hover = Color( 0.705882, 0.321569, 0.321569, 1 )
+custom_colors/font_color_pressed = Color( 0.929412, 0.882353, 0.619608, 1 )
+custom_fonts/font = SubResource( 34 )
+custom_styles/hover = SubResource( 35 )
+custom_styles/pressed = SubResource( 36 )
+custom_styles/focus = SubResource( 37 )
+custom_styles/disabled = SubResource( 38 )
+custom_styles/normal = SubResource( 39 )
+text = "START"
+
+[node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 69.0
+margin_right = 864.0
+margin_bottom = 134.0
+custom_colors/font_color_focus = Color( 0.635294, 0.862745, 0.780392, 1 )
+custom_colors/font_color = Color( 0.94902, 0.941176, 0.898039, 1 )
+custom_colors/font_color_hover = Color( 0.635294, 0.862745, 0.780392, 1 )
+custom_colors/font_color_pressed = Color( 0.929412, 0.882353, 0.619608, 1 )
+custom_fonts/font = SubResource( 34 )
+custom_styles/hover = SubResource( 35 )
+custom_styles/pressed = SubResource( 36 )
+custom_styles/focus = SubResource( 37 )
+custom_styles/disabled = SubResource( 38 )
+custom_styles/normal = SubResource( 39 )
+text = "SETTINGS"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 138.0
+margin_right = 864.0
+margin_bottom = 203.0
+custom_colors/font_color_focus = Color( 0.541176, 0.690196, 0.376471, 1 )
+custom_colors/font_color = Color( 0.94902, 0.941176, 0.898039, 1 )
+custom_colors/font_color_hover = Color( 0.541176, 0.690196, 0.376471, 1 )
+custom_colors/font_color_pressed = Color( 0.929412, 0.882353, 0.619608, 1 )
+custom_fonts/font = SubResource( 34 )
+custom_styles/hover = SubResource( 35 )
+custom_styles/pressed = SubResource( 36 )
+custom_styles/focus = SubResource( 37 )
+custom_styles/disabled = SubResource( 38 )
+custom_styles/normal = SubResource( 39 )
+text = "QUIT"
+
+[node name="AreaChoose" type="CanvasLayer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+offset = Vector2( 1000, 0 )
+transform = Transform2D( 1, 0, 0, 1, 1000, 0 )
+
+[node name="AreaChooseContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/AreaChoose"]
+margin_left = 80.0
+margin_top = 203.0
+margin_right = 944.0
+margin_bottom = 550.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/vseparation = 30
 columns = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/AreaChooseContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer"]
 margin_right = 430.0
 margin_bottom = 159.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Area1Button" type="Button" parent="MarginContainer/VBoxContainer/AreaChooseContainer/MarginContainer"]
+[node name="Area1Button" type="Button" parent="MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer/MarginContainer"]
 unique_name_in_owner = true
 margin_right = 430.0
 margin_bottom = 159.0
@@ -319,14 +410,14 @@ icon = ExtResource( 4 )
 icon_align = 1
 expand_icon = true
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/AreaChooseContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer"]
 margin_left = 434.0
 margin_right = 864.0
 margin_bottom = 159.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Area2Button" type="Button" parent="MarginContainer/VBoxContainer/AreaChooseContainer/MarginContainer2"]
+[node name="Area2Button" type="Button" parent="MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer/MarginContainer2"]
 unique_name_in_owner = true
 margin_right = 430.0
 margin_bottom = 159.0
@@ -342,14 +433,14 @@ icon = ExtResource( 8 )
 icon_align = 1
 expand_icon = true
 
-[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/AreaChooseContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer"]
 margin_top = 189.0
 margin_right = 430.0
 margin_bottom = 347.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Area3Button" type="Button" parent="MarginContainer/VBoxContainer/AreaChooseContainer/MarginContainer3"]
+[node name="Area3Button" type="Button" parent="MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer/MarginContainer3"]
 unique_name_in_owner = true
 margin_right = 430.0
 margin_bottom = 158.0
@@ -366,7 +457,7 @@ icon = ExtResource( 3 )
 icon_align = 1
 expand_icon = true
 
-[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer/AreaChooseContainer"]
+[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer"]
 margin_left = 434.0
 margin_top = 189.0
 margin_right = 864.0
@@ -374,7 +465,7 @@ margin_bottom = 347.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Area4Button" type="Button" parent="MarginContainer/VBoxContainer/AreaChooseContainer/MarginContainer4"]
+[node name="Area4Button" type="Button" parent="MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer/MarginContainer4"]
 unique_name_in_owner = true
 margin_right = 430.0
 margin_bottom = 158.0
@@ -409,9 +500,15 @@ bus = "Sfx"
 material = SubResource( 32 )
 margin_left = -125.0
 margin_top = -91.0
-margin_right = 1795.0
-margin_bottom = 949.0
+margin_right = 1155.0
+margin_bottom = 709.0
 mouse_filter = 2
 texture = ExtResource( 7 )
 
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/StartButton" to="." method="_on_menu_button_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_menu_button_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_SettingsButton_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_menu_button_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -13,8 +13,13 @@ onready var menu_button_content := [
 ]
 
 onready var animation_player: AnimationPlayer = $AnimationPlayer
-onready var title_label: RichTextLabel = $MarginContainer/VBoxContainer/TitleLabel
- 
+onready var title_label: RichTextLabel = $"%TitleLabel"
+onready var start_button: Button = $"%StartButton"
+onready var settings_button: Button = $"%SettingsButton"
+onready var quit_button: Button = $"%QuitButton"
+onready var main_menu_buttons: CanvasLayer = $"%MainMenuButtons"
+onready var area_choose: CanvasLayer = $"%AreaChoose"
+
 
 export(Color) var button_tint := Color("edc8c4")
 
@@ -33,7 +38,7 @@ func _ready() -> void:
 		button_content.get_node("ShadowPivot").hide()
 		button_content.set_animation_loop("move", true)
 	
-	menu_buttons[0].grab_focus()
+#	menu_buttons[0].grab_focus()
 	
 
 func _connect_menu_button(button: Button) -> void:
@@ -44,8 +49,9 @@ func _connect_menu_button(button: Button) -> void:
 	button.connect("pressed", self, "_on_menu_button_pressed",[button])
 
 
-func start_menu_button_animation(button) -> void:
+func start_menu_button_animation(button = null) -> void:
 	$PikSfx.play()
+	if button == null: return
 	button.modulate = button_tint
 	if button.get_child_count() == 0 or button.disabled: return
 	
@@ -65,7 +71,7 @@ func stop_menu_button_animation(button) -> void:
 	item_to_animate.get_node("AnimationPlayer").stop(false)
 
 
-func _on_menu_button_focus_entered(button) -> void:
+func _on_menu_button_focus_entered(button = null) -> void:
 	start_menu_button_animation(button)
 
 
@@ -73,7 +79,7 @@ func _on_menu_button_focus_exited(button) -> void:
 	stop_menu_button_animation(button)
 
 
-func _on_menu_button_mouse_entered(button) -> void:
+func _on_menu_button_mouse_entered(button = null) -> void:
 	start_menu_button_animation(button)
 
 
@@ -106,3 +112,18 @@ func _on_AnimationPlayer_animation_finished(anim_name: String):
 	match anim_name:
 		"Area1Button": return get_tree().change_scene("res://source/scenes/Main.tscn")
 		"Area2Button": return get_tree().change_scene("res://source/scenes/levels/city.tscn")
+
+
+func _on_StartButton_pressed() -> void:
+	$PikSfx.play()
+	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(main_menu_buttons, "offset:x", 1000.0, 0.5)
+	tween.tween_property(area_choose, "offset:x", 0.0, 0.5)
+
+
+func _on_SettingsButton_pressed() -> void:
+	$PikSfx.play()
+
+
+func _on_QuitButton_pressed() -> void:
+	get_tree().quit()

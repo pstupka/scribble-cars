@@ -16,15 +16,20 @@ var score: int
 
 var paused: bool = false
 
-var car_templates : Array = [
-	preload("res://source/scenes/actors/car_templates/car1.tscn"),
-	preload("res://source/scenes/actors/car_templates/car_police.tscn"),
-	preload("res://source/scenes/actors/car_templates/car3.tscn"),
-	preload("res://source/scenes/actors/car_templates/bus2.tscn"),
-	preload("res://source/scenes/actors/car_templates/car_ambulance.tscn"),
-	preload("res://source/scenes/actors/car_templates/tractor.tscn"),
-	preload("res://source/scenes/actors/car_templates/car_template.tscn"), 
-]
+var car_templates:Dictionary = {
+	"tractor": preload("res://source/scenes/actors/car_templates/tractor.tscn"),
+	"car1": preload("res://source/scenes/actors/car_templates/car1.tscn"),
+	"car_police": preload("res://source/scenes/actors/car_templates/car_police.tscn"),
+	"car3": preload("res://source/scenes/actors/car_templates/car3.tscn"),
+	"bus2": preload("res://source/scenes/actors/car_templates/bus2.tscn"),
+	"car_ambulance": preload("res://source/scenes/actors/car_templates/car_ambulance.tscn"),
+	"car_template": preload("res://source/scenes/actors/car_templates/car_template.tscn"),
+}
+
+var available_cars: = {
+	"forest": ["car_template", "tractor", "car1", "car3", "bus2", "car_police"],
+	"city": ["car3", "car1", "car_template", "bus2", "car_ambulance"]
+}
 
 var available_colors = [
 	Color("cf8acb"),

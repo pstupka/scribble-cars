@@ -10,6 +10,7 @@ onready var player = $Actors/Player
 onready var random_car = preload("res://source/scenes/actors/random_car.tscn")
 
 export var lanes_y_position = [410, 460]
+export var scene_type = "city"
 
 
 func _ready() -> void:

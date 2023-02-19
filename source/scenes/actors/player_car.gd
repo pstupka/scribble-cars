@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-onready var car := $Car
+onready var car 
 onready var camera: Camera2D = $Camera2D
 
 
@@ -13,24 +13,17 @@ export var is_jumping := false
 var is_flipping := false 
 var velocity
 
-var car_templates : Array = [
-	preload("res://source/scenes/actors/car_templates/tractor.tscn"),
-	preload("res://source/scenes/actors/car_templates/car1.tscn"),
-	preload("res://source/scenes/actors/car_templates/car_police.tscn"),
-	preload("res://source/scenes/actors/car_templates/car3.tscn"),
-	preload("res://source/scenes/actors/car_templates/bus2.tscn"),
-	preload("res://source/scenes/actors/car_templates/car_ambulance.tscn"),
-	preload("res://source/scenes/actors/car_templates/car_template.tscn"), # This should be last item
-]
-
+var _car_index = 0
 
 func _ready() -> void:
 	randomize()
 	is_jumping = false
 	camera.position.y = camera_y_offset
+	car = Globals.car_templates[ Globals.available_cars[owner.scene_type][0]].instance()
+	add_child(car)
 	
 	car.animation_player.connect("animation_finished", self, "_on_car_animation_finished")
-	
+#
 	if OS.get_name() != "Android" and OS.get_name() != "HTML5": 
 		$MobileControls.queue_free()
 
@@ -82,19 +75,19 @@ func change_car():
 	car.visible = false
 	car.animation_player.stop()
 	car.queue_free()
-	var new_car_tmpl = car_templates.pop_front()
-	var new_car = new_car_tmpl.instance()
 	
-	car_templates.push_back(new_car_tmpl)
-	
+	_car_index += 1
+	_car_index = _car_index % Globals.available_cars[owner.scene_type].size()
+	var new_car = Globals.car_templates[Globals.available_cars[owner.scene_type][_car_index]].instance()
+
 	add_child(new_car)
 	car = new_car
 	car.scale.x = face_direction
-	
+
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
 	tween.tween_property(car, "scale:y", 1.0, 1.2).from(0.0)
-	
+
 	car.animation_player.connect("animation_finished", self, "_on_car_animation_finished")
 
 

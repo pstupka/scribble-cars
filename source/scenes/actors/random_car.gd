@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-
 var screen_exit_delayed = false
 
 export var speed = 50
@@ -11,7 +10,9 @@ var car = null
 
 func _ready():
 	randomize()
-	var new_car = Globals.car_templates[randi() % Globals.car_templates.size()].instance()
+	
+	var _car_index = randi() % Globals.available_cars[get_tree().current_scene.scene_type].size()
+	var new_car = Globals.car_templates[Globals.available_cars[get_tree().current_scene.scene_type][_car_index]].instance()
 	add_child(new_car)
 	car = new_car
 	car.scale.x = -direction.x
