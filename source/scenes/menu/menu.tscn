@@ -344,6 +344,7 @@ unique_name_in_owner = true
 margin_top = 69.0
 margin_right = 864.0
 margin_bottom = 134.0
+custom_colors/font_color_disabled = Color( 0.721569, 0.709804, 0.72549, 1 )
 custom_colors/font_color_focus = Color( 0.635294, 0.862745, 0.780392, 1 )
 custom_colors/font_color = Color( 0.94902, 0.941176, 0.898039, 1 )
 custom_colors/font_color_hover = Color( 0.635294, 0.862745, 0.780392, 1 )
@@ -354,13 +355,33 @@ custom_styles/pressed = SubResource( 36 )
 custom_styles/focus = SubResource( 37 )
 custom_styles/disabled = SubResource( 38 )
 custom_styles/normal = SubResource( 39 )
+disabled = true
 text = "SETTINGS"
 
-[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer"]
+[node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 margin_top = 138.0
 margin_right = 864.0
 margin_bottom = 203.0
+custom_colors/font_color_disabled = Color( 0.721569, 0.709804, 0.72549, 1 )
+custom_colors/font_color_focus = Color( 0.635294, 0.862745, 0.780392, 1 )
+custom_colors/font_color = Color( 0.94902, 0.941176, 0.898039, 1 )
+custom_colors/font_color_hover = Color( 0.635294, 0.862745, 0.780392, 1 )
+custom_colors/font_color_pressed = Color( 0.929412, 0.882353, 0.619608, 1 )
+custom_fonts/font = SubResource( 34 )
+custom_styles/hover = SubResource( 35 )
+custom_styles/pressed = SubResource( 36 )
+custom_styles/focus = SubResource( 37 )
+custom_styles/disabled = SubResource( 38 )
+custom_styles/normal = SubResource( 39 )
+disabled = true
+text = "CREDITS"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 207.0
+margin_right = 864.0
+margin_bottom = 272.0
 custom_colors/font_color_focus = Color( 0.541176, 0.690196, 0.376471, 1 )
 custom_colors/font_color = Color( 0.94902, 0.941176, 0.898039, 1 )
 custom_colors/font_color_hover = Color( 0.541176, 0.690196, 0.376471, 1 )
@@ -509,6 +530,8 @@ texture = ExtResource( 7 )
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_menu_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_SettingsButton_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_menu_button_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_menu_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

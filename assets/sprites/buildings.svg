@@ -25,13 +25,13 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:lockguides="true"
-     inkscape:zoom="3.6203869"
-     inkscape:cx="-7578.1956"
-     inkscape:cy="1677.9975"
+     inkscape:zoom="0.080000004"
+     inkscape:cx="-5949.9997"
+     inkscape:cy="4524.9998"
      inkscape:window-width="1920"
-     inkscape:window-height="1137"
-     inkscape:window-x="3112"
-     inkscape:window-y="-4"
+     inkscape:window-height="1017"
+     inkscape:window-x="1192"
+     inkscape:window-y="119"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer9" />
   <defs
@@ -415,7 +415,7 @@
        id="path2632"
        inkscape:label="15_fill"
        sodipodi:nodetypes="cssssssc"
-       inkscape:export-filename="buildings\city.png"
+       inkscape:export-filename="buildings\city2.png"
        inkscape:export-xdpi="45"
        inkscape:export-ydpi="45" />
     <path
@@ -441,7 +441,10 @@
        id="path2447"
        inkscape:label="11_fill"
        sodipodi:nodetypes="csssssssc"
-       transform="translate(9.7916669e-7)" />
+       transform="translate(9.7916669e-7)"
+       inkscape:export-filename="buildings\city3.png"
+       inkscape:export-xdpi="45"
+       inkscape:export-ydpi="45" />
     <path
        id="path1399"
        style="display:inline;fill:#212123;fill-opacity:1;stroke-width:0.194395"
@@ -525,7 +528,10 @@
        d="m -1956.626,738.77759 c 0,0 -21.4624,-106.4584 -30.7919,-165.77058 -5.6375,-35.83997 1.0522,-60.75274 -2.0094,-70.79824 -7.7147,-25.31285 -11.6593,-28.36777 -8.1378,-32.73896 3.5214,-4.37115 11.7065,-13.44121 27.553,-13.44121 15.8465,0 108.4195,-48.75563 114.582,-38.92053 6.1625,9.83516 9.0656,247.42453 9.0384,280.0336 -0.01,9.58054 4.9874,31.23768 -2.5176,34.95516 -8.0585,3.99168 -24.6892,-1.55926 -36.5409,-1.55926 -22.8895,0 -31.5596,46.48777 -71.1758,8.24002 z"
        id="path4675"
        inkscape:label="4_fill2"
-       sodipodi:nodetypes="cssssssssc" />
+       sodipodi:nodetypes="cssssssssc"
+       inkscape:export-filename="buildings\city1..png"
+       inkscape:export-xdpi="40"
+       inkscape:export-ydpi="40" />
     <path
        id="path317"
        style="display:inline;fill:#212123;fill-opacity:1;stroke-width:0.205266"

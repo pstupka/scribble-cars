@@ -122,8 +122,15 @@ func _on_StartButton_pressed() -> void:
 
 
 func _on_SettingsButton_pressed() -> void:
+	if $"%SettingsButton".disabled: return
+
 	$PikSfx.play()
 
 
 func _on_QuitButton_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_CreditsButton_pressed() -> void:
+	if $"%SettingsButton".disabled: return
+	$PikSfx.play()

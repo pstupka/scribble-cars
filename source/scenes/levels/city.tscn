@@ -1,10 +1,9 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://source/scenes/levels/city.gd" type="Script" id=1]
 [ext_resource path="res://source/scenes/actors/player_car.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/sprites/road_fill.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/road_outline.png" type="Texture" id=4]
-[ext_resource path="res://assets/sprites/buildings/city.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/stars/star3.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/buildings/city_bg.png" type="Texture" id=7]
 [ext_resource path="res://assets/sprites/stars/star2.png" type="Texture" id=8]
@@ -25,6 +24,9 @@
 [ext_resource path="res://source/scenes/props/Cloud3.tscn" type="PackedScene" id=23]
 [ext_resource path="res://source/scenes/props/Cloud4.tscn" type="PackedScene" id=24]
 [ext_resource path="res://assets/audio/Bike Rides - The Green Orbs.mp3" type="AudioStream" id=25]
+[ext_resource path="res://assets/sprites/buildings/city3.png" type="Texture" id=26]
+[ext_resource path="res://assets/sprites/buildings/city2.png" type="Texture" id=27]
+[ext_resource path="res://assets/sprites/buildings/city1..png" type="Texture" id=28]
 
 [sub_resource type="Gradient" id=11]
 offsets = PoolRealArray( 0, 0.324713, 0.462644, 0.62069, 1 )
@@ -309,13 +311,13 @@ motion_mirroring = Vector2( 2100, 0 )
 
 [node name="CityBg2" type="Sprite" parent="ParallaxBackground/BuildingsBg2"]
 modulate = Color( 0.721569, 0.709804, 0.72549, 1 )
-position = Vector2( 442, 58 )
+position = Vector2( 309.25, 44.25 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 17 )
 
 [node name="CityBg4" type="Sprite" parent="ParallaxBackground/BuildingsBg2"]
 modulate = Color( 0.4732, 0.456, 0.48, 1 )
-position = Vector2( 1396, 98 )
+position = Vector2( 1263.25, 84.25 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 19 )
 
@@ -332,7 +334,7 @@ z_index = 10
 
 [node name="Buildings" type="ParallaxLayer" parent="RoadParallax"]
 motion_scale = Vector2( 0.95, 1 )
-motion_mirroring = Vector2( 2350, 0 )
+motion_mirroring = Vector2( 2250, 0 )
 
 [node name="ColorRect" type="ColorRect" parent="RoadParallax/Buildings"]
 margin_top = 281.0
@@ -340,10 +342,20 @@ margin_right = 2350.0
 margin_bottom = 881.0
 color = Color( 0.62, 0.6138, 0.6076, 1 )
 
-[node name="City" type="Sprite" parent="RoadParallax/Buildings"]
-position = Vector2( 1049, 2 )
+[node name="City1" type="Sprite" parent="RoadParallax/Buildings"]
+position = Vector2( 364, 35 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 5 )
+texture = ExtResource( 28 )
+
+[node name="City2" type="Sprite" parent="RoadParallax/Buildings"]
+position = Vector2( 1167, 38 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 27 )
+
+[node name="City3" type="Sprite" parent="RoadParallax/Buildings"]
+position = Vector2( 1884, 140 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 26 )
 
 [node name="Road" type="ParallaxLayer" parent="RoadParallax"]
 position = Vector2( -4, -4 )
@@ -421,7 +433,7 @@ autostart = true
 
 [node name="EnterTweener" type="Node" parent="."]
 script = ExtResource( 22 )
-node_paths = [ NodePath("../ParallaxBackground/BuildingsBg/CityBg2"), NodePath("../ParallaxBackground/BuildingsBg/CityBg"), NodePath("../ParallaxBackground/BuildingsBg3/CityBg3"), NodePath("../ParallaxBackground/BuildingsBg3/CityBg4"), NodePath("../ParallaxBackground/BuildingsBg2/CityBg2"), NodePath("../ParallaxBackground/BuildingsBg2/CityBg4"), NodePath("../RoadParallax/Buildings/City"), NodePath("../RoadParallax/Road/Road1"), NodePath("../RoadParallax/Buildings/ColorRect"), NodePath("../Actors/Player"), NodePath("../ParallaxBackground/Clouds2/Pivot"), NodePath("../ParallaxBackground/Clouds/Pivot"), NodePath("../ParallaxBackground/MoonSun/Sun"), NodePath("../ParallaxBackground/Sky/Sky"), NodePath("../Actors/Streetlight2"), NodePath("../ParallaxBackground/MoonSun/Moon"), NodePath("../ParallaxBackground/Stars/Pivot") ]
+node_paths = [ NodePath("../ParallaxBackground/BuildingsBg/CityBg2"), NodePath("../ParallaxBackground/BuildingsBg/CityBg"), NodePath("../ParallaxBackground/BuildingsBg3/CityBg3"), NodePath("../ParallaxBackground/BuildingsBg3/CityBg4"), NodePath("../ParallaxBackground/BuildingsBg2/CityBg2"), NodePath("../ParallaxBackground/BuildingsBg2/CityBg4"), NodePath("../RoadParallax/Buildings/City1"), NodePath("../RoadParallax/Buildings/City3"), NodePath("../RoadParallax/Buildings/City2"), NodePath("../RoadParallax/Road/Road1"), NodePath("../RoadParallax/Buildings/ColorRect"), NodePath("../Actors/Player"), NodePath("../ParallaxBackground/Clouds2/Pivot"), NodePath("../ParallaxBackground/Clouds/Pivot"), NodePath("../ParallaxBackground/MoonSun/Sun"), NodePath("../ParallaxBackground/Sky/Sky"), NodePath("../Actors/Streetlight2"), NodePath("../ParallaxBackground/MoonSun/Moon"), NodePath("../ParallaxBackground/Stars/Pivot") ]
 object_time_offset = 0.05
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
