@@ -39,7 +39,8 @@ func _ready() -> void:
 		button_content.set_animation_loop("move", true)
 	
 #	menu_buttons[0].grab_focus()
-	
+	if OS.get_name() == "HTML5":
+		quit_button.queue_free()
 
 func _connect_menu_button(button: Button) -> void:
 	button.connect("focus_entered", self, "_on_menu_button_focus_entered",[button])
@@ -81,6 +82,7 @@ func hide_sub_menu(sub_menu: CanvasLayer) -> void:
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(sub_menu, "offset:x", 1000.0, 0.5)
 	tween.tween_property(main_menu_buttons, "offset:x", 0.0, 0.5)
+
 
 func _on_menu_button_focus_entered(button = null) -> void:
 	start_menu_button_animation(button)
