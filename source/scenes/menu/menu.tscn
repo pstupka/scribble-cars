@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://source/scenes/menu/menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/LittleThings-ZX5Z.ttf" type="DynamicFontData" id=2]
@@ -8,6 +8,11 @@
 [ext_resource path="res://assets/audio/pik.mp3" type="AudioStream" id=6]
 [ext_resource path="res://assets/sprites/ui/paper-texture-dark.png" type="Texture" id=7]
 [ext_resource path="res://assets/sprites/ui_menu_button_a2.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/ui/arrow_up.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/ui/arrow_down.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/ui/arrow_left_big.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/ui/arrow_left_big_transparent.png" type="Texture" id=12]
+[ext_resource path="res://resources/ui/scroll_grabber_style_car.tres" type="StyleBox" id=13]
 
 [sub_resource type="DynamicFont" id=31]
 size = 125
@@ -55,12 +60,53 @@ region_rect = Rect2( 0, 0, 437, 196 )
 
 [sub_resource type="StyleBoxEmpty" id=6]
 
+[sub_resource type="StyleBoxTexture" id=49]
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 79, 43 )
+
+[sub_resource type="StyleBoxTexture" id=50]
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 79, 43 )
+
+[sub_resource type="StyleBoxTexture" id=51]
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 79, 43 )
+
+[sub_resource type="StyleBoxEmpty" id=52]
+
+[sub_resource type="StyleBoxTexture" id=53]
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 79, 43 )
+
+[sub_resource type="StyleBoxEmpty" id=48]
+
+[sub_resource type="StyleBoxEmpty" id=46]
+
+[sub_resource type="Theme" id=41]
+VScrollBar/icons/decrement = ExtResource( 9 )
+VScrollBar/icons/decrement_highlight = ExtResource( 9 )
+VScrollBar/icons/decrement_pressed = ExtResource( 9 )
+VScrollBar/icons/increment = ExtResource( 10 )
+VScrollBar/icons/increment_highlight = ExtResource( 10 )
+VScrollBar/icons/increment_pressed = ExtResource( 10 )
+VScrollBar/styles/grabber = ExtResource( 13 )
+VScrollBar/styles/grabber_highlight = ExtResource( 13 )
+VScrollBar/styles/grabber_pressed = ExtResource( 13 )
+VScrollBar/styles/scroll = SubResource( 48 )
+VScrollBar/styles/scroll_focus = SubResource( 46 )
+
+[sub_resource type="DynamicFont" id=40]
+size = 32
+outline_size = 3
+outline_color = Color( 0.129412, 0.129412, 0.137255, 1 )
+font_data = ExtResource( 2 )
+
 [sub_resource type="Animation" id=10]
 resource_name = "Area1Button"
 length = 1.2
 step = 0.01
 tracks/0/type = "value"
-tracks/0/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer/MarginContainer/Area1Button:self_modulate")
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer/Area1Button:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -72,7 +118,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer/MarginContainer2/Area2Button:modulate")
+tracks/1/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer2/Area2Button:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -84,7 +130,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer/MarginContainer3/Area3Button:modulate")
+tracks/2/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer3/Area3Button:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -96,7 +142,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer/MarginContainer4/Area4Button:modulate")
+tracks/3/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer4/Area4Button:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -149,7 +195,7 @@ resource_name = "Area2Button"
 length = 1.2
 step = 0.01
 tracks/0/type = "value"
-tracks/0/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer/MarginContainer/Area1Button:modulate")
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer/Area1Button:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -161,7 +207,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer/MarginContainer2/Area2Button:self_modulate")
+tracks/1/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer2/Area2Button:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -173,7 +219,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer/MarginContainer3/Area3Button:modulate")
+tracks/2/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer3/Area3Button:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -185,7 +231,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer/MarginContainer4/Area4Button:modulate")
+tracks/3/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer4/Area4Button:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -236,7 +282,7 @@ tracks/6/keys = {
 [sub_resource type="Animation" id=11]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer/MarginContainer/Area1Button:modulate")
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer/Area1Button:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -374,7 +420,6 @@ custom_styles/pressed = SubResource( 36 )
 custom_styles/focus = SubResource( 37 )
 custom_styles/disabled = SubResource( 38 )
 custom_styles/normal = SubResource( 39 )
-disabled = true
 text = "CREDITS"
 
 [node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer"]
@@ -399,26 +444,31 @@ unique_name_in_owner = true
 offset = Vector2( 1000, 0 )
 transform = Transform2D( 1, 0, 0, 1, 1000, 0 )
 
-[node name="AreaChooseContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/AreaChoose"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/AreaChoose"]
 margin_left = 80.0
 margin_top = 203.0
 margin_right = 944.0
 margin_bottom = 550.0
+size_flags_vertical = 3
+
+[node name="AreaChooseContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/AreaChoose/VBoxContainer"]
+margin_right = 864.0
+margin_bottom = 303.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/vseparation = 30
 columns = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer"]
 margin_right = 430.0
-margin_bottom = 159.0
+margin_bottom = 137.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Area1Button" type="Button" parent="MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer/MarginContainer"]
+[node name="Area1Button" type="Button" parent="MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer"]
 unique_name_in_owner = true
 margin_right = 430.0
-margin_bottom = 159.0
+margin_bottom = 137.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 9 )
@@ -431,17 +481,17 @@ icon = ExtResource( 4 )
 icon_align = 1
 expand_icon = true
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer"]
 margin_left = 434.0
 margin_right = 864.0
-margin_bottom = 159.0
+margin_bottom = 137.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Area2Button" type="Button" parent="MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer/MarginContainer2"]
+[node name="Area2Button" type="Button" parent="MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer2"]
 unique_name_in_owner = true
 margin_right = 430.0
-margin_bottom = 159.0
+margin_bottom = 137.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 9 )
@@ -454,17 +504,17 @@ icon = ExtResource( 8 )
 icon_align = 1
 expand_icon = true
 
-[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer"]
-margin_top = 189.0
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer"]
+margin_top = 167.0
 margin_right = 430.0
-margin_bottom = 347.0
+margin_bottom = 303.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Area3Button" type="Button" parent="MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer/MarginContainer3"]
+[node name="Area3Button" type="Button" parent="MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer3"]
 unique_name_in_owner = true
 margin_right = 430.0
-margin_bottom = 158.0
+margin_bottom = 136.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 9 )
@@ -478,30 +528,119 @@ icon = ExtResource( 3 )
 icon_align = 1
 expand_icon = true
 
-[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer"]
+[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer"]
 margin_left = 434.0
-margin_top = 189.0
+margin_top = 167.0
+margin_right = 864.0
+margin_bottom = 303.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Area4Button" type="Button" parent="MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer4"]
+unique_name_in_owner = true
+margin_right = 430.0
+margin_bottom = 136.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 9 )
+custom_styles/hover = SubResource( 18 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 26 )
+custom_styles/disabled = SubResource( 30 )
+custom_styles/normal = SubResource( 6 )
+disabled = true
+icon = ExtResource( 3 )
+icon_align = 1
+expand_icon = true
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/AreaChoose/VBoxContainer"]
+margin_top = 307.0
 margin_right = 864.0
 margin_bottom = 347.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
-[node name="Area4Button" type="Button" parent="MarginContainer/VBoxContainer/AreaChoose/AreaChooseContainer/MarginContainer4"]
-unique_name_in_owner = true
-margin_right = 430.0
-margin_bottom = 158.0
+[node name="AreaChooseBackButton" type="Button" parent="MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/CenterContainer"]
+margin_left = 392.0
+margin_right = 472.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
 size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 9 )
-custom_styles/hover = SubResource( 18 )
-custom_styles/pressed = SubResource( 4 )
-custom_styles/focus = SubResource( 26 )
-custom_styles/disabled = SubResource( 30 )
-custom_styles/normal = SubResource( 6 )
-disabled = true
-icon = ExtResource( 3 )
+size_flags_stretch_ratio = 3.41
+custom_styles/hover = SubResource( 49 )
+custom_styles/pressed = SubResource( 50 )
+custom_styles/focus = SubResource( 51 )
+custom_styles/disabled = SubResource( 52 )
+custom_styles/normal = SubResource( 53 )
+text = "                    "
 icon_align = 1
-expand_icon = true
+
+[node name="CreditsMenu" type="CanvasLayer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+offset = Vector2( 1000, 0 )
+transform = Transform2D( 1, 0, 0, 1, 1000, 0 )
+
+[node name="MarginContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CreditsMenu"]
+margin_left = 80.0
+margin_top = 203.0
+margin_right = 944.0
+margin_bottom = 550.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/CreditsMenu/MarginContainer"]
+margin_right = 864.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 0, 300 )
+theme = SubResource( 41 )
+scroll_horizontal_enabled = false
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/CreditsMenu/MarginContainer/ScrollContainer"]
+margin_right = 653.0
+margin_bottom = 593.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/CreditsMenu/MarginContainer/ScrollContainer/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 643.0
+margin_bottom = 583.0
+custom_fonts/font = SubResource( 40 )
+text = "Programming & Design
+> Patryk Stupka
+
+Sound Effects
+> Jan Stupka
+
+Graphics
+> Jan Stupka
+
+Music:
+> Ukulele by Benjamin Tissot ( bensound.com
+> Little Idea by Benjamin Tissot ( bensound.com
+> Bike Rides by The Green Orbs
+
+Fonts:
+> Little Things ( fontspace.com"
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/CreditsMenu/MarginContainer"]
+margin_top = 304.0
+margin_right = 864.0
+margin_bottom = 344.0
+
+[node name="CreditsBackButton" type="Button" parent="MarginContainer/VBoxContainer/CreditsMenu/MarginContainer/CenterContainer"]
+margin_left = 392.0
+margin_right = 472.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.41
+custom_styles/hover = SubResource( 49 )
+custom_styles/pressed = SubResource( 50 )
+custom_styles/focus = SubResource( 51 )
+custom_styles/disabled = SubResource( 52 )
+custom_styles/normal = SubResource( 53 )
+text = "                    "
+icon_align = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Area1Button = SubResource( 10 )
@@ -534,4 +673,6 @@ texture = ExtResource( 7 )
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_menu_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/CenterContainer/AreaChooseBackButton" to="." method="_on_AreaChooseBackButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CreditsMenu/MarginContainer/CenterContainer/CreditsBackButton" to="." method="_on_CreditsBackButton_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

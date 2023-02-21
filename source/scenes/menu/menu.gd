@@ -32,8 +32,8 @@ func _ready() -> void:
 		var button_content = menu_button_content[i].instance()
 		menu_buttons[i].add_child(button_content)
 		
-		button_content.position = Vector2(210,130)
-		button_content.scale = Vector2(-0.7, 0.7)
+		button_content.position = Vector2(210,120)
+		button_content.scale = Vector2(-0.65, 0.65)
 		button_content.get_node("AnimationPivot/Particles2D").emitting = false
 		button_content.get_node("ShadowPivot").hide()
 		button_content.set_animation_loop("move", true)
@@ -70,6 +70,17 @@ func stop_menu_button_animation(button) -> void:
 	item_to_animate.get_node("AnimationPivot/Particles2D").emitting = false
 	item_to_animate.get_node("AnimationPlayer").stop(false)
 
+
+func show_sub_menu(sub_menu: CanvasLayer) -> void:
+	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(main_menu_buttons, "offset:x", 1000.0, 0.5)
+	tween.tween_property(sub_menu, "offset:x", 0.0, 0.5)
+
+
+func hide_sub_menu(sub_menu: CanvasLayer) -> void:
+	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(sub_menu, "offset:x", 1000.0, 0.5)
+	tween.tween_property(main_menu_buttons, "offset:x", 0.0, 0.5)
 
 func _on_menu_button_focus_entered(button = null) -> void:
 	start_menu_button_animation(button)
@@ -116,14 +127,11 @@ func _on_AnimationPlayer_animation_finished(anim_name: String):
 
 func _on_StartButton_pressed() -> void:
 	$PikSfx.play()
-	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
-	tween.tween_property(main_menu_buttons, "offset:x", 1000.0, 0.5)
-	tween.tween_property(area_choose, "offset:x", 0.0, 0.5)
+	show_sub_menu($"%AreaChoose")
 
 
 func _on_SettingsButton_pressed() -> void:
 	if $"%SettingsButton".disabled: return
-
 	$PikSfx.play()
 
 
@@ -132,5 +140,16 @@ func _on_QuitButton_pressed() -> void:
 
 
 func _on_CreditsButton_pressed() -> void:
-	if $"%SettingsButton".disabled: return
+	if $"%CreditsButton".disabled: return
 	$PikSfx.play()
+	show_sub_menu($"%CreditsMenu")
+
+
+func _on_CreditsBackButton_pressed() -> void:
+	$PikSfx.play()
+	hide_sub_menu($"%CreditsMenu")
+
+
+func _on_AreaChooseBackButton_pressed() -> void:
+	$PikSfx.play()
+	hide_sub_menu($"%AreaChoose")
