@@ -1,9 +1,10 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://source/scenes/levels/city.gd" type="Script" id=1]
 [ext_resource path="res://source/scenes/actors/player_car.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/sprites/road_fill.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/road_outline.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/buildings/city_bg5.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/stars/star3.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/buildings/city_bg.png" type="Texture" id=7]
 [ext_resource path="res://assets/sprites/stars/star2.png" type="Texture" id=8]
@@ -317,9 +318,15 @@ texture = ExtResource( 17 )
 
 [node name="CityBg4" type="Sprite" parent="ParallaxBackground/BuildingsBg2"]
 modulate = Color( 0.4732, 0.456, 0.48, 1 )
-position = Vector2( 1263.25, 84.25 )
+position = Vector2( 1078, 88 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 19 )
+
+[node name="CityBg5" type="Sprite" parent="ParallaxBackground/BuildingsBg2"]
+modulate = Color( 0.47451, 0.454902, 0.478431, 1 )
+position = Vector2( 1691, 93 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 5 )
 
 [node name="DayNightModulate" parent="ParallaxBackground/BuildingsBg2" instance=ExtResource( 12 )]
 position = Vector2( 22, 78 )
@@ -433,7 +440,7 @@ autostart = true
 
 [node name="EnterTweener" type="Node" parent="."]
 script = ExtResource( 22 )
-node_paths = [ NodePath("../ParallaxBackground/BuildingsBg/CityBg2"), NodePath("../ParallaxBackground/BuildingsBg/CityBg"), NodePath("../ParallaxBackground/BuildingsBg3/CityBg3"), NodePath("../ParallaxBackground/BuildingsBg3/CityBg4"), NodePath("../ParallaxBackground/BuildingsBg2/CityBg2"), NodePath("../ParallaxBackground/BuildingsBg2/CityBg4"), NodePath("../RoadParallax/Buildings/City1"), NodePath("../RoadParallax/Buildings/City3"), NodePath("../RoadParallax/Buildings/City2"), NodePath("../RoadParallax/Road/Road1"), NodePath("../RoadParallax/Buildings/ColorRect"), NodePath("../Actors/Player"), NodePath("../ParallaxBackground/Clouds2/Pivot"), NodePath("../ParallaxBackground/Clouds/Pivot"), NodePath("../ParallaxBackground/MoonSun/Sun"), NodePath("../ParallaxBackground/Sky/Sky"), NodePath("../Actors/Streetlight2"), NodePath("../ParallaxBackground/MoonSun/Moon"), NodePath("../ParallaxBackground/Stars/Pivot") ]
+node_paths = [ NodePath("../ParallaxBackground/BuildingsBg/CityBg2"), NodePath("../ParallaxBackground/BuildingsBg/CityBg"), NodePath("../ParallaxBackground/BuildingsBg3/CityBg3"), NodePath("../ParallaxBackground/BuildingsBg3/CityBg4"), NodePath("../ParallaxBackground/BuildingsBg2/CityBg2"), NodePath("../ParallaxBackground/BuildingsBg2/CityBg4"), NodePath("../RoadParallax/Buildings/City1"), NodePath("../ParallaxBackground/BuildingsBg2/CityBg5"), NodePath("../RoadParallax/Buildings/City3"), NodePath("../RoadParallax/Buildings/City2"), NodePath("../RoadParallax/Road/Road1"), NodePath("../RoadParallax/Buildings/ColorRect"), NodePath("../Actors/Player"), NodePath("../ParallaxBackground/Clouds2/Pivot"), NodePath("../ParallaxBackground/Clouds/Pivot"), NodePath("../ParallaxBackground/MoonSun/Sun"), NodePath("../ParallaxBackground/Sky/Sky"), NodePath("../Actors/Streetlight2"), NodePath("../ParallaxBackground/MoonSun/Moon"), NodePath("../ParallaxBackground/Stars/Pivot") ]
 object_time_offset = 0.05
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

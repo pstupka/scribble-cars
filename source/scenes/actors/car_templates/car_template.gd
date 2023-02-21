@@ -15,10 +15,13 @@ export var color : Color setget set_color
 const PITCH_RAND = 0.05
 
 func _ready() -> void:
+	randomize()
 	Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
 	_on_time_of_day_changed(Globals.daynight)
 	set_color(color)
 	set_animation_loop("move", false)
+	
+	speed += randf() * 40.0 - 20.0
 
 func jump() -> void:
 	animation_player.play("jump")
