@@ -371,12 +371,16 @@ custom_fonts/normal_font = SubResource( 31 )
 bbcode_enabled = true
 bbcode_text = "[center][color=#ede19e]S[/color][color=#a77b5b]c[/color][color=#b45252]r[/color][color=#e5ceb4]i[/color][color=#7b7243]b[/color][color=#a2dcc7]b[/color][color=#cf8acb]l[/color][color=#3a3858]e[/color] [color=#80493a]C[/color][color=#c2d368]a[/color][color=#45444f]r[/color][color=#d3a068]s[/color]
 [/center]"
+visible_characters = 0
+percent_visible = 0.0
 text = "Scribble Cars
 "
 scroll_active = false
 
 [node name="MainMenuButtons" type="CanvasLayer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+offset = Vector2( 1000, 0 )
+transform = Transform2D( 1, 0, 0, 1, 1000, 0 )
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MainMenuButtons"]
 margin_left = 80.0

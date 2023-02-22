@@ -41,6 +41,11 @@ func _ready() -> void:
 #	menu_buttons[0].grab_focus()
 	if OS.get_name() == "HTML5":
 		quit_button.queue_free()
+	
+	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(main_menu_buttons, "offset:x", 0.0, 0.5).set_delay(0.5)
+	tween.parallel().tween_property(title_label, "percent_visible", 1.0, 0.5).set_delay(0.4)
+
 
 func _connect_menu_button(button: Button) -> void:
 	button.connect("focus_entered", self, "_on_menu_button_focus_entered",[button])

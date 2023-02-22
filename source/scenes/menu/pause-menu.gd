@@ -52,8 +52,19 @@ func _on_QuitButton_pressed() -> void:
 
 
 func _on_MainMenuButton_pressed() -> void:
-	get_tree().paused = false
-	get_tree().change_scene("res://source/scenes/menu/menu.tscn")
+	var tween = create_tween()
+	
+	main_menu_button.disabled = true
+	back_button.disabled = true
+	if quit_button: quit_button.disabled = true
+	tween.tween_property(pause_rich_label, "percent_visible", 0.0, 0.4)
+	tween.parallel().tween_property(overlay_texture.material, "shader_param/lod", 0.0, 0.5)
+	tween.parallel().tween_property(buttons_container, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.5)
+
+	tween.tween_callback(overlay_texture.material, "set_shader_param", ["apply", false])
+	tween.parallel().tween_property(overlay_texture, "color", Color.black, 1.0)
+	tween.tween_callback(get_tree(), "set_pause", [false])
+	tween.tween_callback(get_tree(), "change_scene", ["res://source/scenes/menu/menu.tscn"])
 
 
 func _on_BackButton_pressed() -> void:

@@ -7,16 +7,21 @@
 code = "shader_type canvas_item;
 
 uniform float lod: hint_range(0.0, 5) = 0.0;
+uniform bool apply = true;
 
 void fragment(){
-	vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV, lod);
-	COLOR = color;
+
+	if (apply) {
+		vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV, lod);
+		COLOR = color;
+	}
 }
 "
 
 [sub_resource type="ShaderMaterial" id=11]
 shader = SubResource( 10 )
 shader_param/lod = 0.0
+shader_param/apply = true
 
 [sub_resource type="DynamicFont" id=12]
 size = 125
@@ -51,10 +56,11 @@ motion_scale = Vector2( 0, 0 )
 
 [node name="ColorRect" type="ColorRect" parent="PauseOverlay"]
 material = SubResource( 11 )
-margin_left = -700.0
-margin_top = -450.0
-margin_right = 700.0
-margin_bottom = 350.0
+margin_left = -771.0
+margin_top = -455.0
+margin_right = 629.0
+margin_bottom = 345.0
+color = Color( 0, 0, 0, 0 )
 
 [node name="PauseLabel" type="RichTextLabel" parent="PauseOverlay"]
 margin_left = -507.0
