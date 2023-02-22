@@ -152,7 +152,7 @@ tracks/2/keys = {
 [node name="Cabrio" type="Node2D"]
 script = ExtResource( 5 )
 speed = 185.0
-color = Color( 0.811765, 0.541176, 0.796078, 1 )
+color = Color( 0.129412, 0.129412, 0.137255, 1 )
 
 [node name="ShadowPivot" type="Node2D" parent="."]
 
@@ -169,7 +169,7 @@ position = Vector2( 0, 0.012 )
 position = Vector2( 1.06396, -23.2806 )
 
 [node name="CarFill" type="Sprite" parent="AnimationPivot/Sprites"]
-self_modulate = Color( 0.811765, 0.541176, 0.796078, 1 )
+self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
 position = Vector2( -1.06396, -39.7314 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 13 )
