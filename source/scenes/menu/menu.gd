@@ -160,3 +160,13 @@ func _on_CreditsBackButton_pressed() -> void:
 func _on_AreaChooseBackButton_pressed() -> void:
 	$PikSfx.play()
 	hide_sub_menu($"%AreaChoose")
+
+
+func _on_ControlsButton_pressed() -> void:
+	$PikSfx.play()
+	show_sub_menu($"%ControlsMenu")
+
+
+func _on_ControlBackButton_pressed() -> void:
+	$PikSfx.play()
+	hide_sub_menu($"%ControlsMenu")

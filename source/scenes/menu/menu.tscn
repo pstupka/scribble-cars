@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://source/scenes/menu/menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/LittleThings-ZX5Z.ttf" type="DynamicFontData" id=2]
@@ -95,7 +95,13 @@ VScrollBar/styles/grabber_pressed = ExtResource( 13 )
 VScrollBar/styles/scroll = SubResource( 48 )
 VScrollBar/styles/scroll_focus = SubResource( 46 )
 
-[sub_resource type="DynamicFont" id=40]
+[sub_resource type="DynamicFont" id=55]
+size = 40
+outline_size = 3
+outline_color = Color( 0.129412, 0.129412, 0.137255, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=54]
 size = 32
 outline_size = 3
 outline_color = Color( 0.129412, 0.129412, 0.137255, 1 )
@@ -388,12 +394,12 @@ margin_top = 203.0
 margin_right = 944.0
 margin_bottom = 550.0
 size_flags_vertical = 3
-custom_constants/margin_top = 70
+custom_constants/margin_top = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer"]
-margin_top = 70.0
+margin_top = 10.0
 margin_right = 864.0
-margin_bottom = 347.0
+margin_bottom = 351.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -401,8 +407,8 @@ size_flags_vertical = 3
 unique_name_in_owner = true
 margin_right = 864.0
 margin_bottom = 65.0
-custom_colors/font_color_focus = Color( 0.705882, 0.321569, 0.321569, 1 )
-custom_colors/font_color = Color( 0.94902, 0.941176, 0.898039, 1 )
+custom_colors/font_color_focus = Color( 0.94902, 0.941176, 0.898039, 1 )
+custom_colors/font_color = Color( 0.811765, 0.541176, 0.796078, 1 )
 custom_colors/font_color_hover = Color( 0.705882, 0.321569, 0.321569, 1 )
 custom_colors/font_color_pressed = Color( 0.929412, 0.882353, 0.619608, 1 )
 custom_fonts/font = SubResource( 34 )
@@ -419,8 +425,8 @@ margin_top = 69.0
 margin_right = 864.0
 margin_bottom = 134.0
 custom_colors/font_color_disabled = Color( 0.721569, 0.709804, 0.72549, 1 )
-custom_colors/font_color_focus = Color( 0.635294, 0.862745, 0.780392, 1 )
-custom_colors/font_color = Color( 0.94902, 0.941176, 0.898039, 1 )
+custom_colors/font_color_focus = Color( 0.94902, 0.941176, 0.898039, 1 )
+custom_colors/font_color = Color( 0.294118, 0.501961, 0.792157, 1 )
 custom_colors/font_color_hover = Color( 0.635294, 0.862745, 0.780392, 1 )
 custom_colors/font_color_pressed = Color( 0.929412, 0.882353, 0.619608, 1 )
 custom_fonts/font = SubResource( 34 )
@@ -438,8 +444,8 @@ margin_top = 138.0
 margin_right = 864.0
 margin_bottom = 203.0
 custom_colors/font_color_disabled = Color( 0.721569, 0.709804, 0.72549, 1 )
-custom_colors/font_color_focus = Color( 0.635294, 0.862745, 0.780392, 1 )
-custom_colors/font_color = Color( 0.94902, 0.941176, 0.898039, 1 )
+custom_colors/font_color_focus = Color( 0.94902, 0.941176, 0.898039, 1 )
+custom_colors/font_color = Color( 0.827451, 0.627451, 0.407843, 1 )
 custom_colors/font_color_hover = Color( 0.635294, 0.862745, 0.780392, 1 )
 custom_colors/font_color_pressed = Color( 0.929412, 0.882353, 0.619608, 1 )
 custom_fonts/font = SubResource( 34 )
@@ -450,13 +456,31 @@ custom_styles/disabled = SubResource( 38 )
 custom_styles/normal = SubResource( 39 )
 text = "CREDITS"
 
-[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer"]
+[node name="ControlsButton" type="Button" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 margin_top = 207.0
 margin_right = 864.0
 margin_bottom = 272.0
-custom_colors/font_color_focus = Color( 0.541176, 0.690196, 0.376471, 1 )
-custom_colors/font_color = Color( 0.94902, 0.941176, 0.898039, 1 )
+custom_colors/font_color_disabled = Color( 0.721569, 0.709804, 0.72549, 1 )
+custom_colors/font_color_focus = Color( 0.94902, 0.941176, 0.898039, 1 )
+custom_colors/font_color = Color( 0.654902, 0.482353, 0.356863, 1 )
+custom_colors/font_color_hover = Color( 0.811765, 0.541176, 0.796078, 1 )
+custom_colors/font_color_pressed = Color( 0.929412, 0.882353, 0.619608, 1 )
+custom_fonts/font = SubResource( 34 )
+custom_styles/hover = SubResource( 35 )
+custom_styles/pressed = SubResource( 36 )
+custom_styles/focus = SubResource( 37 )
+custom_styles/disabled = SubResource( 38 )
+custom_styles/normal = SubResource( 39 )
+text = "CONTROLS"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 276.0
+margin_right = 864.0
+margin_bottom = 341.0
+custom_colors/font_color_focus = Color( 0.94902, 0.941176, 0.898039, 1 )
+custom_colors/font_color = Color( 0.337255, 0.482353, 0.47451, 1 )
 custom_colors/font_color_hover = Color( 0.541176, 0.690196, 0.376471, 1 )
 custom_colors/font_color_pressed = Color( 0.929412, 0.882353, 0.619608, 1 )
 custom_fonts/font = SubResource( 34 )
@@ -620,20 +644,40 @@ theme = SubResource( 41 )
 scroll_horizontal_enabled = false
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/CreditsMenu/MarginContainer/ScrollContainer"]
-margin_right = 653.0
-margin_bottom = 593.0
+margin_right = 864.0
+margin_bottom = 300.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
 custom_constants/margin_bottom = 10
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/CreditsMenu/MarginContainer/ScrollContainer/MarginContainer"]
+[node name="Label" type="RichTextLabel" parent="MarginContainer/VBoxContainer/CreditsMenu/MarginContainer/ScrollContainer/MarginContainer"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 643.0
-margin_bottom = 583.0
-custom_colors/font_color = Color( 0.94902, 0.941176, 0.898039, 1 )
-custom_fonts/font = SubResource( 40 )
+margin_right = 854.0
+margin_bottom = 290.0
+rect_clip_content = false
+custom_fonts/bold_font = SubResource( 55 )
+custom_fonts/normal_font = SubResource( 54 )
+bbcode_enabled = true
+bbcode_text = "[center][color=#b45252][b]Programming & Design[/b][/color]
+[color=#d3a068]> Patryk Stupka[/color]
+
+[color=#e5ceb4][b]Sound Effects[/b][/color]
+[color=#a2dcc7]> Jan Stupka[/color]
+
+[color=#68c2d3][b]Graphics[/b][/color]
+[color=#c2d368]> Jan Stupka[/color]
+
+[color=#7b7243][b]Music[/b][/color]
+[color=#cf8acb]> Ukulele by Benjamin Tissot ( bensound.com[/color]
+[color=#c2d368]> Little Idea by Benjamin Tissot ( bensound.com[/color]
+[color=#4b80ca]> Bike Rides by The Green Orbs[/color]
+
+[color=#868188][b]Fonts[/b][/color]
+[color=#b2b47e]> Little Things ( fontspace.com[/color][/center]"
 text = "Programming & Design
 > Patryk Stupka
 
@@ -643,12 +687,12 @@ Sound Effects
 Graphics
 > Jan Stupka
 
-Music:
+Music
 > Ukulele by Benjamin Tissot ( bensound.com
 > Little Idea by Benjamin Tissot ( bensound.com
 > Bike Rides by The Green Orbs
 
-Fonts:
+Fonts
 > Little Things ( fontspace.com"
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/CreditsMenu/MarginContainer"]
@@ -657,6 +701,84 @@ margin_right = 864.0
 margin_bottom = 344.0
 
 [node name="CreditsBackButton" type="Button" parent="MarginContainer/VBoxContainer/CreditsMenu/MarginContainer/CenterContainer"]
+margin_left = 392.0
+margin_right = 472.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.41
+custom_styles/hover = SubResource( 49 )
+custom_styles/pressed = SubResource( 50 )
+custom_styles/focus = SubResource( 51 )
+custom_styles/disabled = SubResource( 52 )
+custom_styles/normal = SubResource( 53 )
+text = "                    "
+icon_align = 1
+
+[node name="ControlsMenu" type="CanvasLayer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+offset = Vector2( 1000, 0 )
+transform = Transform2D( 1, 0, 0, 1, 1000, 0 )
+
+[node name="MarginContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ControlsMenu"]
+margin_left = 80.0
+margin_top = 203.0
+margin_right = 944.0
+margin_bottom = 550.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/ControlsMenu/MarginContainer"]
+margin_right = 864.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 0, 300 )
+theme = SubResource( 41 )
+scroll_horizontal_enabled = false
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ControlsMenu/MarginContainer/ScrollContainer"]
+margin_right = 864.0
+margin_bottom = 300.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="Label" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ControlsMenu/MarginContainer/ScrollContainer/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 854.0
+margin_bottom = 290.0
+rect_clip_content = false
+custom_fonts/bold_font = SubResource( 55 )
+custom_fonts/normal_font = SubResource( 54 )
+bbcode_enabled = true
+bbcode_text = "[center][color=#b45252][b]Keyboard[/b][/color]
+[color=#d3a068]WSAD, Arrows / Movement[/color]
+[color=#d3a068]Space, Enter, Z, X / Actions[/color]
+[color=#d3a068]P / Pause[/color]
+
+[color=#e5ceb4][b]Controller[/b][/color]
+[color=#a2dcc7]L Analog / Movement[/color]
+[color=#a2dcc7]B1, B2, B3, B4 / Actions[/color]
+[color=#a2dcc7]Start / Pause[/color]
+[/center]"
+text = "Keyboard
+WSAD, Arrows / Movement
+Space, Enter, Z, X / Actions
+P / Pause
+
+Controller
+L Analog / Movement
+B1, B2, B3, B4 / Actions
+Start / Pause
+"
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/ControlsMenu/MarginContainer"]
+margin_top = 304.0
+margin_right = 864.0
+margin_bottom = 344.0
+
+[node name="ControlBackButton" type="Button" parent="MarginContainer/VBoxContainer/ControlsMenu/MarginContainer/CenterContainer"]
 margin_left = 392.0
 margin_right = 472.0
 margin_bottom = 40.0
@@ -700,8 +822,11 @@ texture = ExtResource( 7 )
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_SettingsButton_pressed"]
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_menu_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/ControlsButton" to="." method="_on_menu_button_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/ControlsButton" to="." method="_on_ControlsButton_pressed"]
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_menu_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/CenterContainer/AreaChooseBackButton" to="." method="_on_AreaChooseBackButton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/CreditsMenu/MarginContainer/CenterContainer/CreditsBackButton" to="." method="_on_CreditsBackButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ControlsMenu/MarginContainer/CenterContainer/ControlBackButton" to="." method="_on_ControlBackButton_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
