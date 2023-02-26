@@ -21,6 +21,7 @@ var car_templates:Dictionary = {
 	"car1": preload("res://source/scenes/actors/car_templates/car1.tscn"),
 	"car_police": preload("res://source/scenes/actors/car_templates/car_police.tscn"),
 	"car3": preload("res://source/scenes/actors/car_templates/car3.tscn"),
+	"car4": preload("res://source/scenes/actors/car_templates/car4.tscn"),
 	"bus2": preload("res://source/scenes/actors/car_templates/bus2.tscn"),
 	"bus": preload("res://source/scenes/actors/car_templates/bus.tscn"),
 	"car_ambulance": preload("res://source/scenes/actors/car_templates/car_ambulance.tscn"),
@@ -29,7 +30,7 @@ var car_templates:Dictionary = {
 }
 
 var available_cars: = {
-	"forest": ["car_template", "tractor", "car1", "car3", "bus2", "car_police"],
+	"forest": ["car_template", "tractor", "car1", "car3", "car4", "bus2", "car_police"],
 	"city": ["car3", "cabrio", "car1", "car_template", "bus", "car_ambulance"]
 }
 

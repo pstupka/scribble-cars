@@ -15,7 +15,7 @@
 [ext_resource path="res://resources/ui/scroll_grabber_style_car.tres" type="StyleBox" id=13]
 
 [sub_resource type="DynamicFont" id=31]
-size = 125
+size = 120
 outline_size = 4
 outline_color = Color( 0.129412, 0.129412, 0.137255, 1 )
 font_data = ExtResource( 2 )
@@ -375,11 +375,11 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.37
 custom_fonts/normal_font = SubResource( 31 )
 bbcode_enabled = true
-bbcode_text = "[center][color=#ede19e]S[/color][color=#a77b5b]c[/color][color=#b45252]r[/color][color=#e5ceb4]i[/color][color=#7b7243]b[/color][color=#a2dcc7]b[/color][color=#cf8acb]l[/color][color=#3a3858]e[/color] [color=#80493a]C[/color][color=#c2d368]a[/color][color=#45444f]r[/color][color=#d3a068]s[/color]
+bbcode_text = "[center][color=#ede19e]S[/color][color=#a77b5b]c[/color][color=#b45252]r[/color][color=#e5ceb4]i[/color][color=#7b7243]b[/color][color=#a2dcc7]b[/color][color=#cf8acb]l[/color][color=#3a3858]e[/color] [color=#80493a]M[/color][color=#c2d368]a[/color][color=#45444f]c[/color][color=#d3a068]h[/color][color=#4b80ca]i[/color][color=#8ab060]n[/color][color=#68c2d3]e[/color][color=#567b79]s[/color]
 [/center]"
 visible_characters = 0
 percent_visible = 0.0
-text = "Scribble Cars
+text = "Scribble Machines
 "
 scroll_active = false
 
