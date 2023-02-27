@@ -448,10 +448,10 @@ texture = ExtResource( 4 )
 [node name="Actors" type="YSort" parent="."]
 
 [node name="Cat" parent="Actors" instance=ExtResource( 32 )]
-position = Vector2( 289, 349 )
+position = Vector2( 81, 513 )
 
 [node name="Cat2" parent="Actors" instance=ExtResource( 32 )]
-position = Vector2( 1780, 367 )
+position = Vector2( 847, 534 )
 
 [node name="Cat3" parent="Actors" instance=ExtResource( 32 )]
 position = Vector2( -1200, 534 )

@@ -399,7 +399,7 @@ custom_constants/margin_top = 10
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer"]
 margin_top = 10.0
 margin_right = 864.0
-margin_bottom = 351.0
+margin_bottom = 347.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -421,6 +421,7 @@ text = "START"
 
 [node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 margin_top = 69.0
 margin_right = 864.0
 margin_bottom = 134.0
@@ -440,9 +441,9 @@ text = "SETTINGS"
 
 [node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 138.0
+margin_top = 69.0
 margin_right = 864.0
-margin_bottom = 203.0
+margin_bottom = 134.0
 custom_colors/font_color_disabled = Color( 0.721569, 0.709804, 0.72549, 1 )
 custom_colors/font_color_focus = Color( 0.94902, 0.941176, 0.898039, 1 )
 custom_colors/font_color = Color( 0.827451, 0.627451, 0.407843, 1 )
@@ -458,9 +459,9 @@ text = "CREDITS"
 
 [node name="ControlsButton" type="Button" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 207.0
+margin_top = 138.0
 margin_right = 864.0
-margin_bottom = 272.0
+margin_bottom = 203.0
 custom_colors/font_color_disabled = Color( 0.721569, 0.709804, 0.72549, 1 )
 custom_colors/font_color_focus = Color( 0.94902, 0.941176, 0.898039, 1 )
 custom_colors/font_color = Color( 0.654902, 0.482353, 0.356863, 1 )
@@ -476,9 +477,9 @@ text = "CONTROLS"
 
 [node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 276.0
+margin_top = 207.0
 margin_right = 864.0
-margin_bottom = 341.0
+margin_bottom = 272.0
 custom_colors/font_color_focus = Color( 0.94902, 0.941176, 0.898039, 1 )
 custom_colors/font_color = Color( 0.337255, 0.482353, 0.47451, 1 )
 custom_colors/font_color_hover = Color( 0.541176, 0.690196, 0.376471, 1 )

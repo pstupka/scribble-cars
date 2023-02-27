@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Player
 
 onready var car 
 onready var camera: Camera2D = $Camera2D
@@ -48,7 +49,6 @@ func _physics_process(delta: float) -> void:
 	direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	direction.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	
-
 	if direction.x != 0:
 		if sign(previous_direction.x) != sign(direction.x):
 			flip()

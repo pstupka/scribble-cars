@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "EnterTweener",
 "language": "GDScript",
 "path": "res://source/utils/enter_tween.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://source/scenes/actors/player_car.gd"
 } ]
 _global_script_class_icons={
 "CarResource": "",
 "DayNightRotate": "",
-"EnterTweener": ""
+"EnterTweener": "",
+"Player": ""
 }
 
 [application]

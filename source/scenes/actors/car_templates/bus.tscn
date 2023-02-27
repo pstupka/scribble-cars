@@ -1,8 +1,8 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://assets/audio/hop.mp3" type="AudioStream" id=1]
 [ext_resource path="res://source/utils/day_night_utils/day_night_modulate.tscn" type="PackedScene" id=2]
-[ext_resource path="res://source/scenes/actors/car_templates/car_template.gd" type="Script" id=3]
+[ext_resource path="res://source/scenes/actors/car_templates/bus.gd" type="Script" id=3]
 [ext_resource path="res://assets/audio/pibi2.mp3" type="AudioStream" id=4]
 [ext_resource path="res://assets/audio/z_drogi.mp3" type="AudioStream" id=5]
 [ext_resource path="res://assets/sprites/star_05.png" type="Texture" id=6]
@@ -15,6 +15,7 @@
 [ext_resource path="res://assets/sprites/cars/bus_wheels.png" type="Texture" id=13]
 [ext_resource path="res://assets/sprites/cars/bus_outline.png" type="Texture" id=14]
 [ext_resource path="res://assets/audio/brum3.mp3" type="AudioStream" id=15]
+[ext_resource path="res://assets/sprites/cars/bus_doors.png" type="Texture" id=16]
 
 [sub_resource type="CanvasItemMaterial" id=19]
 blend_mode = 1
@@ -147,11 +148,16 @@ tracks/2/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ) ]
 }
 
+[sub_resource type="RectangleShape2D" id=26]
+extents = Vector2( 463.5, 47.5 )
+
+[sub_resource type="RectangleShape2D" id=27]
+extents = Vector2( 16.5, 10.5 )
+
 [node name="Bus" type="Node2D"]
 script = ExtResource( 3 )
-speed = 180.0
 can_change_color = false
-color = Color( 0.929412, 0.882353, 0.619608, 1 )
+color = Color( 0.705882, 0.321569, 0.321569, 1 )
 
 [node name="ShadowPivot" type="Node2D" parent="."]
 
@@ -175,9 +181,15 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 11 )
 
 [node name="CarWheels" type="Sprite" parent="AnimationPivot/Sprites"]
-position = Vector2( 7.93604, -35.7314 )
+position = Vector2( -21.064, -34.7314 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 13 )
+
+[node name="BusDoors" type="Sprite" parent="AnimationPivot/Sprites"]
+self_modulate = Color( 0.392157, 0.388235, 0.396078, 1 )
+position = Vector2( 99.936, -20.7314 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 16 )
 
 [node name="CarBacklight" type="Sprite" parent="AnimationPivot/Sprites"]
 self_modulate = Color( 0.878431, 0.27451, 0.27451, 1 )
@@ -259,3 +271,27 @@ bus = "Sfx"
 [node name="ZDrogi" type="AudioStreamPlayer" parent="Sfx"]
 stream = ExtResource( 5 )
 bus = "Sfx"
+
+[node name="PassengerDiscovery" type="Area2D" parent="." groups=["passengerDiscover"]]
+position = Vector2( 96, -1 )
+collision_layer = 64
+collision_mask = 0
+monitoring = false
+
+[node name="PassengerCollision" type="CollisionShape2D" parent="PassengerDiscovery"]
+position = Vector2( 4.5, 46.5 )
+shape = SubResource( 26 )
+disabled = true
+
+[node name="PassengerEnter" type="Area2D" parent="." groups=["passengerEnter"]]
+position = Vector2( 96, -1 )
+collision_layer = 64
+collision_mask = 0
+monitoring = false
+
+[node name="PassengerEnterCollision" type="CollisionShape2D" parent="PassengerEnter"]
+position = Vector2( -2.5, -2.5 )
+shape = SubResource( 27 )
+disabled = true
+
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]
