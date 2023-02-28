@@ -10,12 +10,12 @@
 [ext_resource path="res://assets/sprites/fume2.png" type="Texture" id=8]
 [ext_resource path="res://assets/sprites/cars/car2_backlight.png" type="Texture" id=9]
 [ext_resource path="res://assets/sprites/light.png" type="Texture" id=10]
-[ext_resource path="res://assets/sprites/cars/bus3_doors.png" type="Texture" id=11]
-[ext_resource path="res://assets/sprites/cars/bus3_shadow.png" type="Texture" id=12]
-[ext_resource path="res://assets/sprites/cars/bus3_fill.png" type="Texture" id=13]
-[ext_resource path="res://assets/sprites/cars/bus3_outline.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/cars/bus_fill.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/cars/bus_shadow.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/cars/bus_wheels.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/cars/bus_outline.png" type="Texture" id=14]
 [ext_resource path="res://assets/audio/brum3.mp3" type="AudioStream" id=15]
-[ext_resource path="res://assets/sprites/cars/bus3_wheels.png" type="Texture" id=16]
+[ext_resource path="res://assets/sprites/cars/bus_doors.png" type="Texture" id=16]
 [ext_resource path="res://assets/audio/bus_doors.mp3" type="AudioStream" id=17]
 
 [sub_resource type="CanvasItemMaterial" id=19]
@@ -59,7 +59,7 @@ resource_name = "jump"
 length = 1.5
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Bus/AnimationPivot:position")
+tracks/0/path = NodePath("Bus3/AnimationPivot:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -71,7 +71,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0.012 ), Vector2( 0, -100 ), Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Bus/AnimationPivot:scale")
+tracks/1/path = NodePath("Bus3/AnimationPivot:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -83,7 +83,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.8, 1.2 ), Vector2( 1, 1 ), Vector2( 1.05, 0.95 ), Vector2( 1.05, 0.95 ), Vector2( 1.2, 0.8 ), Vector2( 1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Bus/ShadowPivot:scale")
+tracks/2/path = NodePath("Bus3/ShadowPivot:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -95,7 +95,7 @@ tracks/2/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.8, 1.2 ), Vector2( 1.5, 1.5 ), Vector2( 1.05, 0.95 ), Vector2( 1.05, 0.95 ), Vector2( 1.2, 0.8 ), Vector2( 1, 1 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Bus/ShadowPivot:modulate")
+tracks/3/path = NodePath("Bus3/ShadowPivot:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -111,7 +111,7 @@ tracks/3/keys = {
 resource_name = "move"
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Bus/AnimationPivot:scale")
+tracks/0/path = NodePath("Bus3/AnimationPivot:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -123,7 +123,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ) ]
 }
 tracks/1/type = "audio"
-tracks/1/path = NodePath("Bus/Brum")
+tracks/1/path = NodePath("Bus3/Brum")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -137,7 +137,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 )
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Bus/ShadowPivot:scale")
+tracks/2/path = NodePath("Bus3/ShadowPivot:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -155,16 +155,16 @@ extents = Vector2( 463.5, 47.5 )
 [sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 16.5, 10.5 )
 
-[node name="Bus" type="Node2D"]
+[node name="Bus3" type="Node2D"]
 script = ExtResource( 3 )
 can_change_color = false
-color = Color( 0.929412, 0.882353, 0.619608, 1 )
+color = Color( 0.705882, 0.321569, 0.321569, 1 )
 
 [node name="ShadowPivot" type="Node2D" parent="."]
 
 [node name="CarShadow" type="Sprite" parent="ShadowPivot"]
 self_modulate = Color( 0.34902, 0.34902, 0.34902, 0.160784 )
-position = Vector2( -116, 82 )
+position = Vector2( -139, 62 )
 scale = Vector2( 1, -0.5 )
 texture = ExtResource( 12 )
 centered = false
@@ -176,30 +176,31 @@ position = Vector2( 0, 0.012 )
 position = Vector2( 1.06396, -23.2806 )
 
 [node name="CarFill" type="Sprite" parent="AnimationPivot/Sprites"]
-self_modulate = Color( 0.929412, 0.882353, 0.619608, 1 )
-position = Vector2( -5.06396, -54.7314 )
+self_modulate = Color( 0.705882, 0.321569, 0.321569, 1 )
+position = Vector2( 19.936, -38.7314 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 11 )
+
+[node name="CarWheels" type="Sprite" parent="AnimationPivot/Sprites"]
+position = Vector2( -21.064, -34.7314 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 13 )
 
 [node name="BusDoors" type="Sprite" parent="AnimationPivot/Sprites"]
 self_modulate = Color( 0.392157, 0.388235, 0.396078, 1 )
-position = Vector2( 35.936, -29.7314 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 11 )
-
-[node name="CarWheels" type="Sprite" parent="AnimationPivot/Sprites"]
-position = Vector2( -10.064, -41.7314 )
+position = Vector2( 99.936, -20.7314 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 16 )
 
 [node name="CarBacklight" type="Sprite" parent="AnimationPivot/Sprites"]
 self_modulate = Color( 0.878431, 0.27451, 0.27451, 1 )
-position = Vector2( 87.936, -50.7314 )
+position = Vector2( 156.936, 2.2686 )
 scale = Vector2( 0.209616, 0.347561 )
 texture = ExtResource( 9 )
 
 [node name="CarOutline" type="Sprite" parent="AnimationPivot/Sprites"]
-position = Vector2( -1.06396, -54.7314 )
+self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
+position = Vector2( 20.936, -35.7314 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 14 )
 
@@ -207,7 +208,7 @@ texture = ExtResource( 14 )
 self_modulate = Color( 0.541176, 0.168627, 0.168627, 1 )
 light_mask = 0
 material = SubResource( 19 )
-position = Vector2( 88, -73.012 )
+position = Vector2( 157, -21.012 )
 rotation = -1.5708
 scale = Vector2( 0.175271, 0.208771 )
 texture = ExtResource( 6 )
@@ -218,7 +219,7 @@ night_color = Color( 1.5, 1.5, 1.5, 1 )
 
 [node name="FrontLight" type="Sprite" parent="AnimationPivot"]
 material = SubResource( 12 )
-position = Vector2( -93, -63.012 )
+position = Vector2( -121, -37.012 )
 rotation = 3.14158
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 6 )
@@ -242,7 +243,6 @@ process_material = SubResource( 25 )
 texture = ExtResource( 8 )
 
 [node name="Brum" type="AudioStreamPlayer2D" parent="."]
-position = Vector2( 1, 0 )
 stream = ExtResource( 15 )
 volume_db = -5.0
 max_distance = 1000.0
@@ -278,7 +278,7 @@ stream = ExtResource( 5 )
 bus = "Sfx"
 
 [node name="PassengerDiscovery" type="Area2D" parent="." groups=["passengerDiscover"]]
-position = Vector2( 48, -4 )
+position = Vector2( 96, -1 )
 collision_layer = 64
 collision_mask = 0
 monitoring = false
@@ -289,7 +289,7 @@ shape = SubResource( 26 )
 disabled = true
 
 [node name="PassengerEnter" type="Area2D" parent="." groups=["passengerEnter"]]
-position = Vector2( 48, -4 )
+position = Vector2( 96, -1 )
 collision_layer = 64
 collision_mask = 0
 monitoring = false

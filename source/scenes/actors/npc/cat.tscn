@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/audio/miau.mp3" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 30, 150 )
+extents = Vector2( 30, 94 )
 
 [sub_resource type="Animation" id=5]
 length = 0.001
@@ -81,6 +81,7 @@ collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -4 )
 shape = SubResource( 1 )
 
 [node name="AnimationPivot" type="Node2D" parent="."]

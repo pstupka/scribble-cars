@@ -9,7 +9,7 @@ onready var front_light_rays: Sprite = $AnimationPivot/FrontLight/FrontLightRays
 onready var bus_doors: Sprite = $AnimationPivot/Sprites/BusDoors
 onready var passenger_collision: CollisionShape2D = $PassengerDiscovery/PassengerCollision
 onready var passenger_enter_collision: CollisionShape2D = $PassengerEnter/PassengerEnterCollision
-
+onready var open_door_sfx: AudioStreamPlayer = $OpenDoorSfx
 
 export var speed := 150.0
 export var can_change_color:bool = true
@@ -19,6 +19,7 @@ const PITCH_RAND = 0.05
 enum State {IDLE, MOVE, JUMP}
 var current_state = State.IDLE
 var doors_open = false
+
 
 func _ready() -> void:
 	randomize()
@@ -76,7 +77,7 @@ func doors() -> void:
 		doors_color = Color("4b80ca")
 
 	doors_tween.tween_property(bus_doors, "self_modulate", doors_color, 0.3)
-
+	open_door_sfx.play()
 
 func set_color(new_color) -> void:
 	if not can_change_color: return
