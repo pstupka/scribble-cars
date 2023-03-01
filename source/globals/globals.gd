@@ -32,7 +32,7 @@ var car_templates:Dictionary = {
 
 var available_cars: = {
 	"forest": ["car_template", "tractor", "car1", "car3", "car4", "bus2", "car_police"],
-	"city": ["car3","bus", "bus3", "cabrio", "car1", "car_template", "car_ambulance"]
+	"city": ["bus3", "car3", "bus", "cabrio", "car1", "car_template", "car_ambulance"]
 }
 
 var available_colors = [

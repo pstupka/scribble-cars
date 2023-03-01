@@ -234,7 +234,7 @@ offset = Vector2( 0, 123 )
 
 [node name="Particles2D" type="Particles2D" parent="AnimationPivot"]
 light_mask = 0
-position = Vector2( 163, -3.012 )
+position = Vector2( 97, -14.012 )
 amount = 6
 lifetime = 1.2
 local_coords = false

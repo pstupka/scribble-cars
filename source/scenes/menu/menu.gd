@@ -9,8 +9,12 @@ onready var menu_buttons := [
 
 onready var menu_button_content := [
 	preload("res://source/scenes/actors/car_templates/car_template.tscn"),
-	preload("res://source/scenes/actors/car_templates/car3.tscn")
+	preload("res://source/scenes/actors/car_templates/bus3.tscn")
 ]
+
+var menu_button_positions := [Vector2(220,120), Vector2(235,110)]
+var menu_button_scales := [Vector2(-0.65, 0.65), Vector2(-0.5, 0.5)]
+
 
 onready var animation_player: AnimationPlayer = $AnimationPlayer
 onready var title_label: RichTextLabel = $"%TitleLabel"
@@ -28,6 +32,7 @@ var current_menu = main_menu_buttons
 
 export(Color) var button_tint := Color("edc8c4")
 
+
 func _ready() -> void:
 	randomize()
 	for i in range(menu_buttons.size()):
@@ -37,8 +42,8 @@ func _ready() -> void:
 		var button_content = menu_button_content[i].instance()
 		menu_buttons[i].add_child(button_content)
 		
-		button_content.position = Vector2(210,120)
-		button_content.scale = Vector2(-0.65, 0.65)
+		button_content.position = menu_button_positions[i]
+		button_content.scale = menu_button_scales[i]
 		button_content.get_node("AnimationPivot/Particles2D").emitting = false
 		button_content.get_node("ShadowPivot").hide()
 		button_content.set_animation_loop("move", true)

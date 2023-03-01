@@ -44,5 +44,5 @@ func _on_BusDiscover_area_entered(area: Area2D) -> void:
 	if area.is_in_group("passengerEnter"):
 		enter_bus()
 
-func _on_BusDiscover_area_exited(area: Area2D) -> void:
+func _on_BusDiscover_area_exited(_area: Area2D) -> void:
 	move_target = null
