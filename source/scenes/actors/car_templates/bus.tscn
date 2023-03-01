@@ -182,7 +182,7 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 13 )
 
 [node name="BusDoors" type="Sprite" parent="AnimationPivot/Sprites"]
-self_modulate = Color( 0.392157, 0.388235, 0.396078, 1 )
+self_modulate = Color( 0.721569, 0.709804, 0.72549, 1 )
 position = Vector2( 35.936, -29.7314 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 11 )

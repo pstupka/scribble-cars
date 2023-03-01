@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/fonts/LittleThings-ZX5Z.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://source/scenes/menu/pause-menu.gd" type="Script" id=2]
+[ext_resource path="res://assets/audio/pik.mp3" type="AudioStream" id=3]
 
 [sub_resource type="Shader" id=10]
 code = "shader_type canvas_item;
@@ -91,9 +92,9 @@ unique_name_in_owner = true
 margin_right = 315.0
 margin_bottom = 65.0
 custom_colors/font_color_disabled = Color( 0.94902, 0.941176, 0.898039, 1 )
-custom_colors/font_color_focus = Color( 0.705882, 0.321569, 0.321569, 1 )
-custom_colors/font_color = Color( 0.94902, 0.941176, 0.898039, 1 )
-custom_colors/font_color_hover = Color( 0.705882, 0.321569, 0.321569, 1 )
+custom_colors/font_color_focus = Color( 0.94902, 0.941176, 0.898039, 1 )
+custom_colors/font_color = Color( 0.705882, 0.321569, 0.321569, 1 )
+custom_colors/font_color_hover = Color( 0.94902, 0.941176, 0.898039, 1 )
 custom_colors/font_color_pressed = Color( 0.705882, 0.321569, 0.321569, 1 )
 custom_fonts/font = SubResource( 13 )
 custom_styles/hover = SubResource( 14 )
@@ -110,9 +111,9 @@ margin_top = 69.0
 margin_right = 315.0
 margin_bottom = 134.0
 custom_colors/font_color_disabled = Color( 0.94902, 0.941176, 0.898039, 1 )
-custom_colors/font_color_focus = Color( 0.635294, 0.862745, 0.780392, 1 )
-custom_colors/font_color = Color( 0.94902, 0.941176, 0.898039, 1 )
-custom_colors/font_color_hover = Color( 0.635294, 0.862745, 0.780392, 1 )
+custom_colors/font_color_focus = Color( 0.94902, 0.941176, 0.898039, 1 )
+custom_colors/font_color = Color( 0.635294, 0.862745, 0.780392, 1 )
+custom_colors/font_color_hover = Color( 0.94902, 0.941176, 0.898039, 1 )
 custom_colors/font_color_pressed = Color( 0.635294, 0.862745, 0.780392, 1 )
 custom_fonts/font = SubResource( 13 )
 custom_styles/hover = SubResource( 14 )
@@ -129,9 +130,9 @@ margin_top = 138.0
 margin_right = 315.0
 margin_bottom = 203.0
 custom_colors/font_color_disabled = Color( 0.94902, 0.941176, 0.898039, 1 )
-custom_colors/font_color_focus = Color( 0.501961, 0.286275, 0.227451, 1 )
-custom_colors/font_color = Color( 0.94902, 0.941176, 0.898039, 1 )
-custom_colors/font_color_hover = Color( 0.501961, 0.286275, 0.227451, 1 )
+custom_colors/font_color_focus = Color( 0.94902, 0.941176, 0.898039, 1 )
+custom_colors/font_color = Color( 0.501961, 0.286275, 0.227451, 1 )
+custom_colors/font_color_hover = Color( 0.94902, 0.941176, 0.898039, 1 )
 custom_colors/font_color_pressed = Color( 0.501961, 0.286275, 0.227451, 1 )
 custom_fonts/font = SubResource( 13 )
 custom_styles/hover = SubResource( 14 )
@@ -141,6 +142,10 @@ custom_styles/disabled = SubResource( 17 )
 custom_styles/normal = SubResource( 18 )
 disabled = true
 text = "QUIT"
+
+[node name="PikSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "Sfx"
 
 [connection signal="pressed" from="PauseOverlay/Buttons/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="PauseOverlay/Buttons/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]

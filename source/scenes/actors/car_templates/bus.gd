@@ -19,6 +19,8 @@ const PITCH_RAND = 0.05
 enum State {IDLE, MOVE, JUMP}
 var current_state = State.IDLE
 var doors_open = false
+var doors_init_color
+
 
 
 func _ready() -> void:
@@ -29,7 +31,7 @@ func _ready() -> void:
 	set_animation_loop("move", false)
 	
 	speed += randf() * 40.0 - 20.0
-
+	doors_init_color = bus_doors.self_modulate
 
 func jump() -> void:
 	animation_player.play("jump")
@@ -68,7 +70,7 @@ func honk(random:bool = true) -> void:
 
 func doors() -> void:
 	var doors_tween = create_tween()
-	var doors_color = Color("646365")
+	var doors_color = doors_init_color
 	
 	doors_open = !doors_open
 	passenger_collision.set_deferred("disabled", !doors_open)

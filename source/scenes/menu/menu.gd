@@ -19,6 +19,11 @@ onready var settings_button: Button = $"%SettingsButton"
 onready var quit_button: Button = $"%QuitButton"
 onready var main_menu_buttons: CanvasLayer = $"%MainMenuButtons"
 onready var area_choose: CanvasLayer = $"%AreaChoose"
+onready var credits_back_button: Button = $MarginContainer/VBoxContainer/CreditsMenu/MarginContainer/CenterContainer/CreditsBackButton
+onready var control_back_button: Button = $MarginContainer/VBoxContainer/ControlsMenu/MarginContainer/CenterContainer/ControlBackButton
+
+
+var current_menu = main_menu_buttons
 
 
 export(Color) var button_tint := Color("edc8c4")
@@ -38,13 +43,18 @@ func _ready() -> void:
 		button_content.get_node("ShadowPivot").hide()
 		button_content.set_animation_loop("move", true)
 	
-#	menu_buttons[0].grab_focus()
+	start_button.call_deferred("grab_focus")
 	if OS.get_name() == "HTML5":
 		quit_button.queue_free()
 	
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(main_menu_buttons, "offset:x", 0.0, 0.5).set_delay(0.5)
 	tween.parallel().tween_property(title_label, "percent_visible", 1.0, 0.5).set_delay(0.4)
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel") and current_menu != main_menu_buttons:
+		hide_sub_menu(current_menu)
 
 
 func _connect_menu_button(button: Button) -> void:
@@ -56,7 +66,6 @@ func _connect_menu_button(button: Button) -> void:
 
 
 func start_menu_button_animation(button = null) -> void:
-	$PikSfx.play()
 	if button == null: return
 	button.modulate = button_tint
 	if button.get_child_count() == 0 or button.disabled: return
@@ -78,15 +87,22 @@ func stop_menu_button_animation(button) -> void:
 
 
 func show_sub_menu(sub_menu: CanvasLayer) -> void:
+	current_menu = sub_menu
+	match sub_menu.name:
+		"AreaChoose": menu_buttons[0].call_deferred("grab_focus")
+		"CreditsMenu": credits_back_button.call_deferred("grab_focus")
+		"ControlsMenu": control_back_button.call_deferred("grab_focus")
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(main_menu_buttons, "offset:x", 1000.0, 0.5)
 	tween.tween_property(sub_menu, "offset:x", 0.0, 0.5)
 
 
 func hide_sub_menu(sub_menu: CanvasLayer) -> void:
+	current_menu = main_menu_buttons
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(sub_menu, "offset:x", 1000.0, 0.5)
 	tween.tween_property(main_menu_buttons, "offset:x", 0.0, 0.5)
+	start_button.call_deferred("grab_focus")
 
 
 func _on_menu_button_focus_entered(button = null) -> void:

@@ -7,9 +7,11 @@ onready var buttons_container: VBoxContainer = $PauseOverlay/Buttons
 onready var main_menu_button: Button = $"%MainMenuButton"
 onready var quit_button: Button = $"%QuitButton"
 onready var back_button: Button = $"%BackButton"
+onready var pik_sfx: AudioStreamPlayer = $PikSfx
 
 
 var pause_menu_active = false
+
 
 func _ready() -> void:
 	if OS.get_name() == "HTML5":
@@ -19,8 +21,9 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("pause"):
+	if event.is_action_pressed("pause") or event.is_action_pressed("ui_cancel"):
 		pause()
+
 
 
 func tween_pause_menu(target_blur: float, target_percent_visible: float) -> void:
@@ -31,7 +34,6 @@ func tween_pause_menu(target_blur: float, target_percent_visible: float) -> void
 	tween.tween_property(overlay_texture.material, "shader_param/lod", target_blur, 1.0)
 	tween.parallel().tween_property(pause_rich_label, "percent_visible", target_percent_visible, 0.4)
 	tween.parallel().tween_property(buttons_container, "modulate", Color(1.0, 1.0, 1.0, target_percent_visible), 0.4)
-	
 
 
 func pause() -> void:
@@ -45,13 +47,16 @@ func pause() -> void:
 		get_tree().paused = true
 		pause_menu_active = true
 		tween_pause_menu(3.0, 1.0)
+		back_button.call_deferred("grab_focus")
 
 
 func _on_QuitButton_pressed() -> void:
+
 	get_tree().quit()
 
 
 func _on_MainMenuButton_pressed() -> void:
+	pik_sfx.play()
 	var tween = create_tween()
 	
 	main_menu_button.disabled = true
@@ -68,4 +73,5 @@ func _on_MainMenuButton_pressed() -> void:
 
 
 func _on_BackButton_pressed() -> void:
+	pik_sfx.play()
 	pause()
