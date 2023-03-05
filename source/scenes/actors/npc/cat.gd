@@ -11,6 +11,8 @@ const PITCH_RAND = 0.4
 var move_target = null
 var speed = 30.0
 
+var particles_template = preload("res://source/utils/score_particles.tscn")
+
 func _ready() -> void:
 	randomize()
 	var cat_no = randi() % 3 + 1
@@ -30,6 +32,11 @@ func enter_bus() -> void:
 	tween.tween_property(sprite, "rotation_degrees", 360.0*2, 0.6)
 	tween.parallel().tween_property(sprite, "scale", Vector2.ZERO, 0.6)
 	tween.tween_callback(self, "queue_free").set_delay(2.0)
+	
+	Globals.score = wrapi(Globals.score + 1, 1, 100)
+	var score_particles = particles_template.instance()
+	get_tree().current_scene.add_child(score_particles)
+	score_particles.global_position = global_position
 
 
 func _on_Cat_body_entered(body: Node) -> void:

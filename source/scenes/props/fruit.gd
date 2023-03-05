@@ -17,6 +17,7 @@ onready var apple = $Sprites/Apple
 onready var pear = $Sprites/Pear
 onready var sprites = $Sprites
 
+var particles_template = preload("res://source/utils/score_particles.tscn")
 
 var is_destroying = false
 
@@ -51,8 +52,8 @@ func destroy(emit_particles: bool = false) -> void:
 	var tween = create_tween()
 
 	if emit_particles: 
-		Globals.score %= 100
-		var score_particles = load("res://source/utils/score_particles.tscn").instance()
+		Globals.score = wrapi(Globals.score + 1, 1, 100)
+		var score_particles = particles_template.instance()
 		get_tree().current_scene.add_child(score_particles)
 		score_particles.global_position = global_position
 		tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
@@ -72,7 +73,6 @@ func _on_Apple_body_entered(body):
 	if body.is_in_group("player"):
 		mniam_sfx.pitch_scale = rand_range(1.0 - pitch_randomness, 1.0 + pitch_randomness)
 		mniam_sfx.play()
-		Globals.score += 1
 		destroy(true)
 		
 
