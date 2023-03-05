@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://source/scenes/props/fruit.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/props/apple_outline.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/props/apple_fill.png" type="Texture" id=3]
-[ext_resource path="res://assets/sprites/numbers.png" type="Texture" id=4]
 [ext_resource path="res://source/utils/day_night_utils/day_night_modulate.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/sprites/props/pear_fill.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/props/pear_outline.png" type="Texture" id=7]
@@ -54,24 +53,6 @@ texture = ExtResource( 7 )
 position = Vector2( 0, -22 )
 shape = SubResource( 1 )
 disabled = true
-
-[node name="NumberParticles" type="Node2D" parent="."]
-
-[node name="Digit0" type="Sprite" parent="NumberParticles"]
-unique_name_in_owner = true
-position = Vector2( 0, -22 )
-scale = Vector2( 1e-05, 1e-05 )
-z_index = 100
-texture = ExtResource( 4 )
-hframes = 10
-
-[node name="Digit1" type="Sprite" parent="NumberParticles"]
-unique_name_in_owner = true
-position = Vector2( 0, -22 )
-scale = Vector2( 1e-05, 1e-05 )
-z_index = 100
-texture = ExtResource( 4 )
-hframes = 10
 
 [node name="DestroyTimer" type="Timer" parent="."]
 wait_time = 30.0

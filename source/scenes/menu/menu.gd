@@ -133,12 +133,13 @@ func _on_menu_button_pressed(button) -> void:
 	if animation_player.is_playing(): return
 	animation_player.play(button.name)
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
-	tween.tween_property(button.get_child(0), "global_position:y", 800.0, 1.0)
+	var target = button.get_child(0)
+	tween.tween_property(target, "global_position:y", 800.0, 1.0)
 	tween.set_trans(Tween.TRANS_LINEAR)
-	tween.parallel().tween_property(button.get_child(0), "global_position:x", 512.0, 1.0)
-	tween.parallel().tween_property(button.get_child(0), "scale:x", 0.8, 0.2)
+	tween.parallel().tween_property(target, "global_position:x", 512.0, 1.0)
+	tween.parallel().tween_property(target, "scale", Vector2.ONE, 0.4)
 	
-	button.get_child(0).honk(false)
+	target.honk(false)
 	
 	for button in menu_buttons:
 		if button.is_connected("focus_entered", self, "_on_menu_button_focus_entered"):

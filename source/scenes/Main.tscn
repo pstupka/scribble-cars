@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://assets/sprites/road_outline.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/ground.png" type="Texture" id=2]
@@ -31,6 +31,8 @@
 [ext_resource path="res://assets/sprites/foliage/flower2_red.png" type="Texture" id=29]
 [ext_resource path="res://resources/shaders/wind_sway_shader.tres" type="Material" id=30]
 [ext_resource path="res://source/scenes/menu/pause-menu.tscn" type="PackedScene" id=31]
+[ext_resource path="res://source/scenes/props/Cloud4.tscn" type="PackedScene" id=32]
+[ext_resource path="res://source/scenes/props/Cloud3.tscn" type="PackedScene" id=33]
 
 [sub_resource type="Gradient" id=13]
 offsets = PoolRealArray( 0, 0.195402, 0.318966, 0.385057, 1 )
@@ -305,8 +307,8 @@ script = ExtResource( 11 )
 day_trans_type = 5
 night_position = 300.0
 
-[node name="Cloud3" parent="ParallaxBackground/Clouds/Pivot" instance=ExtResource( 7 )]
-position = Vector2( 491, 103 )
+[node name="Cloud5" parent="ParallaxBackground/Clouds/Pivot" instance=ExtResource( 33 )]
+position = Vector2( 494, 93 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="Cloud4" parent="ParallaxBackground/Clouds/Pivot" instance=ExtResource( 7 )]
@@ -326,12 +328,12 @@ speed = 30.0
 day_trans_type = 5
 night_position = 300.0
 
-[node name="Cloud5" parent="ParallaxBackground/Clouds2/Pivot" instance=ExtResource( 7 )]
-position = Vector2( 215, 14 )
+[node name="Cloud4" parent="ParallaxBackground/Clouds2/Pivot" instance=ExtResource( 32 )]
+position = Vector2( 396, 12 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="Cloud2" parent="ParallaxBackground/Clouds2/Pivot" instance=ExtResource( 7 )]
-position = Vector2( 833, 119 )
+position = Vector2( 866, 61 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="Ground" type="ParallaxLayer" parent="ParallaxBackground"]
