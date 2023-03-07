@@ -1,0 +1,279 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://assets/audio/hop.mp3" type="AudioStream" id=1]
+[ext_resource path="res://source/utils/day_night_utils/day_night_modulate.tscn" type="PackedScene" id=2]
+[ext_resource path="res://source/scenes/actors/car_templates/car_template.gd" type="Script" id=3]
+[ext_resource path="res://assets/audio/pibi2.mp3" type="AudioStream" id=4]
+[ext_resource path="res://assets/audio/z_drogi.mp3" type="AudioStream" id=5]
+[ext_resource path="res://assets/sprites/fume2.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/star_05.png" type="Texture" id=7]
+[ext_resource path="res://assets/audio/pibi.mp3" type="AudioStream" id=8]
+[ext_resource path="res://assets/sprites/light.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/cars/tractor2_wheels.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/cars/tractor2_outline.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/cars/tractor2_shadow.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/cars/tractor2_fill.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/cars/car2_backlight.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/cars/tractor2_window.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/cars/car2_frontlight.png" type="Texture" id=18]
+[ext_resource path="res://assets/audio/dyr2.mp3" type="AudioStream" id=19]
+
+[sub_resource type="CanvasItemMaterial" id=19]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=12]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=20]
+blend_mode = 1
+
+[sub_resource type="Gradient" id=21]
+offsets = PoolRealArray( 0, 0.148387, 0.522581 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.535484, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=22]
+gradient = SubResource( 21 )
+
+[sub_resource type="Curve" id=23]
+_data = [ Vector2( 0.00561798, 0.0761364 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.730682 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=24]
+curve = SubResource( 23 )
+
+[sub_resource type="ParticlesMaterial" id=25]
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 20.0
+gravity = Vector3( 0, -98, 0 )
+initial_velocity = 100.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_curve = SubResource( 24 )
+color = Color( 0.780392, 0.780392, 0.780392, 1 )
+color_ramp = SubResource( 22 )
+
+[sub_resource type="Animation" id=16]
+length = 0.001
+
+[sub_resource type="Animation" id=17]
+resource_name = "jump"
+length = 1.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tractor2/AnimationPivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1.1 ),
+"transitions": PoolRealArray( 0.267943, 1.56917, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0.012 ), Vector2( 0, -100 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Tractor2/AnimationPivot:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5, 1, 1.1, 1.2, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.8, 1.2 ), Vector2( 1, 1 ), Vector2( 1.05, 0.95 ), Vector2( 1.05, 0.95 ), Vector2( 1.2, 0.8 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Tractor2/ShadowPivot:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5, 1, 1.1, 1.2, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.8, 1.2 ), Vector2( 1.5, 1.5 ), Vector2( 1.05, 0.95 ), Vector2( 1.05, 0.95 ), Vector2( 1.2, 0.8 ), Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Tractor2/ShadowPivot:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 1.05 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "move"
+length = 1.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tractor2/AnimationPivot:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("Tractor2/Brum")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 19 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Tractor2/ShadowPivot:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ) ]
+}
+
+[node name="Tractor2" type="Node2D"]
+script = ExtResource( 3 )
+speed = 70.0
+can_change_color = false
+color = Color( 0.705882, 0.321569, 0.321569, 1 )
+
+[node name="ShadowPivot" type="Node2D" parent="."]
+
+[node name="CarShadow" type="Sprite" parent="ShadowPivot"]
+self_modulate = Color( 0.34902, 0.34902, 0.34902, 0.160784 )
+position = Vector2( -101, 82 )
+scale = Vector2( 1, -0.5 )
+texture = ExtResource( 12 )
+centered = false
+
+[node name="AnimationPivot" type="Node2D" parent="."]
+position = Vector2( 0, 0.012 )
+
+[node name="Sprites" type="Node2D" parent="AnimationPivot"]
+position = Vector2( 1.06396, -23.2806 )
+
+[node name="CarFill" type="Sprite" parent="AnimationPivot/Sprites"]
+self_modulate = Color( 0.705882, 0.321569, 0.321569, 1 )
+position = Vector2( -28.064, -38.7314 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 13 )
+
+[node name="CarWheels" type="Sprite" parent="AnimationPivot/Sprites"]
+self_modulate = Color( 0.270588, 0.266667, 0.309804, 1 )
+position = Vector2( 8.93604, -7.7314 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
+
+[node name="CarBacklight" type="Sprite" parent="AnimationPivot/Sprites"]
+self_modulate = Color( 0.878431, 0.27451, 0.27451, 1 )
+position = Vector2( 42.1881, -53.5546 )
+scale = Vector2( -0.174321, 0.277243 )
+texture = ExtResource( 14 )
+
+[node name="CarFrontlight" type="Sprite" parent="AnimationPivot/Sprites"]
+self_modulate = Color( 0.956863, 0.945098, 0.866667, 1 )
+position = Vector2( -93.064, -42.7314 )
+scale = Vector2( 0.715, 0.59091 )
+texture = ExtResource( 18 )
+
+[node name="CarWindow" type="Sprite" parent="AnimationPivot/Sprites"]
+self_modulate = Color( 0.407843, 0.760784, 0.827451, 1 )
+position = Vector2( 4.93604, -91.7314 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 15 )
+
+[node name="CarOutline" type="Sprite" parent="AnimationPivot/Sprites"]
+self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
+position = Vector2( -4.06396, -52.7314 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 11 )
+
+[node name="BackLight" type="Sprite" parent="AnimationPivot"]
+self_modulate = Color( 0.541176, 0.168627, 0.168627, 1 )
+light_mask = 0
+material = SubResource( 19 )
+position = Vector2( 43, -77.012 )
+rotation = -1.5708
+scale = Vector2( 0.165049, 0.169261 )
+texture = ExtResource( 7 )
+
+[node name="DayNightModulate" parent="AnimationPivot/BackLight" instance=ExtResource( 2 )]
+position = Vector2( -6.10352e-05, 3.05176e-05 )
+night_color = Color( 1.5, 1.5, 1.5, 1 )
+
+[node name="FrontLight" type="Sprite" parent="AnimationPivot"]
+material = SubResource( 12 )
+position = Vector2( -89, -67.012 )
+rotation = 3.14158
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="FrontLightRays" type="Sprite" parent="AnimationPivot/FrontLight"]
+modulate = Color( 0.69, 0.686665, 0.4899, 1 )
+material = SubResource( 20 )
+position = Vector2( -190, -0.00222778 )
+rotation = -1.57078
+scale = Vector2( 18.0549, 21.5679 )
+texture = ExtResource( 9 )
+offset = Vector2( 0, 123 )
+
+[node name="Particles2D" type="Particles2D" parent="AnimationPivot"]
+light_mask = 0
+position = Vector2( -62, -96.012 )
+amount = 6
+lifetime = 2.0
+local_coords = false
+process_material = SubResource( 25 )
+texture = ExtResource( 6 )
+
+[node name="Brum" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 19 )
+volume_db = -4.0
+pitch_scale = 1.1
+max_distance = 1000.0
+bus = "Sfx"
+area_mask = 2
+
+[node name="JumpSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+bus = "Sfx"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+anims/RESET = SubResource( 16 )
+anims/jump = SubResource( 17 )
+anims/move = SubResource( 18 )
+
+[node name="Sfx" type="Node2D" parent="."]
+
+[node name="Honk" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 8 )
+bus = "Sfx"
+
+[node name="Pibi" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 4 )
+bus = "Sfx"
+
+[node name="ZDrogi" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource( 5 )
+bus = "Sfx"
