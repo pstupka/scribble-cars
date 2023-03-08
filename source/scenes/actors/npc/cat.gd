@@ -5,6 +5,8 @@ onready var meow: AudioStreamPlayer2D = $Meow
 onready var animation_player: AnimationPlayer = $AnimationPlayer
 onready var sprite: Sprite = $AnimationPivot/Sprite
 onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+onready var bus_collision: CollisionShape2D = $BusDiscover/CollisionShape2D
+
 
 const PITCH_RAND = 0.4
 
@@ -29,6 +31,7 @@ func enter_bus() -> void:
 	var tween = create_tween()
 	meow.play()
 	collision_shape_2d.set_deferred("disabled", true)
+	bus_collision.set_deferred("disabled", true)
 	tween.tween_property(sprite, "rotation_degrees", 360.0*2, 0.6)
 	tween.parallel().tween_property(sprite, "scale", Vector2.ZERO, 0.6)
 	tween.tween_callback(self, "queue_free").set_delay(2.0)
