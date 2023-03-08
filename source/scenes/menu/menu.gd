@@ -93,21 +93,22 @@ func stop_menu_button_animation(button) -> void:
 
 func show_sub_menu(sub_menu: CanvasLayer) -> void:
 	current_menu = sub_menu
-	match sub_menu.name:
-		"AreaChoose": menu_buttons[0].call_deferred("grab_focus")
-		"CreditsMenu": credits_back_button.call_deferred("grab_focus")
-		"ControlsMenu": control_back_button.call_deferred("grab_focus")
+
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(main_menu_buttons, "offset:x", 1000.0, 0.5)
 	tween.tween_property(sub_menu, "offset:x", 0.0, 0.5)
-
+	
+	match sub_menu.name:
+		"AreaChoose": tween.tween_callback(menu_buttons[0] ,"call_deferred", ["grab_focus"])
+		"CreditsMenu": tween.tween_callback(credits_back_button ,"call_deferred", ["grab_focus"])
+		"ControlsMenu": tween.tween_callback(control_back_button ,"call_deferred", ["grab_focus"])
 
 func hide_sub_menu(sub_menu: CanvasLayer) -> void:
 	current_menu = main_menu_buttons
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(sub_menu, "offset:x", 1000.0, 0.5)
 	tween.tween_property(main_menu_buttons, "offset:x", 0.0, 0.5)
-	start_button.call_deferred("grab_focus")
+	tween.tween_callback(start_button ,"call_deferred", ["grab_focus"])
 
 
 func _on_menu_button_focus_entered(button = null) -> void:
