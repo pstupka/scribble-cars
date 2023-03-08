@@ -27,14 +27,18 @@ onready var credits_back_button: Button = $MarginContainer/VBoxContainer/Credits
 onready var control_back_button: Button = $MarginContainer/VBoxContainer/ControlsMenu/MarginContainer/CenterContainer/ControlBackButton
 
 
-var current_menu = main_menu_buttons
+var current_menu
 
+var can_go_back = false
 
 export(Color) var button_tint := Color("edc8c4")
 
 
 func _ready() -> void:
 	randomize()
+	
+	current_menu = main_menu_buttons
+	
 	for i in range(menu_buttons.size()):
 		_connect_menu_button(menu_buttons[i])
 		
@@ -58,7 +62,7 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel") and current_menu != main_menu_buttons:
+	if event.is_action_pressed("ui_cancel") and can_go_back:
 		hide_sub_menu(current_menu)
 
 
@@ -102,9 +106,12 @@ func show_sub_menu(sub_menu: CanvasLayer) -> void:
 		"AreaChoose": tween.tween_callback(menu_buttons[0] ,"call_deferred", ["grab_focus"])
 		"CreditsMenu": tween.tween_callback(credits_back_button ,"call_deferred", ["grab_focus"])
 		"ControlsMenu": tween.tween_callback(control_back_button ,"call_deferred", ["grab_focus"])
+	
+	tween.tween_callback(self, "set_deferred", ["can_go_back", true])
 
 func hide_sub_menu(sub_menu: CanvasLayer) -> void:
 	current_menu = main_menu_buttons
+	can_go_back = false
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(sub_menu, "offset:x", 1000.0, 0.5)
 	tween.tween_property(main_menu_buttons, "offset:x", 0.0, 0.5)

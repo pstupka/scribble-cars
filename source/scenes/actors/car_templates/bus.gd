@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var animation_player = $AnimationPlayer
+onready var animation_player := $AnimationPlayer
 
 onready var sfx = $Sfx
 onready var jump_sfx = $JumpSfx
@@ -37,17 +37,17 @@ func jump() -> void:
 	animation_player.play("jump")
 	jump_sfx.pitch_scale = rand_range(1.0 - PITCH_RAND, 1.0 + PITCH_RAND)
 	jump_sfx.play()
-
-
-#func _process(delta: float) -> void:
-#	print(get_parent().velocity)
+	if doors_open:
+		doors()
 
 
 func honk(random:bool = true) -> void:
 	var parent = get_parent()
-	if parent is Player and parent.velocity.length() == 0: 
-		doors()
-		return
+	if parent is Player \
+		and parent.velocity.length() == 0\
+		and animation_player.current_animation != "jump": 
+			doors()
+			return
 	for sound in sfx.get_children():
 		if sound.is_playing(): return
 	var honks_count = sfx.get_child_count()
@@ -80,6 +80,7 @@ func doors() -> void:
 
 	doors_tween.tween_property(bus_doors, "self_modulate", doors_color, 0.3)
 	open_door_sfx.play()
+
 
 func set_color(new_color) -> void:
 	if not can_change_color: return
