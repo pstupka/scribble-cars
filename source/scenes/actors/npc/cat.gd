@@ -1,7 +1,7 @@
 extends Area2D
 
 
-onready var meow: AudioStreamPlayer2D = $Meow
+onready var meow_stream_player: AudioStreamPlayer2D = $Meow
 onready var animation_player: AnimationPlayer = $AnimationPlayer
 onready var sprite: Sprite = $AnimationPivot/Sprite
 onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -26,7 +26,7 @@ func _ready() -> void:
 	randomize()
 	var cat_no = randi() % 3 + 1
 	sprite.texture = load("res://assets/sprites/npc/cat%d.png" % cat_no)
-	meow.pitch_scale = rand_range(1.0, 1.0 + PITCH_RAND)
+	meow_stream_player.pitch_scale = rand_range(1.0, 1.0 + PITCH_RAND)
 	speed += rand_range(0, 20)
 	
 	direction.x = rand_range(-0.5, 0.5)
@@ -72,7 +72,7 @@ func next_state() -> void:
 
 
 func meow() -> void:
-	meow.play()
+	meow_stream_player.play()
 	
 	var tween = create_tween()
 	tween.tween_property(sprite, "scale:x", 0.4, 0.9)

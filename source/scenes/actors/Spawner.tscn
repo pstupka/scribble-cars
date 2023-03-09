@@ -17,7 +17,7 @@ scene_to_spawn = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 7.0
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 position = Vector2( 1.5, 1.90735e-06 )

@@ -18,3 +18,4 @@ func _ready() -> void:
 	
 	tween.tween_property(digit_0, "modulate", Color("00ffffff"), 0.4).set_delay(0.2)
 	tween.parallel().tween_property(digit_1, "modulate", Color("00ffffff"), 0.4).set_delay(0.2)
+	tween.tween_callback(self, "queue_free")

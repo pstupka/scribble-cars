@@ -449,19 +449,13 @@ texture = ExtResource( 4 )
 [node name="Actors" type="YSort" parent="."]
 
 [node name="Spawner" parent="Actors" instance=ExtResource( 33 )]
-position = Vector2( -671, 554 )
+position = Vector2( -222, 538 )
 
 [node name="Spawner2" parent="Actors" instance=ExtResource( 33 )]
-position = Vector2( 1243, 590 )
+position = Vector2( 1162, 564 )
 
 [node name="Spawner3" parent="Actors" instance=ExtResource( 33 )]
 position = Vector2( -1359, 602 )
-
-[node name="Spawner4" parent="Actors" instance=ExtResource( 33 )]
-position = Vector2( 642, 583 )
-
-[node name="Spawner5" parent="Actors" instance=ExtResource( 33 )]
-position = Vector2( 1782, 554 )
 
 [node name="Cat" parent="Actors" instance=ExtResource( 32 )]
 position = Vector2( 81, 540 )
