@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://source/scenes/levels/city.gd" type="Script" id=1]
 [ext_resource path="res://source/scenes/actors/player_car.tscn" type="PackedScene" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://assets/sprites/buildings/city3_windows..png" type="Texture" id=30]
 [ext_resource path="res://assets/sprites/buildings/city2_windows..png" type="Texture" id=31]
 [ext_resource path="res://source/scenes/actors/npc/cat.tscn" type="PackedScene" id=32]
+[ext_resource path="res://source/scenes/actors/Spawner.tscn" type="PackedScene" id=33]
 
 [sub_resource type="Gradient" id=11]
 offsets = PoolRealArray( 0, 0.324713, 0.462644, 0.62069, 1 )
@@ -447,14 +448,29 @@ texture = ExtResource( 4 )
 
 [node name="Actors" type="YSort" parent="."]
 
+[node name="Spawner" parent="Actors" instance=ExtResource( 33 )]
+position = Vector2( -671, 554 )
+
+[node name="Spawner2" parent="Actors" instance=ExtResource( 33 )]
+position = Vector2( 1243, 590 )
+
+[node name="Spawner3" parent="Actors" instance=ExtResource( 33 )]
+position = Vector2( -1359, 602 )
+
+[node name="Spawner4" parent="Actors" instance=ExtResource( 33 )]
+position = Vector2( 642, 583 )
+
+[node name="Spawner5" parent="Actors" instance=ExtResource( 33 )]
+position = Vector2( 1782, 554 )
+
 [node name="Cat" parent="Actors" instance=ExtResource( 32 )]
-position = Vector2( 81, 513 )
+position = Vector2( 81, 540 )
 
 [node name="Cat2" parent="Actors" instance=ExtResource( 32 )]
-position = Vector2( 847, 534 )
+position = Vector2( 847, 561 )
 
 [node name="Cat3" parent="Actors" instance=ExtResource( 32 )]
-position = Vector2( -1200, 534 )
+position = Vector2( -1200, 561 )
 
 [node name="Player" parent="Actors" instance=ExtResource( 2 )]
 position = Vector2( 0, 440 )
