@@ -165,7 +165,6 @@ texture = ExtResource( 17 )
 centered = false
 
 [node name="AnimationPivot" type="Node2D" parent="."]
-position = Vector2( 0, -66.2998 )
 
 [node name="Sprites" type="Node2D" parent="AnimationPivot"]
 position = Vector2( 1.06396, -23.2806 )
