@@ -25,6 +25,10 @@ var particles_template = preload("res://source/utils/score_particles.tscn")
 func _ready() -> void:
 	randomize()
 	var cat_no = randi() % 3 + 1
+	
+	if cat_no == 2:
+		sprite.position.y -= 10
+	
 	sprite.texture = load("res://assets/sprites/npc/cat%d.png" % cat_no)
 	meow_stream_player.pitch_scale = rand_range(1.0, 1.0 + PITCH_RAND)
 	speed += rand_range(0, 20)
@@ -32,6 +36,7 @@ func _ready() -> void:
 	direction.x = rand_range(-0.5, 0.5)
 	direction = direction.normalized()
 	fixed_y_position = global_position.y
+
 
 func _process(delta: float) -> void:
 	if target:
@@ -79,8 +84,7 @@ func meow() -> void:
 	tween.parallel().tween_property(sprite, "scale:y", 0.65, 0.9)
 	tween.tween_property(sprite, "scale:x", 0.5, 1.3).set_delay(0.2)
 	tween.parallel().tween_property(sprite, "scale:y", 0.5, 1.3).set_delay(0.2)
-	
-	
+
 
 func _on_Cat_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):

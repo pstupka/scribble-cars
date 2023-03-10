@@ -23,5 +23,5 @@ func _on_SpawnTimer_timeout() -> void:
 		var scene = scene_to_spawn.instance()
 		get_parent().add_child(scene)
 		scene.global_position.x = global_position.x
-		scene.global_position.y = global_position.y + rand_range(-10.0, 10.0)
+		scene.global_position.y = global_position.y + rand_range(-20.0, 10.0)
 		scene.fixed_y_position = scene.global_position.y
