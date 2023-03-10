@@ -38,7 +38,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Scribble Cars"
+config/name="Scribble Machines"
+config/description="Relaxing game where you drive your machines and collect things"
 run/main_scene="res://source/scenes/menu/menu.tscn"
 config/icon="res://icon.png"
 
