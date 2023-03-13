@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/audio/hop.mp3" type="AudioStream" id=1]
 [ext_resource path="res://source/utils/day_night_utils/day_night_modulate.tscn" type="PackedScene" id=2]
@@ -17,6 +17,8 @@
 [ext_resource path="res://assets/sprites/cars/car2_frontlight.png" type="Texture" id=15]
 [ext_resource path="res://assets/sprites/cars/car3_wheels.png" type="Texture" id=16]
 [ext_resource path="res://assets/sprites/cars/car3_fill.png" type="Texture" id=17]
+[ext_resource path="res://assets/sprites/cars/car3_frontrays.png" type="Texture" id=18]
+[ext_resource path="res://assets/sprites/cars/car3_backrays.png" type="Texture" id=19]
 
 [sub_resource type="CanvasItemMaterial" id=19]
 blend_mode = 1
@@ -176,6 +178,18 @@ position = Vector2( -6.06396, -44.7314 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 17 )
 
+[node name="Car3Backrays" type="Sprite" parent="AnimationPivot/Sprites"]
+self_modulate = Color( 1, 0.298039, 0.298039, 1 )
+position = Vector2( 103.936, -53.7314 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 19 )
+
+[node name="Car3Frontrays" type="Sprite" parent="AnimationPivot/Sprites"]
+self_modulate = Color( 1, 1, 0.486275, 1 )
+position = Vector2( -122.064, -85.7314 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 18 )
+
 [node name="CarWheels" type="Sprite" parent="AnimationPivot/Sprites"]
 self_modulate = Color( 0.270588, 0.266667, 0.309804, 1 )
 position = Vector2( -2.06396, 4.2686 )
@@ -184,7 +198,7 @@ texture = ExtResource( 16 )
 
 [node name="CarBacklight" type="Sprite" parent="AnimationPivot/Sprites"]
 self_modulate = Color( 0.878431, 0.27451, 0.27451, 1 )
-position = Vector2( 76.936, -36.7314 )
+position = Vector2( 77.936, -34.7314 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 14 )
 
@@ -202,7 +216,7 @@ texture = ExtResource( 12 )
 
 [node name="CarOutline" type="Sprite" parent="AnimationPivot/Sprites"]
 self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
-position = Vector2( -1.06396, -53.7314 )
+position = Vector2( -4.06396, -39.7314 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 11 )
 
@@ -210,7 +224,7 @@ texture = ExtResource( 11 )
 self_modulate = Color( 0.541176, 0.168627, 0.168627, 1 )
 light_mask = 0
 material = SubResource( 19 )
-position = Vector2( 78, -59.012 )
+position = Vector2( 80, -58.012 )
 rotation = -1.5708
 scale = Vector2( 0.175271, 0.208771 )
 texture = ExtResource( 7 )

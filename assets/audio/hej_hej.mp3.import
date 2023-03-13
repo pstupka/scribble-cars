@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/hej_hej.mp3-fe9797b458d7698455ae71a9ce6b44ec.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/hej_hej.mp3"
+dest_files=[ "res://.import/hej_hej.mp3-fe9797b458d7698455ae71a9ce6b44ec.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -31,7 +31,7 @@
 [ext_resource path="res://assets/sprites/buildings/city1_windows..png" type="Texture" id=29]
 [ext_resource path="res://assets/sprites/buildings/city3_windows..png" type="Texture" id=30]
 [ext_resource path="res://assets/sprites/buildings/city2_windows..png" type="Texture" id=31]
-[ext_resource path="res://source/scenes/actors/npc/cat.tscn" type="PackedScene" id=32]
+[ext_resource path="res://source/scenes/actors/npc/pedestrian.tscn" type="PackedScene" id=32]
 [ext_resource path="res://source/scenes/actors/Spawner.tscn" type="PackedScene" id=33]
 
 [sub_resource type="Gradient" id=11]
@@ -448,14 +448,42 @@ texture = ExtResource( 4 )
 
 [node name="Actors" type="YSort" parent="."]
 
+[node name="Pedestrians" type="Node2D" parent="Actors"]
+position = Vector2( 365, 327 )
+
+[node name="Pedestrian" parent="Actors/Pedestrians" instance=ExtResource( 32 )]
+position = Vector2( 17, 23 )
+monitoring = false
+monitorable = false
+
+[node name="Pedestrian5" parent="Actors/Pedestrians" instance=ExtResource( 32 )]
+position = Vector2( 320, 20 )
+monitoring = false
+monitorable = false
+
+[node name="Pedestrian2" parent="Actors/Pedestrians" instance=ExtResource( 32 )]
+position = Vector2( 603, 20 )
+monitoring = false
+monitorable = false
+
+[node name="Pedestrian3" parent="Actors/Pedestrians" instance=ExtResource( 32 )]
+position = Vector2( 1114, 23 )
+monitoring = false
+monitorable = false
+
+[node name="Pedestrian4" parent="Actors/Pedestrians" instance=ExtResource( 32 )]
+position = Vector2( -329, 9 )
+monitoring = false
+monitorable = false
+
 [node name="Spawner" parent="Actors" instance=ExtResource( 33 )]
-position = Vector2( -222, 538 )
+position = Vector2( -222, 549 )
 
 [node name="Spawner2" parent="Actors" instance=ExtResource( 33 )]
-position = Vector2( 1162, 564 )
+position = Vector2( 1162, 575 )
 
 [node name="Spawner3" parent="Actors" instance=ExtResource( 33 )]
-position = Vector2( -1359, 602 )
+position = Vector2( -1359, 613 )
 
 [node name="Cat" parent="Actors" instance=ExtResource( 32 )]
 position = Vector2( 81, 540 )
@@ -484,7 +512,7 @@ autostart = true
 
 [node name="EnterTweener" type="Node" parent="."]
 script = ExtResource( 22 )
-node_paths = [ NodePath("../ParallaxBackground/BuildingsBg/CityBg2"), NodePath("../ParallaxBackground/BuildingsBg/CityBg"), NodePath("../ParallaxBackground/BuildingsBg3/CityBg3"), NodePath("../ParallaxBackground/BuildingsBg3/CityBg4"), NodePath("../ParallaxBackground/BuildingsBg2/CityBg2"), NodePath("../ParallaxBackground/BuildingsBg2/CityBg4"), NodePath("../RoadParallax/Buildings/City1"), NodePath("../RoadParallax/Buildings/windows/City1_windows"), NodePath("../ParallaxBackground/BuildingsBg2/CityBg5"), NodePath("../RoadParallax/Buildings/City3"), NodePath("../RoadParallax/Buildings/windows/City3_windows"), NodePath("../RoadParallax/Buildings/City2"), NodePath("../RoadParallax/Buildings/windows/City2_windows"), NodePath("../RoadParallax/Road/Road1"), NodePath("../RoadParallax/Buildings/ColorRect"), NodePath("../Actors/Player"), NodePath("../ParallaxBackground/Clouds2/Pivot"), NodePath("../ParallaxBackground/Clouds/Pivot"), NodePath("../ParallaxBackground/MoonSun/Sun"), NodePath("../ParallaxBackground/Sky/Sky"), NodePath("../Actors/Streetlight2"), NodePath("../ParallaxBackground/MoonSun/Moon"), NodePath("../ParallaxBackground/Stars/Pivot"), NodePath("../Actors/Cat") ]
+node_paths = [ NodePath("../ParallaxBackground/BuildingsBg/CityBg2"), NodePath("../ParallaxBackground/BuildingsBg/CityBg"), NodePath("../ParallaxBackground/BuildingsBg3/CityBg3"), NodePath("../ParallaxBackground/BuildingsBg3/CityBg4"), NodePath("../ParallaxBackground/BuildingsBg2/CityBg2"), NodePath("../ParallaxBackground/BuildingsBg2/CityBg4"), NodePath("../RoadParallax/Buildings/City1"), NodePath("../RoadParallax/Buildings/windows/City1_windows"), NodePath("../ParallaxBackground/BuildingsBg2/CityBg5"), NodePath("../RoadParallax/Buildings/City3"), NodePath("../RoadParallax/Buildings/windows/City3_windows"), NodePath("../RoadParallax/Buildings/City2"), NodePath("../RoadParallax/Buildings/windows/City2_windows"), NodePath("../RoadParallax/Road/Road1"), NodePath("../RoadParallax/Buildings/ColorRect"), NodePath("../Actors/Player"), NodePath("../ParallaxBackground/Clouds2/Pivot"), NodePath("../ParallaxBackground/Clouds/Pivot"), NodePath("../ParallaxBackground/MoonSun/Sun"), NodePath("../ParallaxBackground/Sky/Sky"), NodePath("../Actors/Streetlight2"), NodePath("../ParallaxBackground/MoonSun/Moon"), NodePath("../ParallaxBackground/Stars/Pivot"), NodePath("../Actors/Cat"), NodePath("../Actors/Pedestrians") ]
 object_time_offset = 0.05
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

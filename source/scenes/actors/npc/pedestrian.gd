@@ -1,14 +1,17 @@
 extends Area2D
 
+onready var hey: AudioStreamPlayer2D = $Hey
+onready var meow: AudioStreamPlayer2D = $Meow
 
-onready var meow_stream_player: AudioStreamPlayer2D = $Meow
+
+onready var sfx: AudioStreamPlayer2D 
 onready var animation_player: AnimationPlayer = $AnimationPlayer
 onready var sprite: Sprite = $AnimationPivot/Sprite
 onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 onready var bus_collision: CollisionShape2D = $BusDiscover/CollisionShape2D
 
 
-const PITCH_RAND = 0.4
+const PITCH_RAND = 0.2
 enum State {IDLE, MOVE, GO_TO_TARGET}
 var current_state = State.IDLE
 var previous_state = null
@@ -18,27 +21,50 @@ var speed := 30.0
 var direction := Vector2.LEFT
 var fixed_y_position : float
 
-
 var particles_template = preload("res://source/utils/score_particles.tscn")
 
+var type
+
+var npc_types := {
+	"res://assets/sprites/npc/cat1.png": "cat",
+	"res://assets/sprites/npc/cat2.png": "cat",
+	"res://assets/sprites/npc/cat3.png": "cat",
+	"res://assets/sprites/npc/human1.png": "human",
+	"res://assets/sprites/npc/human2.png": "human",
+	"res://assets/sprites/npc/human3.png": "human",
+	"res://assets/sprites/npc/human4.png": "human",
+	"res://assets/sprites/npc/human5.png": "human",
+	"res://assets/sprites/npc/human6.png": "human",
+	"res://assets/sprites/npc/human7.png": "human",
+	"res://assets/sprites/npc/human8.png": "human",
+	"res://assets/sprites/npc/human9.png": "human",
+	"res://assets/sprites/npc/human10.png": "human",
+}
 
 func _ready() -> void:
 	randomize()
-	var cat_no = randi() % 3 + 1
-	
-	
-	if cat_no == 2:
-		sprite.position.y -= 10
-	
-	sprite.texture = load("res://assets/sprites/npc/cat%d.png" % cat_no)
-	sprite.offset.y = -sprite.texture.get_size().y / 2
 
-	meow_stream_player.pitch_scale = rand_range(1.0, 1.0 + PITCH_RAND)
+	type = npc_types.keys()
+	type = type[randi() % type.size()]
+	
+	sprite.texture = load(type)
+	sprite.position.y = -sprite.texture.get_size().y / 4
+
+	sfx = hey
+
+	if (npc_types[type] == "cat"):
+		sfx = meow
+
+	sfx.pitch_scale = rand_range(1.0 - PITCH_RAND/2, 1.0 + PITCH_RAND)
+	animation_player.playback_speed = sfx.pitch_scale
 	speed += rand_range(0, 20)
 	
 	direction.x = rand_range(-0.5, 0.5)
 	direction = direction.normalized()
 	fixed_y_position = global_position.y
+	
+	$Timer.wait_time = rand_range(1.0, 10.0)
+	$Timer.start()
 
 
 func _process(delta: float) -> void:
@@ -79,10 +105,9 @@ func next_state() -> void:
 			animation_player.play("idle")
 
 
-func meow() -> void:
-	if randf() < 0.5: return
-	
-	meow_stream_player.play()
+func play_sfx() -> void:
+	if randf() < 0.3: return
+	sfx.play()
 	
 	var tween = create_tween()
 	tween.tween_property(sprite, "scale:x", 0.4, 0.9)
@@ -93,7 +118,7 @@ func meow() -> void:
 
 func _on_Cat_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
-		meow()
+		play_sfx()
 
 
 func _on_BusDiscover_area_entered(area: Area2D) -> void:
