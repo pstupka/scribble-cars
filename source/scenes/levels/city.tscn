@@ -477,13 +477,13 @@ monitoring = false
 monitorable = false
 
 [node name="Spawner" parent="Actors" instance=ExtResource( 33 )]
-position = Vector2( -222, 549 )
+position = Vector2( -222, 535 )
 
 [node name="Spawner2" parent="Actors" instance=ExtResource( 33 )]
-position = Vector2( 1162, 575 )
+position = Vector2( 1162, 561 )
 
 [node name="Spawner3" parent="Actors" instance=ExtResource( 33 )]
-position = Vector2( -1359, 613 )
+position = Vector2( -1359, 599 )
 
 [node name="Cat" parent="Actors" instance=ExtResource( 32 )]
 position = Vector2( 81, 540 )

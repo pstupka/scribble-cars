@@ -6,9 +6,10 @@ onready var meow: AudioStreamPlayer2D = $Meow
 
 onready var sfx: AudioStreamPlayer2D 
 onready var animation_player: AnimationPlayer = $AnimationPlayer
-onready var sprite: Sprite = $AnimationPivot/Sprite
+onready var sprite: Sprite = $AnimationPivot/SFXAnimPivot/Sprite
 onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 onready var bus_collision: CollisionShape2D = $BusDiscover/CollisionShape2D
+onready var sfx_anim_pivot: Node2D = $AnimationPivot/SFXAnimPivot
 
 
 const PITCH_RAND = 0.2
@@ -110,10 +111,10 @@ func play_sfx() -> void:
 	sfx.play()
 	
 	var tween = create_tween()
-	tween.tween_property(sprite, "scale:x", 0.4, 0.9)
-	tween.parallel().tween_property(sprite, "scale:y", 0.65, 0.9)
-	tween.tween_property(sprite, "scale:x", 0.5, 1.3).set_delay(0.2)
-	tween.parallel().tween_property(sprite, "scale:y", 0.5, 1.3).set_delay(0.2)
+	tween.tween_property(sfx_anim_pivot, "scale:x", 0.9, 0.9)
+	tween.parallel().tween_property(sfx_anim_pivot, "scale:y", 1.2, 0.9)
+	tween.tween_property(sfx_anim_pivot, "scale:x", 1.0, 1.3).set_delay(0.2)
+	tween.parallel().tween_property(sfx_anim_pivot, "scale:y", 1.0, 1.3).set_delay(0.2)
 
 
 func _on_Cat_body_entered(body: Node) -> void:
