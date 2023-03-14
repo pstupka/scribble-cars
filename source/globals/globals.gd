@@ -34,13 +34,13 @@ var car_templates:Dictionary = {
 }
 
 var available_cars: = {
-	"forest": ["car_template", "tractor", "car1", "tractor2", "car3", "car4", "bus2", "car_police"],
-	"city": ["bus3", "bus4", "bus", "cabrio", "car3", "car1", "car_template", "car_ambulance", "fish_bus"]
+	"forest": ["car_template", "tractor", "car1", "tractor2", "car3", "car4", "cabrio", "bus2", "car_police"],
+	"city": ["bus3", "bus4", "bus", "fish_bus", "car_ambulance", "car_police"]
 }
 
 var available_random_cars: = {
 	"forest": ["car_template", "tractor", "car1", "tractor2", "car3", "car4", "bus2", "car_police"],
-	"city": ["bus3", "car3", "bus", "cabrio", "car1", "bus4", "car_template", "car_ambulance", "car4", "car_police"]
+	"city": ["car3", "cabrio", "car1", "car_template", "car_ambulance", "car4", "car_police"]
 }
 
 var available_colors = [
