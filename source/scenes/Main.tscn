@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://assets/sprites/road_outline.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/ground.png" type="Texture" id=2]
@@ -33,6 +33,9 @@
 [ext_resource path="res://source/scenes/menu/pause-menu.tscn" type="PackedScene" id=31]
 [ext_resource path="res://source/scenes/props/Cloud4.tscn" type="PackedScene" id=32]
 [ext_resource path="res://source/scenes/props/Cloud3.tscn" type="PackedScene" id=33]
+[ext_resource path="res://assets/sprites/house_1.png" type="Texture" id=34]
+[ext_resource path="res://assets/sprites/props/streetlights_fill.png" type="Texture" id=35]
+[ext_resource path="res://assets/sprites/fume2.png" type="Texture" id=36]
 
 [sub_resource type="Gradient" id=13]
 offsets = PoolRealArray( 0, 0.195402, 0.318966, 0.385057, 1 )
@@ -47,6 +50,32 @@ fill_to = Vector2( 0, 1 )
 [sub_resource type="StreamTexture" id=4]
 flags = 4
 load_path = "res://.import/tree1.png-1e3faf9e6f29f6130483ec280db52e2e.stex"
+
+[sub_resource type="Gradient" id=25]
+offsets = PoolRealArray( 0, 0.206349, 0.957944 )
+colors = PoolColorArray( 1, 1, 1, 0.588235, 1, 1, 1, 0.266667, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=22]
+gradient = SubResource( 25 )
+
+[sub_resource type="Curve" id=26]
+_data = [ Vector2( 0, 0.0477272 ), 0.0, 0.0, 0, 0, Vector2( 0.886792, 0.434091 ), 1.28026, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=24]
+curve = SubResource( 26 )
+
+[sub_resource type="ParticlesMaterial" id=27]
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 20.0
+gravity = Vector3( 10, -50, 0 )
+initial_velocity = 20.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 10.17
+scale_curve = SubResource( 24 )
+color = Color( 0.780392, 0.780392, 0.780392, 1 )
+color_ramp = SubResource( 22 )
 
 [sub_resource type="Shader" id=6]
 code = "shader_type canvas_item;
@@ -373,6 +402,7 @@ position = Vector2( 684, 145.5 )
 texture = ExtResource( 10 )
 
 [node name="Tree5" type="Sprite" parent="ParallaxBackground/Ground"]
+visible = false
 light_mask = 4
 position = Vector2( 339.1, 146 )
 scale = Vector2( 0.15, 0.15 )
@@ -419,6 +449,28 @@ light_mask = 4
 position = Vector2( 489.3, 140.25 )
 scale = Vector2( 0.2, 0.2 )
 texture = SubResource( 4 )
+
+[node name="House1" type="Sprite" parent="ParallaxBackground/Ground"]
+position = Vector2( 1196, 121 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 34 )
+
+[node name="House1_shadow" type="Sprite" parent="ParallaxBackground/Ground/House1"]
+modulate = Color( 0.392157, 0.388235, 0.396078, 0.223529 )
+show_behind_parent = true
+position = Vector2( 0, 94 )
+rotation = 1.48094
+scale = Vector2( 0.815386, 1.06647 )
+texture = ExtResource( 35 )
+
+[node name="Smoke" type="Particles2D" parent="ParallaxBackground/Ground/House1"]
+light_mask = 0
+position = Vector2( 66, -68 )
+amount = 50
+lifetime = 4.0
+randomness = 1.0
+process_material = SubResource( 27 )
+texture = ExtResource( 36 )
 
 [node name="RoadParallax" type="ParallaxBackground" parent="."]
 layer = -1
@@ -909,7 +961,7 @@ bus = "Background"
 
 [node name="EnterTweener" type="Node" parent="."]
 script = ExtResource( 23 )
-node_paths = [ NodePath("../ParallaxBackground/Sky/Sky"), NodePath("../ParallaxBackground2/Ground4/GrassPivot"), NodePath("../RoadParallax/Ground3/GrassPivot"), NodePath("../RoadParallax/Ground2/GrassPivot"), NodePath("../ParallaxBackground/Ground/GrassPivot"), NodePath("../ParallaxBackground/Ground/MountainsPivot"), NodePath("../ParallaxBackground2/Ground4/Tree5"), NodePath("../ParallaxBackground2/Ground4/Tree6"), NodePath("../RoadParallax/Ground3/Flowers"), NodePath("../RoadParallax/Ground3/Flowers2"), NodePath("../RoadParallax/Ground3/Flowers3"), NodePath("../Trees_front/Group1"), NodePath("../Trees_front/Group3"), NodePath("../Trees_front/Group2"), NodePath("../RoadParallax/Road/Road1"), NodePath("../RoadParallax/Ground2/Tree3"), NodePath("../RoadParallax/Ground2/Tree4"), NodePath("../Trees_back/Group3"), NodePath("../Trees_back/Group2"), NodePath("../Trees_back/Group1"), NodePath("../ParallaxBackground/Ground/Tree5"), NodePath("../ParallaxBackground/Ground/Tree6"), NodePath("../ParallaxBackground/Ground/Tree7"), NodePath("../ParallaxBackground/Ground/Tree8"), NodePath("../ParallaxBackground/Ground/Tree1"), NodePath("../ParallaxBackground/Ground/Tree3"), NodePath("../ParallaxBackground/Ground/Tree4"), NodePath("../ParallaxBackground/Ground/Tree2"), NodePath("../ParallaxBackground/Clouds"), NodePath("../ParallaxBackground/Clouds2"), NodePath("../ParallaxBackground/MoonSun"), NodePath("../ParallaxBackground/Stars"), NodePath("../Actors/Player") ]
+node_paths = [ NodePath("../ParallaxBackground/Sky/Sky"), NodePath("../ParallaxBackground2/Ground4/GrassPivot"), NodePath("../RoadParallax/Ground3/GrassPivot"), NodePath("../RoadParallax/Ground2/GrassPivot"), NodePath("../ParallaxBackground/Ground/GrassPivot"), NodePath("../ParallaxBackground/Ground/MountainsPivot"), NodePath("../ParallaxBackground2/Ground4/Tree5"), NodePath("../ParallaxBackground2/Ground4/Tree6"), NodePath("../RoadParallax/Ground3/Flowers"), NodePath("../RoadParallax/Ground3/Flowers2"), NodePath("../RoadParallax/Ground3/Flowers3"), NodePath("../Trees_front/Group1"), NodePath("../Trees_front/Group3"), NodePath("../Trees_front/Group2"), NodePath("../RoadParallax/Road/Road1"), NodePath("../RoadParallax/Ground2/Tree3"), NodePath("../RoadParallax/Ground2/Tree4"), NodePath("../Trees_back/Group3"), NodePath("../Trees_back/Group2"), NodePath("../Trees_back/Group1"), NodePath("../ParallaxBackground/Ground/Tree5"), NodePath("../ParallaxBackground/Ground/Tree6"), NodePath("../ParallaxBackground/Ground/Tree7"), NodePath("../ParallaxBackground/Ground/Tree8"), NodePath("../ParallaxBackground/Ground/Tree1"), NodePath("../ParallaxBackground/Ground/Tree3"), NodePath("../ParallaxBackground/Ground/Tree4"), NodePath("../ParallaxBackground/Ground/Tree2"), NodePath("../ParallaxBackground/Clouds"), NodePath("../ParallaxBackground/Clouds2"), NodePath("../ParallaxBackground/MoonSun"), NodePath("../ParallaxBackground/Stars"), NodePath("../Actors/Player"), NodePath("../ParallaxBackground/Ground/House1") ]
 object_time_offset = 0.05
 
 [connection signal="timeout" from="AppleTimer" to="." method="_on_AppleTimer_timeout"]

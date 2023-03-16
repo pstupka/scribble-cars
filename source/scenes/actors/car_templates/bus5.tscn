@@ -178,18 +178,18 @@ position = Vector2( 1.11111, -49.1018 )
 
 [node name="CarFill" type="Sprite" parent="AnimationPivot/Sprites"]
 self_modulate = Color( 0.635294, 0.862745, 0.780392, 1 )
-position = Vector2( 0.866669, -36.2091 )
+position = Vector2( 0, -36.209 )
 scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 13 )
 
 [node name="BusDoors" type="Sprite" parent="AnimationPivot/Sprites"]
 self_modulate = Color( 0.721569, 0.709804, 0.72549, 1 )
-position = Vector2( -4.68889, -18.9363 )
+position = Vector2( -6.66667, -13.6364 )
 scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 11 )
 
 [node name="CarWheels" type="Sprite" parent="AnimationPivot/Sprites"]
-position = Vector2( -8.13336, -33.9374 )
+position = Vector2( -13.3333, -32.7273 )
 scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 16 )
 
@@ -219,7 +219,7 @@ night_color = Color( 1.5, 1.5, 1.5, 1 )
 
 [node name="FrontLight" type="Sprite" parent="AnimationPivot"]
 material = SubResource( 12 )
-position = Vector2( -135.556, -38.1928 )
+position = Vector2( -133.333, -39.1018 )
 rotation = 3.14158
 scale = Vector2( 0.0728306, 0.0728306 )
 texture = ExtResource( 6 )

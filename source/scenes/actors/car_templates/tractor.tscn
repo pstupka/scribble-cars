@@ -32,13 +32,13 @@ blend_mode = 1
 offsets = PoolRealArray( 0, 0.148387, 0.522581 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.535484, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=22]
+[sub_resource type="GradientTexture" id=26]
 gradient = SubResource( 21 )
 
 [sub_resource type="Curve" id=23]
 _data = [ Vector2( 0.00561798, 0.0761364 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.730682 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=24]
+[sub_resource type="CurveTexture" id=27]
 curve = SubResource( 23 )
 
 [sub_resource type="ParticlesMaterial" id=25]
@@ -49,9 +49,9 @@ gravity = Vector3( 0, -98, 0 )
 initial_velocity = 100.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-scale_curve = SubResource( 24 )
+scale_curve = SubResource( 27 )
 color = Color( 0.780392, 0.780392, 0.780392, 1 )
-color_ramp = SubResource( 22 )
+color_ramp = SubResource( 26 )
 
 [sub_resource type="Animation" id=16]
 length = 0.001

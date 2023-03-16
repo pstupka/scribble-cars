@@ -9,6 +9,7 @@ onready var actors = $Actors
 onready var player = $Actors/Player
 export var scene_type = "forest"
 
+
 export var lanes_y_position = [410, 460]
 
 onready var random_car = preload("res://source/scenes/actors/random_car.tscn")
@@ -22,6 +23,7 @@ func _ready():
 	get_tree().paused = true
 	$EnterTweener.apply_tween()
 	Globals.score = 0
+
 
 func _input(event):
 	if event.is_action_pressed("lights"):
