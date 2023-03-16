@@ -195,7 +195,7 @@ texture = ExtResource( 16 )
 
 [node name="CarBacklight" type="Sprite" parent="AnimationPivot/Sprites"]
 self_modulate = Color( 0.878431, 0.27451, 0.27451, 1 )
-position = Vector2( 127.533, -37.1182 )
+position = Vector2( 127.533, -37.1181 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
 
@@ -208,7 +208,7 @@ texture = ExtResource( 14 )
 self_modulate = Color( 0.541176, 0.168627, 0.168627, 1 )
 light_mask = 0
 material = SubResource( 19 )
-position = Vector2( 126.132, -53.369 )
+position = Vector2( 127.479, -86.4252 )
 rotation = -1.5708
 scale = Vector2( 0.175271, 0.208771 )
 texture = ExtResource( 6 )
@@ -219,7 +219,7 @@ night_color = Color( 1.5, 1.5, 1.5, 1 )
 
 [node name="FrontLight" type="Sprite" parent="AnimationPivot"]
 material = SubResource( 12 )
-position = Vector2( -135.556, -7.28373 )
+position = Vector2( -135.556, -38.1928 )
 rotation = 3.14158
 scale = Vector2( 0.0728306, 0.0728306 )
 texture = ExtResource( 6 )
