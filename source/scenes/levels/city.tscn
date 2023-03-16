@@ -454,27 +454,22 @@ position = Vector2( 365, 327 )
 [node name="Pedestrian" parent="Actors/Pedestrians" instance=ExtResource( 32 )]
 position = Vector2( 17, 23 )
 monitoring = false
-monitorable = false
 
 [node name="Pedestrian5" parent="Actors/Pedestrians" instance=ExtResource( 32 )]
 position = Vector2( 320, 20 )
 monitoring = false
-monitorable = false
 
 [node name="Pedestrian2" parent="Actors/Pedestrians" instance=ExtResource( 32 )]
 position = Vector2( 603, 20 )
 monitoring = false
-monitorable = false
 
 [node name="Pedestrian3" parent="Actors/Pedestrians" instance=ExtResource( 32 )]
 position = Vector2( 1114, 23 )
 monitoring = false
-monitorable = false
 
 [node name="Pedestrian4" parent="Actors/Pedestrians" instance=ExtResource( 32 )]
 position = Vector2( -329, 9 )
 monitoring = false
-monitorable = false
 
 [node name="Spawner" parent="Actors" instance=ExtResource( 33 )]
 position = Vector2( -222, 535 )

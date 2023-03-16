@@ -226,11 +226,11 @@ scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 6 )
 
 [node name="FrontLightRays" type="Sprite" parent="AnimationPivot/FrontLight"]
-modulate = Color( 0.69, 0.686665, 0.4899, 1 )
+modulate = Color( 0.929412, 0.882353, 0.619608, 1 )
 material = SubResource( 20 )
-position = Vector2( -220, -0.0027771 )
+position = Vector2( -180.794, -0.00213851 )
 rotation = -1.57078
-scale = Vector2( 18.0549, 21.5679 )
+scale = Vector2( 11.8034, 17.834 )
 texture = ExtResource( 10 )
 offset = Vector2( 0, 123 )
 
