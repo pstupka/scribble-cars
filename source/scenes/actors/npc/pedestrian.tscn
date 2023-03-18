@@ -116,12 +116,14 @@ anims/move = SubResource( 4 )
 
 [node name="Meow" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
+volume_db = -10.0
 max_distance = 1000.0
 attenuation = 1.7411
 bus = "Sfx"
 
 [node name="Hey" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
+volume_db = -10.0
 max_distance = 1000.0
 attenuation = 1.7411
 bus = "Sfx"

@@ -24,14 +24,16 @@ void fragment(){
 
 [sub_resource type="OpenSimplexNoise" id=16]
 seed = 5
+period = 51.6
 
 [sub_resource type="NoiseTexture" id=3]
-seamless = true
+width = 256
+height = 256
 noise = SubResource( 16 )
 
 [resource]
 shader = SubResource( 15 )
-shader_param/strength = 0.01
-shader_param/speed = 10.0
-shader_param/frames = 6
+shader_param/strength = 0.09
+shader_param/speed = 5.0
+shader_param/frames = 5
 shader_param/flowMap = SubResource( 3 )
