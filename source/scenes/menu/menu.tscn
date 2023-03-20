@@ -348,6 +348,7 @@ light_mode = 1
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_scale = Vector2( 1, 1.00237 )
 script = ExtResource( 1 )
 button_tint = Color( 1.2, 1.2, 1.2, 1 )
 
