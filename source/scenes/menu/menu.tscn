@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://source/scenes/menu/menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/LittleThings-ZX5Z.ttf" type="DynamicFontData" id=2]
@@ -314,6 +314,107 @@ tracks/7/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
+[sub_resource type="Animation" id=56]
+resource_name = "Area4Button"
+length = 1.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer/Area1Button:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.54 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer2/Area2Button:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.38 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer3/Area3Button:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer4/Area4Button:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.32 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ColorRect:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.74 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.407843, 0.760784, 0.827451, 1 ), Color( 0.407843, 0.760784, 0.827451, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("MarginContainer/VBoxContainer/TitleLabel:percent_visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.44 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("BackgroundMusic:volume_db")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1.04 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -36.344 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/CenterContainer/AreaChooseBackButton:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.56 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
 [sub_resource type="Animation" id=11]
 length = 0.001
 tracks/0/type = "value"
@@ -383,8 +484,6 @@ custom_fonts/normal_font = SubResource( 31 )
 bbcode_enabled = true
 bbcode_text = "[center][color=#ede19e]S[/color][color=#a77b5b]c[/color][color=#b45252]r[/color][color=#e5ceb4]i[/color][color=#7b7243]b[/color][color=#a2dcc7]b[/color][color=#cf8acb]l[/color][color=#3a3858]e[/color] [color=#80493a]M[/color][color=#c2d368]a[/color][color=#45444f]c[/color][color=#d3a068]h[/color][color=#4b80ca]i[/color][color=#8ab060]n[/color][color=#68c2d3]e[/color][color=#567b79]s[/color]
 [/center]"
-visible_characters = 0
-percent_visible = 0.0
 text = "Scribble Machines
 "
 scroll_active = false
@@ -607,7 +706,6 @@ custom_styles/pressed = SubResource( 4 )
 custom_styles/focus = SubResource( 26 )
 custom_styles/disabled = SubResource( 30 )
 custom_styles/normal = SubResource( 6 )
-disabled = true
 icon = ExtResource( 15 )
 icon_align = 1
 expand_icon = true
@@ -803,6 +901,7 @@ icon_align = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Area1Button = SubResource( 10 )
 anims/Area2Button = SubResource( 33 )
+anims/Area4Button = SubResource( 56 )
 anims/RESET = SubResource( 11 )
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]

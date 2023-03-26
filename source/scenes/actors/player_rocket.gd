@@ -6,6 +6,8 @@ export (int) var engine_thrust_boost = 50000
 
 onready var pivot: Node2D = $Pivot
 onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+onready var engine_1_particles: Particles2D = $"%Engine1Particles"
+onready var engine_2_particles: Particles2D = $"%Engine2Particles"
 
 export var camera_zoom_speed_threshold = 500.0
 var thrust := Vector2.ZERO
@@ -19,9 +21,13 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("lights"):
 		engine_thrust = engine_thrust_boost
+		engine_1_particles.emitting = true
+		engine_2_particles.emitting = true
 	if event.is_action_released("lights"):
 		engine_thrust = engine_thrust_normal
-
+		engine_1_particles.emitting = false
+		engine_2_particles.emitting = false
+		
 
 func _process(delta: float) -> void:
 	direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
