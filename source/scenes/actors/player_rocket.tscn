@@ -9,30 +9,37 @@
 [ext_resource path="res://assets/sprites/space/star.png" type="Texture" id=7]
 
 [sub_resource type="Gradient" id=25]
-offsets = PoolRealArray( 0, 0.148387, 0.522581 )
+offsets = PoolRealArray( 0, 0.164021, 0.522581 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.535484, 1, 1, 1, 0 )
 
 [sub_resource type="GradientTexture" id=22]
 gradient = SubResource( 25 )
 
 [sub_resource type="Curve" id=26]
-_data = [ Vector2( 0.00561798, 0.0761364 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.859091 ), 0.0, 0.0, 0, 0 ]
+max_value = 2.0
+_data = [ Vector2( 0, 0.247727 ), 0.0, 0.0, 0, 0, Vector2( 0.122642, 0.556818 ), 3.23285, 3.23285, 0, 0, Vector2( 0.740566, 1.68409 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="CurveTexture" id=24]
 curve = SubResource( 26 )
 
 [sub_resource type="ParticlesMaterial" id=27]
+lifetime_randomness = 0.39
+emission_shape = 2
+emission_box_extents = Vector3( 1, 5, 1 )
 flag_disable_z = true
-spread = 30.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = -100.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
+angle = 180.0
+angle_random = 1.0
+scale = 2.0
+scale_random = 1.0
 scale_curve = SubResource( 24 )
-color = Color( 0.780392, 0.780392, 0.780392, 1 )
+color = Color( 0.811765, 0.541176, 0.796078, 1 )
 color_ramp = SubResource( 22 )
-hue_variation = 0.47
-hue_variation_random = 0.44
+hue_variation = 1.0
+hue_variation_random = 1.0
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 38.1424
@@ -77,9 +84,9 @@ texture = ExtResource( 2 )
 [node name="Engine1Particles" type="Particles2D" parent="Pivot/AnimationPivot"]
 unique_name_in_owner = true
 light_mask = 0
-position = Vector2( -49, -21 )
+position = Vector2( -50, -21 )
 emitting = false
-amount = 50
+amount = 70
 lifetime = 2.0
 local_coords = false
 process_material = SubResource( 27 )
@@ -88,13 +95,16 @@ texture = ExtResource( 7 )
 [node name="Engine2Particles" type="Particles2D" parent="Pivot/AnimationPivot"]
 unique_name_in_owner = true
 light_mask = 0
-position = Vector2( -46, 7 )
+position = Vector2( -46, 11 )
 emitting = false
-amount = 50
+amount = 70
 lifetime = 2.0
 local_coords = false
 process_material = SubResource( 27 )
 texture = ExtResource( 7 )
+__meta__ = {
+"_editor_description_": "ww"
+}
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
