@@ -26,7 +26,9 @@ var _code_buffer: String = ""
 
 
 func _ready() -> void:
-	if not cheats_enabled: return
+	if not OS.has_feature("cheats"): 
+		call_deferred("queue_free")
+		return
 	
 	typing_timer = Timer.new()
 	get_tree().root.call_deferred("add_child", typing_timer)
@@ -34,9 +36,7 @@ func _ready() -> void:
 	typing_timer.connect("timeout", self, "_on_typing_timer_timeout")
 	
 
-func _input(event: InputEvent) -> void:
-	if not cheats_enabled: return
-	
+func _input(event: InputEvent) -> void:	
 	if event as InputEventJoypadButton:
 		for action in cheat_input_actions.keys():
 			if event.is_action_pressed(action):
@@ -56,9 +56,10 @@ func validate_cheat(cheat: String) -> void:
 		match codes[cheat]:
 			"darek_mode": 
 				print("Darek moode activated")
+				var darek_texture = load("res://assets/sprites/npc/darek.png")
 				for pedestrian in get_tree().get_nodes_in_group("pedestrian"):
-					pedestrian.sprite.texture = load("res://assets/sprites/npc/darek.png")
-					pedestrian.sprite.position.y = -pedestrian.sprite.texture.get_size().y / 4
+					pedestrian.sprite.texture = darek_texture
+					pedestrian.sprite.position.y = -darek_texture.get_size().y / 4
 
 
 func _on_typing_timer_timeout() -> void:
