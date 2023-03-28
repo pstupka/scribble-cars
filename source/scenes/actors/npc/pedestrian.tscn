@@ -79,7 +79,7 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 26, 30.5 )
 
-[node name="Pedestrian" type="Area2D" groups=["wrapable"]]
+[node name="Pedestrian" type="Area2D" groups=["pedestrian", "wrapable"]]
 collision_layer = 16
 collision_mask = 2
 script = ExtResource( 1 )
