@@ -41,11 +41,11 @@ color_ramp = SubResource( 22 )
 hue_variation = 1.0
 hue_variation_random = 1.0
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 38.1424
-height = 71.7198
+[sub_resource type="CircleShape2D" id=28]
+radius = 33.0606
 
 [node name="Rocket" type="RigidBody2D" groups=["Player"]]
+mode = 2
 gravity_scale = 0.0
 script = ExtResource( 6 )
 
@@ -113,4 +113,11 @@ smoothing_speed = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
-shape = SubResource( 1 )
+shape = SubResource( 28 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -47.0
+margin_top = -69.0
+margin_right = 39.0
+margin_bottom = -55.0
+text = "lasdglasdgww"
