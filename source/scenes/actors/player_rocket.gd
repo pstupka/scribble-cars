@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 	direction.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 
 	if direction:
-#		collision_shape_2d.rotation = pivot.rotation + PI/2
+		pivot.rotation = lerp_angle(pivot.rotation, direction.angle(), 0.1)
 		thrust = Vector2(engine_thrust, 0)
 	else:
 		thrust = Vector2.ZERO
@@ -44,14 +44,7 @@ func _process(delta: float) -> void:
 		zoom_addition = clamp(linear_velocity.length()/3000.0, 0.0, 0.5)
 	$Camera2D.zoom = lerp($Camera2D.zoom, Vector2(1 + zoom_addition, 1 + zoom_addition), 0.01)
 	
-func _physics_process(delta: float) -> void:
-	pass
 
-func _integrate_forces(state: Physics2DDirectBodyState) -> void:
-	set_applied_force(thrust.rotated(direction.angle()) * clamp(direction.length(), 0, 1))
-	pivot.rotation = lerp_angle(pivot.rotation, direction.angle(), 0.1)
 	
-	if not direction: return
-#	var xform = state.get_transform().rotated(0.01)
-#	$Label.text = str(xform)
-#	state.set_transform(xform)
+func _physics_process(delta: float) -> void:
+	set_applied_force(thrust.rotated(direction.angle()) * clamp(direction.length(), 0, 1))

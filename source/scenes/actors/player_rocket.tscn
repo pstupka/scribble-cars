@@ -114,10 +114,3 @@ smoothing_speed = 4.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource( 28 )
-
-[node name="Label" type="Label" parent="."]
-margin_left = -47.0
-margin_top = -69.0
-margin_right = 39.0
-margin_bottom = -55.0
-text = "lasdglasdgww"

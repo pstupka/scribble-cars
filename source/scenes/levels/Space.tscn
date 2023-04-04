@@ -433,23 +433,23 @@ texture = ExtResource( 1 )
 
 [node name="Collectables" type="Node2D" parent="."]
 
-[node name="YSort" type="YSort" parent="."]
+[node name="Actors" type="Node2D" parent="."]
 
-[node name="Rocket" parent="YSort" instance=ExtResource( 2 )]
+[node name="Rocket" parent="Actors" instance=ExtResource( 2 )]
 mass = 10.0
 linear_damp = 1.5
 engine_thrust_boost = 25000
 
-[node name="RigidBody2D" type="RigidBody2D" parent="YSort"]
+[node name="RigidBody2D" type="RigidBody2D" parent="Actors"]
 position = Vector2( 890, -10 )
 mass = 100.0
 physics_material_override = SubResource( 2 )
 gravity_scale = 0.0
 
-[node name="Sprite" type="Sprite" parent="YSort/RigidBody2D"]
+[node name="Sprite" type="Sprite" parent="Actors/RigidBody2D"]
 texture = ExtResource( 3 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/RigidBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Actors/RigidBody2D"]
 polygon = PoolVector2Array( -52, -35, -52, -108, -21, -125, 37, -115, 51, -62, 16, 133, -47, 140 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

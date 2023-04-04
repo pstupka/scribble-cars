@@ -1,6 +1,6 @@
 extends Node2D
 onready var stars_bg: ParallaxLayer = $ParallaxBackground/Stars
-onready var player = $YSort/Rocket
+onready var player = $Actors/Rocket
 onready var collectables: Node2D = $Collectables
 
 onready var star_scene := preload("res://source/scenes/props/space/collectable_star.tscn")
