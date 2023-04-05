@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://source/scenes/props/space/asteroid_data.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+collision_polygon = PoolVector2Array( 89, 8, 68, -79, 31, -105, -42, -100, -60, -107, -86, -80, -91, 2, -59, 64, -27, 102, 18, 113, 60, 74 )
+sprite_path = "res://assets/sprites/space/asteroid_2.png"

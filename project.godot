@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Resource",
+"class": "AsteroidData",
+"language": "GDScript",
+"path": "res://source/scenes/props/space/asteroid_data.gd"
+}, {
+"base": "Resource",
 "class": "CarResource",
 "language": "GDScript",
 "path": "res://resources/cars/car_resource.gd"
@@ -30,6 +35,7 @@ _global_script_classes=[ {
 "path": "res://source/scenes/actors/player_car.gd"
 } ]
 _global_script_class_icons={
+"AsteroidData": "",
 "CarResource": "",
 "DayNightRotate": "",
 "EnterTweener": "",
