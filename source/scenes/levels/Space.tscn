@@ -442,7 +442,43 @@ linear_damp = 1.5
 engine_thrust_boost = 25000
 
 [node name="Asteroid" parent="Actors" instance=ExtResource( 3 )]
-position = Vector2( 291, -84 )
+position = Vector2( 626, 9 )
+physics_material_override = SubResource( 2 )
+
+[node name="Asteroid2" parent="Actors" instance=ExtResource( 3 )]
+position = Vector2( -1019, -313 )
+physics_material_override = SubResource( 2 )
+
+[node name="Asteroid3" parent="Actors" instance=ExtResource( 3 )]
+position = Vector2( 783, -626 )
+physics_material_override = SubResource( 2 )
+
+[node name="Asteroid4" parent="Actors" instance=ExtResource( 3 )]
+position = Vector2( 325, -483 )
+physics_material_override = SubResource( 2 )
+
+[node name="Asteroid5" parent="Actors" instance=ExtResource( 3 )]
+position = Vector2( 58, 882 )
+physics_material_override = SubResource( 2 )
+
+[node name="Asteroid6" parent="Actors" instance=ExtResource( 3 )]
+position = Vector2( 783, 675 )
+physics_material_override = SubResource( 2 )
+
+[node name="Asteroid7" parent="Actors" instance=ExtResource( 3 )]
+position = Vector2( 990, 276 )
+physics_material_override = SubResource( 2 )
+
+[node name="Asteroid8" parent="Actors" instance=ExtResource( 3 )]
+position = Vector2( -548, 30 )
+physics_material_override = SubResource( 2 )
+
+[node name="Asteroid9" parent="Actors" instance=ExtResource( 3 )]
+position = Vector2( -658, 658 )
+physics_material_override = SubResource( 2 )
+
+[node name="Asteroid10" parent="Actors" instance=ExtResource( 3 )]
+position = Vector2( -345, -525 )
 physics_material_override = SubResource( 2 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

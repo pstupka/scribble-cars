@@ -37,6 +37,9 @@ func _ready() -> void:
 	
 
 func _input(event: InputEvent) -> void:
+	if not OS.has_feature("cheats"): 
+		return
+		
 	if event as InputEventJoypadButton:
 		for action in cheat_input_actions.keys():
 			if event.is_action_pressed(action):
