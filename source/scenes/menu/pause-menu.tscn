@@ -46,31 +46,37 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxEmpty" id=18]
 
-[node name="PauseParallax" type="ParallaxBackground"]
+[node name="PauseParallax" type="CanvasLayer"]
 pause_mode = 2
 layer = 10
 script = ExtResource( 2 )
 
-[node name="PauseOverlay" type="ParallaxLayer" parent="."]
-position = Vector2( 75, 51 )
-motion_scale = Vector2( 0, 0 )
+[node name="Control" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
 
-[node name="ColorRect" type="ColorRect" parent="PauseOverlay"]
+[node name="ColorRect" type="ColorRect" parent="Control"]
 material = SubResource( 11 )
-margin_left = -771.0
-margin_top = -455.0
-margin_right = 629.0
-margin_bottom = 345.0
+margin_right = 1024.0
+margin_bottom = 600.0
 color = Color( 0, 0, 0, 0 )
 
-[node name="PauseLabel" type="RichTextLabel" parent="PauseOverlay"]
-margin_left = -507.0
-margin_top = -262.0
-margin_right = 357.0
-margin_bottom = -134.0
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer"]
+margin_left = 262.0
+margin_top = 134.0
+margin_right = 762.0
+margin_bottom = 465.0
+
+[node name="PauseLabel" type="RichTextLabel" parent="Control/CenterContainer/VBoxContainer"]
+margin_right = 500.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 500, 100 )
 rect_clip_content = false
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.37
 custom_fonts/normal_font = SubResource( 12 )
 bbcode_enabled = true
 bbcode_text = "[center][color=#ede19e]P[/color][color=#a77b5b]A[/color][color=#b45252]U[/color][color=#cf8acb]S[/color][color=#4b80ca]E[/color]
@@ -81,15 +87,20 @@ text = "PAUSE
 "
 scroll_active = false
 
-[node name="Buttons" type="VBoxContainer" parent="PauseOverlay"]
-margin_left = -235.0
-margin_top = -100.0
-margin_right = 80.0
-margin_bottom = 103.0
+[node name="Margin" type="MarginContainer" parent="Control/CenterContainer/VBoxContainer"]
+margin_top = 104.0
+margin_right = 500.0
+margin_bottom = 124.0
+custom_constants/margin_top = 20
 
-[node name="BackButton" type="Button" parent="PauseOverlay/Buttons"]
+[node name="Buttons" type="VBoxContainer" parent="Control/CenterContainer/VBoxContainer"]
+margin_top = 128.0
+margin_right = 500.0
+margin_bottom = 331.0
+
+[node name="BackButton" type="Button" parent="Control/CenterContainer/VBoxContainer/Buttons"]
 unique_name_in_owner = true
-margin_right = 315.0
+margin_right = 500.0
 margin_bottom = 65.0
 custom_colors/font_color_disabled = Color( 0.94902, 0.941176, 0.898039, 1 )
 custom_colors/font_color_focus = Color( 0.94902, 0.941176, 0.898039, 1 )
@@ -105,10 +116,10 @@ custom_styles/normal = SubResource( 18 )
 disabled = true
 text = "BACK"
 
-[node name="MainMenuButton" type="Button" parent="PauseOverlay/Buttons"]
+[node name="MainMenuButton" type="Button" parent="Control/CenterContainer/VBoxContainer/Buttons"]
 unique_name_in_owner = true
 margin_top = 69.0
-margin_right = 315.0
+margin_right = 500.0
 margin_bottom = 134.0
 custom_colors/font_color_disabled = Color( 0.94902, 0.941176, 0.898039, 1 )
 custom_colors/font_color_focus = Color( 0.94902, 0.941176, 0.898039, 1 )
@@ -124,10 +135,10 @@ custom_styles/normal = SubResource( 18 )
 disabled = true
 text = "MAIN MENU"
 
-[node name="QuitButton" type="Button" parent="PauseOverlay/Buttons"]
+[node name="QuitButton" type="Button" parent="Control/CenterContainer/VBoxContainer/Buttons"]
 unique_name_in_owner = true
 margin_top = 138.0
-margin_right = 315.0
+margin_right = 500.0
 margin_bottom = 203.0
 custom_colors/font_color_disabled = Color( 0.94902, 0.941176, 0.898039, 1 )
 custom_colors/font_color_focus = Color( 0.94902, 0.941176, 0.898039, 1 )
@@ -147,6 +158,6 @@ text = "QUIT"
 stream = ExtResource( 3 )
 bus = "Sfx"
 
-[connection signal="pressed" from="PauseOverlay/Buttons/BackButton" to="." method="_on_BackButton_pressed"]
-[connection signal="pressed" from="PauseOverlay/Buttons/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]
-[connection signal="pressed" from="PauseOverlay/Buttons/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/Buttons/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/Buttons/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/Buttons/QuitButton" to="." method="_on_QuitButton_pressed"]

@@ -171,7 +171,7 @@ func _on_AnimationPlayer_animation_finished(anim_name: String):
 	match anim_name:
 		"Area1Button": return get_tree().change_scene("res://source/scenes/Main.tscn")
 		"Area2Button": return get_tree().change_scene("res://source/scenes/levels/city.tscn")
-		"Area4Button": return get_tree().change_scene("res://source/scenes/levels/space.tscn")
+		"Area4Button": return get_tree().change_scene("res://source/scenes/levels/Space.tscn")
 
 
 func _on_StartButton_pressed() -> void:

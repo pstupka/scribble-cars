@@ -13,11 +13,12 @@ func _ready() -> void:
 	sprite.texture = load(asteroid_data.sprite_path)
 	collision.polygon = asteroid_data.collision_polygon
 
-func _on_Asteroid_body_entered(body: Node) -> void:
+func _on_Asteroid_body_entered(_body: Node) -> void:
 	collision.set_deferred("disabled", true)
 	explode_sprite.initialize(sprite.texture)
 	sprite.hide()
 	
 	var tween = create_tween()
-	tween.tween_callback(self, "queue_free").set_delay(2.5)
+
+	tween.parallel().tween_callback(self, "queue_free").set_delay(2.001)
 	

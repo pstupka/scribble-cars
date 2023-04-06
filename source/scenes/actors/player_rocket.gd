@@ -15,7 +15,7 @@ var direction := Vector2.ZERO
 
 
 func _ready() -> void:
-	pass 
+	Globals.camera= $Camera2D 
 
 
 func _input(event: InputEvent) -> void:
@@ -29,7 +29,7 @@ func _input(event: InputEvent) -> void:
 		engine_2_particles.emitting = false
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	direction.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 
