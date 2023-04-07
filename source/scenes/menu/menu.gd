@@ -37,6 +37,8 @@ export(Color) var button_tint := Color("edc8c4")
 
 
 func _ready() -> void:
+	OS.set_window_maximized(true)
+	
 	randomize()
 	
 	current_menu = main_menu_buttons
