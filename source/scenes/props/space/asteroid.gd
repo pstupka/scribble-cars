@@ -15,11 +15,12 @@ var player_rocket = null
 func _ready() -> void:
 	if asteroid_data: return
 	randomize()
-	asteroid_data = load("res://source/scenes/props/space/asteroid_%d.tres" % [randi() % 2 + 1])
+	asteroid_data = load("res://source/scenes/props/space/asteroid_%d.tres" % [randi() % 4 + 1])
 	sprite.texture = load(asteroid_data.sprite_path)
 	collision.polygon = asteroid_data.collision_polygon
 	
 	applied_force = rand_range(100, 5000) * Vector2.RIGHT.rotated(deg2rad(rand_range(0.0, 360)))
+
 
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	if not player_rocket: return
@@ -28,6 +29,7 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	xform.origin = Vector2(wrapf(xform.origin.x, player_rocket.global_position.x - 5000, player_rocket.global_position.x + 5000),\
 			wrapf(xform.origin.y, player_rocket.global_position.y - 5000, player_rocket.global_position.y + 5000))
 	state.set_transform(xform)
+
 
 func _on_Asteroid_body_entered(_body: Node) -> void:
 	if is_instance_valid(explosion): return
