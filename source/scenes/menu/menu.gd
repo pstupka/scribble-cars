@@ -9,11 +9,13 @@ onready var menu_buttons := [
 
 onready var menu_button_content := [
 	preload("res://source/scenes/actors/car_templates/car_template.tscn"),
-	preload("res://source/scenes/actors/car_templates/bus3.tscn")
+	preload("res://source/scenes/actors/car_templates/bus3.tscn"),
+	null,
+	preload("res://source/scenes/props/space/menu_rocket_button.tscn")
 ]
 
-var menu_button_positions := [Vector2(220,120), Vector2(235,110)]
-var menu_button_scales := [Vector2(-0.65, 0.65), Vector2(-0.5, 0.5)]
+var menu_button_positions := [Vector2(220,120), Vector2(235,110), Vector2(235,110), Vector2(205,70)]
+var menu_button_scales := [Vector2(-0.65, 0.65), Vector2(-0.5, 0.5), Vector2(-0.5, 0.5), Vector2(1, 1)]
 
 
 onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -35,6 +37,8 @@ export(Color) var button_tint := Color("edc8c4")
 
 
 func _ready() -> void:
+	OS.set_window_maximized(true)
+	
 	randomize()
 	
 	current_menu = main_menu_buttons
@@ -48,9 +52,12 @@ func _ready() -> void:
 		
 		button_content.position = menu_button_positions[i]
 		button_content.scale = menu_button_scales[i]
-		button_content.get_node("AnimationPivot/Particles2D").emitting = false
-		button_content.get_node("ShadowPivot").hide()
-		button_content.set_animation_loop("move", true)
+		if button_content.has_node("AnimationPivot/Particles2D"):
+			button_content.get_node("AnimationPivot/Particles2D").emitting = false
+		if button_content.has_node("ShadowPivot"):
+			button_content.get_node("ShadowPivot").hide()
+		if button_content.has_method("set_animation_loop"):
+			button_content.set_animation_loop("move", true)
 	
 	start_button.call_deferred("grab_focus")
 	if OS.get_name() == "HTML5":
@@ -80,10 +87,13 @@ func start_menu_button_animation(button = null) -> void:
 	if button.get_child_count() == 0 or button.disabled: return
 	
 	var item_to_animate = button.get_child(0)
-	if item_to_animate.get_node("AnimationPlayer").is_playing(): return
+	if item_to_animate.has_node("AnimationPlayer"):
+		if item_to_animate.get_node("AnimationPlayer").is_playing(): return
 	
-	item_to_animate.get_node("AnimationPivot/Particles2D").emitting = true
-	item_to_animate.get_node("AnimationPlayer").play("move")
+	if item_to_animate.has_node("AnimationPivot/Particles2D"):
+		item_to_animate.get_node("AnimationPivot/Particles2D").emitting = true
+	if item_to_animate.has_node("AnimationPlayer"):
+		item_to_animate.get_node("AnimationPlayer").play("move")
 
 
 func stop_menu_button_animation(button) -> void:
@@ -91,8 +101,10 @@ func stop_menu_button_animation(button) -> void:
 	if button.get_child_count() == 0: return
 	
 	var item_to_animate = button.get_child(0)
-	item_to_animate.get_node("AnimationPivot/Particles2D").emitting = false
-	item_to_animate.get_node("AnimationPlayer").stop(false)
+	if item_to_animate.has_node("AnimationPivot/Particles2D"):
+		item_to_animate.get_node("AnimationPivot/Particles2D").emitting = false
+	if item_to_animate.has_node("AnimationPlayer"):
+		item_to_animate.get_node("AnimationPlayer").stop(false)
 
 
 func show_sub_menu(sub_menu: CanvasLayer) -> void:
@@ -147,7 +159,8 @@ func _on_menu_button_pressed(button) -> void:
 	tween.parallel().tween_property(target, "global_position:x", 512.0, 1.0)
 	tween.parallel().tween_property(target, "scale", Vector2.ONE, 0.4)
 	
-	target.honk(false)
+	if target.has_method("honk"):
+		target.honk(false)
 	
 	for button in menu_buttons:
 		if button.is_connected("focus_entered", self, "_on_menu_button_focus_entered"):
@@ -160,6 +173,7 @@ func _on_AnimationPlayer_animation_finished(anim_name: String):
 	match anim_name:
 		"Area1Button": return get_tree().change_scene("res://source/scenes/Main.tscn")
 		"Area2Button": return get_tree().change_scene("res://source/scenes/levels/city.tscn")
+		"Area4Button": return get_tree().change_scene("res://source/scenes/levels/Space.tscn")
 
 
 func _on_StartButton_pressed() -> void:

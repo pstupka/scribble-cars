@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://source/scenes/menu/menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/LittleThings-ZX5Z.ttf" type="DynamicFontData" id=2]
@@ -15,9 +15,16 @@
 [ext_resource path="res://resources/ui/scroll_grabber_style_car.tres" type="StyleBox" id=13]
 [ext_resource path="res://assets/sprites/cars/plane_outline.png" type="Texture" id=14]
 [ext_resource path="res://assets/sprites/cars/rocket_outline.png" type="Texture" id=15]
+[ext_resource path="res://source/scenes/menu/random_color_label.gd" type="Script" id=16]
 
 [sub_resource type="DynamicFont" id=31]
-size = 120
+size = 100
+outline_size = 4
+outline_color = Color( 0.129412, 0.129412, 0.137255, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=57]
+size = 90
 outline_size = 4
 outline_color = Color( 0.129412, 0.129412, 0.137255, 1 )
 font_data = ExtResource( 2 )
@@ -177,7 +184,7 @@ tracks/4/keys = {
 "values": [ Color( 0.407843, 0.760784, 0.827451, 1 ), Color( 0.407843, 0.760784, 0.827451, 0 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("MarginContainer/VBoxContainer/TitleLabel:percent_visible")
+tracks/5/path = NodePath("MarginContainer/VBoxContainer/MarginContainer/CenterContainer/TitleLabel:percent_visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -211,6 +218,18 @@ tracks/7/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("MarginContainer/VBoxContainer/MarginContainer/CenterContainer2/TitleLabel2:percent_visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.02, 0.57 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
 }
 
 [sub_resource type="Animation" id=33]
@@ -278,7 +297,7 @@ tracks/4/keys = {
 "values": [ Color( 0.407843, 0.760784, 0.827451, 1 ), Color( 0.407843, 0.760784, 0.827451, 0 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("MarginContainer/VBoxContainer/TitleLabel:percent_visible")
+tracks/5/path = NodePath("MarginContainer/VBoxContainer/MarginContainer/CenterContainer/TitleLabel:percent_visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -312,6 +331,131 @@ tracks/7/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("MarginContainer/VBoxContainer/MarginContainer/CenterContainer2/TitleLabel2:percent_visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.02, 0.57 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=56]
+resource_name = "Area4Button"
+length = 1.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer/Area1Button:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.54 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer2/Area2Button:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.38 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer3/Area3Button:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer4/Area4Button:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.32 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ColorRect:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.74 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.407843, 0.760784, 0.827451, 1 ), Color( 0.407843, 0.760784, 0.827451, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("MarginContainer/VBoxContainer/MarginContainer/CenterContainer/TitleLabel:percent_visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.44 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("BackgroundMusic:volume_db")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1.04 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -36.344 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/CenterContainer/AreaChooseBackButton:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.56 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("MarginContainer/VBoxContainer/MarginContainer/CenterContainer2/TitleLabel2:percent_visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.02, 0.57 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -348,6 +492,7 @@ light_mode = 1
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_scale = Vector2( 1, 1.00237 )
 script = ExtResource( 1 )
 button_tint = Color( 1.2, 1.2, 1.2, 1 )
 
@@ -360,33 +505,63 @@ color = Color( 0.407843, 0.760784, 0.827451, 1 )
 margin_right = 1024.0
 margin_bottom = 600.0
 custom_constants/margin_right = 80
-custom_constants/margin_top = 50
+custom_constants/margin_top = 30
 custom_constants/margin_left = 80
-custom_constants/margin_bottom = 50
+custom_constants/margin_bottom = 30
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_left = 80.0
-margin_top = 50.0
+margin_top = 30.0
 margin_right = 944.0
-margin_bottom = 550.0
+margin_bottom = 570.0
 custom_constants/separation = 25
 
-[node name="TitleLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
+[node name="MarginContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_right = 864.0
-margin_bottom = 500.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 0, 200 )
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+margin_right = 864.0
+margin_bottom = 80.0
+size_flags_horizontal = 9
+size_flags_vertical = 9
+
+[node name="TitleLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/MarginContainer/CenterContainer"]
+unique_name_in_owner = true
+margin_left = 74.0
+margin_right = 790.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 716, 80 )
 rect_clip_content = false
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.37
 custom_fonts/normal_font = SubResource( 31 )
 bbcode_enabled = true
-bbcode_text = "[center][color=#ede19e]S[/color][color=#a77b5b]c[/color][color=#b45252]r[/color][color=#e5ceb4]i[/color][color=#7b7243]b[/color][color=#a2dcc7]b[/color][color=#cf8acb]l[/color][color=#3a3858]e[/color] [color=#80493a]M[/color][color=#c2d368]a[/color][color=#45444f]c[/color][color=#d3a068]h[/color][color=#4b80ca]i[/color][color=#8ab060]n[/color][color=#68c2d3]e[/color][color=#567b79]s[/color]
-[/center]"
-visible_characters = 0
-percent_visible = 0.0
-text = "Scribble Machines
-"
+bbcode_text = "Johnny*s Doodles"
+text = "Johnny*s Doodles"
 scroll_active = false
+custom_effects = [ null ]
+script = ExtResource( 16 )
+
+[node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+margin_top = 84.0
+margin_right = 864.0
+margin_bottom = 184.0
+
+[node name="TitleLabel2" type="RichTextLabel" parent="MarginContainer/VBoxContainer/MarginContainer/CenterContainer2"]
+unique_name_in_owner = true
+margin_left = 122.0
+margin_right = 742.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 620, 100 )
+rect_clip_content = false
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/normal_font = SubResource( 57 )
+bbcode_enabled = true
+bbcode_text = "Vroom Scadoodles"
+text = "Vroom Scadoodles"
+scroll_active = false
+script = ExtResource( 16 )
 
 [node name="MainMenuButtons" type="CanvasLayer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -399,12 +574,12 @@ margin_top = 203.0
 margin_right = 944.0
 margin_bottom = 550.0
 size_flags_vertical = 3
-custom_constants/margin_top = 10
+custom_constants/margin_top = 30
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer"]
-margin_top = 10.0
+margin_top = 30.0
 margin_right = 864.0
-margin_bottom = 347.0
+margin_bottom = 371.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -426,7 +601,6 @@ text = "START"
 
 [node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-visible = false
 margin_top = 69.0
 margin_right = 864.0
 margin_bottom = 134.0
@@ -446,9 +620,9 @@ text = "SETTINGS"
 
 [node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 69.0
+margin_top = 138.0
 margin_right = 864.0
-margin_bottom = 134.0
+margin_bottom = 203.0
 custom_colors/font_color_disabled = Color( 0.721569, 0.709804, 0.72549, 1 )
 custom_colors/font_color_focus = Color( 0.94902, 0.941176, 0.898039, 1 )
 custom_colors/font_color = Color( 0.827451, 0.627451, 0.407843, 1 )
@@ -464,9 +638,9 @@ text = "CREDITS"
 
 [node name="ControlsButton" type="Button" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 138.0
+margin_top = 207.0
 margin_right = 864.0
-margin_bottom = 203.0
+margin_bottom = 272.0
 custom_colors/font_color_disabled = Color( 0.721569, 0.709804, 0.72549, 1 )
 custom_colors/font_color_focus = Color( 0.94902, 0.941176, 0.898039, 1 )
 custom_colors/font_color = Color( 0.705882, 0.321569, 0.321569, 1 )
@@ -482,9 +656,9 @@ text = "CONTROLS"
 
 [node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 207.0
+margin_top = 276.0
 margin_right = 864.0
-margin_bottom = 272.0
+margin_bottom = 341.0
 custom_colors/font_color_focus = Color( 0.94902, 0.941176, 0.898039, 1 )
 custom_colors/font_color = Color( 0.760784, 0.827451, 0.407843, 1 )
 custom_colors/font_color_hover = Color( 0.898039, 0.807843, 0.705882, 1 )
@@ -606,7 +780,6 @@ custom_styles/pressed = SubResource( 4 )
 custom_styles/focus = SubResource( 26 )
 custom_styles/disabled = SubResource( 30 )
 custom_styles/normal = SubResource( 6 )
-disabled = true
 icon = ExtResource( 15 )
 icon_align = 1
 expand_icon = true
@@ -802,6 +975,7 @@ icon_align = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Area1Button = SubResource( 10 )
 anims/Area2Button = SubResource( 33 )
+anims/Area4Button = SubResource( 56 )
 anims/RESET = SubResource( 11 )
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
@@ -814,11 +988,12 @@ stream = ExtResource( 6 )
 bus = "Sfx"
 
 [node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 0.94902, 0.941176, 0.898039, 1 )
 material = SubResource( 32 )
-margin_left = -125.0
-margin_top = -91.0
-margin_right = 1155.0
-margin_bottom = 709.0
+margin_left = -143.0
+margin_top = -102.756
+margin_right = 1137.0
+margin_bottom = 697.244
 mouse_filter = 2
 texture = ExtResource( 7 )
 

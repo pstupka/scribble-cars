@@ -87,6 +87,8 @@ var colors_str: Array = [
 	"#5f556a",
 	]
 
+var camera
+
 func set_daynight(new_state):
 	if new_state in [DAY, NIGHT]:
 		daynight = new_state

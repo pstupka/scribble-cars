@@ -44,7 +44,7 @@ func _input(event):
 	if event.is_action_pressed("change_car"):
 		change_car()
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	previous_direction = direction
 	direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	direction.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")

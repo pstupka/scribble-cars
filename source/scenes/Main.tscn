@@ -34,7 +34,7 @@
 [ext_resource path="res://source/scenes/props/Cloud4.tscn" type="PackedScene" id=32]
 [ext_resource path="res://source/scenes/props/Cloud3.tscn" type="PackedScene" id=33]
 [ext_resource path="res://assets/sprites/house_1.png" type="Texture" id=34]
-[ext_resource path="res://assets/sprites/props/streetlights_fill.png" type="Texture" id=35]
+[ext_resource path="res://assets/sprites/house_1_shadow.png" type="Texture" id=35]
 [ext_resource path="res://assets/sprites/fume2.png" type="Texture" id=36]
 
 [sub_resource type="Gradient" id=13]
@@ -455,12 +455,11 @@ position = Vector2( 1196, 121 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 34 )
 
-[node name="House1_shadow" type="Sprite" parent="ParallaxBackground/Ground/House1"]
-modulate = Color( 0.392157, 0.388235, 0.396078, 0.223529 )
+[node name="House1Shadow" type="Sprite" parent="ParallaxBackground/Ground/House1"]
+self_modulate = Color( 0.392157, 0.388235, 0.396078, 0.223529 )
 show_behind_parent = true
-position = Vector2( 0, 94 )
-rotation = 1.48094
-scale = Vector2( 0.815386, 1.06647 )
+position = Vector2( -40, 116 )
+scale = Vector2( 1, -0.5 )
 texture = ExtResource( 35 )
 
 [node name="Smoke" type="Particles2D" parent="ParallaxBackground/Ground/House1"]

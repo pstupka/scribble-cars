@@ -15,6 +15,7 @@ onready var collision_shape_2d = $CollisionShape2D
 
 onready var apple = $Sprites/Apple
 onready var pear = $Sprites/Pear
+onready var strawberry = $Sprites/Strawberry
 onready var sprites = $Sprites
 
 var particles_template = preload("res://source/utils/score_particles.tscn")
@@ -35,17 +36,23 @@ func _ready():
 	
 	tween.tween_callback(collision_shape_2d, "set_deferred", ["disabled", false])
 
-	if randf() > 0.5:
+	var rand_fruit = randf()
+	if rand_fruit < 0.33:
+		set_type("Apple")
+	if rand_fruit >= 0.33 and rand_fruit <= 0.66:
 		set_type("Pear")
+	if rand_fruit > 0.66:
+		set_type("Strawberry")
 
 func set_type(new_type) -> void:
 	match new_type:
 		"Apple":
 			apple.visible = true
-			pear.visible = false
 		"Pear":
-			apple.visible = false
 			pear.visible = true
+		"Strawberry":
+			strawberry.visible = true
+
 
 func destroy(emit_particles: bool = false) -> void:
 	if is_destroying: return

@@ -40,6 +40,12 @@ var npc_types := {
 	"res://assets/sprites/npc/human8.png": "human",
 	"res://assets/sprites/npc/human9.png": "human",
 	"res://assets/sprites/npc/human10.png": "human",
+	"res://assets/sprites/npc/human11.png": "human",
+	"res://assets/sprites/npc/human12.png": "human",
+	"res://assets/sprites/npc/human13.png": "human",
+	"res://assets/sprites/npc/human14.png": "human",
+	"res://assets/sprites/npc/human15.png": "human",
+	"res://assets/sprites/npc/human16.png": "human",
 }
 
 func _ready() -> void:

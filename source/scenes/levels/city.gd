@@ -23,6 +23,7 @@ func _ready() -> void:
 	$EnterTweener.apply_tween()
 	Globals.score = 0
 
+
 func _input(event):
 	if event.is_action_pressed("lights"):
 		if Globals.daynight == Globals.NIGHT: 

@@ -1,8 +1,8 @@
-extends ParallaxBackground
+extends CanvasLayer
 
-onready var overlay_texture = $PauseOverlay/ColorRect
-onready var pause_rich_label = $PauseOverlay/PauseLabel
-onready var buttons_container: VBoxContainer = $PauseOverlay/Buttons
+onready var overlay_texture = $Control/ColorRect
+onready var pause_rich_label = $Control/CenterContainer/VBoxContainer/PauseLabel
+onready var buttons_container: VBoxContainer = $Control/CenterContainer/VBoxContainer
 
 onready var main_menu_button: Button = $"%MainMenuButton"
 onready var quit_button: Button = $"%QuitButton"
@@ -11,6 +11,8 @@ onready var pik_sfx: AudioStreamPlayer = $PikSfx
 
 
 var pause_menu_active = false
+
+var tween: SceneTreeTween = null
 
 
 func _ready() -> void:
@@ -25,16 +27,21 @@ func _input(event: InputEvent) -> void:
 		pause()
 
 
-
 func tween_pause_menu(target_blur: float, target_percent_visible: float) -> void:
-	var tween = create_tween()
+	if tween:
+		tween.kill()
+	
+	tween = create_tween()
+	
 	main_menu_button.disabled = not pause_menu_active
 	back_button.disabled = not pause_menu_active
 	if quit_button: quit_button.disabled = not pause_menu_active
+	if (target_percent_visible == 1.0): show()
 	tween.tween_property(overlay_texture.material, "shader_param/lod", target_blur, 1.0)
 	tween.parallel().tween_property(pause_rich_label, "percent_visible", target_percent_visible, 0.4)
 	tween.parallel().tween_property(buttons_container, "modulate", Color(1.0, 1.0, 1.0, target_percent_visible), 0.4)
-
+	if (target_percent_visible == 0.0):
+		tween.tween_callback(self, "hide")
 
 func pause() -> void:
 	if get_tree().paused != pause_menu_active: return
@@ -51,7 +58,6 @@ func pause() -> void:
 
 
 func _on_QuitButton_pressed() -> void:
-
 	get_tree().quit()
 
 
