@@ -12,3 +12,4 @@ func initialize(sprite : Texture):
 		Vector3(sprite.get_width() / 2.0, sprite.get_height() / 2.0, 1))
 	process_material.set_shader_param("sprite", sprite)
 	emitting = true
+

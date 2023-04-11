@@ -462,44 +462,86 @@ mass = 10.0
 linear_damp = 1.5
 engine_thrust_boost = 25000
 
-[node name="Asteroid" parent="Actors" instance=ExtResource( 3 )]
-position = Vector2( 626, 9 )
+[node name="Asteroids" type="Node2D" parent="Actors"]
+
+[node name="Asteroid" parent="Actors/Asteroids" instance=ExtResource( 3 )]
+position = Vector2( -4298, 238 )
 physics_material_override = SubResource( 2 )
 
-[node name="Asteroid2" parent="Actors" instance=ExtResource( 3 )]
-position = Vector2( -1019, -313 )
+[node name="Asteroid2" parent="Actors/Asteroids" instance=ExtResource( 3 )]
+position = Vector2( 4054, 1102 )
 physics_material_override = SubResource( 2 )
 
-[node name="Asteroid3" parent="Actors" instance=ExtResource( 3 )]
-position = Vector2( 783, -626 )
+[node name="Asteroid3" parent="Actors/Asteroids" instance=ExtResource( 3 )]
+position = Vector2( -858, 1502 )
 physics_material_override = SubResource( 2 )
 
-[node name="Asteroid4" parent="Actors" instance=ExtResource( 3 )]
-position = Vector2( 325, -483 )
+[node name="Asteroid4" parent="Actors/Asteroids" instance=ExtResource( 3 )]
+position = Vector2( 822, 638 )
 physics_material_override = SubResource( 2 )
 
-[node name="Asteroid5" parent="Actors" instance=ExtResource( 3 )]
-position = Vector2( 58, 882 )
+[node name="Asteroid5" parent="Actors/Asteroids" instance=ExtResource( 3 )]
+position = Vector2( 774, -3986 )
 physics_material_override = SubResource( 2 )
 
-[node name="Asteroid6" parent="Actors" instance=ExtResource( 3 )]
-position = Vector2( 783, 675 )
+[node name="Asteroid6" parent="Actors/Asteroids" instance=ExtResource( 3 )]
+position = Vector2( 3510, -3746 )
 physics_material_override = SubResource( 2 )
 
-[node name="Asteroid7" parent="Actors" instance=ExtResource( 3 )]
-position = Vector2( 990, 276 )
+[node name="Asteroid7" parent="Actors/Asteroids" instance=ExtResource( 3 )]
+position = Vector2( -1754, -450 )
 physics_material_override = SubResource( 2 )
 
-[node name="Asteroid8" parent="Actors" instance=ExtResource( 3 )]
-position = Vector2( -548, 30 )
+[node name="Asteroid8" parent="Actors/Asteroids" instance=ExtResource( 3 )]
+position = Vector2( 1654, -738 )
 physics_material_override = SubResource( 2 )
 
-[node name="Asteroid9" parent="Actors" instance=ExtResource( 3 )]
-position = Vector2( -658, 658 )
+[node name="Asteroid9" parent="Actors/Asteroids" instance=ExtResource( 3 )]
+position = Vector2( 1414, 1774 )
 physics_material_override = SubResource( 2 )
 
-[node name="Asteroid10" parent="Actors" instance=ExtResource( 3 )]
-position = Vector2( -345, -525 )
+[node name="Asteroid10" parent="Actors/Asteroids" instance=ExtResource( 3 )]
+position = Vector2( -4218, 3918 )
+physics_material_override = SubResource( 2 )
+
+[node name="Asteroid11" parent="Actors/Asteroids" instance=ExtResource( 3 )]
+position = Vector2( 1750, 4142 )
+physics_material_override = SubResource( 2 )
+
+[node name="Asteroid12" parent="Actors/Asteroids" instance=ExtResource( 3 )]
+position = Vector2( -1674, 3118 )
+physics_material_override = SubResource( 2 )
+
+[node name="Asteroid13" parent="Actors/Asteroids" instance=ExtResource( 3 )]
+position = Vector2( 4012, 2910 )
+physics_material_override = SubResource( 2 )
+
+[node name="Asteroid14" parent="Actors/Asteroids" instance=ExtResource( 3 )]
+position = Vector2( -2820, 1297 )
+physics_material_override = SubResource( 2 )
+
+[node name="Asteroid15" parent="Actors/Asteroids" instance=ExtResource( 3 )]
+position = Vector2( 113, -1611 )
+physics_material_override = SubResource( 2 )
+
+[node name="Asteroid16" parent="Actors/Asteroids" instance=ExtResource( 3 )]
+position = Vector2( 3237, -925 )
+physics_material_override = SubResource( 2 )
+
+[node name="Asteroid17" parent="Actors/Asteroids" instance=ExtResource( 3 )]
+position = Vector2( -2846, -1471 )
+physics_material_override = SubResource( 2 )
+
+[node name="Asteroid18" parent="Actors/Asteroids" instance=ExtResource( 3 )]
+position = Vector2( 1866, -2475 )
+physics_material_override = SubResource( 2 )
+
+[node name="Asteroid19" parent="Actors/Asteroids" instance=ExtResource( 3 )]
+position = Vector2( -1398, -3503 )
+physics_material_override = SubResource( 2 )
+
+[node name="Asteroid20" parent="Actors/Asteroids" instance=ExtResource( 3 )]
+position = Vector2( -3366, -3262 )
 physics_material_override = SubResource( 2 )
 
 [node name="PauseParallax" parent="." instance=ExtResource( 4 )]

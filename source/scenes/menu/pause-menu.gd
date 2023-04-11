@@ -28,7 +28,6 @@ func _input(event: InputEvent) -> void:
 
 
 func tween_pause_menu(target_blur: float, target_percent_visible: float) -> void:
-
 	if tween:
 		tween.kill()
 	
