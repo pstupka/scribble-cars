@@ -46,7 +46,7 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxEmpty" id=18]
 
-[node name="PauseParallax" type="CanvasLayer"]
+[node name="PauseMenu" type="CanvasLayer"]
 pause_mode = 2
 layer = 10
 script = ExtResource( 2 )

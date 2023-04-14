@@ -1,111 +1,128 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://source/scenes/menu/menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/LittleThings-ZX5Z.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://assets/sprites/cars/car2_outline.png" type="Texture" id=3]
-[ext_resource path="res://assets/sprites/ui_menu_button_a1.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/fume2.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/foliage/flower1_yellow..png" type="Texture" id=4]
 [ext_resource path="res://assets/audio/cute.mp3" type="AudioStream" id=5]
 [ext_resource path="res://assets/audio/pik.mp3" type="AudioStream" id=6]
-[ext_resource path="res://assets/sprites/ui/paper-texture-dark.png" type="Texture" id=7]
-[ext_resource path="res://assets/sprites/ui_menu_button_a2.png" type="Texture" id=8]
-[ext_resource path="res://assets/sprites/ui/arrow_up.png" type="Texture" id=9]
-[ext_resource path="res://assets/sprites/ui/arrow_down.png" type="Texture" id=10]
-[ext_resource path="res://assets/sprites/ui/arrow_left_big.png" type="Texture" id=11]
-[ext_resource path="res://assets/sprites/ui/arrow_left_big_transparent.png" type="Texture" id=12]
-[ext_resource path="res://resources/ui/scroll_grabber_style_car.tres" type="StyleBox" id=13]
-[ext_resource path="res://assets/sprites/cars/plane_outline.png" type="Texture" id=14]
-[ext_resource path="res://assets/sprites/cars/rocket_outline.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/foliage/flower2_blue.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/bg_line2.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/bg_line1.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/foliage/flower2_red.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/foliage/flower2_pink.png" type="Texture" id=11]
+[ext_resource path="res://resources/shaders/wind_sway_shader.tres" type="Material" id=12]
+[ext_resource path="res://assets/sprites/foliage/flower1_pink..png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/bg_mountains.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/foliage/flower1_red..png" type="Texture" id=15]
 [ext_resource path="res://source/scenes/menu/random_color_label.gd" type="Script" id=16]
+[ext_resource path="res://source/utils/move_parallax_layer.gd" type="Script" id=17]
+[ext_resource path="res://assets/sprites/road_fill.png" type="Texture" id=18]
+[ext_resource path="res://assets/sprites/road_outline.png" type="Texture" id=19]
+[ext_resource path="res://assets/sprites/house_1.png" type="Texture" id=20]
+[ext_resource path="res://source/scenes/props/Cloud4.tscn" type="PackedScene" id=21]
+[ext_resource path="res://assets/sprites/house_1_shadow.png" type="Texture" id=22]
+[ext_resource path="res://source/scenes/props/Cloud2.tscn" type="PackedScene" id=23]
+[ext_resource path="res://source/scenes/props/Sun.tscn" type="PackedScene" id=24]
+[ext_resource path="res://source/scenes/props/Cloud3.tscn" type="PackedScene" id=25]
+[ext_resource path="res://source/scenes/actors/car_templates/car_template.tscn" type="PackedScene" id=26]
 
-[sub_resource type="DynamicFont" id=31]
-size = 100
-outline_size = 4
-outline_color = Color( 0.129412, 0.129412, 0.137255, 1 )
-font_data = ExtResource( 2 )
+[sub_resource type="Gradient" id=13]
+offsets = PoolRealArray( 0, 0.195402, 0.318966, 0.385057, 1 )
+colors = PoolColorArray( 0.407843, 0.760784, 0.827451, 1, 0.407843, 0.760784, 0.827451, 1, 0.601415, 0.805903, 0.750313, 1, 0.947912, 0.937853, 0.882309, 1, 0.94902, 0.941176, 0.898039, 1 )
 
-[sub_resource type="DynamicFont" id=57]
-size = 90
-outline_size = 4
-outline_color = Color( 0.129412, 0.129412, 0.137255, 1 )
-font_data = ExtResource( 2 )
+[sub_resource type="GradientTexture2D" id=58]
+gradient = SubResource( 13 )
+width = 1400
+height = 800
+fill_to = Vector2( 0, 1 )
 
-[sub_resource type="DynamicFont" id=34]
-size = 64
-outline_size = 5
-outline_color = Color( 0.129412, 0.129412, 0.137255, 1 )
-font_data = ExtResource( 2 )
+[sub_resource type="StreamTexture" id=59]
+flags = 4
+load_path = "res://.import/tree1.png-1e3faf9e6f29f6130483ec280db52e2e.stex"
 
-[sub_resource type="StyleBoxEmpty" id=35]
+[sub_resource type="Gradient" id=60]
+offsets = PoolRealArray( 0, 0.206349, 0.957944 )
+colors = PoolColorArray( 1, 1, 1, 0.588235, 1, 1, 1, 0.266667, 1, 1, 1, 0 )
 
-[sub_resource type="StyleBoxEmpty" id=36]
+[sub_resource type="GradientTexture" id=22]
+gradient = SubResource( 60 )
 
-[sub_resource type="StyleBoxEmpty" id=37]
+[sub_resource type="Curve" id=61]
+_data = [ Vector2( 0, 0.0477272 ), 0.0, 0.0, 0, 0, Vector2( 0.886792, 0.434091 ), 1.28026, 0.0, 0, 0 ]
 
-[sub_resource type="StyleBoxEmpty" id=38]
+[sub_resource type="CurveTexture" id=24]
+curve = SubResource( 61 )
 
-[sub_resource type="StyleBoxEmpty" id=39]
+[sub_resource type="ParticlesMaterial" id=62]
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 20.0
+gravity = Vector3( 10, -50, 0 )
+initial_velocity = 20.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 10.17
+scale_curve = SubResource( 24 )
+color = Color( 0.780392, 0.780392, 0.780392, 1 )
+color_ramp = SubResource( 22 )
 
-[sub_resource type="DynamicFont" id=9]
-size = 64
-font_data = ExtResource( 2 )
+[sub_resource type="Shader" id=6]
+code = "shader_type canvas_item;
+render_mode blend_mix;
 
-[sub_resource type="StyleBoxEmpty" id=18]
+// Wind settings.
+uniform float speed = 1.0;
+uniform float minStrength : hint_range(0.0, 1.0) = 0.05;
+uniform float maxStrength : hint_range(0.0, 1.0) = 0.01;
+uniform float strengthScale = 100.0;
+uniform float interval = 3.5;
+uniform float detail = 1.0;
+uniform float distortion : hint_range(0.0, 1.0);
+uniform float heightOffset : hint_range(0.0, 1.0);
 
-[sub_resource type="StyleBoxEmpty" id=7]
+// With the offset value, you can if you want different moves for each asset. Just put a random value (1, 2, 3) in the editor. Don't forget to mark the material as unique if you use this
+uniform float offset = 0; 
 
-[sub_resource type="StyleBoxEmpty" id=27]
 
-[sub_resource type="StyleBoxTexture" id=28]
-texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 437, 196 )
+float getWind(vec2 vertex, vec2 uv, float time){
+    float diff = pow(maxStrength - minStrength, 2.0);
+    float strength = clamp(minStrength + diff + sin(time / interval) * diff, minStrength, maxStrength) * strengthScale;
+    float wind = (sin(time) + cos(time * detail)) * strength * max(0.0, (1.0-uv.y) - heightOffset);
+    
+    return wind; 
+}
 
-[sub_resource type="StyleBoxEmpty" id=29]
+void vertex() {
+    vec4 pos = WORLD_MATRIX * vec4(0.0, 0.0, 0.0, 1.0);
+    float time = TIME * speed + offset;
+    //float time = TIME * speed + pos.x * pos.y  ; not working when moving...
+    VERTEX.x += getWind(VERTEX.xy, UV, time);
+}"
 
-[sub_resource type="StyleBoxEmpty" id=4]
+[sub_resource type="ShaderMaterial" id=63]
+shader = SubResource( 6 )
+shader_param/speed = 1.0
+shader_param/minStrength = 0.1
+shader_param/maxStrength = 0.01
+shader_param/strengthScale = 100.0
+shader_param/interval = 4.0
+shader_param/detail = 2.0
+shader_param/distortion = 0.303
+shader_param/heightOffset = 0.236
+shader_param/offset = 10.0
 
-[sub_resource type="StyleBoxEmpty" id=26]
-
-[sub_resource type="StyleBoxEmpty" id=30]
-
-[sub_resource type="StyleBoxEmpty" id=6]
-
-[sub_resource type="StyleBoxTexture" id=49]
-texture = ExtResource( 11 )
-region_rect = Rect2( 0, 0, 79, 43 )
-modulate_color = Color( 0.94902, 0.941176, 0.898039, 1 )
-
-[sub_resource type="StyleBoxTexture" id=50]
-texture = ExtResource( 11 )
-region_rect = Rect2( 0, 0, 79, 43 )
-modulate_color = Color( 0.94902, 0.941176, 0.898039, 1 )
-
-[sub_resource type="StyleBoxTexture" id=51]
-texture = ExtResource( 11 )
-region_rect = Rect2( 0, 0, 79, 43 )
-modulate_color = Color( 0.94902, 0.941176, 0.898039, 1 )
-
-[sub_resource type="StyleBoxEmpty" id=52]
-
-[sub_resource type="StyleBoxTexture" id=53]
-texture = ExtResource( 12 )
-region_rect = Rect2( 0, 0, 79, 43 )
-
-[sub_resource type="StyleBoxEmpty" id=48]
-
-[sub_resource type="StyleBoxEmpty" id=46]
-
-[sub_resource type="Theme" id=41]
-VScrollBar/icons/decrement = ExtResource( 9 )
-VScrollBar/icons/decrement_highlight = ExtResource( 9 )
-VScrollBar/icons/decrement_pressed = ExtResource( 9 )
-VScrollBar/icons/increment = ExtResource( 10 )
-VScrollBar/icons/increment_highlight = ExtResource( 10 )
-VScrollBar/icons/increment_pressed = ExtResource( 10 )
-VScrollBar/styles/grabber = ExtResource( 13 )
-VScrollBar/styles/grabber_highlight = ExtResource( 13 )
-VScrollBar/styles/grabber_pressed = ExtResource( 13 )
-VScrollBar/styles/scroll = SubResource( 48 )
-VScrollBar/styles/scroll_focus = SubResource( 46 )
+[sub_resource type="ShaderMaterial" id=64]
+shader = SubResource( 6 )
+shader_param/speed = 1.0
+shader_param/minStrength = 0.115
+shader_param/maxStrength = 0.01
+shader_param/strengthScale = 100.0
+shader_param/interval = 3.5
+shader_param/detail = 2.0
+shader_param/distortion = 0.017
+shader_param/heightOffset = 0.251
+shader_param/offset = 5.0
 
 [sub_resource type="DynamicFont" id=55]
 size = 40
@@ -119,387 +136,765 @@ outline_size = 3
 outline_color = Color( 0.129412, 0.129412, 0.137255, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="Animation" id=10]
-resource_name = "Area1Button"
-length = 1.2
-step = 0.01
-tracks/0/type = "value"
-tracks/0/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer/Area1Button:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.54 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer2/Area2Button:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.38 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer3/Area3Button:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer4/Area4Button:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.32 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("ColorRect:color")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 0.74 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0.407843, 0.760784, 0.827451, 1 ), Color( 0.407843, 0.760784, 0.827451, 0 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("MarginContainer/VBoxContainer/MarginContainer/CenterContainer/TitleLabel:percent_visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 0.44 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 1.0, 0.0 ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("BackgroundMusic:volume_db")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0, 1.04 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, -36.344 ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/CenterContainer/AreaChooseBackButton:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0, 0.03, 0.6, 0.63 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("MarginContainer/VBoxContainer/MarginContainer/CenterContainer2/TitleLabel2:percent_visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0.02, 0.57 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 1.0, 0.0 ]
-}
+[sub_resource type="DynamicFont" id=31]
+size = 100
+outline_size = 4
+outline_color = Color( 0.129412, 0.129412, 0.137255, 1 )
+font_data = ExtResource( 2 )
 
-[sub_resource type="Animation" id=33]
-resource_name = "Area2Button"
-length = 1.2
-step = 0.01
-tracks/0/type = "value"
-tracks/0/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer/Area1Button:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.54 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer2/Area2Button:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.38 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer3/Area3Button:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer4/Area4Button:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.32 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("ColorRect:color")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 0.74 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0.407843, 0.760784, 0.827451, 1 ), Color( 0.407843, 0.760784, 0.827451, 0 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("MarginContainer/VBoxContainer/MarginContainer/CenterContainer/TitleLabel:percent_visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 0.44 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 1.0, 0.0 ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("BackgroundMusic:volume_db")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0, 1.04 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, -36.344 ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/CenterContainer/AreaChooseBackButton:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0, 0.56 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("MarginContainer/VBoxContainer/MarginContainer/CenterContainer2/TitleLabel2:percent_visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0.02, 0.57 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 1.0, 0.0 ]
-}
-
-[sub_resource type="Animation" id=56]
-resource_name = "Area4Button"
-length = 1.2
-step = 0.01
-tracks/0/type = "value"
-tracks/0/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer/Area1Button:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.54 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer2/Area2Button:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.38 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer3/Area3Button:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer4/Area4Button:self_modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.32 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("ColorRect:color")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 0.74 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0.407843, 0.760784, 0.827451, 1 ), Color( 0.407843, 0.760784, 0.827451, 0 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("MarginContainer/VBoxContainer/MarginContainer/CenterContainer/TitleLabel:percent_visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 0.44 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 1.0, 0.0 ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("BackgroundMusic:volume_db")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0, 1.04 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, -36.344 ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/CenterContainer/AreaChooseBackButton:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0, 0.56 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("MarginContainer/VBoxContainer/MarginContainer/CenterContainer2/TitleLabel2:percent_visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0.02, 0.57 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 1.0, 0.0 ]
-}
+[sub_resource type="DynamicFont" id=57]
+size = 90
+outline_size = 4
+outline_color = Color( 0.129412, 0.129412, 0.137255, 1 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="Animation" id=11]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer/Area1Button:modulate")
+tracks/0/path = NodePath("BackgroundMusic:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("BackgroundMusic:volume_db")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0.0 ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=32]
-blend_mode = 2
-light_mode = 1
-
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_scale = Vector2( 1, 1.00237 )
 script = ExtResource( 1 )
-button_tint = Color( 1.2, 1.2, 1.2, 1 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -1
+offset = Vector2( 0, 250 )
+scale = Vector2( 0.5, 0.5 )
+transform = Transform2D( 0.5, 0, 0, 0.5, 0, 250 )
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0, 1 )
+
+[node name="Sky" type="Sprite" parent="ParallaxBackground/Sky"]
+position = Vector2( -496, -92 )
+scale = Vector2( 2.6, 1 )
+texture = SubResource( 58 )
+centered = false
+
+[node name="MoonSun" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0, 1 )
+
+[node name="Sun" parent="ParallaxBackground/MoonSun" instance=ExtResource( 24 )]
+position = Vector2( 1460, -2 )
+
+[node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
+pause_mode = 2
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+script = ExtResource( 17 )
+speed = 15.0
+
+[node name="Pivot" type="Node2D" parent="ParallaxBackground/Clouds"]
+
+[node name="Cloud5" parent="ParallaxBackground/Clouds/Pivot" instance=ExtResource( 25 )]
+position = Vector2( 1852, 84 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Cloud4" parent="ParallaxBackground/Clouds/Pivot" instance=ExtResource( 23 )]
+position = Vector2( 91, 80 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Clouds2" type="ParallaxLayer" parent="ParallaxBackground"]
+pause_mode = 2
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+script = ExtResource( 17 )
+speed = 15.0
+
+[node name="Pivot" type="Node2D" parent="ParallaxBackground/Clouds2"]
+
+[node name="Cloud4" parent="ParallaxBackground/Clouds2/Pivot" instance=ExtResource( 21 )]
+position = Vector2( 396, 12 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Cloud2" parent="ParallaxBackground/Clouds2/Pivot" instance=ExtResource( 23 )]
+position = Vector2( 866, 61 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Cloud5" parent="ParallaxBackground/Clouds2/Pivot" instance=ExtResource( 21 )]
+position = Vector2( 1054, -26 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Cloud3" parent="ParallaxBackground/Clouds2/Pivot" instance=ExtResource( 23 )]
+position = Vector2( 1454, 13 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Ground" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 2100, 0 )
+script = ExtResource( 17 )
+speed = -5.0
+
+[node name="MountainsPivot" type="Node2D" parent="ParallaxBackground/Ground"]
+
+[node name="MountainsFill" type="Polygon2D" parent="ParallaxBackground/Ground/MountainsPivot"]
+light_mask = 5
+position = Vector2( -1, -16.5 )
+color = Color( 0.52549, 0.505882, 0.533333, 1 )
+antialiased = true
+polygon = PoolVector2Array( 635, 195, 676, 174, 706, 130, 714, 114, 717, 98, 720, 87, 725, 76, 745, 37, 753, 22, 770, 29, 782, 44, 784, 72, 786, 83, 799, 125, 816, 145, 830, 143, 840, 140, 853, 137, 881, 123, 908, 109, 917, 104, 924, 101, 932, 99, 968, 91, 994, 115, 1005, 130, 1011, 140, 1019, 156, 1023, 172, 1047, 193 )
+
+[node name="BgMountains" type="Sprite" parent="ParallaxBackground/Ground/MountainsPivot"]
+self_modulate = Color( 0.270588, 0.266667, 0.309804, 1 )
+position = Vector2( 868, 94.5 )
+texture = ExtResource( 14 )
+
+[node name="GrassPivot" type="Node2D" parent="ParallaxBackground/Ground"]
+
+[node name="BgFill" type="Polygon2D" parent="ParallaxBackground/Ground/GrassPivot"]
+light_mask = 5
+position = Vector2( -1, -18.5 )
+color = Color( 0.541176, 0.690196, 0.376471, 1 )
+polygon = PoolVector2Array( -16, 145, 4, 146, 106, 162, 174, 166, 211, 172, 253, 177, 286, 179, 319, 179, 385, 181, 439, 168, 493, 168, 553, 177, 585, 184, 601, 183, 613, 180, 625, 178, 639, 177, 647, 178, 664, 177, 743, 176, 874, 177, 938, 183, 978, 184, 1050, 181, 1107, 170, 1136, 164, 1174, 156, 1270, 142, 1384, 145, 1385, 342, -16, 342 )
+
+[node name="BgLine1" type="Sprite" parent="ParallaxBackground/Ground/GrassPivot"]
+self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
+position = Vector2( 684, 145.5 )
+texture = ExtResource( 9 )
+
+[node name="w" type="Node2D" parent="ParallaxBackground/Ground"]
+position = Vector2( 1390, 0 )
+scale = Vector2( 0.50744, 1.00599 )
+
+[node name="BgFill" type="Polygon2D" parent="ParallaxBackground/Ground/w"]
+light_mask = 5
+position = Vector2( -1, -18.5 )
+color = Color( 0.541176, 0.690196, 0.376471, 1 )
+polygon = PoolVector2Array( -16, 145, 4, 146, 106, 162, 174, 166, 211, 172, 253, 177, 286, 179, 319, 179, 385, 181, 439, 168, 493, 168, 553, 177, 585, 184, 601, 183, 613, 180, 625, 178, 639, 177, 647, 178, 664, 177, 743, 176, 874, 177, 938, 183, 978, 184, 1050, 181, 1107, 170, 1136, 164, 1174, 156, 1270, 142, 1384, 145, 1385, 342, -16, 342 )
+
+[node name="BgLine1" type="Sprite" parent="ParallaxBackground/Ground/w"]
+self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
+position = Vector2( 684, 145.5 )
+texture = ExtResource( 9 )
+
+[node name="Tree5" type="Sprite" parent="ParallaxBackground/Ground"]
+light_mask = 4
+position = Vector2( 339.1, 146 )
+scale = Vector2( 0.15, 0.15 )
+texture = SubResource( 59 )
+
+[node name="Tree6" type="Sprite" parent="ParallaxBackground/Ground"]
+light_mask = 4
+position = Vector2( 409.3, 144.725 )
+scale = Vector2( 0.15, 0.15 )
+texture = SubResource( 59 )
+
+[node name="Tree7" type="Sprite" parent="ParallaxBackground/Ground"]
+light_mask = 4
+position = Vector2( 549.4, 144.375 )
+scale = Vector2( 0.15, 0.15 )
+texture = SubResource( 59 )
+
+[node name="Tree8" type="Sprite" parent="ParallaxBackground/Ground"]
+light_mask = 4
+position = Vector2( 429.1, 147.125 )
+scale = Vector2( 0.15, 0.15 )
+texture = SubResource( 59 )
+
+[node name="Tree1" type="Sprite" parent="ParallaxBackground/Ground"]
+light_mask = 4
+position = Vector2( 39.8, 132.5 )
+scale = Vector2( 0.2, 0.2 )
+texture = SubResource( 59 )
+
+[node name="Tree3" type="Sprite" parent="ParallaxBackground/Ground"]
+light_mask = 4
+position = Vector2( 390.3, 128.25 )
+scale = Vector2( 0.2, 0.2 )
+texture = SubResource( 59 )
+
+[node name="Tree9" type="Sprite" parent="ParallaxBackground/Ground"]
+light_mask = 4
+position = Vector2( 1880.4, 192.625 )
+scale = Vector2( 0.15, 0.15 )
+texture = SubResource( 59 )
+
+[node name="Tree10" type="Sprite" parent="ParallaxBackground/Ground"]
+light_mask = 4
+position = Vector2( 1760.1, 195.375 )
+scale = Vector2( 0.15, 0.15 )
+texture = SubResource( 59 )
+
+[node name="Tree11" type="Sprite" parent="ParallaxBackground/Ground"]
+light_mask = 4
+position = Vector2( 1370.8, 180.75 )
+scale = Vector2( 0.2, 0.2 )
+texture = SubResource( 59 )
+
+[node name="Tree12" type="Sprite" parent="ParallaxBackground/Ground"]
+light_mask = 4
+position = Vector2( 1721.3, 176.5 )
+scale = Vector2( 0.2, 0.2 )
+texture = SubResource( 59 )
+
+[node name="Tree4" type="Sprite" parent="ParallaxBackground/Ground"]
+light_mask = 4
+position = Vector2( 1090.8, 126.5 )
+scale = Vector2( 0.2, 0.2 )
+texture = SubResource( 59 )
+
+[node name="Tree2" type="Sprite" parent="ParallaxBackground/Ground"]
+light_mask = 4
+position = Vector2( 489.3, 140.25 )
+scale = Vector2( 0.2, 0.2 )
+texture = SubResource( 59 )
+
+[node name="House1" type="Sprite" parent="ParallaxBackground/Ground"]
+position = Vector2( 1196, 121 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 20 )
+
+[node name="House1Shadow" type="Sprite" parent="ParallaxBackground/Ground/House1"]
+self_modulate = Color( 0.392157, 0.388235, 0.396078, 0.223529 )
+show_behind_parent = true
+position = Vector2( -40, 116 )
+scale = Vector2( 1, -0.5 )
+texture = ExtResource( 22 )
+
+[node name="Smoke" type="Particles2D" parent="ParallaxBackground/Ground/House1"]
+light_mask = 0
+position = Vector2( 66, -68 )
+amount = 50
+lifetime = 4.0
+randomness = 1.0
+process_material = SubResource( 62 )
+texture = ExtResource( 3 )
+
+[node name="Ground2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.2, 0 )
+motion_mirroring = Vector2( 2100, 0 )
+script = ExtResource( 17 )
+speed = -10.0
+
+[node name="GrassPivot" type="Node2D" parent="ParallaxBackground/Ground2"]
+position = Vector2( 816, 18 )
+
+[node name="BgFill" type="Polygon2D" parent="ParallaxBackground/Ground2/GrassPivot"]
+self_modulate = Color( 0.79, 0.79, 0.79, 1 )
+light_mask = 5
+color = Color( 0.541176, 0.690196, 0.376471, 1 )
+polygon = PoolVector2Array( -177, 237, -35, 210, 127, 201, 236, 189, 368, 201, 421, 197, 528, 197, 647, 173, 745, 173, 1130, 217, 1201, 236, 1216, 238, 1226, 237, 1223, 332, -181, 345 )
+
+[node name="BgLine2" type="Sprite" parent="ParallaxBackground/Ground2/GrassPivot"]
+self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
+position = Vector2( 525, 205 )
+texture = ExtResource( 8 )
+
+[node name="GrassPivot2" type="Node2D" parent="ParallaxBackground/Ground2"]
+position = Vector2( 28, 18 )
+scale = Vector2( 0.5, 1 )
+
+[node name="BgFill" type="Polygon2D" parent="ParallaxBackground/Ground2/GrassPivot2"]
+self_modulate = Color( 0.79, 0.79, 0.79, 1 )
+light_mask = 5
+color = Color( 0.541176, 0.690196, 0.376471, 1 )
+polygon = PoolVector2Array( -177, 237, -35, 210, 127, 201, 236, 189, 368, 201, 421, 197, 528, 197, 647, 173, 745, 173, 1130, 217, 1201, 236, 1216, 238, 1226, 237, 1223, 332, -181, 345 )
+
+[node name="BgLine2" type="Sprite" parent="ParallaxBackground/Ground2/GrassPivot2"]
+self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
+position = Vector2( 525, 205 )
+texture = ExtResource( 8 )
+
+[node name="Tree3" type="Sprite" parent="ParallaxBackground/Ground2"]
+light_mask = 5
+position = Vector2( 1001, 209 )
+scale = Vector2( 0.3, 0.3 )
+texture = SubResource( 59 )
+
+[node name="Tree4" type="Sprite" parent="ParallaxBackground/Ground2"]
+light_mask = 5
+position = Vector2( 1740, 202 )
+scale = Vector2( 0.3, 0.3 )
+texture = SubResource( 59 )
+
+[node name="Ground3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 0, 70 )
+motion_scale = Vector2( 0.9, 1 )
+motion_mirroring = Vector2( 2200, 0 )
+script = ExtResource( 17 )
+speed = -40.0
+
+[node name="GrassPivot" type="Node2D" parent="ParallaxBackground/Ground3"]
+position = Vector2( -4, 0 )
+
+[node name="BgFill" type="Polygon2D" parent="ParallaxBackground/Ground3/GrassPivot"]
+modulate = Color( 0.505882, 0.639216, 0.352941, 1 )
+light_mask = 5
+position = Vector2( 1280, 33.5 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+polygon = PoolVector2Array( -16, 145, 4, 146, 106, 162, 174, 166, 211, 172, 253, 177, 286, 179, 319, 179, 385, 181, 439, 168, 493, 168, 553, 177, 585, 184, 601, 183, 613, 180, 625, 178, 639, 177, 647, 178, 664, 177, 743, 176, 874, 177, 938, 183, 978, 184, 1050, 181, 1107, 170, 1136, 164, 1174, 156, 1270, 142, 1384, 145, 1384, 654, -16, 656 )
+
+[node name="BgLine1" type="Sprite" parent="ParallaxBackground/Ground3/GrassPivot"]
+self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
+position = Vector2( 598, 198.5 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 9 )
+
+[node name="GrassPivot2" type="Node2D" parent="ParallaxBackground/Ground3"]
+position = Vector2( 1340, 0 )
+scale = Vector2( 0.59, 1 )
+
+[node name="BgFill" type="Polygon2D" parent="ParallaxBackground/Ground3/GrassPivot2"]
+modulate = Color( 0.505882, 0.639216, 0.352941, 1 )
+light_mask = 5
+position = Vector2( 1280, 33.5 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+polygon = PoolVector2Array( -16, 145, 4, 146, 106, 162, 174, 166, 211, 172, 253, 177, 286, 179, 319, 179, 385, 181, 439, 168, 493, 168, 553, 177, 585, 184, 601, 183, 613, 180, 625, 178, 639, 177, 647, 178, 664, 177, 743, 176, 874, 177, 938, 183, 978, 184, 1050, 181, 1107, 170, 1136, 164, 1174, 156, 1270, 142, 1384, 145, 1384, 654, -16, 656 )
+
+[node name="BgLine1" type="Sprite" parent="ParallaxBackground/Ground3/GrassPivot2"]
+self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
+position = Vector2( 598, 198.5 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 9 )
+
+[node name="Flowers2" type="Node2D" parent="ParallaxBackground/Ground3"]
+material = SubResource( 63 )
+position = Vector2( -360, -1 )
+
+[node name="Flower1Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 553, 207 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 13 )
+
+[node name="Flower1Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 613.3, 204.5 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 15 )
+
+[node name="Flower1Yellow" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 669.3, 212.5 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Flower1Red2" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 1180, 186 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 15 )
+
+[node name="Flower1Yellow2" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 1272.2, 237.5 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Flower1Red3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 385.2, 188.5 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 15 )
+
+[node name="Flower1Yellow3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 441.2, 196.5 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Flower1Red4" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 335, 165 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 15 )
+
+[node name="Flower1Yellow4" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 469, 188 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Flower2Blue" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 589, 205 )
+scale = Vector2( 0.8, 0.7 )
+texture = ExtResource( 7 )
+
+[node name="Flower2Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 712, 204 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 11 )
+
+[node name="Flower2Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 496, 196 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 10 )
+
+[node name="Flowers" type="Node2D" parent="ParallaxBackground/Ground3"]
+material = ExtResource( 12 )
+position = Vector2( -16, -4 )
+
+[node name="Flower1Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers"]
+use_parent_material = true
+position = Vector2( 602, 200 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 13 )
+
+[node name="Flower1Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers"]
+use_parent_material = true
+position = Vector2( -32.9999, 206 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 15 )
+
+[node name="Flower1Yellow" type="Sprite" parent="ParallaxBackground/Ground3/Flowers"]
+use_parent_material = true
+position = Vector2( 728, 225 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 4 )
+
+[node name="Flower2Blue" type="Sprite" parent="ParallaxBackground/Ground3/Flowers"]
+use_parent_material = true
+position = Vector2( 856, 214 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 7 )
+
+[node name="Flower2Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers"]
+use_parent_material = true
+position = Vector2( 229, 213 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 11 )
+
+[node name="Flower2Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers"]
+use_parent_material = true
+position = Vector2( 496, 196 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 10 )
+
+[node name="Flower2Blue2" type="Sprite" parent="ParallaxBackground/Ground3/Flowers"]
+use_parent_material = true
+position = Vector2( 1012, 218 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 7 )
+
+[node name="Flower2Red2" type="Sprite" parent="ParallaxBackground/Ground3/Flowers"]
+use_parent_material = true
+position = Vector2( 306, 201 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 10 )
+
+[node name="Flower2Blue3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers"]
+use_parent_material = true
+position = Vector2( 54.0001, 209 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 7 )
+
+[node name="Flower2Red3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers"]
+use_parent_material = true
+position = Vector2( 662, 219 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 10 )
+
+[node name="Flowers3" type="Node2D" parent="ParallaxBackground/Ground3"]
+material = SubResource( 64 )
+position = Vector2( 562, 3 )
+
+[node name="Flower1Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
+use_parent_material = true
+position = Vector2( 602, 200 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 13 )
+
+[node name="Flower1Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
+use_parent_material = true
+position = Vector2( -32.9999, 206 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 15 )
+
+[node name="Flower1Yellow" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
+use_parent_material = true
+position = Vector2( 712, 213 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 4 )
+
+[node name="Flower2Blue" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
+use_parent_material = true
+position = Vector2( 856, 214 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 7 )
+
+[node name="Flower2Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
+use_parent_material = true
+position = Vector2( 229, 213 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 11 )
+
+[node name="Flower2Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
+use_parent_material = true
+position = Vector2( 496, 196 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 10 )
+
+[node name="Flower2Red2" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
+use_parent_material = true
+position = Vector2( 306, 201 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 10 )
+
+[node name="Flower2Blue3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
+use_parent_material = true
+position = Vector2( 54.0001, 209 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 7 )
+
+[node name="Flower2Red3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
+use_parent_material = true
+position = Vector2( 662, 219 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 10 )
+
+[node name="Flowers4" type="Node2D" parent="ParallaxBackground/Ground3"]
+material = SubResource( 64 )
+position = Vector2( 1098, 27 )
+
+[node name="Flower1Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
+use_parent_material = true
+position = Vector2( 602, 200 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 13 )
+
+[node name="Flower1Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
+use_parent_material = true
+position = Vector2( -32.9999, 206 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 15 )
+
+[node name="Flower1Yellow" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
+use_parent_material = true
+position = Vector2( 712, 213 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 4 )
+
+[node name="Flower2Blue" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
+use_parent_material = true
+position = Vector2( 856, 214 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 7 )
+
+[node name="Flower2Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
+use_parent_material = true
+position = Vector2( 229, 213 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 11 )
+
+[node name="Flower2Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
+use_parent_material = true
+position = Vector2( 496, 196 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 10 )
+
+[node name="Flower2Red2" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
+use_parent_material = true
+position = Vector2( 306, 201 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 10 )
+
+[node name="Flower2Blue3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
+use_parent_material = true
+position = Vector2( 54.0001, 209 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 7 )
+
+[node name="Flower2Red3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
+use_parent_material = true
+position = Vector2( 662, 219 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 10 )
+
+[node name="Road" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( -4, -4 )
+motion_mirroring = Vector2( 2195, 0 )
+script = ExtResource( 17 )
+speed = -40.0
+
+[node name="Road1" type="Node2D" parent="ParallaxBackground/Road"]
+position = Vector2( 80, 442 )
+
+[node name="RoadFill" type="Sprite" parent="ParallaxBackground/Road/Road1"]
+light_mask = 5
+position = Vector2( 53, 2 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 18 )
+
+[node name="RoadFill2" type="Sprite" parent="ParallaxBackground/Road/Road1"]
+light_mask = 5
+position = Vector2( 993.5, 2 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 18 )
+
+[node name="RoadFill3" type="Sprite" parent="ParallaxBackground/Road/Road1"]
+light_mask = 5
+position = Vector2( 687.5, 2 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 18 )
+
+[node name="RoadFill4" type="Sprite" parent="ParallaxBackground/Road/Road1"]
+light_mask = 5
+position = Vector2( 371.5, 2 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 18 )
+
+[node name="RoadOutline" type="Sprite" parent="ParallaxBackground/Road/Road1"]
+light_mask = 5
+position = Vector2( 53, 0 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 19 )
+
+[node name="RoadFill5" type="Sprite" parent="ParallaxBackground/Road/Road1"]
+light_mask = 5
+position = Vector2( 1309, 1.5 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 18 )
+
+[node name="RoadOutline5" type="Sprite" parent="ParallaxBackground/Road/Road1"]
+light_mask = 5
+position = Vector2( 1309, -0.5 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 19 )
+
+[node name="RoadFill6" type="Sprite" parent="ParallaxBackground/Road/Road1"]
+light_mask = 5
+position = Vector2( 1623, 1.5 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 18 )
+
+[node name="RoadOutline6" type="Sprite" parent="ParallaxBackground/Road/Road1"]
+light_mask = 5
+position = Vector2( 1623, -0.5 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 19 )
+
+[node name="RoadFill7" type="Sprite" parent="ParallaxBackground/Road/Road1"]
+light_mask = 5
+position = Vector2( 1937, 1.5 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 18 )
+
+[node name="RoadOutline7" type="Sprite" parent="ParallaxBackground/Road/Road1"]
+light_mask = 5
+position = Vector2( 1937, -0.5 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 19 )
+
+[node name="RoadOutline2" type="Sprite" parent="ParallaxBackground/Road/Road1"]
+light_mask = 5
+position = Vector2( 999, 0 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 19 )
+
+[node name="RoadOutline3" type="Sprite" parent="ParallaxBackground/Road/Road1"]
+light_mask = 5
+position = Vector2( 684, 0 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 19 )
+
+[node name="RoadOutline4" type="Sprite" parent="ParallaxBackground/Road/Road1"]
+light_mask = 5
+position = Vector2( 368, 0 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 19 )
+
+[node name="Car" parent="." instance=ExtResource( 26 )]
+position = Vector2( 512, 460.908 )
+scale = Vector2( -0.5, 0.5 )
+
+[node name="ControlsLabel" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 90.0
+margin_top = 212.496
+margin_right = 934.0
+margin_bottom = 492.496
+rect_clip_content = false
+custom_fonts/bold_font = SubResource( 55 )
+custom_fonts/normal_font = SubResource( 54 )
+bbcode_enabled = true
+bbcode_text = "[center][color=#b45252][b]Keyboard[/b][/color]
+[color=#d3a068]WSAD, Arrows / Movement[/color]
+[color=#d3a068]Space, Enter, Z, X / Actions[/color]
+[color=#d3a068]P / Pause[/color]
+
+[color=#e5ceb4][b]Controller[/b][/color]
+[color=#a2dcc7]L Analog / Movement[/color]
+[color=#a2dcc7]B1, B2, B3, B4 / Actions[/color]
+[color=#a2dcc7]Start / Pause[/color]
+[/center]"
+text = "Keyboard
+WSAD, Arrows / Movement
+Space, Enter, Z, X / Actions
+P / Pause
+
+Controller
+L Analog / Movement
+B1, B2, B3, B4 / Actions
+Start / Pause
+"
+
+[node name="CreditsLAbel" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 90.0
+margin_top = 212.496
+margin_right = 934.0
+margin_bottom = 492.496
+rect_clip_content = false
+custom_fonts/bold_font = SubResource( 55 )
+custom_fonts/normal_font = SubResource( 54 )
+bbcode_enabled = true
+bbcode_text = "[center][color=#b45252][b]Programming & Design[/b][/color]
+[color=#d3a068]> Patryk Stupka[/color]
+
+[color=#e5ceb4][b]Sound Effects[/b][/color]
+[color=#a2dcc7]> Jan Stupka[/color]
+
+[color=#68c2d3][b]Graphics[/b][/color]
+[color=#c2d368]> Jan Stupka[/color]
+
+[color=#7b7243][b]Music[/b][/color]
+[color=#cf8acb]> Ukulele by Benjamin Tissot ( bensound.com[/color]
+[color=#c2d368]> Little Idea by Benjamin Tissot ( bensound.com[/color]
+[color=#4b80ca]> Bike Rides by The Green Orbs[/color]
+
+[color=#868188][b]Fonts[/b][/color]
+[color=#b2b47e]> Little Things ( fontspace.com[/color][/center]"
+text = "Programming & Design
+> Patryk Stupka
+
+Sound Effects
+> Jan Stupka
+
+Graphics
+> Jan Stupka
+
+Music
+> Ukulele by Benjamin Tissot ( bensound.com
+> Little Idea by Benjamin Tissot ( bensound.com
+> Bike Rides by The Green Orbs
+
+Fonts
+> Little Things ( fontspace.com"
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.407843, 0.760784, 0.827451, 1 )
+color = Color( 1, 0.537255, 0, 0.0431373 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_right = 1024.0
@@ -563,419 +958,7 @@ text = "Vroom Scadoodles"
 scroll_active = false
 script = ExtResource( 16 )
 
-[node name="MainMenuButtons" type="CanvasLayer" parent="MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-offset = Vector2( 1000, 0 )
-transform = Transform2D( 1, 0, 0, 1, 1000, 0 )
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MainMenuButtons"]
-margin_left = 80.0
-margin_top = 203.0
-margin_right = 944.0
-margin_bottom = 550.0
-size_flags_vertical = 3
-custom_constants/margin_top = 30
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer"]
-margin_top = 30.0
-margin_right = 864.0
-margin_bottom = 371.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-margin_right = 864.0
-margin_bottom = 65.0
-custom_colors/font_color_focus = Color( 0.94902, 0.941176, 0.898039, 1 )
-custom_colors/font_color = Color( 0.811765, 0.541176, 0.796078, 1 )
-custom_colors/font_color_hover = Color( 0.898039, 0.807843, 0.705882, 1 )
-custom_colors/font_color_pressed = Color( 0.929412, 0.882353, 0.619608, 1 )
-custom_fonts/font = SubResource( 34 )
-custom_styles/hover = SubResource( 35 )
-custom_styles/pressed = SubResource( 36 )
-custom_styles/focus = SubResource( 37 )
-custom_styles/disabled = SubResource( 38 )
-custom_styles/normal = SubResource( 39 )
-text = "START"
-
-[node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-margin_top = 69.0
-margin_right = 864.0
-margin_bottom = 134.0
-custom_colors/font_color_disabled = Color( 0.721569, 0.709804, 0.72549, 1 )
-custom_colors/font_color_focus = Color( 0.94902, 0.941176, 0.898039, 1 )
-custom_colors/font_color = Color( 0.294118, 0.501961, 0.792157, 1 )
-custom_colors/font_color_hover = Color( 0.898039, 0.807843, 0.705882, 1 )
-custom_colors/font_color_pressed = Color( 0.929412, 0.882353, 0.619608, 1 )
-custom_fonts/font = SubResource( 34 )
-custom_styles/hover = SubResource( 35 )
-custom_styles/pressed = SubResource( 36 )
-custom_styles/focus = SubResource( 37 )
-custom_styles/disabled = SubResource( 38 )
-custom_styles/normal = SubResource( 39 )
-disabled = true
-text = "SETTINGS"
-
-[node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-margin_top = 138.0
-margin_right = 864.0
-margin_bottom = 203.0
-custom_colors/font_color_disabled = Color( 0.721569, 0.709804, 0.72549, 1 )
-custom_colors/font_color_focus = Color( 0.94902, 0.941176, 0.898039, 1 )
-custom_colors/font_color = Color( 0.827451, 0.627451, 0.407843, 1 )
-custom_colors/font_color_hover = Color( 0.898039, 0.807843, 0.705882, 1 )
-custom_colors/font_color_pressed = Color( 0.929412, 0.882353, 0.619608, 1 )
-custom_fonts/font = SubResource( 34 )
-custom_styles/hover = SubResource( 35 )
-custom_styles/pressed = SubResource( 36 )
-custom_styles/focus = SubResource( 37 )
-custom_styles/disabled = SubResource( 38 )
-custom_styles/normal = SubResource( 39 )
-text = "CREDITS"
-
-[node name="ControlsButton" type="Button" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-margin_top = 207.0
-margin_right = 864.0
-margin_bottom = 272.0
-custom_colors/font_color_disabled = Color( 0.721569, 0.709804, 0.72549, 1 )
-custom_colors/font_color_focus = Color( 0.94902, 0.941176, 0.898039, 1 )
-custom_colors/font_color = Color( 0.705882, 0.321569, 0.321569, 1 )
-custom_colors/font_color_hover = Color( 0.898039, 0.807843, 0.705882, 1 )
-custom_colors/font_color_pressed = Color( 0.929412, 0.882353, 0.619608, 1 )
-custom_fonts/font = SubResource( 34 )
-custom_styles/hover = SubResource( 35 )
-custom_styles/pressed = SubResource( 36 )
-custom_styles/focus = SubResource( 37 )
-custom_styles/disabled = SubResource( 38 )
-custom_styles/normal = SubResource( 39 )
-text = "CONTROLS"
-
-[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-margin_top = 276.0
-margin_right = 864.0
-margin_bottom = 341.0
-custom_colors/font_color_focus = Color( 0.94902, 0.941176, 0.898039, 1 )
-custom_colors/font_color = Color( 0.760784, 0.827451, 0.407843, 1 )
-custom_colors/font_color_hover = Color( 0.898039, 0.807843, 0.705882, 1 )
-custom_colors/font_color_pressed = Color( 0.929412, 0.882353, 0.619608, 1 )
-custom_fonts/font = SubResource( 34 )
-custom_styles/hover = SubResource( 35 )
-custom_styles/pressed = SubResource( 36 )
-custom_styles/focus = SubResource( 37 )
-custom_styles/disabled = SubResource( 38 )
-custom_styles/normal = SubResource( 39 )
-text = "QUIT"
-
-[node name="AreaChoose" type="CanvasLayer" parent="MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-offset = Vector2( 1000, 0 )
-transform = Transform2D( 1, 0, 0, 1, 1000, 0 )
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/AreaChoose"]
-margin_left = 80.0
-margin_top = 203.0
-margin_right = 944.0
-margin_bottom = 550.0
-size_flags_vertical = 3
-
-[node name="AreaChooseContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/AreaChoose/VBoxContainer"]
-margin_right = 864.0
-margin_bottom = 303.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_constants/vseparation = 30
-columns = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer"]
-margin_right = 430.0
-margin_bottom = 137.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Area1Button" type="Button" parent="MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer"]
-unique_name_in_owner = true
-margin_right = 430.0
-margin_bottom = 137.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 9 )
-custom_styles/hover = SubResource( 18 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/focus = SubResource( 27 )
-custom_styles/disabled = SubResource( 28 )
-custom_styles/normal = SubResource( 29 )
-icon = ExtResource( 4 )
-icon_align = 1
-expand_icon = true
-
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer"]
-margin_left = 434.0
-margin_right = 864.0
-margin_bottom = 137.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Area2Button" type="Button" parent="MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer2"]
-unique_name_in_owner = true
-margin_right = 430.0
-margin_bottom = 137.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 9 )
-custom_styles/hover = SubResource( 18 )
-custom_styles/pressed = SubResource( 4 )
-custom_styles/focus = SubResource( 26 )
-custom_styles/disabled = SubResource( 30 )
-custom_styles/normal = SubResource( 6 )
-icon = ExtResource( 8 )
-icon_align = 1
-expand_icon = true
-
-[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer"]
-margin_top = 167.0
-margin_right = 430.0
-margin_bottom = 303.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Area3Button" type="Button" parent="MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer3"]
-unique_name_in_owner = true
-margin_right = 430.0
-margin_bottom = 136.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 9 )
-custom_styles/hover = SubResource( 18 )
-custom_styles/pressed = SubResource( 4 )
-custom_styles/focus = SubResource( 26 )
-custom_styles/disabled = SubResource( 30 )
-custom_styles/normal = SubResource( 6 )
-disabled = true
-icon = ExtResource( 14 )
-icon_align = 1
-expand_icon = true
-
-[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer"]
-margin_left = 434.0
-margin_top = 167.0
-margin_right = 864.0
-margin_bottom = 303.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Area4Button" type="Button" parent="MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/AreaChooseContainer/MarginContainer4"]
-unique_name_in_owner = true
-margin_right = 430.0
-margin_bottom = 136.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 9 )
-custom_styles/hover = SubResource( 18 )
-custom_styles/pressed = SubResource( 4 )
-custom_styles/focus = SubResource( 26 )
-custom_styles/disabled = SubResource( 30 )
-custom_styles/normal = SubResource( 6 )
-icon = ExtResource( 15 )
-icon_align = 1
-expand_icon = true
-
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/AreaChoose/VBoxContainer"]
-margin_top = 307.0
-margin_right = 864.0
-margin_bottom = 347.0
-
-[node name="AreaChooseBackButton" type="Button" parent="MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/CenterContainer"]
-margin_left = 392.0
-margin_right = 472.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 3.41
-custom_styles/hover = SubResource( 49 )
-custom_styles/pressed = SubResource( 50 )
-custom_styles/focus = SubResource( 51 )
-custom_styles/disabled = SubResource( 52 )
-custom_styles/normal = SubResource( 53 )
-text = "                    "
-icon_align = 1
-
-[node name="CreditsMenu" type="CanvasLayer" parent="MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-offset = Vector2( 1000, 0 )
-transform = Transform2D( 1, 0, 0, 1, 1000, 0 )
-
-[node name="MarginContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CreditsMenu"]
-margin_left = 80.0
-margin_top = 203.0
-margin_right = 944.0
-margin_bottom = 550.0
-
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/CreditsMenu/MarginContainer"]
-margin_right = 864.0
-margin_bottom = 300.0
-rect_min_size = Vector2( 0, 300 )
-theme = SubResource( 41 )
-scroll_horizontal_enabled = false
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/CreditsMenu/MarginContainer/ScrollContainer"]
-margin_right = 864.0
-margin_bottom = 300.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_constants/margin_right = 10
-custom_constants/margin_top = 10
-custom_constants/margin_left = 10
-custom_constants/margin_bottom = 10
-
-[node name="Label" type="RichTextLabel" parent="MarginContainer/VBoxContainer/CreditsMenu/MarginContainer/ScrollContainer/MarginContainer"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 854.0
-margin_bottom = 290.0
-rect_clip_content = false
-custom_fonts/bold_font = SubResource( 55 )
-custom_fonts/normal_font = SubResource( 54 )
-bbcode_enabled = true
-bbcode_text = "[center][color=#b45252][b]Programming & Design[/b][/color]
-[color=#d3a068]> Patryk Stupka[/color]
-
-[color=#e5ceb4][b]Sound Effects[/b][/color]
-[color=#a2dcc7]> Jan Stupka[/color]
-
-[color=#68c2d3][b]Graphics[/b][/color]
-[color=#c2d368]> Jan Stupka[/color]
-
-[color=#7b7243][b]Music[/b][/color]
-[color=#cf8acb]> Ukulele by Benjamin Tissot ( bensound.com[/color]
-[color=#c2d368]> Little Idea by Benjamin Tissot ( bensound.com[/color]
-[color=#4b80ca]> Bike Rides by The Green Orbs[/color]
-
-[color=#868188][b]Fonts[/b][/color]
-[color=#b2b47e]> Little Things ( fontspace.com[/color][/center]"
-text = "Programming & Design
-> Patryk Stupka
-
-Sound Effects
-> Jan Stupka
-
-Graphics
-> Jan Stupka
-
-Music
-> Ukulele by Benjamin Tissot ( bensound.com
-> Little Idea by Benjamin Tissot ( bensound.com
-> Bike Rides by The Green Orbs
-
-Fonts
-> Little Things ( fontspace.com"
-
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/CreditsMenu/MarginContainer"]
-margin_top = 304.0
-margin_right = 864.0
-margin_bottom = 344.0
-
-[node name="CreditsBackButton" type="Button" parent="MarginContainer/VBoxContainer/CreditsMenu/MarginContainer/CenterContainer"]
-margin_left = 392.0
-margin_right = 472.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 3.41
-custom_styles/hover = SubResource( 49 )
-custom_styles/pressed = SubResource( 50 )
-custom_styles/focus = SubResource( 51 )
-custom_styles/disabled = SubResource( 52 )
-custom_styles/normal = SubResource( 53 )
-text = "                    "
-icon_align = 1
-
-[node name="ControlsMenu" type="CanvasLayer" parent="MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-offset = Vector2( 1000, 0 )
-transform = Transform2D( 1, 0, 0, 1, 1000, 0 )
-
-[node name="MarginContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ControlsMenu"]
-margin_left = 80.0
-margin_top = 203.0
-margin_right = 944.0
-margin_bottom = 550.0
-
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/ControlsMenu/MarginContainer"]
-margin_right = 864.0
-margin_bottom = 300.0
-rect_min_size = Vector2( 0, 300 )
-theme = SubResource( 41 )
-scroll_horizontal_enabled = false
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ControlsMenu/MarginContainer/ScrollContainer"]
-margin_right = 864.0
-margin_bottom = 300.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_constants/margin_right = 10
-custom_constants/margin_top = 10
-custom_constants/margin_left = 10
-custom_constants/margin_bottom = 10
-
-[node name="Label" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ControlsMenu/MarginContainer/ScrollContainer/MarginContainer"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 854.0
-margin_bottom = 290.0
-rect_clip_content = false
-custom_fonts/bold_font = SubResource( 55 )
-custom_fonts/normal_font = SubResource( 54 )
-bbcode_enabled = true
-bbcode_text = "[center][color=#b45252][b]Keyboard[/b][/color]
-[color=#d3a068]WSAD, Arrows / Movement[/color]
-[color=#d3a068]Space, Enter, Z, X / Actions[/color]
-[color=#d3a068]P / Pause[/color]
-
-[color=#e5ceb4][b]Controller[/b][/color]
-[color=#a2dcc7]L Analog / Movement[/color]
-[color=#a2dcc7]B1, B2, B3, B4 / Actions[/color]
-[color=#a2dcc7]Start / Pause[/color]
-[/center]"
-text = "Keyboard
-WSAD, Arrows / Movement
-Space, Enter, Z, X / Actions
-P / Pause
-
-Controller
-L Analog / Movement
-B1, B2, B3, B4 / Actions
-Start / Pause
-"
-
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/ControlsMenu/MarginContainer"]
-margin_top = 304.0
-margin_right = 864.0
-margin_bottom = 344.0
-
-[node name="ControlBackButton" type="Button" parent="MarginContainer/VBoxContainer/ControlsMenu/MarginContainer/CenterContainer"]
-margin_left = 392.0
-margin_right = 472.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 3.41
-custom_styles/hover = SubResource( 49 )
-custom_styles/pressed = SubResource( 50 )
-custom_styles/focus = SubResource( 51 )
-custom_styles/disabled = SubResource( 52 )
-custom_styles/normal = SubResource( 53 )
-text = "                    "
-icon_align = 1
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Area1Button = SubResource( 10 )
-anims/Area2Button = SubResource( 33 )
-anims/Area4Button = SubResource( 56 )
 anims/RESET = SubResource( 11 )
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
@@ -987,27 +970,4 @@ bus = "Background"
 stream = ExtResource( 6 )
 bus = "Sfx"
 
-[node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color( 0.94902, 0.941176, 0.898039, 1 )
-material = SubResource( 32 )
-margin_left = -143.0
-margin_top = -102.756
-margin_right = 1137.0
-margin_bottom = 697.244
-mouse_filter = 2
-texture = ExtResource( 7 )
-
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/StartButton" to="." method="_on_menu_button_mouse_entered"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_menu_button_mouse_entered"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_SettingsButton_pressed"]
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_menu_button_mouse_entered"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/ControlsButton" to="." method="_on_menu_button_mouse_entered"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/ControlsButton" to="." method="_on_ControlsButton_pressed"]
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_menu_button_mouse_entered"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenuButtons/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/AreaChoose/VBoxContainer/CenterContainer/AreaChooseBackButton" to="." method="_on_AreaChooseBackButton_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/CreditsMenu/MarginContainer/CenterContainer/CreditsBackButton" to="." method="_on_CreditsBackButton_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ControlsMenu/MarginContainer/CenterContainer/ControlBackButton" to="." method="_on_ControlBackButton_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

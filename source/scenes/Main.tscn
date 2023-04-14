@@ -37,12 +37,12 @@
 [ext_resource path="res://assets/sprites/house_1_shadow.png" type="Texture" id=35]
 [ext_resource path="res://assets/sprites/fume2.png" type="Texture" id=36]
 
-[sub_resource type="Gradient" id=13]
+[sub_resource type="Gradient" id=28]
 offsets = PoolRealArray( 0, 0.195402, 0.318966, 0.385057, 1 )
 colors = PoolColorArray( 0.407843, 0.760784, 0.827451, 1, 0.407843, 0.760784, 0.827451, 1, 0.601415, 0.805903, 0.750313, 1, 0.947912, 0.937853, 0.882309, 1, 0.94902, 0.941176, 0.898039, 1 )
 
 [sub_resource type="GradientTexture2D" id=12]
-gradient = SubResource( 13 )
+gradient = SubResource( 28 )
 width = 1400
 height = 800
 fill_to = Vector2( 0, 1 )
@@ -55,13 +55,13 @@ load_path = "res://.import/tree1.png-1e3faf9e6f29f6130483ec280db52e2e.stex"
 offsets = PoolRealArray( 0, 0.206349, 0.957944 )
 colors = PoolColorArray( 1, 1, 1, 0.588235, 1, 1, 1, 0.266667, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=22]
+[sub_resource type="GradientTexture" id=29]
 gradient = SubResource( 25 )
 
 [sub_resource type="Curve" id=26]
 _data = [ Vector2( 0, 0.0477272 ), 0.0, 0.0, 0, 0, Vector2( 0.886792, 0.434091 ), 1.28026, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=24]
+[sub_resource type="CurveTexture" id=30]
 curve = SubResource( 26 )
 
 [sub_resource type="ParticlesMaterial" id=27]
@@ -73,11 +73,11 @@ initial_velocity = 20.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 damping = 10.17
-scale_curve = SubResource( 24 )
+scale_curve = SubResource( 30 )
 color = Color( 0.780392, 0.780392, 0.780392, 1 )
-color_ramp = SubResource( 22 )
+color_ramp = SubResource( 29 )
 
-[sub_resource type="Shader" id=6]
+[sub_resource type="Shader" id=31]
 code = "shader_type canvas_item;
 render_mode blend_mix;
 
@@ -111,7 +111,7 @@ void vertex() {
 }"
 
 [sub_resource type="ShaderMaterial" id=7]
-shader = SubResource( 6 )
+shader = SubResource( 31 )
 shader_param/speed = 1.0
 shader_param/minStrength = 0.1
 shader_param/maxStrength = 0.01
@@ -123,7 +123,7 @@ shader_param/heightOffset = 0.236
 shader_param/offset = 10.0
 
 [sub_resource type="ShaderMaterial" id=8]
-shader = SubResource( 6 )
+shader = SubResource( 31 )
 shader_param/speed = 1.0
 shader_param/minStrength = 0.115
 shader_param/maxStrength = 0.01
