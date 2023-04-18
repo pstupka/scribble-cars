@@ -8,7 +8,7 @@
    version="1.1"
    id="svg1108"
    viewBox="0 0 1000 1000"
-   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09, custom)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -24,16 +24,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35355339"
-     inkscape:cx="487.90368"
-     inkscape:cy="373.35238"
+     inkscape:cx="373.35238"
+     inkscape:cy="1053.5891"
      inkscape:document-units="px"
-     inkscape:current-layer="layer31"
+     inkscape:current-layer="layer28"
      showgrid="false"
      showguides="true"
-     inkscape:window-width="1920"
-     inkscape:window-height="1137"
-     inkscape:window-x="3832"
-     inkscape:window-y="-8"
+     inkscape:window-width="1846"
+     inkscape:window-height="1016"
+     inkscape:window-x="1994"
+     inkscape:window-y="147"
      inkscape:window-maximized="1"
      showborder="true"
      inkscape:showpageshadow="false"
@@ -164,7 +164,8 @@
       <glyph
          glyph-name=""
          unicode="Q"
-         id="glyph3057" />
+         id="glyph3057"
+         d="m 658.67934,216.52691 c -102.11042,57.4061 -269.72967,-44.2692 -359.12817,87.94477 -113.5441,111.19281 -89.6696,309.44583 36.00219,401.56811 96.29597,76.18799 236.39917,70.76454 336.8281,13.62792 C 792.20638,671.52599 859.84208,542.37102 776.16576,428.98235 731.24123,351.48924 670.64094,305.92676 683.49617,222.02475 l -9.02371,-6.40438 z m -132.71128,91.79078 c 40.1209,8.56699 -88.63176,150.23253 28.91164,139.45387 29.41153,-120.53668 127.66642,-84.53794 159.05039,15.04241 82.08289,81.03524 -14.37553,136.23589 -82.95137,166.89465 -105.21147,88.53672 -274.56334,56.75833 -328.12449,-73.30037 -71.0262,-135.70821 87.97938,-283.89538 223.11383,-248.09056 z" />
       <glyph
          glyph-name=""
          unicode="R"
@@ -342,7 +343,8 @@
        inkscape:groupmode="layer"
        id="layer31"
        inkscape:label="U+000056 V"
-       style="display:inline">
+       style="display:none"
+       sodipodi:insensitive="true">
       <path
          d=""
          id="path3714" />
@@ -393,6 +395,23 @@
          style="fill:#000000;stroke-width:3.11489"
          id="path3627"
          sodipodi:nodetypes="cscsssssssscsssssssssssssssssccssssssssssssssssssscssssssssssssssssssssssscssssssssssccsssss" />
+    </g>
+    <g
+       inkscape:groupmode="layer"
+       id="layer28"
+       inkscape:label="U+000051 Q">
+      <path
+         d=""
+         id="path1180" />
+      <path
+         style="fill:#212123;fill-opacity:1;stroke-width:2.74538"
+         d="m 658.67934,783.47309 c -102.11042,-57.4061 -269.72967,44.2692 -359.12817,-87.94477 -113.5441,-111.19281 -89.6696,-309.44583 36.00219,-401.56811 96.29597,-76.18799 236.39917,-70.76454 336.8281,-13.62792 119.82492,48.14172 187.46062,177.29669 103.7843,290.68536 -44.92453,77.49311 -105.52482,123.05559 -92.66959,206.9576 l -9.02371,6.40438 z M 525.96806,691.68231 c 40.1209,-8.56699 -88.63176,-150.23253 28.91164,-139.45387 29.41153,120.53668 127.66642,84.53794 159.05039,-15.04241 82.08289,-81.03524 -14.37553,-136.23589 -82.95137,-166.89465 -105.21147,-88.53672 -274.56334,-56.75833 -328.12449,73.30037 -71.0262,135.70821 87.97938,283.89538 223.11383,248.09056 z"
+         id="path1491"
+         inkscape:export-filename="fume3.png"
+         inkscape:export-xdpi="45"
+         inkscape:export-ydpi="45"
+         sodipodi:nodetypes="cccccccccccccc"
+         inkscape:label="fume3" />
     </g>
     <g
        inkscape:groupmode="layer"
