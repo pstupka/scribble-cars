@@ -21,7 +21,10 @@ func apply_tween():
 				.set_trans(Tween.TRANS_BACK)
 				
 	for i in range(node_paths.size()):
-		var object = get_node(node_paths[i])
+		var object = get_node_or_null(node_paths[i])
+		
+		if not object: continue
+		
 		if object.is_class("ColorRect"): 
 			tween.parallel().tween_property(object, "rect_position:y", object.rect_position.y, tween_duration) \
 			.from(object.rect_position.y + 1000) \
