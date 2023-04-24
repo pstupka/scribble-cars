@@ -13,7 +13,7 @@ blend_mode = 1
 [sub_resource type="CanvasItemMaterial" id=7]
 blend_mode = 3
 
-[sub_resource type="OpenSimplexNoise" id=4]
+[sub_resource type="OpenSimplexNoise" id=8]
 seed = 6
 octaves = 5
 period = 99.0
@@ -23,7 +23,7 @@ lacunarity = 1.33
 [sub_resource type="NoiseTexture" id=5]
 flags = 6
 seamless = true
-noise = SubResource( 4 )
+noise = SubResource( 8 )
 
 [sub_resource type="PhysicsMaterial" id=2]
 rough = true

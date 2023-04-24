@@ -151,6 +151,7 @@ tracks/2/keys = {
 }
 
 [node name="Car" type="Node2D"]
+scale = Vector2( -1, 1 )
 script = ExtResource( 5 )
 color = Color( 0.705882, 0.321569, 0.321569, 1 )
 

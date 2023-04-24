@@ -156,6 +156,7 @@ extents = Vector2( 463.5, 47.5 )
 extents = Vector2( 16.5, 10.5 )
 
 [node name="Bus3" type="Node2D"]
+scale = Vector2( -1, 1 )
 script = ExtResource( 3 )
 can_change_color = false
 color = Color( 0.705882, 0.321569, 0.321569, 1 )

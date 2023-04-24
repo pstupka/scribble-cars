@@ -12,14 +12,14 @@
 offsets = PoolRealArray( 0, 0.164021, 0.522581 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.535484, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=22]
+[sub_resource type="GradientTexture" id=29]
 gradient = SubResource( 25 )
 
 [sub_resource type="Curve" id=26]
 max_value = 2.0
 _data = [ Vector2( 0, 0.247727 ), 0.0, 0.0, 0, 0, Vector2( 0.122642, 0.556818 ), 3.23285, 3.23285, 0, 0, Vector2( 0.740566, 1.68409 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=24]
+[sub_resource type="CurveTexture" id=30]
 curve = SubResource( 26 )
 
 [sub_resource type="ParticlesMaterial" id=27]
@@ -35,9 +35,9 @@ angle = 180.0
 angle_random = 1.0
 scale = 2.0
 scale_random = 1.0
-scale_curve = SubResource( 24 )
+scale_curve = SubResource( 30 )
 color = Color( 0.811765, 0.541176, 0.796078, 1 )
-color_ramp = SubResource( 22 )
+color_ramp = SubResource( 29 )
 hue_variation = 1.0
 hue_variation_random = 1.0
 

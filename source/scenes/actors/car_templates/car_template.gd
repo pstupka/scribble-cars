@@ -1,4 +1,5 @@
 extends Node2D
+class_name MachineTemplate
 
 onready var animation_player = $AnimationPlayer
 
