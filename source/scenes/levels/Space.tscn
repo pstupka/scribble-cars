@@ -48,7 +48,7 @@ motion_mirroring = Vector2( 2000, 1200 )
 [node name="ColorRect2" type="ColorRect" parent="ParallaxBackground/Bg2"]
 margin_right = 2000.0
 margin_bottom = 1200.0
-color = Color( 0.207843, 0.168627, 0.258824, 1 )
+color = Color( 0.262745, 0.262745, 0.415686, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/Bg2"]
 self_modulate = Color( 1.5, 1.5, 1.5, 1 )

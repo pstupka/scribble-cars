@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://assets/sprites/foliage/flower2_pink.png" type="Texture" id=1]
 [ext_resource path="res://resources/shaders/wind_sway_shader.tres" type="Material" id=2]
@@ -19,6 +19,9 @@
 [ext_resource path="res://source/scenes/props/Cloud3.tscn" type="PackedScene" id=17]
 [ext_resource path="res://assets/sprites/fume2.png" type="Texture" id=18]
 [ext_resource path="res://source/utils/move_parallax_layer.gd" type="Script" id=19]
+[ext_resource path="res://assets/sprites/npc/human1.png" type="Texture" id=20]
+[ext_resource path="res://assets/sprites/npc/human2.png" type="Texture" id=21]
+[ext_resource path="res://assets/sprites/npc/human3.png" type="Texture" id=22]
 
 [sub_resource type="Gradient" id=13]
 offsets = PoolRealArray( 0, 0.575, 0.739286, 0.871429, 1 )
@@ -59,6 +62,47 @@ damping = 10.17
 scale_curve = SubResource( 24 )
 color = Color( 0.780392, 0.780392, 0.780392, 1 )
 color_ramp = SubResource( 22 )
+
+[sub_resource type="Animation" id=66]
+resource_name = "idle"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Humans/Human3:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1.8025, 1, 1.8025, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.95, 1.05 ), Vector2( 1, 1 ), Vector2( 0.95, 1.05 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Humans/Human2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.3, 0.5, 0.7 ),
+"transitions": PoolRealArray( 1.8025, 1, 1.8025, 1 ),
+"update": 0,
+"values": [ Vector2( 0.95, 1.05 ), Vector2( 1, 1 ), Vector2( 0.95, 1.05 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Humans/Human1:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1.8025, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.95, 1.05 ), Vector2( 1, 1 ) ]
+}
 
 [sub_resource type="Shader" id=65]
 code = "shader_type canvas_item;
@@ -305,6 +349,36 @@ light_mask = 5
 position = Vector2( 188.8, 294.5 )
 scale = Vector2( 0.2, 0.2 )
 texture = SubResource( 59 )
+
+[node name="Humans" type="Node2D" parent="Ground2"]
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Human3" type="Sprite" parent="Ground2/Humans"]
+position = Vector2( 4740, 1700 )
+rotation = -0.523598
+texture = ExtResource( 22 )
+centered = false
+offset = Vector2( -85, -277 )
+
+[node name="Human2" type="Sprite" parent="Ground2/Humans"]
+position = Vector2( 4740, 1730 )
+rotation = 0.523598
+scale = Vector2( 0.975, 1.025 )
+texture = ExtResource( 21 )
+centered = false
+offset = Vector2( -65, -262 )
+
+[node name="Human1" type="Sprite" parent="Ground2/Humans"]
+position = Vector2( 4765, 1730 )
+rotation = 0.523598
+texture = ExtResource( 20 )
+centered = false
+offset = Vector2( -60, -148 )
+
+[node name="HumansAnim" type="AnimationPlayer" parent="Ground2/Humans"]
+root_node = NodePath("../..")
+autoplay = "idle"
+anims/idle = SubResource( 66 )
 
 [node name="Tree4" type="Sprite" parent="Ground2"]
 light_mask = 5

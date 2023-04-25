@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/sprites/space/rocket1_outline.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/space/rocket1_engines.png" type="Texture" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://assets/sprites/space/rocket1_fill1.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/space/star.png" type="Texture" id=6]
 [ext_resource path="res://source/scenes/props/space/menu_rocket_button.gd" type="Script" id=7]
+[ext_resource path="res://assets/sprites/npc/human1.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/npc/human2.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/npc/human3.png" type="Texture" id=11]
 
 [sub_resource type="Gradient" id=72]
 offsets = PoolRealArray( 0, 0.164021, 0.522581 )
@@ -43,15 +46,30 @@ hue_variation_random = 1.0
 
 [sub_resource type="Animation" id=75]
 resource_name = "move"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPivot:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 1.05 ), Vector2( 1, 1 ) ]
+}
 
 [node name="MenuRocketButton" type="Node2D"]
 script = ExtResource( 7 )
 
 [node name="AnimationPivot" type="Node2D" parent="."]
+position = Vector2( 0, -32 )
 
 [node name="Rocket1Fill2" type="Sprite" parent="AnimationPivot"]
 self_modulate = Color( 0.270588, 0.266667, 0.309804, 1 )
-position = Vector2( 85, -68.6 )
+position = Vector2( 84, -68.6 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 3 )
 
@@ -69,12 +87,34 @@ texture = ExtResource( 2 )
 
 [node name="Rocket1Window" type="Sprite" parent="AnimationPivot"]
 self_modulate = Color( 0.294118, 0.501961, 0.792157, 1 )
-position = Vector2( 13, -50.6 )
+position = Vector2( 12, -52 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 4 )
 
+[node name="Humans" type="Node2D" parent="AnimationPivot"]
+scale = Vector2( 0.15, 0.15 )
+
+[node name="Human3" type="Sprite" parent="AnimationPivot/Humans"]
+position = Vector2( 66.6667, -166.667 )
+texture = ExtResource( 11 )
+centered = false
+offset = Vector2( -85, -277 )
+
+[node name="Human2" type="Sprite" parent="AnimationPivot/Humans"]
+position = Vector2( 158.333, -158 )
+scale = Vector2( 0.975, 1.025 )
+texture = ExtResource( 10 )
+centered = false
+offset = Vector2( -65, -262 )
+
+[node name="Human1" type="Sprite" parent="AnimationPivot/Humans"]
+position = Vector2( 93.3333, -160 )
+texture = ExtResource( 9 )
+centered = false
+offset = Vector2( -60, -148 )
+
 [node name="Rocket1Outline" type="Sprite" parent="AnimationPivot"]
-position = Vector2( 5, -55.6 )
+position = Vector2( 4, -55.6 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 1 )
 

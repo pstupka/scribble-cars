@@ -29,19 +29,18 @@ var can_change_scene = true
 
 func _ready() -> void:
 	OS.set_window_maximized(true) # TODO: Make it on splash screen
+	Globals.daynight = Globals.DAY
 	randomize()
 	
 	change_level_selection(0)
 	
 
 func _input(event: InputEvent) -> void:
-	if not can_change_scene: return
-	if event.is_action_pressed("ui_right"):
-		var next_level = (current_level_selected + 1) % level_selection_scenes.size()
-		change_level_selection(next_level)
-	if event.is_action_pressed("ui_left"):
-		var next_level = (current_level_selected - 1) % level_selection_scenes.size()
-		change_level_selection(next_level)
+	pass
+#	if Input.is_action_pressed("ui_left") or Input.is_action_pressed("move_left"):
+#		_on_LevelPrevious_pressed()
+#	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("move_right"):
+#		_on_LevelNext_pressed()
 
 
 func change_level_selection(next_level: int) -> void:
@@ -72,16 +71,24 @@ func change_level_selection(next_level: int) -> void:
 	if machine.has_node("AnimationPlayer"):
 		machine.animation_player.play("move")
 
+
 	tween.tween_callback(self, "set_deferred", ["can_change_scene", true])
 
 
+func _on_LevelPrevious_pressed() -> void:
+	if not can_change_scene: return
 
-func transition_dummy():
-	var forest_scene: ParallaxBackground = $Bg/ForestScene
-	var space_scene: ParallaxBackground = $Bg/SpaceScene
+	var next_level = (current_level_selected - 1) % level_selection_scenes.size()
+	change_level_selection(next_level)
+
+
+func _on_LevelNext_pressed() -> void:
+	if not can_change_scene: return
 	
-	var tween := create_tween()
-	tween.tween_property(transition_rect, "color", Color(0.0, 0.0, 0.0, 1.0), 0.3)
-	tween.tween_callback(forest_scene, "hide")
-	tween.tween_property(transition_rect, "color", Color(0.0, 0.0, 0.0, 0.0), 0.3)
-	tween.parallel().tween_callback(space_scene, "show")
+	var next_level = (current_level_selected + 1) % level_selection_scenes.size()
+	change_level_selection(next_level)
+
+
+func _on_StartButton_pressed() -> void:
+	get_tree().change_scene(level_selection_scenes[current_level_selected]["level"])
+

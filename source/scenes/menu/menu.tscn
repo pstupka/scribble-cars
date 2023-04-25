@@ -1,9 +1,13 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://source/scenes/menu/menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/LittleThings-ZX5Z.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/sprites/on_screen_controls/arrow_left_white.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/on_screen_controls/arrow_right_white.png" type="Texture" id=4]
 [ext_resource path="res://assets/audio/cute.mp3" type="AudioStream" id=5]
 [ext_resource path="res://assets/audio/pik.mp3" type="AudioStream" id=6]
+[ext_resource path="res://assets/sprites/on_screen_controls/arrow_right_outline.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/on_screen_controls/arrow_left_outline.png" type="Texture" id=8]
 [ext_resource path="res://assets/sprites/on_screen_controls/arrow_left_transparent.png" type="Texture" id=14]
 [ext_resource path="res://source/scenes/menu/random_color_label.gd" type="Script" id=16]
 [ext_resource path="res://assets/sprites/on_screen_controls/arrow_right_transparent.png" type="Texture" id=27]
@@ -47,6 +51,26 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0.0 ]
 }
+
+[sub_resource type="StyleBoxEmpty" id=60]
+
+[sub_resource type="StyleBoxEmpty" id=61]
+
+[sub_resource type="StyleBoxFlat" id=62]
+bg_color = Color( 1, 1, 1, 0.2 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 5.0
+expand_margin_right = 4.0
+expand_margin_top = 5.0
+shadow_color = Color( 1, 1, 1, 0.2 )
+shadow_size = 4
+
+[sub_resource type="StyleBoxEmpty" id=63]
+
+[sub_resource type="StyleBoxEmpty" id=64]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -139,28 +163,6 @@ Music
 Fonts
 > Little Things ( fontspace.com"
 
-[node name="Mockup" type="CanvasLayer" parent="."]
-
-[node name="ArrowRightTransparent" type="Sprite" parent="Mockup"]
-modulate = Color( 0.94902, 0.941176, 0.898039, 1 )
-position = Vector2( 915, 350 )
-scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 27 )
-__meta__ = {
-"_editor_description_": ""
-}
-
-[node name="ArrowLeftTransparent" type="Sprite" parent="Mockup"]
-modulate = Color( 0.94902, 0.941176, 0.898039, 1 )
-position = Vector2( 95, 350 )
-scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 14 )
-
-[node name="Streetlights" type="Sprite" parent="Mockup"]
-position = Vector2( 913, 581 )
-scale = Vector2( -0.979448, 0.979448 )
-texture = ExtResource( 28 )
-
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_right = 1024.0
 margin_bottom = 600.0
@@ -235,4 +237,39 @@ bus = "Background"
 stream = ExtResource( 6 )
 bus = "Sfx"
 
+[node name="LevelNext" type="TextureButton" parent="."]
+margin_left = 855.0
+margin_top = 289.0
+margin_right = 975.0
+margin_bottom = 409.0
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 4 )
+texture_focused = ExtResource( 27 )
+expand = true
+
+[node name="LevelPrevious" type="TextureButton" parent="."]
+margin_left = 35.0
+margin_top = 289.314
+margin_right = 155.0
+margin_bottom = 409.314
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 3 )
+texture_focused = ExtResource( 14 )
+expand = true
+
+[node name="StartButton" type="Button" parent="."]
+margin_left = 870.0
+margin_top = 439.957
+margin_right = 941.0
+margin_bottom = 708.957
+custom_styles/hover = SubResource( 60 )
+custom_styles/pressed = SubResource( 61 )
+custom_styles/focus = SubResource( 62 )
+custom_styles/disabled = SubResource( 63 )
+custom_styles/normal = SubResource( 64 )
+icon = ExtResource( 28 )
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="pressed" from="LevelNext" to="." method="_on_LevelNext_pressed"]
+[connection signal="pressed" from="LevelPrevious" to="." method="_on_LevelPrevious_pressed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
