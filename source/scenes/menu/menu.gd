@@ -32,6 +32,7 @@ var can_change_scene = true
 
 func _ready() -> void:
 	OS.set_window_maximized(true) # TODO: Make it on splash screen
+
 	Globals.daynight = Globals.DAY
 	randomize()
 	

@@ -37,6 +37,7 @@ func set_direction(new_direction):
 func _on_car_animation_finished(_anim_name: String):
 	car.animation_player.play("move")
 
+
 func _on_screen_entered() -> void:
 	screen_exit_delayed = false
 	$VisibilityNotifier2D/ScreenExitedDelay.start()

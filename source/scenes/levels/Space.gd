@@ -5,6 +5,7 @@ onready var collectables: Array
 
 onready var star_scene := preload("res://source/scenes/props/space/collectable_star.tscn")
 
+export var scene_type = "space"
 
 func _ready() -> void:
 	for star in stars_bg.get_children():
