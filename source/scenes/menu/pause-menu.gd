@@ -63,7 +63,11 @@ func _on_QuitButton_pressed() -> void:
 
 func _on_MainMenuButton_pressed() -> void:
 	pik_sfx.play()
-	var tween = create_tween()
+	
+	if tween:
+		tween.kill()
+	
+	tween = create_tween()
 	
 	main_menu_button.disabled = true
 	back_button.disabled = true

@@ -1,6 +1,10 @@
 extends Control
 
+onready var pik_sfx: AudioStreamPlayer = $PikSfx
 onready var bg: Node2D = $Bg
+onready var level_previous: TextureButton = $LevelPrevious
+onready var level_next: TextureButton = $LevelNext
+
 
 var current_level_selected := -1
 
@@ -20,7 +24,6 @@ var level_selection_scenes := [
 		"machine": preload("res://source/scenes/actors/car_templates/bus3.tscn"),
 		"level": "res://source/scenes/levels/city.tscn"
 	},
-	
 ]
 
 onready var transition_rect: ColorRect = $TransitionRect
@@ -34,6 +37,7 @@ func _ready() -> void:
 	
 	change_level_selection(0)
 	
+	level_next.grab_focus()
 
 func _input(event: InputEvent) -> void:
 	pass
@@ -71,13 +75,13 @@ func change_level_selection(next_level: int) -> void:
 	if machine.has_node("AnimationPlayer"):
 		machine.animation_player.play("move")
 
-
 	tween.tween_callback(self, "set_deferred", ["can_change_scene", true])
 
 
 func _on_LevelPrevious_pressed() -> void:
 	if not can_change_scene: return
-
+	
+	pik_sfx.play()
 	var next_level = (current_level_selected - 1) % level_selection_scenes.size()
 	change_level_selection(next_level)
 
@@ -85,6 +89,7 @@ func _on_LevelPrevious_pressed() -> void:
 func _on_LevelNext_pressed() -> void:
 	if not can_change_scene: return
 	
+	pik_sfx.play()
 	var next_level = (current_level_selected + 1) % level_selection_scenes.size()
 	change_level_selection(next_level)
 
