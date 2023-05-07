@@ -162,6 +162,7 @@ color = Color( 0.705882, 0.321569, 0.321569, 1 )
 [node name="CarShadow" type="Sprite" parent="ShadowPivot"]
 self_modulate = Color( 0.34902, 0.34902, 0.34902, 0.160784 )
 position = Vector2( -101, 82 )
+rotation = -0.00780802
 scale = Vector2( 1, -0.5 )
 texture = ExtResource( 12 )
 centered = false
@@ -174,36 +175,42 @@ position = Vector2( 1.06396, -23.2806 )
 
 [node name="CarFill" type="Sprite" parent="AnimationPivot/Sprites"]
 self_modulate = Color( 0.705882, 0.321569, 0.321569, 1 )
-position = Vector2( -28.064, -38.7314 )
+position = Vector2( -25.9574, -43.7842 )
+rotation = 0.0581023
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 13 )
 
 [node name="CarWheels" type="Sprite" parent="AnimationPivot/Sprites"]
 self_modulate = Color( 0.270588, 0.266667, 0.309804, 1 )
-position = Vector2( 8.93604, -7.7314 )
+position = Vector2( 11.0427, -12.7842 )
+rotation = 0.0581023
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 10 )
 
 [node name="CarBacklight" type="Sprite" parent="AnimationPivot/Sprites"]
 self_modulate = Color( 0.878431, 0.27451, 0.27451, 1 )
-position = Vector2( 42.1881, -53.5546 )
+position = Vector2( 44.2947, -58.6074 )
+rotation = 0.0581023
 scale = Vector2( -0.174321, 0.277243 )
 texture = ExtResource( 14 )
 
 [node name="CarFrontlight" type="Sprite" parent="AnimationPivot/Sprites"]
 self_modulate = Color( 0.956863, 0.945098, 0.866667, 1 )
-position = Vector2( -93.064, -42.7314 )
+position = Vector2( -90.9574, -47.7842 )
+rotation = 0.0581023
 scale = Vector2( 0.715, 0.59091 )
 texture = ExtResource( 18 )
 
 [node name="CarWindow" type="Sprite" parent="AnimationPivot/Sprites"]
 self_modulate = Color( 0.407843, 0.760784, 0.827451, 1 )
-position = Vector2( 4.93604, -93.7314 )
+position = Vector2( 7.04268, -98.7842 )
+rotation = 0.0581023
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 15 )
 
 [node name="CarOutline" type="Sprite" parent="AnimationPivot/Sprites"]
-position = Vector2( -4.06396, -52.7314 )
+position = Vector2( -1.95732, -57.7842 )
+rotation = 0.0581023
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 11 )
 

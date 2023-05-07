@@ -7,13 +7,19 @@ onready var jump_sfx = $JumpSfx
 onready var car_fill = $AnimationPivot/Sprites/CarFill
 onready var front_light_rays: Sprite = $AnimationPivot/FrontLight/FrontLightRays
 onready var ladder_pivot: Node2D = $AnimationPivot/Sprites/LadderPivot
+onready var shadow_ladder_pivot: Node2D = $ShadowPivot/LadderPivot
 
 
 export var speed := 150.0
 export var can_change_color:bool = true
 export var color : Color setget set_color
+export var ladder_speed := 0.5
+export var max_ladder_angle_deg := 40.0
+export var min_ladder_angle_deg := 0.0
 
 const PITCH_RAND = 0.05
+
+var is_jumping := false
 
 func _ready() -> void:
 	randomize()
@@ -23,18 +29,28 @@ func _ready() -> void:
 	set_animation_loop("move", false)
 	
 	speed += randf() * 40.0 - 20.0
-
+	is_jumping = false
+	ladder_pivot.rotation_degrees = min_ladder_angle_deg
+	shadow_ladder_pivot.rotation_degrees = -min_ladder_angle_deg/2
 
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("change_car"):
-		ladder_pivot.rotate(delta)
+	if Input.is_action_pressed("jump"):
+		ladder_pivot.rotate(delta * ladder_speed)
+		ladder_pivot.rotation_degrees = clamp(ladder_pivot.rotation_degrees, min_ladder_angle_deg, max_ladder_angle_deg)
+		shadow_ladder_pivot.rotation_degrees = -ladder_pivot.rotation_degrees/2
 	if Input.is_action_pressed("lights"):
-		ladder_pivot.rotate(-delta)
+		ladder_pivot.rotate(-delta * ladder_speed)
+		ladder_pivot.rotation_degrees = clamp(ladder_pivot.rotation_degrees, min_ladder_angle_deg, max_ladder_angle_deg)
+		shadow_ladder_pivot.rotation_degrees = -ladder_pivot.rotation_degrees/2
 
 func jump() -> void:
-	animation_player.play("jump")
-	jump_sfx.pitch_scale = rand_range(1.0 - PITCH_RAND, 1.0 + PITCH_RAND)
-	jump_sfx.play()
+	pass
+#	if is_jumping: return 
+#
+#	is_jumping = true
+#	animation_player.play("jump")
+#	jump_sfx.pitch_scale = rand_range(1.0 - PITCH_RAND, 1.0 + PITCH_RAND)
+#	jump_sfx.play()
 
 
 func honk(random:bool = true) -> void:

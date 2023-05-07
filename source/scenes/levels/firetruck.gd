@@ -25,11 +25,12 @@ func _ready() -> void:
 
 
 func _input(event):
-	if event.is_action_pressed("lights"):
-		if Globals.daynight == Globals.NIGHT: 
-			Globals.daynight = Globals.DAY
-		else:
-			Globals.daynight = Globals.NIGHT
+	pass
+#	if event.is_action_pressed("lights"):
+#		if Globals.daynight == Globals.NIGHT: 
+#			Globals.daynight = Globals.DAY
+#		else:
+#			Globals.daynight = Globals.NIGHT
 
 
 func _on_CarSpawnTimer_timeout():

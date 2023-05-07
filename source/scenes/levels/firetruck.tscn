@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://source/scenes/levels/firetruck.gd" type="Script" id=1]
 [ext_resource path="res://source/scenes/actors/player_car.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://assets/sprites/buildings/city_bg2.png" type="Texture" id=17]
 [ext_resource path="res://assets/sprites/buildings/city_bg3.png" type="Texture" id=18]
 [ext_resource path="res://assets/sprites/buildings/city_bg4.png" type="Texture" id=19]
+[ext_resource path="res://assets/sprites/tree1.png" type="Texture" id=20]
 [ext_resource path="res://source/scenes/menu/pause-menu.tscn" type="PackedScene" id=21]
 [ext_resource path="res://source/utils/enter_tween.gd" type="Script" id=22]
 [ext_resource path="res://source/scenes/props/Cloud3.tscn" type="PackedScene" id=23]
@@ -391,6 +392,26 @@ night_color = Color( 2, 2, 0, 1 )
 [node name="Road" type="ParallaxLayer" parent="RoadParallax"]
 position = Vector2( -4, -4 )
 motion_mirroring = Vector2( 1260, 0 )
+
+[node name="Tree1" type="Sprite" parent="RoadParallax/Road"]
+position = Vector2( 301, 202 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 20 )
+
+[node name="Tree2" type="Sprite" parent="RoadParallax/Road"]
+position = Vector2( 1247, 219 )
+scale = Vector2( 0.45, 0.45 )
+texture = ExtResource( 20 )
+
+[node name="Tree3" type="Sprite" parent="RoadParallax/Road"]
+position = Vector2( 878, 202 )
+scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 20 )
+
+[node name="Tree4" type="Sprite" parent="RoadParallax/Road"]
+position = Vector2( 431, 191 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 20 )
 
 [node name="Road1" type="Node2D" parent="RoadParallax/Road"]
 position = Vector2( 80, 442 )

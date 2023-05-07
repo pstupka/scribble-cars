@@ -21,7 +21,7 @@ var current_state = State.IDLE
 var doors_open = false
 var doors_init_color
 
-
+var is_jumping := false
 
 func _ready() -> void:
 	randomize()
@@ -34,6 +34,10 @@ func _ready() -> void:
 	doors_init_color = bus_doors.self_modulate
 
 func jump() -> void:
+	if is_jumping: return 
+	
+	is_jumping = true
+	
 	animation_player.play("jump")
 	jump_sfx.pitch_scale = rand_range(1.0 - PITCH_RAND, 1.0 + PITCH_RAND)
 	jump_sfx.play()
