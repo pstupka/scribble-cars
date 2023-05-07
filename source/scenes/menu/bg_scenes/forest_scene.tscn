@@ -29,7 +29,7 @@ colors = PoolColorArray( 0.407843, 0.760784, 0.827451, 1, 0.407843, 0.760784, 0.
 
 [sub_resource type="GradientTexture2D" id=58]
 gradient = SubResource( 13 )
-width = 1024
+width = 1280
 height = 400
 fill_to = Vector2( 0, 1 )
 
@@ -168,6 +168,7 @@ layer = -1
 motion_scale = Vector2( 0, 1 )
 
 [node name="Sky" type="Sprite" parent="Sky"]
+position = Vector2( 0, 70 )
 texture = SubResource( 58 )
 centered = false
 
@@ -175,48 +176,48 @@ centered = false
 motion_scale = Vector2( 0, 1 )
 
 [node name="Sun" parent="MoonSun" instance=ExtResource( 16 )]
-position = Vector2( 713, 241 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 911, 280 )
+scale = Vector2( 0.8, 0.8 )
 
 [node name="Clouds2" type="ParallaxLayer" parent="."]
 pause_mode = 2
 motion_scale = Vector2( 0.5, 1 )
-motion_mirroring = Vector2( 1024, 0 )
+motion_mirroring = Vector2( 1280, 0 )
 script = ExtResource( 19 )
 speed = 15.0
 
 [node name="Cloud6" parent="Clouds2" instance=ExtResource( 17 )]
-position = Vector2( 809, 266 )
-scale = Vector2( 0.3, 0.3 )
+position = Vector2( 1022, 291 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="Cloud7" parent="Clouds2" instance=ExtResource( 17 )]
-position = Vector2( 62, 248 )
-scale = Vector2( 0.3, 0.3 )
+position = Vector2( 85, 261 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="Cloud4" parent="Clouds2" instance=ExtResource( 14 )]
-position = Vector2( 334, 222 )
-scale = Vector2( 0.3, 0.3 )
+position = Vector2( 325, 202 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="Cloud2" parent="Clouds2" instance=ExtResource( 15 )]
-position = Vector2( 709, 235 )
-scale = Vector2( 0.3, 0.3 )
+position = Vector2( 809, 239 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="Cloud5" parent="Clouds2" instance=ExtResource( 14 )]
-position = Vector2( 427, 272 )
-scale = Vector2( 0.3, 0.3 )
+position = Vector2( 578, 264 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="Cloud3" parent="Clouds2" instance=ExtResource( 15 )]
-position = Vector2( 895, 213 )
-scale = Vector2( 0.3, 0.3 )
+position = Vector2( 1167, 214 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="Ground" type="ParallaxLayer" parent="."]
-motion_mirroring = Vector2( 1120, 0 )
+motion_mirroring = Vector2( 1280, 0 )
 script = ExtResource( 19 )
 speed = -5.0
 
 [node name="GrassPivot" type="Node2D" parent="Ground"]
-position = Vector2( -86, 231 )
-scale = Vector2( 0.8, 0.5 )
+position = Vector2( 0, 280 )
+scale = Vector2( 0.92, 0.5 )
 
 [node name="BgFill" type="Polygon2D" parent="Ground/GrassPivot"]
 light_mask = 5
@@ -231,78 +232,78 @@ texture = ExtResource( 7 )
 
 [node name="Tree5" type="Sprite" parent="Ground"]
 light_mask = 4
-position = Vector2( 214, 296 )
+position = Vector2( 300, 345 )
 scale = Vector2( 0.1, 0.1 )
 texture = SubResource( 59 )
 
 [node name="Tree6" type="Sprite" parent="Ground"]
 light_mask = 4
-position = Vector2( 248, 308 )
+position = Vector2( 334, 357 )
 scale = Vector2( 0.1, 0.1 )
 texture = SubResource( 59 )
 
 [node name="Tree7" type="Sprite" parent="Ground"]
 light_mask = 4
-position = Vector2( 285, 308 )
+position = Vector2( 371, 357 )
 scale = Vector2( 0.1, 0.1 )
 texture = SubResource( 59 )
 
 [node name="Tree8" type="Sprite" parent="Ground"]
 light_mask = 4
-position = Vector2( 135, 297 )
+position = Vector2( 221, 346 )
 scale = Vector2( 0.1, 0.1 )
 texture = SubResource( 59 )
 
 [node name="Tree1" type="Sprite" parent="Ground"]
 light_mask = 4
-position = Vector2( 19, 314 )
+position = Vector2( 105, 363 )
 scale = Vector2( 0.1, 0.1 )
 texture = SubResource( 59 )
 
 [node name="Tree3" type="Sprite" parent="Ground"]
 light_mask = 4
-position = Vector2( 302, 302 )
+position = Vector2( 388, 351 )
 scale = Vector2( 0.1, 0.1 )
 texture = SubResource( 59 )
 
 [node name="Tree9" type="Sprite" parent="Ground"]
 light_mask = 4
-position = Vector2( 703, 295 )
+position = Vector2( 789, 344 )
 scale = Vector2( 0.1, 0.1 )
 texture = SubResource( 59 )
 
 [node name="Tree10" type="Sprite" parent="Ground"]
 light_mask = 4
-position = Vector2( 651, 314 )
+position = Vector2( 737, 363 )
 scale = Vector2( 0.1, 0.1 )
 texture = SubResource( 59 )
 
 [node name="Tree11" type="Sprite" parent="Ground"]
 light_mask = 4
-position = Vector2( 758, 302 )
+position = Vector2( 844, 351 )
 scale = Vector2( 0.1, 0.1 )
 texture = SubResource( 59 )
 
 [node name="Tree12" type="Sprite" parent="Ground"]
 light_mask = 4
-position = Vector2( 965, 302 )
+position = Vector2( 1051, 351 )
 scale = Vector2( 0.1, 0.1 )
 texture = SubResource( 59 )
 
 [node name="Tree4" type="Sprite" parent="Ground"]
 light_mask = 4
-position = Vector2( 730, 314 )
+position = Vector2( 816, 363 )
 scale = Vector2( 0.1, 0.1 )
 texture = SubResource( 59 )
 
 [node name="Tree2" type="Sprite" parent="Ground"]
 light_mask = 4
-position = Vector2( 721, 319 )
+position = Vector2( 807, 368 )
 scale = Vector2( 0.1, 0.1 )
 texture = SubResource( 59 )
 
 [node name="House1" type="Sprite" parent="Ground"]
-position = Vector2( 932, 286 )
+position = Vector2( 634, 349 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 11 )
 
@@ -324,13 +325,13 @@ texture = ExtResource( 18 )
 
 [node name="Ground2" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.2, 0 )
-motion_mirroring = Vector2( 1120, 0 )
+motion_mirroring = Vector2( 1280, 0 )
 script = ExtResource( 19 )
 speed = -10.0
 
 [node name="GrassPivot" type="Node2D" parent="Ground2"]
-position = Vector2( 170, 231 )
-scale = Vector2( 0.8, 0.5 )
+position = Vector2( 274, 289 )
+scale = Vector2( 0.915, 0.5 )
 
 [node name="BgFill" type="Polygon2D" parent="Ground2/GrassPivot"]
 self_modulate = Color( 0.79, 0.79, 0.79, 1 )
@@ -346,11 +347,12 @@ texture = ExtResource( 6 )
 
 [node name="Tree3" type="Sprite" parent="Ground2"]
 light_mask = 5
-position = Vector2( 188.8, 294.5 )
+position = Vector2( 298, 366 )
 scale = Vector2( 0.2, 0.2 )
 texture = SubResource( 59 )
 
 [node name="Humans" type="Node2D" parent="Ground2"]
+position = Vector2( 117, 58 )
 scale = Vector2( 0.2, 0.2 )
 
 [node name="Human3" type="Sprite" parent="Ground2/Humans"]
@@ -382,19 +384,19 @@ anims/idle = SubResource( 66 )
 
 [node name="Tree4" type="Sprite" parent="Ground2"]
 light_mask = 5
-position = Vector2( 944.8, 292.5 )
+position = Vector2( 1061.8, 350.5 )
 scale = Vector2( 0.2, 0.2 )
 texture = SubResource( 59 )
 
 [node name="Ground3" type="ParallaxLayer" parent="."]
 position = Vector2( 0, 70 )
 motion_scale = Vector2( 0.9, 1 )
-motion_mirroring = Vector2( 1100, 0 )
+motion_mirroring = Vector2( 1280, 0 )
 script = ExtResource( 19 )
 speed = -40.0
 
 [node name="GrassPivot" type="Node2D" parent="Ground3"]
-position = Vector2( -18, 191 )
+position = Vector2( 45, 245 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="BgFill" type="Polygon2D" parent="Ground3/GrassPivot"]
@@ -403,7 +405,7 @@ light_mask = 5
 position = Vector2( 1280, 33.5 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
-polygon = PoolVector2Array( -16, 145, 4, 146, 106, 162, 174, 166, 211, 172, 253, 177, 286, 179, 319, 179, 385, 181, 439, 168, 493, 168, 553, 177, 585, 184, 601, 183, 613, 180, 625, 178, 639, 177, 647, 178, 664, 177, 743, 176, 874, 177, 938, 183, 978, 184, 1050, 181, 1107, 170, 1136, 164, 1174, 156, 1270, 142, 1384, 145, 1384, 654, -16, 656 )
+polygon = PoolVector2Array( -16, 145, 4, 146, 106, 162, 174, 166, 211, 172, 253, 177, 286, 179, 319, 179, 385, 181, 439, 168, 493, 168, 553, 177, 585, 184, 601, 183, 613, 180, 625, 178, 639, 177, 647, 178, 664, 177, 743, 176, 874, 177, 938, 183, 978, 184, 1050, 181, 1107, 170, 1136, 164, 1174, 156, 1270, 142, 1380, 148.497, 1384, 832.497, -11.9979, 848.5 )
 
 [node name="BgLine1" type="Sprite" parent="Ground3/GrassPivot"]
 self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
@@ -413,8 +415,8 @@ scale = Vector2( 1, -1 )
 texture = ExtResource( 7 )
 
 [node name="GrassPivot2" type="Node2D" parent="Ground3"]
-position = Vector2( 658, 191 )
-scale = Vector2( 0.29, 0.5 )
+position = Vector2( 721, 245 )
+scale = Vector2( 0.428, 0.5 )
 
 [node name="BgFill" type="Polygon2D" parent="Ground3/GrassPivot2"]
 modulate = Color( 0.505882, 0.639216, 0.352941, 1 )
@@ -422,7 +424,7 @@ light_mask = 5
 position = Vector2( 1280, 33.5 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
-polygon = PoolVector2Array( -16, 145, 4, 146, 106, 162, 174, 166, 211, 172, 253, 177, 286, 179, 319, 179, 385, 181, 439, 168, 493, 168, 553, 177, 585, 184, 601, 183, 613, 180, 625, 178, 639, 177, 647, 178, 664, 177, 743, 176, 874, 177, 938, 183, 978, 184, 1050, 181, 1107, 170, 1136, 164, 1174, 156, 1270, 142, 1384, 145, 1384, 654, -16, 656 )
+polygon = PoolVector2Array( -16, 145, 4, 146, 106, 162, 174, 166, 211, 172, 253, 177, 286, 179, 319, 179, 385, 181, 439, 168, 493, 168, 553, 177, 585, 184, 601, 183, 613, 180, 625, 178, 639, 177, 647, 178, 664, 177, 743, 176, 874, 177, 938, 183, 978, 184, 1050, 181, 1107, 170, 1136, 164, 1174, 156, 1270, 142, 1384, 145, 1389.82, 842.496, -12.0537, 834.5 )
 
 [node name="BgLine1" type="Sprite" parent="Ground3/GrassPivot2"]
 self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
@@ -432,98 +434,63 @@ scale = Vector2( 1, -1 )
 texture = ExtResource( 7 )
 
 [node name="Road1" type="Node2D" parent="Ground3"]
-position = Vector2( -25, 361 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( -32, 447 )
+scale = Vector2( 0.5, 0.6 )
 
 [node name="RoadFill" type="Sprite" parent="Ground3/Road1"]
 light_mask = 5
-position = Vector2( 53, 2 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 352.92, -0.333374 )
+scale = Vector2( 1.02, 0.5 )
 texture = ExtResource( 9 )
 
 [node name="RoadFill2" type="Sprite" parent="Ground3/Road1"]
 light_mask = 5
-position = Vector2( 993.5, 2 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 988.92, -0.333374 )
+scale = Vector2( 1.02, 0.5 )
 texture = ExtResource( 9 )
 
 [node name="RoadFill3" type="Sprite" parent="Ground3/Road1"]
 light_mask = 5
-position = Vector2( 687.5, 2 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 1648.92, 1.66663 )
+scale = Vector2( 1.02, 0.5 )
 texture = ExtResource( 9 )
 
 [node name="RoadFill4" type="Sprite" parent="Ground3/Road1"]
 light_mask = 5
-position = Vector2( 371.5, 2 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 2272.92, -0.333374 )
+scale = Vector2( 1.02, 0.5 )
 texture = ExtResource( 9 )
 
 [node name="RoadOutline" type="Sprite" parent="Ground3/Road1"]
 light_mask = 5
-position = Vector2( 53, 0 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 10 )
-
-[node name="RoadFill5" type="Sprite" parent="Ground3/Road1"]
-light_mask = 5
-position = Vector2( 1309, 1.5 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 9 )
-
-[node name="RoadOutline5" type="Sprite" parent="Ground3/Road1"]
-light_mask = 5
-position = Vector2( 1309, -0.5 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 10 )
-
-[node name="RoadFill6" type="Sprite" parent="Ground3/Road1"]
-light_mask = 5
-position = Vector2( 1623, 1.5 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 9 )
-
-[node name="RoadOutline6" type="Sprite" parent="Ground3/Road1"]
-light_mask = 5
-position = Vector2( 1623, -0.5 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 10 )
-
-[node name="RoadFill7" type="Sprite" parent="Ground3/Road1"]
-light_mask = 5
-position = Vector2( 1937, 1.5 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 9 )
-
-[node name="RoadOutline7" type="Sprite" parent="Ground3/Road1"]
-light_mask = 5
-position = Vector2( 1937, -0.5 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 356.62, 1.16663 )
+scale = Vector2( 1.02, 0.5 )
 texture = ExtResource( 10 )
 
 [node name="RoadOutline2" type="Sprite" parent="Ground3/Road1"]
 light_mask = 5
-position = Vector2( 999, 0 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 992.62, 1.16663 )
+scale = Vector2( 1.02, 0.5 )
 texture = ExtResource( 10 )
 
 [node name="RoadOutline3" type="Sprite" parent="Ground3/Road1"]
 light_mask = 5
-position = Vector2( 684, 0 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 1630.62, 1.16663 )
+scale = Vector2( 1.02, 0.5 )
 texture = ExtResource( 10 )
 
 [node name="RoadOutline4" type="Sprite" parent="Ground3/Road1"]
 light_mask = 5
-position = Vector2( 368, 0 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 2275.34, 1.16663 )
+scale = Vector2( 1.02, 0.5 )
 texture = ExtResource( 10 )
 
 [node name="FlowersSort" type="YSort" parent="Ground3"]
+position = Vector2( 63, 54 )
 
 [node name="Flowers2" type="Node2D" parent="Ground3/FlowersSort"]
 material = SubResource( 63 )
-position = Vector2( -183, 196 )
+position = Vector2( -194, 211 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Flower1Pink" type="Sprite" parent="Ground3/FlowersSort/Flowers2"]
@@ -600,7 +567,7 @@ texture = ExtResource( 8 )
 
 [node name="Flowers" type="Node2D" parent="Ground3/FlowersSort"]
 material = ExtResource( 2 )
-position = Vector2( 223, 205 )
+position = Vector2( 246, 211 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Flower1Pink" type="Sprite" parent="Ground3/FlowersSort/Flowers"]
@@ -665,7 +632,7 @@ texture = ExtResource( 8 )
 
 [node name="Flowers3" type="Node2D" parent="Ground3/FlowersSort"]
 material = SubResource( 64 )
-position = Vector2( 565, 205 )
+position = Vector2( 779, 211 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Flower1Pink" type="Sprite" parent="Ground3/FlowersSort/Flowers3"]

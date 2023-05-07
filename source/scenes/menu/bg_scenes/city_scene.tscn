@@ -28,8 +28,8 @@ colors = PoolColorArray( 0.407843, 0.760784, 0.827451, 1, 0.407843, 0.760784, 0.
 
 [sub_resource type="GradientTexture2D" id=58]
 gradient = SubResource( 11 )
-width = 1400
-height = 800
+width = 1280
+height = 720
 fill_to = Vector2( 0, 1 )
 
 [sub_resource type="Animation" id=59]
@@ -80,7 +80,7 @@ layer = -1
 motion_scale = Vector2( 0, 0 )
 
 [node name="Sky" type="Sprite" parent="Sky"]
-position = Vector2( -184, -107 )
+position = Vector2( 2, -98 )
 texture = SubResource( 58 )
 centered = false
 
@@ -117,89 +117,101 @@ scale = Vector2( 0.3, 0.3 )
 
 [node name="BuildingsBg3" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.31, 0.95 )
-motion_mirroring = Vector2( 1200, 0 )
+motion_mirroring = Vector2( 1280, 0 )
 script = ExtResource( 18 )
 speed = -10.0
 
 [node name="CityBg3" type="Sprite" parent="BuildingsBg3"]
 modulate = Color( 0.2673, 0.2646, 0.27, 1 )
-position = Vector2( 723.45, 262.3 )
-scale = Vector2( 0.4, 0.2 )
+position = Vector2( 842, 273.375 )
+scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 11 )
+
+[node name="CityBg2" type="Sprite" parent="BuildingsBg3"]
+modulate = Color( 0.721569, 0.709804, 0.72549, 1 )
+position = Vector2( 1492, 273.375 )
+scale = Vector2( 0.547857, 0.264399 )
+texture = ExtResource( 10 )
 
 [node name="CityBg4" type="Sprite" parent="BuildingsBg3"]
 modulate = Color( 0.2673, 0.2646, 0.27, 1 )
-position = Vector2( 166.2, 265.05 )
-scale = Vector2( 0.4, 0.2 )
+position = Vector2( 171.2, 281.425 )
+scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 11 )
+
+[node name="CityBg5" type="Sprite" parent="BuildingsBg3"]
+modulate = Color( 0.47451, 0.454902, 0.478431, 1 )
+position = Vector2( 507, 256.375 )
+scale = Vector2( 0.216172, 0.25 )
+texture = ExtResource( 8 )
 
 [node name="BuildingsBg2" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.37, 0.91 )
-motion_mirroring = Vector2( 1200, 0 )
+motion_mirroring = Vector2( 1280, 0 )
 script = ExtResource( 18 )
 speed = -15.0
 
 [node name="CityBg2" type="Sprite" parent="BuildingsBg2"]
 modulate = Color( 0.721569, 0.709804, 0.72549, 1 )
-position = Vector2( 617.3, 256.4 )
-scale = Vector2( 0.2, 0.2 )
+position = Vector2( 797.1, 314 )
+scale = Vector2( 0.235852, 0.25 )
 texture = ExtResource( 10 )
 
 [node name="CityBg4" type="Sprite" parent="BuildingsBg2"]
 modulate = Color( 0.4732, 0.456, 0.48, 1 )
-position = Vector2( 990.3, 231.4 )
-scale = Vector2( 0.2, 0.2 )
+position = Vector2( 1228.3, 292 )
+scale = Vector2( 0.2, 0.25 )
 texture = ExtResource( 6 )
 
 [node name="CityBg5" type="Sprite" parent="BuildingsBg2"]
 modulate = Color( 0.47451, 0.454902, 0.478431, 1 )
-position = Vector2( 214.3, 236.4 )
-scale = Vector2( 0.2, 0.2 )
+position = Vector2( 421.65, 297 )
+scale = Vector2( 0.216172, 0.25 )
 texture = ExtResource( 8 )
 
 [node name="Buildings" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.95, 1 )
-motion_mirroring = Vector2( 1120, 0 )
+motion_mirroring = Vector2( 1280, 0 )
 script = ExtResource( 18 )
 speed = -20.0
 
 [node name="ColorRect" type="ColorRect" parent="Buildings"]
-margin_top = 357.0
-margin_right = 1127.0
-margin_bottom = 691.0
+margin_top = 420.0
+margin_right = 1281.0
+margin_bottom = 730.0
 color = Color( 0.619608, 0.615686, 0.607843, 1 )
 
 [node name="City1" type="Sprite" parent="Buildings"]
-position = Vector2( 177, 237 )
-scale = Vector2( 0.25, 0.25 )
+position = Vector2( 219, 279 )
+scale = Vector2( 0.29, 0.29 )
 texture = ExtResource( 7 )
 
 [node name="City2" type="Sprite" parent="Buildings"]
-position = Vector2( 581, 239 )
-scale = Vector2( 0.25, 0.25 )
+position = Vector2( 670, 280 )
+scale = Vector2( 0.29, 0.29 )
 texture = ExtResource( 14 )
 
 [node name="City3" type="Sprite" parent="Buildings"]
-position = Vector2( 934, 292 )
-scale = Vector2( 0.25, 0.25 )
+position = Vector2( 1085, 338 )
+scale = Vector2( 0.29, 0.29 )
 texture = ExtResource( 13 )
 
 [node name="windows" type="Node2D" parent="Buildings"]
-position = Vector2( 0, 26 )
+position = Vector2( 1, 49 )
 
 [node name="City1_windows" type="Sprite" parent="Buildings/windows"]
-position = Vector2( 157, 205 )
-scale = Vector2( 0.25, 0.25 )
+position = Vector2( 196, 221 )
+scale = Vector2( 0.29, 0.29 )
 texture = ExtResource( 15 )
 
 [node name="City2_windows" type="Sprite" parent="Buildings/windows"]
-position = Vector2( 567, 243 )
-scale = Vector2( 0.25, 0.25 )
+position = Vector2( 652, 267 )
+scale = Vector2( 0.29, 0.29 )
 texture = ExtResource( 9 )
 
 [node name="City3_windows" type="Sprite" parent="Buildings/windows"]
-position = Vector2( 937, 283 )
-scale = Vector2( 0.25, 0.25 )
+position = Vector2( 1085, 315 )
+scale = Vector2( 0.29, 0.29 )
 texture = ExtResource( 12 )
 
 [node name="DayNightModulate" parent="Buildings/windows" instance=ExtResource( 17 )]
@@ -208,7 +220,8 @@ day_color = Color( 0.294118, 0.501961, 0.792157, 1 )
 night_color = Color( 2, 2, 0, 1 )
 
 [node name="Humans" type="Node2D" parent="Buildings"]
-scale = Vector2( 0.2, 0.2 )
+position = Vector2( -966, -122 )
+scale = Vector2( 0.3, 0.3 )
 
 [node name="Shadow" type="Sprite" parent="Buildings/Humans"]
 self_modulate = Color( 0.52549, 0.505882, 0.533333, 0.509804 )
@@ -244,94 +257,58 @@ anims/idle = SubResource( 59 )
 [node name="Ground3" type="ParallaxLayer" parent="."]
 position = Vector2( 0, 70 )
 motion_scale = Vector2( 0.9, 1 )
-motion_mirroring = Vector2( 1100, 0 )
+motion_mirroring = Vector2( 1280, 0 )
 script = ExtResource( 18 )
 speed = -40.0
 
 [node name="Road1" type="Node2D" parent="Ground3"]
-position = Vector2( -25, 361 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( -32, 447 )
+scale = Vector2( 0.5, 0.6 )
 
 [node name="RoadFill" type="Sprite" parent="Ground3/Road1"]
 light_mask = 5
-position = Vector2( 53, 2 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 352.92, -0.333374 )
+scale = Vector2( 1.02, 0.5 )
 texture = ExtResource( 1 )
 
 [node name="RoadFill2" type="Sprite" parent="Ground3/Road1"]
 light_mask = 5
-position = Vector2( 993.5, 2 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 988.92, -0.333374 )
+scale = Vector2( 1.02, 0.5 )
 texture = ExtResource( 1 )
 
 [node name="RoadFill3" type="Sprite" parent="Ground3/Road1"]
 light_mask = 5
-position = Vector2( 687.5, 2 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 1648.92, 1.66663 )
+scale = Vector2( 1.02, 0.5 )
 texture = ExtResource( 1 )
 
 [node name="RoadFill4" type="Sprite" parent="Ground3/Road1"]
 light_mask = 5
-position = Vector2( 371.5, 2 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 2272.92, -0.333374 )
+scale = Vector2( 1.02, 0.5 )
 texture = ExtResource( 1 )
 
 [node name="RoadOutline" type="Sprite" parent="Ground3/Road1"]
 light_mask = 5
-position = Vector2( 53, 0 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 2 )
-
-[node name="RoadFill5" type="Sprite" parent="Ground3/Road1"]
-light_mask = 5
-position = Vector2( 1309, 1.5 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 1 )
-
-[node name="RoadOutline5" type="Sprite" parent="Ground3/Road1"]
-light_mask = 5
-position = Vector2( 1309, -0.5 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 2 )
-
-[node name="RoadFill6" type="Sprite" parent="Ground3/Road1"]
-light_mask = 5
-position = Vector2( 1623, 1.5 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 1 )
-
-[node name="RoadOutline6" type="Sprite" parent="Ground3/Road1"]
-light_mask = 5
-position = Vector2( 1623, -0.5 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 2 )
-
-[node name="RoadFill7" type="Sprite" parent="Ground3/Road1"]
-light_mask = 5
-position = Vector2( 1937, 1.5 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 1 )
-
-[node name="RoadOutline7" type="Sprite" parent="Ground3/Road1"]
-light_mask = 5
-position = Vector2( 1937, -0.5 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 356.62, 1.16663 )
+scale = Vector2( 1.02, 0.5 )
 texture = ExtResource( 2 )
 
 [node name="RoadOutline2" type="Sprite" parent="Ground3/Road1"]
 light_mask = 5
-position = Vector2( 999, 0 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 992.62, 1.16663 )
+scale = Vector2( 1.02, 0.5 )
 texture = ExtResource( 2 )
 
 [node name="RoadOutline3" type="Sprite" parent="Ground3/Road1"]
 light_mask = 5
-position = Vector2( 684, 0 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 1630.62, 1.16663 )
+scale = Vector2( 1.02, 0.5 )
 texture = ExtResource( 2 )
 
 [node name="RoadOutline4" type="Sprite" parent="Ground3/Road1"]
 light_mask = 5
-position = Vector2( 368, 0 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 2275.34, 1.16663 )
+scale = Vector2( 1.02, 0.5 )
 texture = ExtResource( 2 )

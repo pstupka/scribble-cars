@@ -76,3 +76,10 @@ func _on_time_of_day_changed(state):
 		Globals.NIGHT:
 			front_light_rays.visible = true
 
+
+func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
+	if anim_name == "jump":
+		is_jumping = false
+	match anim_name:
+		"jump": is_jumping = false
+		"move": animation_player.play("move")

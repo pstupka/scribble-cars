@@ -23,4 +23,4 @@ func _ready() -> void:
 		i += 1
 		var color_str = COLORS[i % COLORS.size()]
 		text_buffer += "[color=%s]%s[/color]" % [color_str, letter]
-	bbcode_text = "[wave amp=25.0 freq=5.0]" + text_buffer + "[/wave]"
+	bbcode_text = "[center][wave amp=25.0 freq=5.0]" + text_buffer + "[/wave][/center]"

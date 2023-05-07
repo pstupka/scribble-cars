@@ -2,8 +2,8 @@ extends Control
 
 onready var pik_sfx: AudioStreamPlayer = $PikSfx
 onready var bg: Node2D = $Bg
-onready var level_previous: TextureButton = $LevelPrevious
-onready var level_next: TextureButton = $LevelNext
+onready var level_previous: TextureButton = $"%LevelPrevious"
+onready var level_next: TextureButton = $"%LevelNext"
 
 
 var current_level_selected := -1
