@@ -393,56 +393,57 @@ night_color = Color( 2, 2, 0, 1 )
 
 [node name="Road" type="ParallaxLayer" parent="RoadParallax"]
 position = Vector2( -4, -4 )
-motion_mirroring = Vector2( 1260, 0 )
+motion_mirroring = Vector2( 1510, 0 )
 
 [node name="Road1" type="Node2D" parent="RoadParallax/Road"]
-position = Vector2( 80, 442 )
+position = Vector2( 0, 450 )
+scale = Vector2( 1.2, 1 )
 
 [node name="RoadFill" type="Sprite" parent="RoadParallax/Road/Road1"]
 light_mask = 5
-position = Vector2( 53, 2 )
+position = Vector2( 154, 0 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
 [node name="RoadFill2" type="Sprite" parent="RoadParallax/Road/Road1"]
 light_mask = 5
-position = Vector2( 993.5, 2 )
+position = Vector2( 1094.5, 0 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
 [node name="RoadFill3" type="Sprite" parent="RoadParallax/Road/Road1"]
 light_mask = 5
-position = Vector2( 687.5, 2 )
+position = Vector2( 788.5, 0 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
 [node name="RoadFill4" type="Sprite" parent="RoadParallax/Road/Road1"]
 light_mask = 5
-position = Vector2( 371.5, 2 )
+position = Vector2( 472.5, 0 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
 [node name="RoadOutline" type="Sprite" parent="RoadParallax/Road/Road1"]
 light_mask = 5
-position = Vector2( 53, 0 )
+position = Vector2( 154, 0 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
 [node name="RoadOutline2" type="Sprite" parent="RoadParallax/Road/Road1"]
 light_mask = 5
-position = Vector2( 999, 0 )
+position = Vector2( 1100, 0 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
 [node name="RoadOutline3" type="Sprite" parent="RoadParallax/Road/Road1"]
 light_mask = 5
-position = Vector2( 684, 0 )
+position = Vector2( 785, 0 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
 [node name="RoadOutline4" type="Sprite" parent="RoadParallax/Road/Road1"]
 light_mask = 5
-position = Vector2( 368, 0 )
+position = Vector2( 469, 0 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
@@ -494,7 +495,7 @@ position = Vector2( 0, 440 )
 camera_y_offset = -200.0
 
 [node name="Streetlight2" parent="Actors" instance=ExtResource( 20 )]
-position = Vector2( 515, 400 )
+position = Vector2( 439, 405 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )

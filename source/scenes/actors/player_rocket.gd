@@ -48,8 +48,8 @@ func _process(_delta: float) -> void:
 	
 	var zoom_addition = 0
 	if linear_velocity.length() > camera_zoom_speed_threshold: 
-		zoom_addition = clamp(linear_velocity.length()/3000.0, 0.0, 0.5)
-	$Camera2D.zoom = lerp($Camera2D.zoom, Vector2(1.2 + zoom_addition, 1.2 + zoom_addition), 0.01)
+		zoom_addition = clamp(linear_velocity.length()/3000.0, 0.0, 0.3)
+	$Camera2D.zoom = lerp($Camera2D.zoom, Vector2(1.0 + zoom_addition, 1.0 + zoom_addition), 0.01)
 	
 
 	

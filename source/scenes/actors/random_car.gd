@@ -52,7 +52,6 @@ func _on_screen_exited():
 
 func _on_CarDiscoverArea_body_entered(body):
 	if body.is_in_group("player"):
-		print("player discovered")
 		if not car.animation_player.get_current_animation() == "jump":
 			car.jump()
 

@@ -348,11 +348,11 @@ night_position = 300.0
 
 [node name="Cloud5" parent="ParallaxBackground/Clouds/Pivot" instance=ExtResource( 33 )]
 position = Vector2( 494, 93 )
-scale = Vector2( 0.7, 0.7 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="Cloud4" parent="ParallaxBackground/Clouds/Pivot" instance=ExtResource( 7 )]
 position = Vector2( 91, 80 )
-scale = Vector2( 0.7, 0.7 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="Clouds2" type="ParallaxLayer" parent="ParallaxBackground"]
 pause_mode = 2
@@ -369,11 +369,11 @@ night_position = 300.0
 
 [node name="Cloud4" parent="ParallaxBackground/Clouds2/Pivot" instance=ExtResource( 32 )]
 position = Vector2( 396, 12 )
-scale = Vector2( 0.7, 0.7 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="Cloud2" parent="ParallaxBackground/Clouds2/Pivot" instance=ExtResource( 7 )]
 position = Vector2( 866, 61 )
-scale = Vector2( 0.7, 0.7 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="Ground" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.1, 0.85 )

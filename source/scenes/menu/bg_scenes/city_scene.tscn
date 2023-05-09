@@ -87,20 +87,20 @@ centered = false
 [node name="Clouds2" type="ParallaxLayer" parent="."]
 pause_mode = 2
 motion_scale = Vector2( 0.5, 1 )
-motion_mirroring = Vector2( 1024, 0 )
+motion_mirroring = Vector2( 1280, 0 )
 script = ExtResource( 18 )
 speed = 15.0
 
 [node name="Cloud6" parent="Clouds2" instance=ExtResource( 5 )]
-position = Vector2( 769, 240 )
+position = Vector2( 900, 258 )
 scale = Vector2( 0.3, 0.3 )
 
 [node name="Cloud7" parent="Clouds2" instance=ExtResource( 5 )]
-position = Vector2( 22, 222 )
+position = Vector2( 26, 262 )
 scale = Vector2( 0.3, 0.3 )
 
 [node name="Cloud4" parent="Clouds2" instance=ExtResource( 3 )]
-position = Vector2( 294, 196 )
+position = Vector2( 194, 197 )
 scale = Vector2( 0.3, 0.3 )
 
 [node name="Cloud2" parent="Clouds2" instance=ExtResource( 4 )]
@@ -112,7 +112,7 @@ position = Vector2( 387, 246 )
 scale = Vector2( 0.3, 0.3 )
 
 [node name="Cloud3" parent="Clouds2" instance=ExtResource( 4 )]
-position = Vector2( 855, 187 )
+position = Vector2( 1062, 189 )
 scale = Vector2( 0.3, 0.3 )
 
 [node name="BuildingsBg3" type="ParallaxLayer" parent="."]
