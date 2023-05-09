@@ -68,19 +68,19 @@ script = ExtResource( 7 )
 position = Vector2( 0, -32 )
 
 [node name="Rocket1Fill2" type="Sprite" parent="AnimationPivot"]
-self_modulate = Color( 0.270588, 0.266667, 0.309804, 1 )
+self_modulate = Color( 0.415686, 0.32549, 0.431373, 1 )
 position = Vector2( 84, -68.6 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 3 )
 
 [node name="Rocket1Fill1" type="Sprite" parent="AnimationPivot"]
-self_modulate = Color( 0.827451, 0.627451, 0.407843, 1 )
+self_modulate = Color( 0.811765, 0.541176, 0.796078, 1 )
 position = Vector2( 21, -55.6 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 5 )
 
 [node name="Rocket1Engines" type="Sprite" parent="AnimationPivot"]
-self_modulate = Color( 0.501961, 0.286275, 0.227451, 1 )
+self_modulate = Color( 0.705882, 0.321569, 0.321569, 1 )
 position = Vector2( -50, -60.6 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 2 )

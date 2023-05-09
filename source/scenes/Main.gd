@@ -7,6 +7,7 @@ onready var road_modulate = $RoadParallax/CanvasModulate
 onready var foreground_modulate = $ParallaxBackground2/CanvasModulate
 onready var actors = $Actors
 onready var player = $Actors/Player
+onready var transition_color = $CanvasLayer/ColorRect
 export var scene_type = "forest"
 
 
@@ -19,7 +20,12 @@ func _ready():
 	var _err = Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
 	_err = $EnterTweener.connect("enter_tween_completed", self, "_on_enter_tween_completed")
 
-	yield(get_tree().create_timer(0.1),"timeout")
+	var tween = create_tween()
+	tween.set_pause_mode(SceneTreeTween.TWEEN_PAUSE_PROCESS)
+	tween.tween_property(transition_color, "modulate", Color(0.0, 0.0, 0.0, 0.0), 1.0)
+	tween.tween_callback(transition_color, "call_deferred", ["queue_free"])
+
+	yield(get_tree().create_timer(0.3),"timeout")
 	get_tree().paused = true
 	$EnterTweener.apply_tween()
 	Globals.score = 0

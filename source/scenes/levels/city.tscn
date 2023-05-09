@@ -449,7 +449,7 @@ texture = ExtResource( 4 )
 
 [node name="Actors" type="YSort" parent="."]
 
-[node name="Pedestrians" type="Node2D" parent="Actors"]
+[node name="Pedestrians" type="YSort" parent="Actors"]
 position = Vector2( 365, 327 )
 
 [node name="Pedestrian" parent="Actors/Pedestrians" instance=ExtResource( 32 )]
@@ -516,5 +516,13 @@ pause_mode = 2
 stream = ExtResource( 25 )
 autoplay = true
 bus = "Background"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
 
 [connection signal="timeout" from="CarSpawnTimer" to="." method="_on_CarSpawnTimer_timeout"]

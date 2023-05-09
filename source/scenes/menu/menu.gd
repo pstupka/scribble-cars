@@ -4,9 +4,10 @@ onready var pik_sfx: AudioStreamPlayer = $PikSfx
 onready var bg: Node2D = $Bg
 onready var level_previous: TextureButton = $"%LevelPrevious"
 onready var level_next: TextureButton = $"%LevelNext"
+onready var background_music = $BackgroundMusic
 
 
-var current_level_selected := -1
+var current_level_selected := 0
 
 var level_selection_scenes := [
 	{
@@ -26,17 +27,28 @@ var level_selection_scenes := [
 	},
 ]
 
-onready var transition_rect: ColorRect = $TransitionRect
+onready var level_selection_transition_rect: ColorRect = $LevelSelectionTransitionRect
+onready var game_start_transition_rect = $GameStartTransitionRect
+
 onready var machine_pivot: Node2D = $MachinePivot
 var can_change_scene = true
 
 func _ready() -> void:
-	OS.set_window_maximized(true) # TODO: Make it on splash screen
+	game_start_transition_rect.show()
+#	OS.set_window_maximized(true) # TODO: Make it on splash screen
 
 	Globals.daynight = Globals.DAY
-	randomize()
 	
-	change_level_selection(0)
+	var tween = create_tween()
+	
+	tween.tween_property(game_start_transition_rect, "color", Color(0.0, 0.0, 0.0, 0.0), 0.6)
+	tween.tween_callback(game_start_transition_rect, "hide", [])
+	
+	var machine = $MachinePivot/Car
+	if machine.has_method("set_animation_loop"):
+		machine.set_animation_loop("move", true)
+	if machine.has_node("AnimationPlayer"):
+		machine.animation_player.play("move")
 	
 	level_next.grab_focus()
 
@@ -61,7 +73,8 @@ func change_level_selection(next_level: int) -> void:
 	machine_pivot.add_child(machine)
 	machine.hide()
 	
-	tween.tween_property(transition_rect, "color", Color(0.0, 0.0, 0.0, 1.0), 0.3)
+	tween.tween_callback(level_selection_transition_rect, "show", [])
+	tween.tween_property(level_selection_transition_rect, "color", Color(0.0, 0.0, 0.0, 1.0), 0.3)
 	tween.tween_callback(level_bg, "show")
 	if bg.get_child_count() > 1:
 		tween.tween_callback(bg.get_child(0), "call_deferred", ["queue_free"])
@@ -69,14 +82,19 @@ func change_level_selection(next_level: int) -> void:
 		tween.tween_callback(machine_pivot.get_child(0), "call_deferred", ["queue_free"])
 	tween.parallel().tween_callback(machine, "show")
 
-	tween.tween_property(transition_rect, "color", Color(0.0, 0.0, 0.0, 0.0), 0.3)
+	tween.tween_property(level_selection_transition_rect, "color", Color(0.0, 0.0, 0.0, 0.0), 0.3)
 	
 	if machine.has_method("set_animation_loop"):
 		machine.set_animation_loop("move", true)
 	if machine.has_node("AnimationPlayer"):
 		machine.animation_player.play("move")
 
+	tween.tween_callback(level_selection_transition_rect, "hide", [])
 	tween.tween_callback(self, "set_deferred", ["can_change_scene", true])
+
+
+func start_game() -> void:
+	var _err = get_tree().change_scene(level_selection_scenes[current_level_selected]["level"])
 
 
 func _on_LevelPrevious_pressed() -> void:
@@ -96,5 +114,11 @@ func _on_LevelNext_pressed() -> void:
 
 
 func _on_StartButton_pressed() -> void:
-	var _err = get_tree().change_scene(level_selection_scenes[current_level_selected]["level"])
+	pik_sfx.play()
+	
+	var tween = create_tween()
+	game_start_transition_rect.show()
+	tween.tween_property(game_start_transition_rect, "color", Color(0.0, 0.0, 0.0, 1.0), 0.5)
+	tween.parallel().tween_property(background_music, "volume_db", -40.0, 0.5)
+	tween.tween_callback(self, "start_game", [])
 

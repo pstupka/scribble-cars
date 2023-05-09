@@ -560,3 +560,11 @@ bus = "Background"
 [node name="EnterTweener" type="Node" parent="."]
 script = ExtResource( 6 )
 node_paths = [ NodePath("../Collectables"), NodePath("../ParallaxBackground/Stars/Stars"), NodePath("../Actors/Rocket") ]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
