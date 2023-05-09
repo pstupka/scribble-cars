@@ -24,7 +24,7 @@ func _ready() -> void:
 	Globals.score = 0
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	for collectable in collectables:
 		collectable.global_position = \
 			Vector2(wrapf(collectable.global_position.x, player.global_position.x - 2000, player.global_position.x + 2000),\

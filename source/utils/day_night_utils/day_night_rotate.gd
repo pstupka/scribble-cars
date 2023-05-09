@@ -12,7 +12,7 @@ export var night_ease_type := Tween.EASE_OUT
 export var night_trans_type := Tween.TRANS_QUAD
 
 func _ready() -> void:
-	Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
+	var _err = Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
 
 
 func _on_time_of_day_changed(state):

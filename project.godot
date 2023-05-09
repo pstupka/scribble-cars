@@ -61,6 +61,11 @@ Events="*res://source/globals/events.gd"
 Globals="*res://source/globals/globals.gd"
 CheatCodeDetector="*res://source/globals/cheat_code_detector.gd"
 
+[debug]
+
+gdscript/warnings/unused_signal=false
+gdscript/warnings/return_value_discarded=false
+
 [display]
 
 window/size/width=1280

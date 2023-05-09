@@ -53,5 +53,5 @@ func _process(_delta: float) -> void:
 	
 
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	set_applied_force(thrust.rotated(direction.angle()) * clamp(direction.length(), 0, 1))

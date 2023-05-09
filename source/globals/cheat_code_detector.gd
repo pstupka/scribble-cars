@@ -33,7 +33,7 @@ func _ready() -> void:
 	typing_timer = Timer.new()
 	get_tree().root.call_deferred("add_child", typing_timer)
 	typing_timer.one_shot = true
-	typing_timer.connect("timeout", self, "_on_typing_timer_timeout")
+	var _err = typing_timer.connect("timeout", self, "_on_typing_timer_timeout")
 	
 
 func _input(event: InputEvent) -> void:

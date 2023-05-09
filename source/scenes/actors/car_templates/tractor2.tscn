@@ -229,7 +229,7 @@ night_color = Color( 1.5, 1.5, 1.5, 1 )
 
 [node name="FrontLight" type="Sprite" parent="AnimationPivot"]
 material = SubResource( 12 )
-position = Vector2( -91, -66.012 )
+position = Vector2( -90, -71.012 )
 rotation = 3.14158
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 7 )

@@ -40,7 +40,7 @@ func _ready() -> void:
 	
 	level_next.grab_focus()
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	pass
 #	if Input.is_action_pressed("ui_left") or Input.is_action_pressed("move_left"):
 #		_on_LevelPrevious_pressed()
@@ -96,5 +96,5 @@ func _on_LevelNext_pressed() -> void:
 
 
 func _on_StartButton_pressed() -> void:
-	get_tree().change_scene(level_selection_scenes[current_level_selected]["level"])
+	var _err = get_tree().change_scene(level_selection_scenes[current_level_selected]["level"])
 

@@ -16,8 +16,8 @@ onready var random_car = preload("res://source/scenes/actors/random_car.tscn")
 
 func _ready():
 	randomize()
-	Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
-	$EnterTweener.connect("enter_tween_completed", self, "_on_enter_tween_completed")
+	var _err = Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
+	_err = $EnterTweener.connect("enter_tween_completed", self, "_on_enter_tween_completed")
 
 	yield(get_tree().create_timer(0.1),"timeout")
 	get_tree().paused = true

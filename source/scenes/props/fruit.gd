@@ -72,10 +72,6 @@ func destroy(emit_particles: bool = false) -> void:
 	tween.tween_callback(self, "queue_free").set_delay(1.0)
 
 
-func emit_particles() -> void:
-	var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-
-
 func _on_Apple_body_entered(body):
 	if body.is_in_group("player"):
 		mniam_sfx.pitch_scale = rand_range(1.0 - pitch_randomness, 1.0 + pitch_randomness)
