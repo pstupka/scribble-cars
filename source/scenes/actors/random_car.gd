@@ -34,8 +34,11 @@ func set_direction(new_direction):
 	direction.x = new_direction.x
 
 
-func _on_car_animation_finished(_anim_name: String):
-	car.animation_player.play("move")
+func _on_car_animation_finished(anim_name: String):
+	match anim_name:
+		"jump": car.is_jumping = false
+		"move": car.animation_player.play("move")
+
 
 func _on_screen_entered() -> void:
 	screen_exit_delayed = false

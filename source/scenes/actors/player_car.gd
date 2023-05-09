@@ -10,7 +10,6 @@ export(float, -300.0, 150.0) var camera_y_offset = -70.0
 
 var direction := Vector2.ZERO
 var previous_direction := Vector2.ZERO
-export var is_jumping := false
 var is_flipping := false 
 var velocity
 
@@ -18,7 +17,6 @@ var _car_index = 0
 
 func _ready() -> void:
 	randomize()
-	is_jumping = false
 	camera.position.y = camera_y_offset
 	car = Globals.car_templates[ Globals.available_cars[owner.scene_type][0]].instance()
 	add_child(car)
@@ -28,14 +26,8 @@ func _ready() -> void:
 	if OS.get_name() != "Android" and OS.get_name() != "HTML5": 
 		$MobileControls.queue_free()
 
-
 func _input(event):
-	if event.is_action_pressed("jump") and not is_jumping:
-		is_jumping = true
-		if (Input.get_connected_joypads().size() > 0):
-			Input.start_joy_vibration(0, 0.3, 0.0, 0.1)
-		if OS.get_name() == "Android" or OS.get_name() == "HTML5":
-			Input.vibrate_handheld(100)
+	if event.is_action_pressed("jump"):
 		car.jump()
 		
 	if event.is_action_pressed("honk"):
@@ -57,7 +49,7 @@ func _physics_process(_delta: float) -> void:
 #	position += car.speed * delta * direction
 	position.y = clamp(position.y, Globals.ROAD_MIN_POSITION, Globals.ROAD_MAX_POSITION)
 	
-	if not is_jumping and not car.animation_player.is_playing():
+	if not car.is_jumping and not car.animation_player.is_playing():
 		if direction:
 			car.animation_player.play("move")
 
@@ -70,7 +62,7 @@ func flip() -> void:
 
 
 func change_car():
-	if is_jumping or is_flipping: return
+	if car.is_jumping or is_flipping: return
 	var face_direction = sign(car.scale.x)
 	car.visible = false
 	car.animation_player.stop()
@@ -93,7 +85,7 @@ func change_car():
 
 func _on_car_animation_finished(anim_name: String):
 	if (anim_name == "jump"):
-		is_jumping = false
+		car.is_jumping = false
 	if anim_name == "move" and not direction:
 		car.animation_player.stop(true)
 		

@@ -151,8 +151,9 @@ tracks/2/keys = {
 }
 
 [node name="Car" type="Node2D"]
+scale = Vector2( -1, 1 )
 script = ExtResource( 5 )
-color = Color( 0.705882, 0.321569, 0.321569, 1 )
+color = Color( 0.294118, 0.501961, 0.792157, 1 )
 
 [node name="ShadowPivot" type="Node2D" parent="."]
 
@@ -169,7 +170,7 @@ position = Vector2( 0, 0.012 )
 position = Vector2( 1.06396, -23.2806 )
 
 [node name="CarFill" type="Sprite" parent="AnimationPivot/Sprites"]
-self_modulate = Color( 0.705882, 0.321569, 0.321569, 1 )
+self_modulate = Color( 0.294118, 0.501961, 0.792157, 1 )
 position = Vector2( 0, -34 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
@@ -225,6 +226,7 @@ scale = Vector2( 0.138467, 0.138466 )
 texture = ExtResource( 8 )
 
 [node name="FrontLightRays" type="Sprite" parent="AnimationPivot/FrontLight"]
+visible = false
 modulate = Color( 1, 0.996078, 0.705882, 1 )
 material = SubResource( 20 )
 position = Vector2( -259.99, -7.22464 )

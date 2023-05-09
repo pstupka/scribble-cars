@@ -53,6 +53,54 @@ color_ramp = SubResource( 22 )
 
 [sub_resource type="Animation" id=16]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Bus3/AnimationPivot:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Bus3/AnimationPivot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 0.267943 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Bus3/ShadowPivot:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Bus3/ShadowPivot:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=17]
 resource_name = "jump"
@@ -68,7 +116,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1.1 ),
 "transitions": PoolRealArray( 0.267943, 1.56917, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0.012 ), Vector2( 0, -100 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, -100 ), Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Bus3/AnimationPivot:scale")
@@ -156,6 +204,7 @@ extents = Vector2( 463.5, 47.5 )
 extents = Vector2( 16.5, 10.5 )
 
 [node name="Bus3" type="Node2D"]
+scale = Vector2( -1, 1 )
 script = ExtResource( 3 )
 can_change_color = false
 color = Color( 0.705882, 0.321569, 0.321569, 1 )
@@ -164,44 +213,42 @@ color = Color( 0.705882, 0.321569, 0.321569, 1 )
 
 [node name="CarShadow" type="Sprite" parent="ShadowPivot"]
 self_modulate = Color( 0.34902, 0.34902, 0.34902, 0.160784 )
-position = Vector2( -139, 62 )
-scale = Vector2( 1, -0.5 )
+position = Vector2( -159, 61 )
+scale = Vector2( 0.961897, -0.5 )
 texture = ExtResource( 12 )
 centered = false
 
 [node name="AnimationPivot" type="Node2D" parent="."]
-position = Vector2( 0, 0.012 )
-scale = Vector2( 0.9, 1.1 )
 
 [node name="Sprites" type="Node2D" parent="AnimationPivot"]
 position = Vector2( 1.06396, -23.2806 )
 
 [node name="CarFill" type="Sprite" parent="AnimationPivot/Sprites"]
 self_modulate = Color( 0.705882, 0.321569, 0.321569, 1 )
-position = Vector2( 19.936, -38.7314 )
+position = Vector2( -5.25839, -41.3667 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 11 )
 
 [node name="CarWheels" type="Sprite" parent="AnimationPivot/Sprites"]
-position = Vector2( -21.064, -34.7314 )
+position = Vector2( -46.2584, -37.3667 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 13 )
 
 [node name="BusDoors" type="Sprite" parent="AnimationPivot/Sprites"]
 self_modulate = Color( 0.392157, 0.388235, 0.396078, 1 )
-position = Vector2( 99.936, -20.7314 )
+position = Vector2( 74.7416, -23.3667 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 16 )
 
 [node name="CarBacklight" type="Sprite" parent="AnimationPivot/Sprites"]
 self_modulate = Color( 0.878431, 0.27451, 0.27451, 1 )
-position = Vector2( 156.936, 2.2686 )
+position = Vector2( 131.742, -0.366676 )
 scale = Vector2( 0.209616, 0.347561 )
 texture = ExtResource( 9 )
 
 [node name="CarOutline" type="Sprite" parent="AnimationPivot/Sprites"]
 self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
-position = Vector2( 20.936, -35.7314 )
+position = Vector2( -4.25841, -38.3667 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 14 )
 
@@ -209,7 +256,7 @@ texture = ExtResource( 14 )
 self_modulate = Color( 0.541176, 0.168627, 0.168627, 1 )
 light_mask = 0
 material = SubResource( 19 )
-position = Vector2( 157, -21.012 )
+position = Vector2( 133.636, -23.3468 )
 rotation = -1.5708
 scale = Vector2( 0.175271, 0.208771 )
 texture = ExtResource( 6 )
@@ -220,7 +267,7 @@ night_color = Color( 1.5, 1.5, 1.5, 1 )
 
 [node name="FrontLight" type="Sprite" parent="AnimationPivot"]
 material = SubResource( 12 )
-position = Vector2( -121, -37.012 )
+position = Vector2( -146.667, -36.3746 )
 rotation = 3.14158
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 6 )
@@ -236,7 +283,7 @@ offset = Vector2( 0, 123 )
 
 [node name="Particles2D" type="Particles2D" parent="AnimationPivot"]
 light_mask = 0
-position = Vector2( 163, -3.012 )
+position = Vector2( 135.556, -13.6473 )
 amount = 6
 lifetime = 1.2
 local_coords = false
@@ -279,7 +326,6 @@ stream = ExtResource( 5 )
 bus = "Sfx"
 
 [node name="PassengerDiscovery" type="Area2D" parent="." groups=["passengerDiscover"]]
-position = Vector2( 96, -1 )
 collision_layer = 64
 collision_mask = 0
 monitoring = false
@@ -290,7 +336,7 @@ shape = SubResource( 26 )
 disabled = true
 
 [node name="PassengerEnter" type="Area2D" parent="." groups=["passengerEnter"]]
-position = Vector2( 86, 0 )
+position = Vector2( 63, -5 )
 collision_layer = 64
 collision_mask = 0
 monitoring = false

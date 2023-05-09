@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/arrow_left_big.png-6682f7665b7c123efde1c32f48fb9a9c.stex"
+path="res://.import/firetruck1_outline.png-a5076c8251236086d3072bb8030eef1c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ui/arrow_left_big.png"
-dest_files=[ "res://.import/arrow_left_big.png-6682f7665b7c123efde1c32f48fb9a9c.stex" ]
+source_file="res://assets/sprites/cars/firetrucks/firetruck1_outline.png"
+dest_files=[ "res://.import/firetruck1_outline.png-a5076c8251236086d3072bb8030eef1c.stex" ]
 
 [params]
 

@@ -1,4 +1,5 @@
 extends Node2D
+class_name MachineTemplate
 
 onready var animation_player = $AnimationPlayer
 
@@ -14,16 +15,23 @@ export var color : Color setget set_color
 
 const PITCH_RAND = 0.05
 
+var is_jumping := false
+
 func _ready() -> void:
 	randomize()
-	Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
+	var _err = Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
 	_on_time_of_day_changed(Globals.daynight)
 	set_color(color)
 	set_animation_loop("move", false)
 	
 	speed += randf() * 40.0 - 20.0
+	
+	is_jumping = false
 
 func jump() -> void:
+	if is_jumping: return 
+	
+	is_jumping = true
 	animation_player.play("jump")
 	jump_sfx.pitch_scale = rand_range(1.0 - PITCH_RAND, 1.0 + PITCH_RAND)
 	jump_sfx.play()
@@ -68,3 +76,10 @@ func _on_time_of_day_changed(state):
 		Globals.NIGHT:
 			front_light_rays.visible = true
 
+
+func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
+	if anim_name == "jump":
+		is_jumping = false
+	match anim_name:
+		"jump": is_jumping = false
+		"move": animation_player.play("move")

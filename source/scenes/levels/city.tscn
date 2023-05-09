@@ -75,7 +75,7 @@ night_color = Color( 0.262745, 0.262745, 0.415686, 1 )
 
 [node name="Stars" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.05, 0.9 )
-motion_mirroring = Vector2( 1200, 0 )
+motion_mirroring = Vector2( 1280, 0 )
 
 [node name="Pivot" type="Node2D" parent="ParallaxBackground/Stars"]
 position = Vector2( 0, 500 )
@@ -176,7 +176,7 @@ texture = ExtResource( 9 )
 [node name="Star13" type="Sprite" parent="ParallaxBackground/Stars/Pivot"]
 modulate = Color( 3, 3, 3, 1 )
 light_mask = 0
-position = Vector2( 1120, 163.875 )
+position = Vector2( 1162, 131 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 9 )
 
@@ -197,7 +197,7 @@ texture = ExtResource( 8 )
 [node name="Star16" type="Sprite" parent="ParallaxBackground/Stars/Pivot"]
 modulate = Color( 3, 3, 3, 1 )
 light_mask = 0
-position = Vector2( 1154, 40 )
+position = Vector2( 1207, 45 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 8 )
 
@@ -230,8 +230,8 @@ day_color = Color( 0.52549, 0.52549, 0.52549, 1 )
 
 [node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
 pause_mode = 2
-motion_scale = Vector2( 0.5, 0.95 )
-motion_mirroring = Vector2( 1200, 0 )
+motion_scale = Vector2( 0.1, 0.95 )
+motion_mirroring = Vector2( 1280, 0 )
 script = ExtResource( 11 )
 
 [node name="Pivot" type="Node2D" parent="ParallaxBackground/Clouds"]
@@ -241,17 +241,17 @@ day_trans_type = 5
 night_position = 500.0
 
 [node name="Cloud5" parent="ParallaxBackground/Clouds/Pivot" instance=ExtResource( 24 )]
-position = Vector2( 481, -25 )
+position = Vector2( 685, -70 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="Cloud3" parent="ParallaxBackground/Clouds/Pivot" instance=ExtResource( 23 )]
-position = Vector2( 81, -48 )
+position = Vector2( 67, -15 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="Clouds2" type="ParallaxLayer" parent="ParallaxBackground"]
 pause_mode = 2
-motion_scale = Vector2( 0.5, 0.95 )
-motion_mirroring = Vector2( 1200, 0 )
+motion_scale = Vector2( 0.1, 0.95 )
+motion_mirroring = Vector2( 1280, 0 )
 script = ExtResource( 11 )
 speed = 30.0
 
@@ -262,11 +262,11 @@ day_trans_type = 5
 night_position = 500.0
 
 [node name="Cloud5" parent="ParallaxBackground/Clouds2/Pivot" instance=ExtResource( 16 )]
-position = Vector2( 205, -114 )
+position = Vector2( 288, -110 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="Cloud3" parent="ParallaxBackground/Clouds2/Pivot" instance=ExtResource( 23 )]
-position = Vector2( 823, -8.99999 )
+position = Vector2( 1040, -95 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="BuildingsBg" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -393,62 +393,63 @@ night_color = Color( 2, 2, 0, 1 )
 
 [node name="Road" type="ParallaxLayer" parent="RoadParallax"]
 position = Vector2( -4, -4 )
-motion_mirroring = Vector2( 1260, 0 )
+motion_mirroring = Vector2( 1510, 0 )
 
 [node name="Road1" type="Node2D" parent="RoadParallax/Road"]
-position = Vector2( 80, 442 )
+position = Vector2( 0, 450 )
+scale = Vector2( 1.2, 1 )
 
 [node name="RoadFill" type="Sprite" parent="RoadParallax/Road/Road1"]
 light_mask = 5
-position = Vector2( 53, 2 )
+position = Vector2( 154, 0 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
 [node name="RoadFill2" type="Sprite" parent="RoadParallax/Road/Road1"]
 light_mask = 5
-position = Vector2( 993.5, 2 )
+position = Vector2( 1094.5, 0 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
 [node name="RoadFill3" type="Sprite" parent="RoadParallax/Road/Road1"]
 light_mask = 5
-position = Vector2( 687.5, 2 )
+position = Vector2( 788.5, 0 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
 [node name="RoadFill4" type="Sprite" parent="RoadParallax/Road/Road1"]
 light_mask = 5
-position = Vector2( 371.5, 2 )
+position = Vector2( 472.5, 0 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
 [node name="RoadOutline" type="Sprite" parent="RoadParallax/Road/Road1"]
 light_mask = 5
-position = Vector2( 53, 0 )
+position = Vector2( 154, 0 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
 [node name="RoadOutline2" type="Sprite" parent="RoadParallax/Road/Road1"]
 light_mask = 5
-position = Vector2( 999, 0 )
+position = Vector2( 1100, 0 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
 [node name="RoadOutline3" type="Sprite" parent="RoadParallax/Road/Road1"]
 light_mask = 5
-position = Vector2( 684, 0 )
+position = Vector2( 785, 0 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
 [node name="RoadOutline4" type="Sprite" parent="RoadParallax/Road/Road1"]
 light_mask = 5
-position = Vector2( 368, 0 )
+position = Vector2( 469, 0 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
 [node name="Actors" type="YSort" parent="."]
 
-[node name="Pedestrians" type="Node2D" parent="Actors"]
+[node name="Pedestrians" type="YSort" parent="Actors"]
 position = Vector2( 365, 327 )
 
 [node name="Pedestrian" parent="Actors/Pedestrians" instance=ExtResource( 32 )]
@@ -494,7 +495,7 @@ position = Vector2( 0, 440 )
 camera_y_offset = -200.0
 
 [node name="Streetlight2" parent="Actors" instance=ExtResource( 20 )]
-position = Vector2( 515, 400 )
+position = Vector2( 439, 405 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
@@ -515,5 +516,13 @@ pause_mode = 2
 stream = ExtResource( 25 )
 autoplay = true
 bus = "Background"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
 
 [connection signal="timeout" from="CarSpawnTimer" to="." method="_on_CarSpawnTimer_timeout"]

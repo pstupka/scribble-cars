@@ -14,7 +14,7 @@ export var pitch_randomness = 0.05
 
 func _ready() -> void:
 	randomize()
-	Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
+	var _err = Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
 	_on_time_of_day_changed(Globals.daynight)
 
 
