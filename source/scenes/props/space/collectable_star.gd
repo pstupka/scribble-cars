@@ -17,10 +17,13 @@ var star_colors = {
 	"b45252" : 1.7,
 	}
 
-var tween :SceneTreeTween= null
+var tween : SceneTreeTween = null
 
 func _ready() -> void:
 	set_random_color()
+	tween = create_tween().set_loops()
+	tween.tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.1).set_delay(rand_range(2.0, 10.0))
+	tween.tween_property(self, "modulate", Color.white, 0.1)
 
 
 func set_random_color():
@@ -45,12 +48,10 @@ func set_color_intensity(new_intensity: float):
 
 func _on_CollectableStar_body_entered(body: Node) -> void:
 	if not body.is_in_group("Player"): return
-	if tween:
-		tween.kill()
-	tween = create_tween()
+
+	tween.pause()
+	hide()
 	$CollisionShape2D.set_deferred("disabled", true)
-	tween.tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.5)
-	tween.parallel().tween_property(star, "scale", Vector2(2.0, 2.0), 0.5)
 	is_inactive = true
 	
 	Globals.score = wrapi(Globals.score + 1, 1, 100)
@@ -62,10 +63,14 @@ func _on_CollectableStar_body_entered(body: Node) -> void:
 
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
+	hide()
+	tween.pause()
 	if is_inactive:
-		if tween:
-			tween.kill()
 		is_inactive = false
 		$CollisionShape2D.set_deferred("disabled", false)
-		modulate = Color(1.0, 1.0, 1.0, 1.0)
 		star.scale = Vector2.ONE
+
+
+func _on_VisibilityNotifier2D_screen_entered():
+	show()
+	tween.play()
