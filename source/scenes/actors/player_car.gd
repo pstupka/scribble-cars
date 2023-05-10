@@ -22,9 +22,9 @@ func _ready() -> void:
 	add_child(car)
 	
 	car.animation_player.connect("animation_finished", self, "_on_car_animation_finished")
-#
-	if OS.get_name() != "Android" and OS.get_name() != "HTML5": 
-		$MobileControls.queue_free()
+	
+#	if OS.get_name() != "Android" and OS.get_name() != "HTML5": 
+#		$MobileControls.queue_free()
 
 func _input(event):
 	if event.is_action_pressed("jump"):
@@ -35,7 +35,8 @@ func _input(event):
 	
 	if event.is_action_pressed("change_car"):
 		change_car()
-	
+
+
 func _physics_process(_delta: float) -> void:
 	previous_direction = direction
 	direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
@@ -88,7 +89,6 @@ func _on_car_animation_finished(anim_name: String):
 		car.is_jumping = false
 	if anim_name == "move" and not direction:
 		car.animation_player.stop(true)
-		
 
 
 func _on_WrapAreaL_area_entered(area):

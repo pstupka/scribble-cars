@@ -258,6 +258,7 @@ amount = 200
 lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
+visibility_rect = Rect2( -500, -400, 1000, 800 )
 process_material = SubResource( 2 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
