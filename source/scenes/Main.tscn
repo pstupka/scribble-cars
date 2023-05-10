@@ -412,7 +412,6 @@ position = Vector2( 684, 145.5 )
 texture = ExtResource( 10 )
 
 [node name="Tree5" type="Sprite" parent="ParallaxBackground/Ground"]
-visible = false
 light_mask = 4
 position = Vector2( 339.1, 146 )
 scale = Vector2( 0.15, 0.15 )
@@ -497,6 +496,7 @@ scale = Vector2( 1, 1.292 )
 night_color = Color( 0.341176, 0.341176, 0.341176, 1 )
 
 [node name="GrassPivot" type="Node2D" parent="RoadParallax/Ground2"]
+position = Vector2( 78, 13 )
 
 [node name="BgFill" type="Polygon2D" parent="RoadParallax/Ground2/GrassPivot"]
 self_modulate = Color( 0.79, 0.79, 0.79, 1 )
@@ -511,13 +511,13 @@ texture = ExtResource( 21 )
 
 [node name="Tree3" type="Sprite" parent="RoadParallax/Ground2"]
 light_mask = 5
-position = Vector2( 185, 191 )
+position = Vector2( 263, 204 )
 scale = Vector2( 0.3, 0.3 )
 texture = SubResource( 4 )
 
 [node name="Tree4" type="Sprite" parent="RoadParallax/Ground2"]
 light_mask = 5
-position = Vector2( 924, 184 )
+position = Vector2( 1002, 197 )
 scale = Vector2( 0.3, 0.3 )
 texture = SubResource( 4 )
 
@@ -977,6 +977,7 @@ object_time_offset = 0.05
 layer = 100
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
