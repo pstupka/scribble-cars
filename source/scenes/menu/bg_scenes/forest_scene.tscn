@@ -489,6 +489,7 @@ texture = ExtResource( 10 )
 position = Vector2( 63, 54 )
 
 [node name="Flowers2" type="YSort" parent="Ground3/FlowersSort"]
+
 material = SubResource( 63 )
 position = Vector2( -194, 211 )
 scale = Vector2( 0.5, 0.5 )
@@ -566,6 +567,7 @@ scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 8 )
 
 [node name="Flowers" type="YSort" parent="Ground3/FlowersSort"]
+
 material = ExtResource( 2 )
 position = Vector2( 246, 211 )
 scale = Vector2( 0.5, 0.5 )
@@ -631,6 +633,7 @@ scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 8 )
 
 [node name="Flowers3" type="YSort" parent="Ground3/FlowersSort"]
+
 material = SubResource( 64 )
 position = Vector2( 779, 211 )
 scale = Vector2( 0.5, 0.5 )
@@ -656,6 +659,7 @@ texture = ExtResource( 4 )
 [node name="Flower2Blue" type="Sprite" parent="Ground3/FlowersSort/Flowers3"]
 use_parent_material = true
 position = Vector2( 850, 214 )
+
 scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 5 )
 
@@ -690,6 +694,7 @@ scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 8 )
 
 [node name="Flowers4" type="YSort" parent="Ground3/FlowersSort"]
+
 material = SubResource( 64 )
 position = Vector2( 368, 196 )
 scale = Vector2( 0.5, 0.5 )

@@ -26,7 +26,6 @@ func _ready() -> void:
 #	if OS.get_name() != "Android" and OS.get_name() != "HTML5": 
 #		$MobileControls.queue_free()
 
-
 func _input(event):
 	if event.is_action_pressed("jump"):
 		car.jump()
