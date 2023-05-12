@@ -176,6 +176,12 @@ position = Vector2( 0, 0.012 )
 [node name="Sprites" type="Node2D" parent="AnimationPivot"]
 position = Vector2( 0, -23.281 )
 
+[node name="Siren" parent="AnimationPivot/Sprites" instance=ExtResource( 11 )]
+modulate = Color( 1, 1, 1, 0.52549 )
+position = Vector2( -182.064, -114.731 )
+color_start = Color( 0.94902, 0.941176, 0.898039, 1 )
+color_end = Color( 0.294118, 0.501961, 0.792157, 1 )
+
 [node name="CarFill" type="Sprite" parent="AnimationPivot/Sprites"]
 position = Vector2( -4, -44.731 )
 texture = ExtResource( 9 )
@@ -188,10 +194,6 @@ rotation = 0.523599
 position = Vector2( -102, -17 )
 texture = ExtResource( 4 )
 offset = Vector2( -9, 0 )
-
-[node name="Siren" parent="AnimationPivot/Sprites" instance=ExtResource( 11 )]
-position = Vector2( -182.064, -114.731 )
-color_start = Color( 0.94902, 0.941176, 0.898039, 1 )
 
 [node name="Firetruck1" type="Sprite" parent="AnimationPivot/Sprites"]
 position = Vector2( 0, -54 )
