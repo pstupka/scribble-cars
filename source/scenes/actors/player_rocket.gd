@@ -39,7 +39,7 @@ func _input(event: InputEvent) -> void:
 		engine_1_particles.emitting = false
 		engine_2_particles.emitting = false
 #		turbo_sfx.volume_db = -60.0
-		turbo_sfx.pitch_scale = 1.0
+		turbo_sfx.pitch_scale = 0.8
 
 func _process(_delta: float) -> void:
 

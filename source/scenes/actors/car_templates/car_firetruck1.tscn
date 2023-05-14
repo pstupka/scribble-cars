@@ -179,8 +179,8 @@ position = Vector2( 0, -23.281 )
 [node name="Siren" parent="AnimationPivot/Sprites" instance=ExtResource( 11 )]
 modulate = Color( 1, 1, 1, 0.52549 )
 position = Vector2( -182.064, -114.731 )
-color_start = Color( 0.94902, 0.941176, 0.898039, 1 )
-color_end = Color( 0.294118, 0.501961, 0.792157, 1 )
+color_start = Color( 0.690196, 0.686275, 0.654902, 1 )
+color_end = Color( 0.211765, 0.360784, 0.568627, 1 )
 
 [node name="CarFill" type="Sprite" parent="AnimationPivot/Sprites"]
 position = Vector2( -4, -44.731 )

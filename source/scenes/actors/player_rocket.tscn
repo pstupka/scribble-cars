@@ -17,13 +17,13 @@
 offsets = PoolRealArray( 0, 0.148387, 0.522581 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.535484, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=26]
+[sub_resource type="GradientTexture" id=38]
 gradient = SubResource( 33 )
 
 [sub_resource type="Curve" id=34]
 _data = [ Vector2( 0, 0.0863637 ), 0.0, 0.15974, 0, 0, Vector2( 1, 1 ), -0.0244857, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=27]
+[sub_resource type="CurveTexture" id=39]
 curve = SubResource( 34 )
 
 [sub_resource type="ParticlesMaterial" id=35]
@@ -33,9 +33,9 @@ gravity = Vector3( 0, 0, 0 )
 initial_velocity = -100.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-scale_curve = SubResource( 27 )
+scale_curve = SubResource( 39 )
 color = Color( 0.780392, 0.780392, 0.780392, 1 )
-color_ramp = SubResource( 26 )
+color_ramp = SubResource( 38 )
 
 [sub_resource type="Gradient" id=25]
 offsets = PoolRealArray( 0, 0.164021, 0.522581 )
@@ -242,4 +242,5 @@ bus = "Sfx"
 
 [node name="TurboSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
+pitch_scale = 0.8
 bus = "Sfx"
