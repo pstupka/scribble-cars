@@ -3,6 +3,7 @@ extends RigidBody2D
 
 onready var sprite: Sprite = $Sprite
 onready var collision: CollisionPolygon2D = $Collision
+onready var boing_stream: AudioStreamPlayer = $BoingStream
 
 
 onready var explosion_scn = preload("res://source/scenes/props/space/explode_sprite.tscn")
@@ -41,7 +42,7 @@ func _on_Asteroid_body_entered(_body: Node) -> void:
 	
 	var tween = create_tween()
 	tween.parallel().tween_callback(explosion, "queue_free").set_delay(2.001)
-
+	boing_stream.play()
 
 func _on_screen_exited() -> void:
 	collision.set_deferred("disabled", false)

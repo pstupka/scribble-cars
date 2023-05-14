@@ -553,7 +553,7 @@ environment = SubResource( 1 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 5 )
-volume_db = 10.405
+volume_db = 10.0
 autoplay = true
 bus = "Background"
 

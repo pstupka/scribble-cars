@@ -26,7 +26,6 @@ func _ready() -> void:
 			new_star.global_position.x += sign(new_star.global_position.x) * 200.0
 			new_star.global_position.y += sign(new_star.global_position.y) * 200.0
 
-
 	for asteroid in $Actors/Asteroids.get_children():
 		asteroid.player_rocket = player
 	

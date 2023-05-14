@@ -484,3 +484,12 @@ pause_mode = 2
 stream = ExtResource( 25 )
 autoplay = true
 bus = "Background"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
