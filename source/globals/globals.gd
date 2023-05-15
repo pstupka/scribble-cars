@@ -32,13 +32,14 @@ var car_templates:Dictionary = {
 	"fish_bus": preload("res://source/scenes/actors/car_templates/fish_bus.tscn"),
 	"bus4": preload("res://source/scenes/actors/car_templates/bus4.tscn"),
 	"bus5": preload("res://source/scenes/actors/car_templates/bus5.tscn"),
+	"bus6": preload("res://source/scenes/actors/car_templates/bus6.tscn"),
 	"firetruck1": preload("res://source/scenes/actors/car_templates/car_firetruck1.tscn"),
 	"firetruck2": preload("res://source/scenes/actors/car_templates/car_firetruck2.tscn"),
 }
 
 var available_cars: = {
 	"forest": ["car_template", "tractor", "car1", "tractor2", "car3", "car4", "cabrio", "bus2", "car_police"],
-	"city": ["bus3", "bus4", "bus", "fish_bus", "bus5", "car_ambulance", "car_police"],
+	"city": ["bus3", "bus6", "bus4", "bus", "fish_bus", "bus5", "car_ambulance", "car_police"],
 	"firetruck": ["firetruck1", "firetruck2"]
 }
 
