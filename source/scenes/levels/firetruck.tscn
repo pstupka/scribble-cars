@@ -1,12 +1,24 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://source/scenes/levels/firetruck.gd" type="Script" id=1]
 [ext_resource path="res://source/scenes/actors/player_car.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/sprites/road_fill.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/road_outline.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/bg_line1.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/foliage/flower1_pink..png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/foliage/flower1_red..png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/foliage/flower1_yellow..png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/foliage/flower2_pink.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/foliage/flower2_blue.png" type="Texture" id=10]
 [ext_resource path="res://source/utils/move_parallax_layer.gd" type="Script" id=11]
+[ext_resource path="res://assets/sprites/foliage/flower2_red.png" type="Texture" id=12]
+[ext_resource path="res://resources/shaders/wind_sway_shader.tres" type="Material" id=13]
 [ext_resource path="res://source/scenes/props/Sun.tscn" type="PackedScene" id=14]
+[ext_resource path="res://source/utils/day_night_utils/day_night_modulate.tscn" type="PackedScene" id=15]
 [ext_resource path="res://source/scenes/props/Cloud2.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/sprites/buildings/house.png" type="Texture" id=17]
+[ext_resource path="res://assets/sprites/house_1.png" type="Texture" id=18]
+[ext_resource path="res://assets/sprites/buildings/pavement.png" type="Texture" id=19]
 [ext_resource path="res://source/scenes/actors/npc/cat.tscn" type="PackedScene" id=20]
 [ext_resource path="res://source/scenes/menu/pause-menu.tscn" type="PackedScene" id=21]
 [ext_resource path="res://source/utils/enter_tween.gd" type="Script" id=22]
@@ -24,6 +36,63 @@ gradient = SubResource( 11 )
 width = 1400
 height = 800
 fill_to = Vector2( 0, 1 )
+
+[sub_resource type="Shader" id=31]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+// Wind settings.
+uniform float speed = 1.0;
+uniform float minStrength : hint_range(0.0, 1.0) = 0.05;
+uniform float maxStrength : hint_range(0.0, 1.0) = 0.01;
+uniform float strengthScale = 100.0;
+uniform float interval = 3.5;
+uniform float detail = 1.0;
+uniform float distortion : hint_range(0.0, 1.0);
+uniform float heightOffset : hint_range(0.0, 1.0);
+
+// With the offset value, you can if you want different moves for each asset. Just put a random value (1, 2, 3) in the editor. Don't forget to mark the material as unique if you use this
+uniform float offset = 0; 
+
+
+float getWind(vec2 vertex, vec2 uv, float time){
+    float diff = pow(maxStrength - minStrength, 2.0);
+    float strength = clamp(minStrength + diff + sin(time / interval) * diff, minStrength, maxStrength) * strengthScale;
+    float wind = (sin(time) + cos(time * detail)) * strength * max(0.0, (1.0-uv.y) - heightOffset);
+    
+    return wind; 
+}
+
+void vertex() {
+    vec4 pos = WORLD_MATRIX * vec4(0.0, 0.0, 0.0, 1.0);
+    float time = TIME * speed + offset;
+    //float time = TIME * speed + pos.x * pos.y  ; not working when moving...
+    VERTEX.x += getWind(VERTEX.xy, UV, time);
+}"
+
+[sub_resource type="ShaderMaterial" id=32]
+shader = SubResource( 31 )
+shader_param/speed = 1.0
+shader_param/minStrength = 0.1
+shader_param/maxStrength = 0.01
+shader_param/strengthScale = 100.0
+shader_param/interval = 4.0
+shader_param/detail = 2.0
+shader_param/distortion = 0.303
+shader_param/heightOffset = 0.236
+shader_param/offset = 10.0
+
+[sub_resource type="ShaderMaterial" id=33]
+shader = SubResource( 31 )
+shader_param/speed = 1.0
+shader_param/minStrength = 0.115
+shader_param/maxStrength = 0.01
+shader_param/strengthScale = 100.0
+shader_param/interval = 3.5
+shader_param/detail = 2.0
+shader_param/distortion = 0.017
+shader_param/heightOffset = 0.251
+shader_param/offset = 5.0
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -58,6 +127,7 @@ pause_mode = 2
 motion_scale = Vector2( 0.1, 0.95 )
 motion_mirroring = Vector2( 1280, 0 )
 script = ExtResource( 11 )
+speed = 35.0
 
 [node name="Pivot" type="Node2D" parent="ParallaxBackground/Clouds"]
 
@@ -85,6 +155,247 @@ scale = Vector2( 0.7, 0.7 )
 [node name="Cloud3" parent="ParallaxBackground/Clouds2/Pivot" instance=ExtResource( 23 )]
 position = Vector2( 1040, -95 )
 scale = Vector2( 0.7, 0.7 )
+
+[node name="Ground3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( -68, 65 )
+motion_mirroring = Vector2( 1400, 0 )
+
+[node name="DayNightModulate" parent="ParallaxBackground/Ground3" instance=ExtResource( 15 )]
+position = Vector2( -48, 13.022 )
+scale = Vector2( 1, 1.292 )
+night_color = Color( 0.59, 0.59, 0.59, 1 )
+
+[node name="GrassPivot" type="Node2D" parent="ParallaxBackground/Ground3"]
+position = Vector2( 88, -26.5 )
+
+[node name="BgFill" type="Polygon2D" parent="ParallaxBackground/Ground3/GrassPivot"]
+modulate = Color( 0.505882, 0.639216, 0.352941, 1 )
+light_mask = 5
+position = Vector2( 1280, 33.5 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+polygon = PoolVector2Array( -16, 145, 4, 146, 106, 162, 174, 166, 211, 172, 253, 177, 286, 179, 319, 179, 385, 181, 439, 168, 493, 168, 553, 177, 585, 184, 601, 183, 613, 180, 625, 178, 639, 177, 647, 178, 664, 177, 743, 176, 874, 177, 938, 183, 978, 184, 1050, 181, 1107, 170, 1136, 164, 1174, 156, 1270, 142, 1384, 143.496, 1384, 654, -16, 656 )
+
+[node name="BgLine1" type="Sprite" parent="ParallaxBackground/Ground3/GrassPivot"]
+self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
+position = Vector2( 598, 198.5 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 5 )
+
+[node name="House1" type="Sprite" parent="ParallaxBackground/Ground3"]
+position = Vector2( 1039, 112.5 )
+texture = ExtResource( 18 )
+
+[node name="House" type="Sprite" parent="ParallaxBackground/Ground3"]
+position = Vector2( 564, 9.5 )
+texture = ExtResource( 17 )
+
+[node name="Pavement" type="Sprite" parent="ParallaxBackground/Ground3"]
+position = Vector2( 355.5, 263.5 )
+texture = ExtResource( 19 )
+
+[node name="Pavement2" type="Sprite" parent="ParallaxBackground/Ground3"]
+position = Vector2( 1193.5, 264.5 )
+texture = ExtResource( 19 )
+
+[node name="Flowers2" type="Node2D" parent="ParallaxBackground/Ground3"]
+material = SubResource( 32 )
+position = Vector2( -272, -27.5 )
+
+[node name="Flower1Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 553, 207 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 6 )
+
+[node name="Flower1Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 613.3, 204.5 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 7 )
+
+[node name="Flower1Yellow" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 669.3, 212.5 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+
+[node name="Flower1Red2" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 1180, 186 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 7 )
+
+[node name="Flower1Yellow2" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 1272.2, 237.5 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+
+[node name="Flower1Red3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 385.2, 188.5 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 7 )
+
+[node name="Flower1Yellow3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 441.2, 196.5 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+
+[node name="Flower1Red4" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 335, 165 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 7 )
+
+[node name="Flower1Yellow4" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 469, 188 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+
+[node name="Flower2Blue" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 589, 205 )
+scale = Vector2( 0.8, 0.7 )
+texture = ExtResource( 10 )
+
+[node name="Flower2Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 712, 204 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 9 )
+
+[node name="Flower2Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 496, 196 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 12 )
+
+[node name="Flowers" type="Node2D" parent="ParallaxBackground/Ground3"]
+material = ExtResource( 13 )
+position = Vector2( 72, -30.5 )
+
+[node name="Flower1Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers"]
+use_parent_material = true
+position = Vector2( 602, 200 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 6 )
+
+[node name="Flower1Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers"]
+use_parent_material = true
+position = Vector2( -32.9999, 206 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 7 )
+
+[node name="Flower1Yellow" type="Sprite" parent="ParallaxBackground/Ground3/Flowers"]
+use_parent_material = true
+position = Vector2( 728, 225 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 8 )
+
+[node name="Flower2Blue" type="Sprite" parent="ParallaxBackground/Ground3/Flowers"]
+use_parent_material = true
+position = Vector2( 856, 214 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 10 )
+
+[node name="Flower2Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers"]
+use_parent_material = true
+position = Vector2( 229, 213 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 9 )
+
+[node name="Flower2Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers"]
+use_parent_material = true
+position = Vector2( 496, 196 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 12 )
+
+[node name="Flower2Blue2" type="Sprite" parent="ParallaxBackground/Ground3/Flowers"]
+use_parent_material = true
+position = Vector2( 1012, 218 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 10 )
+
+[node name="Flower2Red2" type="Sprite" parent="ParallaxBackground/Ground3/Flowers"]
+use_parent_material = true
+position = Vector2( 306, 201 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 12 )
+
+[node name="Flower2Blue3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers"]
+use_parent_material = true
+position = Vector2( 54.0001, 209 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 10 )
+
+[node name="Flower2Red3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers"]
+use_parent_material = true
+position = Vector2( 662, 219 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 12 )
+
+[node name="Flowers3" type="Node2D" parent="ParallaxBackground/Ground3"]
+material = SubResource( 33 )
+position = Vector2( 650, -23.5 )
+
+[node name="Flower1Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
+use_parent_material = true
+position = Vector2( 602, 200 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 6 )
+
+[node name="Flower1Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
+use_parent_material = true
+position = Vector2( -32.9999, 206 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 7 )
+
+[node name="Flower1Yellow" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
+use_parent_material = true
+position = Vector2( 712, 213 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 8 )
+
+[node name="Flower2Blue" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
+use_parent_material = true
+position = Vector2( 856, 214 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 10 )
+
+[node name="Flower2Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
+use_parent_material = true
+position = Vector2( 229, 213 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 9 )
+
+[node name="Flower2Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
+use_parent_material = true
+position = Vector2( 496, 196 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 12 )
+
+[node name="Flower2Red2" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
+use_parent_material = true
+position = Vector2( 306, 201 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 12 )
+
+[node name="Flower2Blue3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
+use_parent_material = true
+position = Vector2( 54.0001, 209 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 10 )
+
+[node name="Flower2Red3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
+use_parent_material = true
+position = Vector2( 662, 219 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 12 )
 
 [node name="RoadParallax" type="ParallaxBackground" parent="."]
 layer = -1
@@ -154,7 +465,7 @@ position = Vector2( 402, 316 )
 can_discover = false
 
 [node name="Pedestrian2" parent="Actors/Pedestrians" instance=ExtResource( 33 )]
-position = Vector2( 751, 365 )
+position = Vector2( 752, 353 )
 can_discover = false
 
 [node name="Pedestrian3" parent="Actors/Pedestrians" instance=ExtResource( 33 )]
@@ -162,11 +473,11 @@ position = Vector2( -988, 553 )
 can_discover = false
 
 [node name="Pedestrian4" parent="Actors/Pedestrians" instance=ExtResource( 33 )]
-position = Vector2( 1162, 353 )
+position = Vector2( 1172, 344 )
 can_discover = false
 
 [node name="Pedestrian5" parent="Actors/Pedestrians" instance=ExtResource( 33 )]
-position = Vector2( 1692, 353 )
+position = Vector2( 1692, 344 )
 can_discover = false
 
 [node name="Pedestrian7" parent="Actors/Pedestrians" instance=ExtResource( 33 )]
@@ -182,11 +493,11 @@ position = Vector2( -397, 603 )
 can_discover = false
 
 [node name="Pedestrian10" parent="Actors/Pedestrians" instance=ExtResource( 33 )]
-position = Vector2( -596, 348 )
+position = Vector2( -596, 344 )
 can_discover = false
 
 [node name="Pedestrian6" parent="Actors/Pedestrians" instance=ExtResource( 33 )]
-position = Vector2( -1571, 344 )
+position = Vector2( -1571, 337 )
 can_discover = false
 
 [node name="Player" parent="Actors" instance=ExtResource( 2 )]
@@ -196,16 +507,16 @@ camera_y_offset = -200.0
 [node name="CatsToRescue" type="YSort" parent="Actors"]
 
 [node name="Cat" parent="Actors/CatsToRescue" instance=ExtResource( 20 )]
-position = Vector2( 297, 335 )
+position = Vector2( 250, 387 )
 
 [node name="Cat2" parent="Actors/CatsToRescue" instance=ExtResource( 20 )]
 position = Vector2( 1614, 380 )
 
 [node name="Cat3" parent="Actors/CatsToRescue" instance=ExtResource( 20 )]
-position = Vector2( -542, 332 )
+position = Vector2( -321, 529 )
 
 [node name="Cat4" parent="Actors/CatsToRescue" instance=ExtResource( 20 )]
-position = Vector2( -1355, 372 )
+position = Vector2( -1355, 379 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )

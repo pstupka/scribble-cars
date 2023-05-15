@@ -9,6 +9,7 @@ onready var front_light_rays: Sprite = $AnimationPivot/FrontLight/FrontLightRays
 onready var ladder_pivot: Node2D = $AnimationPivot/Sprites/LadderPivot
 onready var shadow_ladder_pivot: Node2D = $ShadowPivot/LadderPivot
 onready var cat_collision = $AnimationPivot/Sprites/LadderPivot/CatDiscovery/CatCollision
+onready var brum: AudioStreamPlayer2D = $Brum
 
 
 
@@ -37,6 +38,7 @@ func _ready() -> void:
 	is_jumping = false
 	ladder_pivot.rotation_degrees = min_ladder_angle_deg
 	shadow_ladder_pivot.rotation_degrees = -min_ladder_angle_deg/2
+	brum.pitch_scale += randf() * 0.1 - 0.05
 
 
 func _input(event):

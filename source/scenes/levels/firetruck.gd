@@ -1,7 +1,5 @@
 extends Node2D
 
-
-
 onready var actors: YSort = $Actors
 
 onready var player = $Actors/Player
