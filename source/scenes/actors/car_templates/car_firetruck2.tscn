@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://source/utils/day_night_utils/day_night_modulate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/audio/hop.mp3" type="AudioStream" id=2]
@@ -13,6 +13,9 @@
 [ext_resource path="res://source/scenes/Siren.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/sprites/cars/firetrucks/firetruck2_shadow.png" type="Texture" id=12]
 [ext_resource path="res://assets/audio/ioio.mp3" type="AudioStream" id=15]
+
+[sub_resource type="RectangleShape2D" id=35]
+extents = Vector2( 71.775, 20 )
 
 [sub_resource type="Gradient" id=26]
 offsets = PoolRealArray( 0, 0.148387, 0.522581 )
@@ -190,6 +193,16 @@ rotation = 0.523599
 position = Vector2( -99.6122, -2.53331 )
 texture = ExtResource( 3 )
 offset = Vector2( -9, 0 )
+
+[node name="CatDiscovery" type="Area2D" parent="AnimationPivot/Sprites/LadderPivot" groups=["passengerDiscover"]]
+collision_layer = 64
+collision_mask = 0
+monitoring = false
+
+[node name="CatCollision" type="CollisionShape2D" parent="AnimationPivot/Sprites/LadderPivot/CatDiscovery"]
+position = Vector2( -174.904, -2.94225 )
+shape = SubResource( 35 )
+disabled = true
 
 [node name="Siren" parent="AnimationPivot/Sprites" instance=ExtResource( 11 )]
 position = Vector2( -128.5, -141.231 )

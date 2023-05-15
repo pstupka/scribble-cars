@@ -27,9 +27,6 @@ var particles_template = preload("res://source/utils/score_particles.tscn")
 var type
 
 var npc_types := {
-	"res://assets/sprites/npc/cat1.png": "cat",
-	"res://assets/sprites/npc/cat2.png": "cat",
-	"res://assets/sprites/npc/cat3.png": "cat",
 	"res://assets/sprites/npc/human1.png": "human",
 	"res://assets/sprites/npc/human2.png": "human",
 	"res://assets/sprites/npc/human3.png": "human",
@@ -47,6 +44,8 @@ var npc_types := {
 	"res://assets/sprites/npc/human15.png": "human",
 	"res://assets/sprites/npc/human16.png": "human",
 }
+
+export var can_discover: = true
 
 func _ready() -> void:
 	randomize()
@@ -72,6 +71,8 @@ func _ready() -> void:
 	
 	$Timer.wait_time = rand_range(1.0, 10.0)
 	$Timer.start()
+	
+	bus_collision.disabled = !can_discover
 
 
 func _process(delta: float) -> void:

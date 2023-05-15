@@ -1,8 +1,7 @@
 extends Node2D
 
 
-onready var road_modulate: CanvasModulate = $RoadParallax/CanvasModulate
-onready var background_modulate: CanvasModulate = $ParallaxBackground/CanvasModulate
+
 onready var actors: YSort = $Actors
 
 onready var player = $Actors/Player
@@ -29,15 +28,6 @@ func _ready() -> void:
 	Globals.score = 0
 
 
-func _input(event):
-	pass
-#	if event.is_action_pressed("lights"):
-#		if Globals.daynight == Globals.NIGHT: 
-#			Globals.daynight = Globals.DAY
-#		else:
-#			Globals.daynight = Globals.NIGHT
-
-
 func _on_CarSpawnTimer_timeout():
 	var car_instance = random_car.instance()
 	var lane = stepify(randf(),1)
@@ -46,20 +36,6 @@ func _on_CarSpawnTimer_timeout():
 	car_instance.direction = Vector2(2*lane - 1 , 0)
 	
 	$CarSpawnTimer.wait_time = rand_range(5.44, 10.51)
-
-
-func _on_time_of_day_changed(state):
-	match state: 
-		Globals.DAY:
-			background_modulate.color = Globals.DAY_MODULATE
-#			foreground_modulate.color = Globals.DAY_MODULATE
-			road_modulate.color = Globals.DAY_MODULATE
-			actors.modulate = Globals.DAY_MODULATE
-		Globals.NIGHT: 
-			background_modulate.color = Globals.NIGHT_MODULATE
-			road_modulate.color = Globals.NIGHT_MODULATE
-#			foreground_modulate.color = Color("#565656")
-			actors.modulate = Globals.NIGHT_MODULATE
 
 
 func _on_enter_tween_completed():

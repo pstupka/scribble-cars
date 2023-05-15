@@ -8,6 +8,8 @@ onready var car_fill = $AnimationPivot/Sprites/CarFill
 onready var front_light_rays: Sprite = $AnimationPivot/FrontLight/FrontLightRays
 onready var ladder_pivot: Node2D = $AnimationPivot/Sprites/LadderPivot
 onready var shadow_ladder_pivot: Node2D = $ShadowPivot/LadderPivot
+onready var cat_collision = $AnimationPivot/Sprites/LadderPivot/CatDiscovery/CatCollision
+
 
 
 export var speed := 150.0
@@ -20,6 +22,9 @@ export var min_ladder_angle_deg := 0.0
 const PITCH_RAND = 0.05
 
 var is_jumping := false
+var is_moving_ladder := false setget set_is_moving_ladder
+
+var tween : SceneTreeTween = null
 
 func _ready() -> void:
 	randomize()
@@ -33,16 +38,42 @@ func _ready() -> void:
 	ladder_pivot.rotation_degrees = min_ladder_angle_deg
 	shadow_ladder_pivot.rotation_degrees = -min_ladder_angle_deg/2
 
-func _process(delta: float) -> void:
-	if Input.is_action_pressed("jump"):
-		ladder_pivot.rotate(delta * ladder_speed)
-		ladder_pivot.rotation_degrees = clamp(ladder_pivot.rotation_degrees, min_ladder_angle_deg, max_ladder_angle_deg)
-		shadow_ladder_pivot.rotation_degrees = -ladder_pivot.rotation_degrees/2
-	if Input.is_action_pressed("lights"):
-		ladder_pivot.rotate(-delta * ladder_speed)
-		ladder_pivot.rotation_degrees = clamp(ladder_pivot.rotation_degrees, min_ladder_angle_deg, max_ladder_angle_deg)
-		shadow_ladder_pivot.rotation_degrees = -ladder_pivot.rotation_degrees/2
 
+func _input(event):
+	if Input.is_action_pressed("jump") and not is_moving_ladder and ladder_pivot.rotation_degrees != max_ladder_angle_deg:
+		tween_ladder(max_ladder_angle_deg)
+#		ladder_pivot.rotate(delta * ladder_speed)
+#		ladder_pivot.rotation_degrees = clamp(ladder_pivot.rotation_degrees, min_ladder_angle_deg, max_ladder_angle_deg)
+#		shadow_ladder_pivot.rotation_degrees = -ladder_pivot.rotation_degrees/2
+	if Input.is_action_pressed("lights") and not is_moving_ladder and ladder_pivot.rotation_degrees != min_ladder_angle_deg:
+		tween_ladder(min_ladder_angle_deg)
+#		ladder_pivot.rotate(-delta * ladder_speed)
+#		ladder_pivot.rotation_degrees = clamp(ladder_pivot.rotation_degrees, min_ladder_angle_deg, max_ladder_angle_deg)
+#		shadow_ladder_pivot.rotation_degrees = -ladder_pivot.rotation_degrees/2
+
+#
+#func _process(delta: float) -> void:
+#	if Input.is_action_pressed("jump"):
+#		ladder_pivot.rotate(delta * ladder_speed)
+#		ladder_pivot.rotation_degrees = clamp(ladder_pivot.rotation_degrees, min_ladder_angle_deg, max_ladder_angle_deg)
+#		shadow_ladder_pivot.rotation_degrees = -ladder_pivot.rotation_degrees/2
+#	if Input.is_action_pressed("lights"):
+#		ladder_pivot.rotate(-delta * ladder_speed)
+#		ladder_pivot.rotation_degrees = clamp(ladder_pivot.rotation_degrees, min_ladder_angle_deg, max_ladder_angle_deg)
+#		shadow_ladder_pivot.rotation_degrees = -ladder_pivot.rotation_degrees/2
+
+func tween_ladder(ladder_rot: float) -> void:
+	if tween:
+		if tween.is_valid():
+			tween.kill()
+	tween = create_tween()
+	is_moving_ladder = true
+	var ladder_time = (ladder_rot - ladder_pivot.rotation_degrees)/(max_ladder_angle_deg-min_ladder_angle_deg)
+	tween.tween_property(ladder_pivot, "rotation_degrees", ladder_rot, abs(ladder_time))
+	tween.parallel().tween_property(shadow_ladder_pivot, "rotation_degrees", -ladder_rot/2, abs(ladder_time))
+	tween.tween_callback(self, "set_is_moving_ladder", [false])
+	cat_collision.set_deferred("disabled", !cat_collision.disabled)
+	
 func jump() -> void:
 	pass
 #	if is_jumping: return 
@@ -85,6 +116,10 @@ func set_animation_loop(anim_name: String, loop: bool) -> void:
 	animation_player.get_animation(anim_name).set_loop(loop)
 
 
+func set_is_moving_ladder(moving: bool) -> void:
+	is_moving_ladder = moving
+
+
 func _on_time_of_day_changed(state):
 	match state:
 		Globals.DAY:
@@ -92,3 +127,6 @@ func _on_time_of_day_changed(state):
 		Globals.NIGHT:
 			front_light_rays.visible = true
 
+
+func _on_CatDiscovery_area_entered(area):
+	pass # Replace with function body.
