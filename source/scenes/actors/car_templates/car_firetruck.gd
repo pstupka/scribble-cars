@@ -10,6 +10,7 @@ onready var ladder_pivot: Node2D = $AnimationPivot/Sprites/LadderPivot
 onready var shadow_ladder_pivot: Node2D = $ShadowPivot/LadderPivot
 onready var cat_collision = $AnimationPivot/Sprites/LadderPivot/CatDiscovery/CatCollision
 onready var brum: AudioStreamPlayer2D = $Brum
+onready var ladder_sfx = $LadderSfx
 
 
 
@@ -44,25 +45,11 @@ func _ready() -> void:
 func _input(event):
 	if Input.is_action_pressed("jump") and not is_moving_ladder and ladder_pivot.rotation_degrees != max_ladder_angle_deg:
 		tween_ladder(max_ladder_angle_deg)
-#		ladder_pivot.rotate(delta * ladder_speed)
-#		ladder_pivot.rotation_degrees = clamp(ladder_pivot.rotation_degrees, min_ladder_angle_deg, max_ladder_angle_deg)
-#		shadow_ladder_pivot.rotation_degrees = -ladder_pivot.rotation_degrees/2
+		
 	if Input.is_action_pressed("lights") and not is_moving_ladder and ladder_pivot.rotation_degrees != min_ladder_angle_deg:
 		tween_ladder(min_ladder_angle_deg)
-#		ladder_pivot.rotate(-delta * ladder_speed)
-#		ladder_pivot.rotation_degrees = clamp(ladder_pivot.rotation_degrees, min_ladder_angle_deg, max_ladder_angle_deg)
-#		shadow_ladder_pivot.rotation_degrees = -ladder_pivot.rotation_degrees/2
 
-#
-#func _process(delta: float) -> void:
-#	if Input.is_action_pressed("jump"):
-#		ladder_pivot.rotate(delta * ladder_speed)
-#		ladder_pivot.rotation_degrees = clamp(ladder_pivot.rotation_degrees, min_ladder_angle_deg, max_ladder_angle_deg)
-#		shadow_ladder_pivot.rotation_degrees = -ladder_pivot.rotation_degrees/2
-#	if Input.is_action_pressed("lights"):
-#		ladder_pivot.rotate(-delta * ladder_speed)
-#		ladder_pivot.rotation_degrees = clamp(ladder_pivot.rotation_degrees, min_ladder_angle_deg, max_ladder_angle_deg)
-#		shadow_ladder_pivot.rotation_degrees = -ladder_pivot.rotation_degrees/2
+
 
 func tween_ladder(ladder_rot: float) -> void:
 	if tween:
@@ -75,7 +62,9 @@ func tween_ladder(ladder_rot: float) -> void:
 	tween.parallel().tween_property(shadow_ladder_pivot, "rotation_degrees", -ladder_rot/2, abs(ladder_time))
 	tween.tween_callback(self, "set_is_moving_ladder", [false])
 	cat_collision.set_deferred("disabled", !cat_collision.disabled)
-	
+	ladder_sfx.play()
+
+
 func jump() -> void:
 	pass
 #	if is_jumping: return 
