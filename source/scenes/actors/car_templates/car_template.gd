@@ -27,6 +27,8 @@ func _ready() -> void:
 	speed += randf() * 40.0 - 20.0
 	
 	is_jumping = false
+	front_light_rays.self_modulate = Color("#808080")
+
 
 func jump() -> void:
 	if is_jumping: return 

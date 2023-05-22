@@ -66,6 +66,7 @@ func _on_CarDiscoverArea_area_entered(area: Area2D) -> void:
 		$StopArea/CollisionShape2D.set_deferred("disabled", false)
 		$StopArea2/CollisionShape2D.set_deferred("disabled", false)
 
+
 func _on_CarDiscoverArea_area_exited(area: Area2D) -> void:
 	if area.is_in_group("obstacle"):
 		can_move = true

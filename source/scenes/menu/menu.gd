@@ -53,11 +53,17 @@ func _ready() -> void:
 	level_next.grab_focus()
 
 func _input(_event: InputEvent) -> void:
-	pass
-#	if Input.is_action_pressed("ui_left") or Input.is_action_pressed("move_left"):
-#		_on_LevelPrevious_pressed()
-#	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("move_right"):
-#		_on_LevelNext_pressed()
+	if Input.is_action_pressed("ui_page_up"):
+		_on_LevelNext_pressed()
+		return
+
+	if Input.is_action_pressed("ui_page_down"):
+		_on_LevelPrevious_pressed()
+		return
+	
+	if Input.is_action_pressed("ui_start_game"):
+		_on_StartButton_pressed()
+		return
 
 
 func change_level_selection(next_level: int) -> void:
@@ -91,6 +97,7 @@ func change_level_selection(next_level: int) -> void:
 
 	tween.tween_callback(level_selection_transition_rect, "hide", [])
 	tween.tween_callback(self, "set_deferred", ["can_change_scene", true])
+	
 
 
 func start_game() -> void:
@@ -103,6 +110,7 @@ func _on_LevelPrevious_pressed() -> void:
 	pik_sfx.play()
 	var next_level = (current_level_selected - 1) % level_selection_scenes.size()
 	change_level_selection(next_level)
+	level_previous.grab_focus()
 
 
 func _on_LevelNext_pressed() -> void:
@@ -111,6 +119,7 @@ func _on_LevelNext_pressed() -> void:
 	pik_sfx.play()
 	var next_level = (current_level_selected + 1) % level_selection_scenes.size()
 	change_level_selection(next_level)
+	level_next.grab_focus()
 
 
 func _on_StartButton_pressed() -> void:

@@ -5,10 +5,16 @@ onready var actors: YSort = $Actors
 onready var player = $Actors/Player
 onready var random_car = preload("res://source/scenes/actors/random_car.tscn")
 onready var transition_color: ColorRect = $CanvasLayer/ColorRect
+onready var background_modulate = $ParallaxBackground/CanvasModulate
+onready var foreground_modulate = $RoadParallax/CanvasModulate
+onready var road_modulate = $ForegroundParallax/CanvasModulate
+onready var rain = $ForegroundParallax/Rain/Rain
+onready var rain_splash = $ForegroundParallax/Rain/RainSplash
 
 export var lanes_y_position = [410, 460]
 export var scene_type = "firetruck"
 
+var tween: SceneTreeTween = null
 
 func _ready() -> void:
 	randomize()
@@ -24,6 +30,8 @@ func _ready() -> void:
 	get_tree().paused = false
 	$EnterTweener.apply_tween()
 	Globals.score = 0
+	
+
 
 
 func _on_CarSpawnTimer_timeout():
@@ -36,5 +44,40 @@ func _on_CarSpawnTimer_timeout():
 	$CarSpawnTimer.wait_time = rand_range(5.44, 10.51)
 
 
+func _on_time_of_day_changed(state):
+	if tween:
+		if tween.is_valid():
+			tween.kill()
+	tween = create_tween()
+	
+	match state: 
+		Globals.DAY:
+			tween.tween_property(background_modulate, "color", Globals.DAY_MODULATE, 2.0)
+			tween.parallel().tween_property(foreground_modulate, "color", Globals.DAY_MODULATE, 2.0)
+			tween.parallel().tween_property(road_modulate, "color", Globals.DAY_MODULATE, 2.0)
+			tween.parallel().tween_property(actors, "modulate", Globals.DAY_MODULATE, 2.0)
+			rain.emitting = false
+			rain_splash.emitting = false
+		Globals.NIGHT:
+			tween.tween_property(background_modulate, "color", Color("#c0c0c0"), 2.0)
+			tween.parallel().tween_property(foreground_modulate, "color", Color("#c0c0c0"), 2.0)
+			tween.parallel().tween_property(road_modulate, "color", Color("#c0c0c0"), 2.0)
+			tween.parallel().tween_property(actors, "modulate", Color("#c0c0c0"), 2.0)
+			rain.emitting = true
+			rain_splash.emitting = true
+
+
 func _on_enter_tween_completed():
 	get_tree().paused = false
+
+
+func _on_WeatherTimer_timeout():
+	if Globals.daynight == Globals.NIGHT: 
+		Globals.daynight = Globals.DAY
+		$WeatherTimer.start(rand_range(60.0, 120.0)) 
+		Events.emit_signal("rain_state_changed", false)
+	else:
+		Globals.daynight = Globals.NIGHT
+		$WeatherTimer.start(30.0) 
+		Events.emit_signal("rain_state_changed", true)
+

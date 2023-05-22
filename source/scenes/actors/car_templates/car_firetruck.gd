@@ -40,15 +40,18 @@ func _ready() -> void:
 	ladder_pivot.rotation_degrees = min_ladder_angle_deg
 	shadow_ladder_pivot.rotation_degrees = -min_ladder_angle_deg/2
 	brum.pitch_scale += randf() * 0.1 - 0.05
+	
+	front_light_rays.self_modulate = Color("#808080")
 
 
 func _input(event):
 	if Input.is_action_pressed("jump") and not is_moving_ladder and ladder_pivot.rotation_degrees != max_ladder_angle_deg:
 		tween_ladder(max_ladder_angle_deg)
+		speed = speed * 0.2
 		
 	if Input.is_action_pressed("lights") and not is_moving_ladder and ladder_pivot.rotation_degrees != min_ladder_angle_deg:
 		tween_ladder(min_ladder_angle_deg)
-
+		speed = speed * 5
 
 
 func tween_ladder(ladder_rot: float) -> void:
@@ -67,12 +70,6 @@ func tween_ladder(ladder_rot: float) -> void:
 
 func jump() -> void:
 	pass
-#	if is_jumping: return 
-#
-#	is_jumping = true
-#	animation_player.play("jump")
-#	jump_sfx.pitch_scale = rand_range(1.0 - PITCH_RAND, 1.0 + PITCH_RAND)
-#	jump_sfx.play()
 
 
 func honk(random:bool = true) -> void:

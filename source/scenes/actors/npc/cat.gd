@@ -2,6 +2,8 @@ extends Area2D
 
 
 onready var meow_stream_player: AudioStreamPlayer2D = $Meow
+onready var uii_stream_player = $Uii
+
 onready var animation_player: AnimationPlayer = $AnimationPlayer
 onready var sprite = $AnimationPivot/SFXAnimPivot/Sprite
 onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -44,7 +46,8 @@ func collect() -> void:
 	var score_particles = particles_template.instance()
 	get_tree().current_scene.add_child(score_particles)
 	score_particles.global_position = sprite.global_position
-
+	
+	uii_stream_player.play()
 
 func meow() -> void:
 	meow_stream_player.play()

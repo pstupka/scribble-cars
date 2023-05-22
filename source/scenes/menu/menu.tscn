@@ -10,8 +10,8 @@
 [ext_resource path="res://assets/sprites/ui/arrow_left_big_white.png" type="Texture" id=8]
 [ext_resource path="res://source/scenes/menu/bg_scenes/forest_scene.tscn" type="PackedScene" id=9]
 [ext_resource path="res://source/scenes/actors/car_templates/car_template.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/sprites/ui/main_menu/start_menu.png" type="Texture" id=11]
 [ext_resource path="res://source/scenes/menu/random_color_label.gd" type="Script" id=16]
-[ext_resource path="res://assets/sprites/props/streetlights.png" type="Texture" id=28]
 
 [sub_resource type="DynamicFont" id=55]
 size = 40
@@ -227,28 +227,28 @@ alignment = 1
 
 [node name="LevelPrevious" type="TextureButton" parent="LevelSelectionButtons/HBoxContainer"]
 unique_name_in_owner = true
-margin_right = 120.0
+margin_right = 140.0
 margin_bottom = 70.0
-rect_min_size = Vector2( 120, 70 )
+rect_min_size = Vector2( 140, 70 )
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 8 )
 texture_focused = ExtResource( 8 )
 expand = true
 
 [node name="HSplitContainer" type="HSplitContainer" parent="LevelSelectionButtons/HBoxContainer"]
-margin_left = 124.0
-margin_right = 1076.0
+margin_left = 144.0
+margin_right = 1056.0
 margin_bottom = 70.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 
 [node name="LevelNext" type="TextureButton" parent="LevelSelectionButtons/HBoxContainer"]
 unique_name_in_owner = true
-margin_left = 1080.0
+margin_left = 1060.0
 margin_right = 1200.0
 margin_bottom = 70.0
 grow_horizontal = 2
-rect_min_size = Vector2( 120, 70 )
+rect_min_size = Vector2( 140, 70 )
 shortcut_in_tooltip = false
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 7 )
@@ -256,17 +256,21 @@ texture_focused = ExtResource( 7 )
 expand = true
 
 [node name="StartButton" type="Button" parent="."]
-margin_left = 984.0
-margin_top = 448.0
-margin_right = 1117.0
-margin_bottom = 935.0
+margin_left = 861.0
+margin_top = 576.0
+margin_right = 1144.0
+margin_bottom = 711.0
 custom_styles/hover = SubResource( 60 )
 custom_styles/pressed = SubResource( 61 )
 custom_styles/focus = SubResource( 62 )
 custom_styles/disabled = SubResource( 63 )
 custom_styles/normal = SubResource( 64 )
-icon = ExtResource( 28 )
+icon = ExtResource( 11 )
 expand_icon = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 59 )

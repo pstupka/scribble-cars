@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/sprites/on_screen_controls/b_white.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/on_screen_controls/y_white.png" type="Texture" id=2]
@@ -16,9 +16,11 @@
 [ext_resource path="res://assets/sprites/on_screen_controls/a_transparent.png" type="Texture" id=14]
 [ext_resource path="res://assets/sprites/on_screen_controls/arrow_up_transparent.png" type="Texture" id=15]
 [ext_resource path="res://assets/sprites/on_screen_controls/a_white.png" type="Texture" id=16]
+[ext_resource path="res://source/utils/mobile_controls.gd" type="Script" id=17]
 
 [node name="MobileControls" type="CanvasLayer"]
 layer = 100
+script = ExtResource( 17 )
 
 [node name="Arrows" type="Node2D" parent="."]
 position = Vector2( 240, 480 )
@@ -31,7 +33,6 @@ normal = ExtResource( 7 )
 pressed = ExtResource( 10 )
 passby_press = true
 action = "move_left"
-visibility_mode = 1
 
 [node name="ButtonRight" type="TouchScreenButton" parent="Arrows"]
 modulate = Color( 0.94902, 0.941176, 0.898039, 0.462745 )
@@ -41,7 +42,6 @@ normal = ExtResource( 3 )
 pressed = ExtResource( 12 )
 passby_press = true
 action = "move_right"
-visibility_mode = 1
 
 [node name="ButtonUp" type="TouchScreenButton" parent="Arrows"]
 modulate = Color( 0.94902, 0.941176, 0.898039, 0.462745 )
@@ -51,7 +51,6 @@ normal = ExtResource( 4 )
 pressed = ExtResource( 15 )
 passby_press = true
 action = "move_up"
-visibility_mode = 1
 
 [node name="ButtonDown" type="TouchScreenButton" parent="Arrows"]
 modulate = Color( 0.94902, 0.941176, 0.898039, 0.462745 )
@@ -61,7 +60,6 @@ normal = ExtResource( 9 )
 pressed = ExtResource( 11 )
 passby_press = true
 action = "move_down"
-visibility_mode = 1
 
 [node name="Buttons" type="Node2D" parent="."]
 position = Vector2( 1040, 480 )
@@ -73,7 +71,6 @@ scale = Vector2( 1.5, 1.5 )
 normal = ExtResource( 6 )
 pressed = ExtResource( 8 )
 action = "honk"
-visibility_mode = 1
 
 [node name="ButtonY" type="TouchScreenButton" parent="Buttons"]
 modulate = Color( 0.94902, 0.941176, 0.898039, 0.462745 )
@@ -82,7 +79,6 @@ scale = Vector2( 1.5, 1.5 )
 normal = ExtResource( 2 )
 pressed = ExtResource( 13 )
 action = "change_car"
-visibility_mode = 1
 
 [node name="ButtonA" type="TouchScreenButton" parent="Buttons"]
 modulate = Color( 0.94902, 0.941176, 0.898039, 0.462745 )
@@ -91,7 +87,6 @@ scale = Vector2( 1.5, 1.5 )
 normal = ExtResource( 16 )
 pressed = ExtResource( 14 )
 action = "lights"
-visibility_mode = 1
 
 [node name="ButtonB" type="TouchScreenButton" parent="Buttons"]
 modulate = Color( 0.94902, 0.941176, 0.898039, 0.462745 )
@@ -100,4 +95,3 @@ scale = Vector2( 1.5, 1.5 )
 normal = ExtResource( 1 )
 pressed = ExtResource( 5 )
 action = "jump"
-visibility_mode = 1
