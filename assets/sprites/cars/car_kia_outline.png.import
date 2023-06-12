@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ui_menu_button_a1.png-8207f6436d1294be5a02eea59600f55b.stex"
+path="res://.import/car_kia_outline.png-6ad185a13b8dbd1f42f705be18e9f4a8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ui_menu_button_a1.png"
-dest_files=[ "res://.import/ui_menu_button_a1.png-8207f6436d1294be5a02eea59600f55b.stex" ]
+source_file="res://assets/sprites/cars/car_kia_outline.png"
+dest_files=[ "res://.import/car_kia_outline.png-6ad185a13b8dbd1f42f705be18e9f4a8.stex" ]
 
 [params]
 

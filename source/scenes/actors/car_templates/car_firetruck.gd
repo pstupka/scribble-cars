@@ -29,6 +29,7 @@ var is_moving_ladder := false setget set_is_moving_ladder
 var tween : SceneTreeTween = null
 
 func _ready() -> void:
+	scale.x = -scale.x
 	randomize()
 	var _err = Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
 	_on_time_of_day_changed(Globals.daynight)

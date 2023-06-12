@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ui_menu_button_cc29_black.png-20a94a5e4e4ed13e9809716cede0b696.stex"
+path="res://.import/menu_exit_button_pressed.png-b8657c99b89366aa4af04a37b336413f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ui_menu_button_cc29_black.png"
-dest_files=[ "res://.import/ui_menu_button_cc29_black.png-20a94a5e4e4ed13e9809716cede0b696.stex" ]
+source_file="res://assets/sprites/ui/menu_exit_button_pressed.png"
+dest_files=[ "res://.import/menu_exit_button_pressed.png-b8657c99b89366aa4af04a37b336413f.stex" ]
 
 [params]
 

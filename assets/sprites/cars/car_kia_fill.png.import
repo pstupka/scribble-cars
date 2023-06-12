@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/flower2_outline.png-2f052ebd1ddee95e57ff723a3d58c16c.stex"
+path="res://.import/car_kia_fill.png-457f79fe6826d61bdbca5a515821beef.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/foliage/flower2_outline.png"
-dest_files=[ "res://.import/flower2_outline.png-2f052ebd1ddee95e57ff723a3d58c16c.stex" ]
+source_file="res://assets/sprites/cars/car_kia_fill.png"
+dest_files=[ "res://.import/car_kia_fill.png-457f79fe6826d61bdbca5a515821beef.stex" ]
 
 [params]
 
