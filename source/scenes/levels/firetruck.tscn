@@ -17,7 +17,7 @@
 [ext_resource path="res://source/utils/day_night_utils/day_night_modulate.tscn" type="PackedScene" id=15]
 [ext_resource path="res://source/scenes/props/Cloud2.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/sprites/buildings/house.png" type="Texture" id=17]
-[ext_resource path="res://assets/sprites/house_1.png" type="Texture" id=18]
+[ext_resource path="res://assets/sprites/buildings/house3.png" type="Texture" id=18]
 [ext_resource path="res://assets/sprites/buildings/pavement.png" type="Texture" id=19]
 [ext_resource path="res://source/scenes/actors/npc/cat.tscn" type="PackedScene" id=20]
 [ext_resource path="res://source/scenes/menu/pause-menu.tscn" type="PackedScene" id=21]
@@ -249,10 +249,10 @@ scale = Vector2( 0.7, 0.7 )
 
 [node name="Ground" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.2, 0.85 )
-motion_mirroring = Vector2( 1400, 0 )
+motion_mirroring = Vector2( 1800, 0 )
 
 [node name="RainbowSolo" parent="ParallaxBackground/Ground" instance=ExtResource( 30 )]
-position = Vector2( 616, 500 )
+position = Vector2( 259, 501 )
 
 [node name="GrassPivot" type="Node2D" parent="ParallaxBackground/Ground"]
 position = Vector2( 0, -35 )
@@ -261,11 +261,12 @@ position = Vector2( 0, -35 )
 light_mask = 5
 position = Vector2( -1, -18.5 )
 color = Color( 0.760784, 0.827451, 0.407843, 1 )
-polygon = PoolVector2Array( -16, 145, 4, 146, 106, 162, 174, 166, 211, 172, 253, 177, 286, 179, 319, 179, 385, 181, 439, 168, 493, 168, 553, 177, 585, 184, 601, 183, 613, 180, 625, 178, 639, 177, 647, 178, 664, 177, 743, 176, 874, 177, 938, 183, 978, 184, 1050, 181, 1107, 170, 1136, 164, 1174, 156, 1270, 142, 1384, 145, 1385, 342, -16, 342 )
+polygon = PoolVector2Array( -16, 145, 4, 146, 110, 158.5, 174, 166, 250, 166.5, 319, 169.5, 437, 176.5, 490, 179.5, 558, 169.5, 619, 168.5, 712, 176.5, 754, 187.5, 788, 191.5, 874, 182.5, 945, 176.5, 977, 177.5, 1029, 175.5, 1107, 170, 1346, 181.5, 1491, 169.5, 1614, 144.5, 1698, 140.5, 1790, 145.5, 1791, 347.5, -16, 342 )
 
 [node name="BgLine1" type="Sprite" parent="ParallaxBackground/Ground/GrassPivot"]
 self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
-position = Vector2( 684, 145.5 )
+position = Vector2( 884, 145.5 )
+scale = Vector2( 1.2849, 1 )
 texture = ExtResource( 28 )
 
 [node name="Tree5" type="Sprite" parent="ParallaxBackground/Ground"]
@@ -389,12 +390,12 @@ mesh = SubResource( 34 )
 texture = ExtResource( 26 )
 
 [node name="House" type="Sprite" parent="ParallaxBackground/Ground3"]
-position = Vector2( 923, 5 )
+position = Vector2( 465, 6 )
 texture = ExtResource( 17 )
 
 [node name="House1" type="Sprite" parent="ParallaxBackground/Ground3"]
-position = Vector2( 1112, 72 )
-scale = Vector2( 1.5, 1.5 )
+position = Vector2( 1669, 41 )
+scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 18 )
 
 [node name="Pavement" type="Sprite" parent="ParallaxBackground/Ground3"]
@@ -428,7 +429,7 @@ scale = Vector2( 0.5, 0.5 )
 
 [node name="Flower1Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
 use_parent_material = true
-position = Vector2( 2, -8 )
+position = Vector2( 46, 16 )
 texture = ExtResource( 6 )
 
 [node name="Flower1Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
@@ -438,7 +439,7 @@ texture = ExtResource( 7 )
 
 [node name="Flower1Yellow" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
 use_parent_material = true
-position = Vector2( -240, -2 )
+position = Vector2( -426, -4 )
 texture = ExtResource( 8 )
 
 [node name="Flower2Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
@@ -453,17 +454,17 @@ texture = ExtResource( 12 )
 
 [node name="Flower2Red2" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
 use_parent_material = true
-position = Vector2( -130, -12 )
+position = Vector2( 86, 24 )
 texture = ExtResource( 12 )
 
 [node name="Flower2Blue3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
 use_parent_material = true
-position = Vector2( -70, -6 )
+position = Vector2( 42, 54 )
 texture = ExtResource( 10 )
 
 [node name="Flower2Red3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
 use_parent_material = true
-position = Vector2( -320, 2 )
+position = Vector2( -470, 6 )
 texture = ExtResource( 12 )
 
 [node name="Flowers2" type="Node2D" parent="ParallaxBackground/Ground3"]
@@ -483,12 +484,12 @@ texture = ExtResource( 7 )
 
 [node name="Flower1Yellow" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
 use_parent_material = true
-position = Vector2( 377.143, 35.7143 )
+position = Vector2( 344.286, 37.1429 )
 texture = ExtResource( 8 )
 
 [node name="Flower1Red2" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
 use_parent_material = true
-position = Vector2( 662.857, 31.4286 )
+position = Vector2( 714.286, 51.4286 )
 texture = ExtResource( 7 )
 
 [node name="Flower1Yellow2" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
@@ -547,7 +548,7 @@ texture = ExtResource( 7 )
 
 [node name="Flower1Yellow" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
 use_parent_material = true
-position = Vector2( 205.714, 54.2857 )
+position = Vector2( 310, 61.4286 )
 texture = ExtResource( 8 )
 
 [node name="Flower2Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
@@ -573,6 +574,100 @@ texture = ExtResource( 10 )
 [node name="Flower2Red3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
 use_parent_material = true
 position = Vector2( -477.143, 48.5714 )
+texture = ExtResource( 12 )
+
+[node name="Flowers5" type="Node2D" parent="ParallaxBackground/Ground3"]
+material = SubResource( 33 )
+position = Vector2( 1669, 131 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Flower1Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers5"]
+use_parent_material = true
+position = Vector2( 324.286, 50 )
+texture = ExtResource( 6 )
+
+[node name="Flower1Yellow" type="Sprite" parent="ParallaxBackground/Ground3/Flowers5"]
+use_parent_material = true
+position = Vector2( 310, 61.4286 )
+texture = ExtResource( 8 )
+
+[node name="Flower2Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers5"]
+use_parent_material = true
+position = Vector2( -320, 58.5714 )
+texture = ExtResource( 9 )
+
+[node name="Flower2Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers5"]
+use_parent_material = true
+position = Vector2( -235.714, 41.4286 )
+texture = ExtResource( 12 )
+
+[node name="Flower2Red2" type="Sprite" parent="ParallaxBackground/Ground3/Flowers5"]
+use_parent_material = true
+position = Vector2( 330, 74.2857 )
+texture = ExtResource( 12 )
+
+[node name="Flower2Blue3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers5"]
+use_parent_material = true
+position = Vector2( 264.285, 54.2857 )
+texture = ExtResource( 10 )
+
+[node name="Flower2Red3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers5"]
+use_parent_material = true
+position = Vector2( -477.143, 48.5714 )
+texture = ExtResource( 12 )
+
+[node name="Flowers6" type="Node2D" parent="ParallaxBackground/Ground3"]
+material = SubResource( 32 )
+position = Vector2( 1379, 174 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Flower1Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers6"]
+use_parent_material = true
+position = Vector2( -71.4286, 35.7143 )
+texture = ExtResource( 6 )
+
+[node name="Flower1Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers6"]
+use_parent_material = true
+position = Vector2( 130, 32.8572 )
+texture = ExtResource( 7 )
+
+[node name="Flower1Yellow" type="Sprite" parent="ParallaxBackground/Ground3/Flowers6"]
+use_parent_material = true
+position = Vector2( 344.286, 37.1429 )
+texture = ExtResource( 8 )
+
+[node name="Flower1Red2" type="Sprite" parent="ParallaxBackground/Ground3/Flowers6"]
+use_parent_material = true
+position = Vector2( 714.286, 51.4286 )
+texture = ExtResource( 7 )
+
+[node name="Flower1Yellow2" type="Sprite" parent="ParallaxBackground/Ground3/Flowers6"]
+use_parent_material = true
+position = Vector2( 190, 51.4286 )
+texture = ExtResource( 8 )
+
+[node name="Flower1Red3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers6"]
+use_parent_material = true
+position = Vector2( 821.428, 24.2857 )
+texture = ExtResource( 7 )
+
+[node name="Flower1Yellow3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers6"]
+use_parent_material = true
+position = Vector2( -152.857, 11.4286 )
+texture = ExtResource( 8 )
+
+[node name="Flower1Yellow4" type="Sprite" parent="ParallaxBackground/Ground3/Flowers6"]
+use_parent_material = true
+position = Vector2( 882.857, 25.7143 )
+texture = ExtResource( 8 )
+
+[node name="Flower2Blue" type="Sprite" parent="ParallaxBackground/Ground3/Flowers6"]
+use_parent_material = true
+position = Vector2( 924.286, 27.1429 )
+texture = ExtResource( 10 )
+
+[node name="Flower2Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers6"]
+use_parent_material = true
 texture = ExtResource( 12 )
 
 [node name="RoadParallax" type="ParallaxBackground" parent="."]
@@ -641,7 +736,7 @@ texture = ExtResource( 4 )
 [node name="Pedestrians" type="YSort" parent="Actors"]
 
 [node name="Pedestrian" parent="Actors/Pedestrians" instance=ExtResource( 33 )]
-position = Vector2( 402, 344 )
+position = Vector2( 348, 342 )
 can_discover = false
 
 [node name="Pedestrian2" parent="Actors/Pedestrians" instance=ExtResource( 33 )]
