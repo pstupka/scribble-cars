@@ -8,13 +8,12 @@ onready var player = $Actors/Player
 onready var random_car = preload("res://source/scenes/actors/random_car.tscn")
 onready var transition_color = $CanvasLayer/ColorRect
 
-
-
 export var lanes_y_position = [410, 460]
 export var scene_type = "city"
 
 
 func _ready() -> void:
+	$CanvasLayer.show()
 	randomize()
 	Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
 	$EnterTweener.connect("enter_tween_completed", self, "_on_enter_tween_completed")

@@ -13,6 +13,7 @@ onready var transition_color = $CanvasLayer/ColorRect
 export var scene_type = "space"
 
 func _ready() -> void:
+	$CanvasLayer.show()
 	for star in stars.get_children():
 		star.modulate = Color(randf(), 0.0, 0.0)
 		star.scale = star.scale * (randf() * 0.6 + 0.4)
@@ -25,7 +26,6 @@ func _ready() -> void:
 		if new_star.global_position.length() < 100.0:
 			new_star.global_position.x += sign(new_star.global_position.x) * 200.0
 			new_star.global_position.y += sign(new_star.global_position.y) * 200.0
-
 
 	for asteroid in $Actors/Asteroids.get_children():
 		asteroid.player_rocket = player

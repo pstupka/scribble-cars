@@ -18,6 +18,7 @@ __meta__ = {
 }
 
 [node name="LightSprite" type="Sprite" parent="."]
+self_modulate = Color( 0.58, 0.58, 0.58, 1 )
 light_mask = 0
 material = SubResource( 12 )
 texture = ExtResource( 4 )

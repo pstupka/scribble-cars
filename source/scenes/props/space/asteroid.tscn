@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/sprites/space/asteroid_4.png" type="Texture" id=1]
 [ext_resource path="res://source/scenes/props/space/asteroid.gd" type="Script" id=2]
+[ext_resource path="res://assets/audio/boing.mp3" type="AudioStream" id=3]
 
 [node name="Asteroid" type="RigidBody2D"]
 collision_mask = 2
@@ -21,6 +22,10 @@ polygon = PoolVector2Array( 64, -8, 40, -43, -20, -59, -44, -39, -57, -2, -47, 3
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 rect = Rect2( -200, -200, 400, 400 )
+
+[node name="BoingStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "Sfx"
 
 [connection signal="body_entered" from="." to="." method="_on_Asteroid_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_screen_exited"]

@@ -1,10 +1,10 @@
 extends Control
 
-onready var pik_sfx: AudioStreamPlayer = $PikSfx
+onready var pik_sfx: AudioStreamPlayer = $SFX/PikSfx
 onready var bg: Node2D = $Bg
 onready var level_previous: TextureButton = $"%LevelPrevious"
 onready var level_next: TextureButton = $"%LevelNext"
-onready var background_music = $BackgroundMusic
+onready var background_music = $SFX/BackgroundMusic
 
 
 var current_level_selected := 0
@@ -12,7 +12,7 @@ var current_level_selected := 0
 var level_selection_scenes := [
 	{
 		"scene": preload("res://source/scenes/menu/bg_scenes/forest_scene.tscn"),
-		"machine": preload("res://source/scenes/actors/car_templates/car_template.tscn"),
+		"machine": preload("res://source/scenes/actors/car_templates/car_kia.tscn"),
 		"level": "res://source/scenes/Main.tscn",
 	},
 	{
@@ -24,6 +24,11 @@ var level_selection_scenes := [
 		"scene": preload("res://source/scenes/menu/bg_scenes/city_scene.tscn"),
 		"machine": preload("res://source/scenes/actors/car_templates/bus3.tscn"),
 		"level": "res://source/scenes/levels/city.tscn"
+	},	
+	{
+		"scene": preload("res://source/scenes/menu/bg_scenes/firetruck_scene.tscn"),
+		"machine": preload("res://source/scenes/actors/car_templates/car_firetruck1.tscn"),
+		"level": "res://source/scenes/levels/firetruck.tscn"
 	},
 ]
 
@@ -33,10 +38,10 @@ onready var game_start_transition_rect = $GameStartTransitionRect
 onready var machine_pivot: Node2D = $MachinePivot
 var can_change_scene = true
 
+
 func _ready() -> void:
 	game_start_transition_rect.show()
 #	OS.set_window_maximized(true) # TODO: Make it on splash screen
-
 	Globals.daynight = Globals.DAY
 	
 	var tween = create_tween()
@@ -44,20 +49,27 @@ func _ready() -> void:
 	tween.tween_property(game_start_transition_rect, "color", Color(0.0, 0.0, 0.0, 0.0), 0.6)
 	tween.tween_callback(game_start_transition_rect, "hide", [])
 	
-	var machine = $MachinePivot/Car
+	var machine = $MachinePivot/Kia
 	if machine.has_method("set_animation_loop"):
 		machine.set_animation_loop("move", true)
 	if machine.has_node("AnimationPlayer"):
 		machine.animation_player.play("move")
 	
 	level_next.grab_focus()
+	
 
 func _input(_event: InputEvent) -> void:
-	pass
-#	if Input.is_action_pressed("ui_left") or Input.is_action_pressed("move_left"):
-#		_on_LevelPrevious_pressed()
-#	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("move_right"):
-#		_on_LevelNext_pressed()
+	if Input.is_action_pressed("ui_page_up"):
+		_on_LevelNext_pressed()
+		return
+
+	if Input.is_action_pressed("ui_page_down"):
+		_on_LevelPrevious_pressed()
+		return
+	
+	if Input.is_action_pressed("ui_start_game"):
+		_on_StartButton_pressed()
+		return
 
 
 func change_level_selection(next_level: int) -> void:
@@ -97,12 +109,24 @@ func start_game() -> void:
 	var _err = get_tree().change_scene(level_selection_scenes[current_level_selected]["level"])
 
 
+func set_buttons_focus(focus: bool) -> void:
+	var focus_mode = Control.FOCUS_ALL if focus else Control.FOCUS_NONE
+	$MarginContainer2/InfoButton.focus_mode = focus_mode
+	$ButtonsContainer/ExitButton.focus_mode = focus_mode
+	$ButtonsContainer/SettingsButton.focus_mode = focus_mode
+	$ButtonsContainer/StartButton.focus_mode = focus_mode
+	$"%LevelPrevious".focus_mode = focus_mode
+	$"%LevelNext".focus_mode = focus_mode
+	if focus:
+		$"%LevelNext".grab_focus()
+
 func _on_LevelPrevious_pressed() -> void:
 	if not can_change_scene: return
 	
 	pik_sfx.play()
 	var next_level = (current_level_selected - 1) % level_selection_scenes.size()
 	change_level_selection(next_level)
+	level_previous.grab_focus()
 
 
 func _on_LevelNext_pressed() -> void:
@@ -111,9 +135,11 @@ func _on_LevelNext_pressed() -> void:
 	pik_sfx.play()
 	var next_level = (current_level_selected + 1) % level_selection_scenes.size()
 	change_level_selection(next_level)
+	level_next.grab_focus()
 
 
 func _on_StartButton_pressed() -> void:
+	$ButtonsContainer/StartButton.disabled = true
 	pik_sfx.play()
 	
 	var tween = create_tween()
@@ -121,4 +147,25 @@ func _on_StartButton_pressed() -> void:
 	tween.tween_property(game_start_transition_rect, "color", Color(0.0, 0.0, 0.0, 1.0), 0.5)
 	tween.parallel().tween_property(background_music, "volume_db", -40.0, 0.5)
 	tween.tween_callback(self, "start_game", [])
+
+
+func _on_InfoButton_pressed():
+	pik_sfx.play()
+	var info = load("res://source/scenes/menu/info_menu.tscn").instance()
+	add_child(info)
+	Events.connect("menu_overlay_freed", self, "set_buttons_focus", [true], CONNECT_ONESHOT)
+	set_buttons_focus(false)
+
+
+func _on_SettingsButton_pressed():
+	pik_sfx.play()
+	var settings = load("res://source/scenes/menu/settings_menu.tscn").instance()
+	add_child(settings)
+	Events.connect("menu_overlay_freed", self, "set_buttons_focus", [true], CONNECT_ONESHOT)
+	set_buttons_focus(false)
+
+
+func _on_ExitButton_pressed():
+	pik_sfx.play()
+	var tween = create_tween().tween_callback(get_tree(), "quit").set_delay(0.3)
 

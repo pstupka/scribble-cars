@@ -123,19 +123,16 @@ speed = -5.0
 [node name="CityBg4" type="Sprite" parent="BuildingsBg3"]
 modulate = Color( 0.2673, 0.2646, 0.27, 1 )
 position = Vector2( 232, 285 )
-scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 11 )
 
 [node name="CityBg5" type="Sprite" parent="BuildingsBg3"]
 modulate = Color( 0.2673, 0.2646, 0.27, 1 )
 position = Vector2( 1053, 284 )
-scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 11 )
 
 [node name="CityBg6" type="Sprite" parent="BuildingsBg3"]
 modulate = Color( 0.2673, 0.2646, 0.27, 1 )
 position = Vector2( 691, 303 )
-scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 11 )
 
 [node name="BuildingsBg4" type="ParallaxLayer" parent="."]
@@ -146,13 +143,12 @@ speed = -10.0
 [node name="CityBg2" type="Sprite" parent="BuildingsBg4"]
 modulate = Color( 0.721569, 0.709804, 0.72549, 1 )
 position = Vector2( 808.65, 283 )
-scale = Vector2( 0.547857, 0.264399 )
 texture = ExtResource( 10 )
 
 [node name="CityBg5" type="Sprite" parent="BuildingsBg4"]
 modulate = Color( 0.47451, 0.454902, 0.478431, 1 )
 position = Vector2( 269.65, 269.375 )
-scale = Vector2( 0.216172, 0.25 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 8 )
 
 [node name="BuildingsBg2" type="ParallaxLayer" parent="."]
@@ -164,19 +160,19 @@ speed = -15.0
 [node name="CityBg2" type="Sprite" parent="BuildingsBg2"]
 modulate = Color( 0.721569, 0.709804, 0.72549, 1 )
 position = Vector2( 631.1, 318 )
-scale = Vector2( 0.235852, 0.25 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 10 )
 
 [node name="CityBg4" type="Sprite" parent="BuildingsBg2"]
 modulate = Color( 0.4732, 0.456, 0.48, 1 )
 position = Vector2( 1062.3, 296 )
-scale = Vector2( 0.2, 0.25 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 6 )
 
 [node name="CityBg5" type="Sprite" parent="BuildingsBg2"]
 modulate = Color( 0.47451, 0.454902, 0.478431, 1 )
 position = Vector2( 255.65, 301 )
-scale = Vector2( 0.216172, 0.25 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 8 )
 
 [node name="Buildings" type="ParallaxLayer" parent="."]

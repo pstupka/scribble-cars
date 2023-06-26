@@ -176,8 +176,9 @@ centered = false
 motion_scale = Vector2( 0, 1 )
 
 [node name="Sun" parent="MoonSun" instance=ExtResource( 16 )]
+modulate = Color( 1.1, 1.1, 1.1, 1 )
 position = Vector2( 911, 280 )
-scale = Vector2( 0.8, 0.8 )
+scale = Vector2( 0.7, 0.7 )
 
 [node name="Clouds2" type="ParallaxLayer" parent="."]
 pause_mode = 2
@@ -303,7 +304,7 @@ scale = Vector2( 0.1, 0.1 )
 texture = SubResource( 59 )
 
 [node name="House1" type="Sprite" parent="Ground"]
-position = Vector2( 634, 349 )
+position = Vector2( 955, 342 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 11 )
 
@@ -396,7 +397,7 @@ script = ExtResource( 19 )
 speed = -40.0
 
 [node name="GrassPivot" type="Node2D" parent="Ground3"]
-position = Vector2( 45, 245 )
+position = Vector2( 50, 245 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="BgFill" type="Polygon2D" parent="Ground3/GrassPivot"]
@@ -415,7 +416,7 @@ scale = Vector2( 1, -1 )
 texture = ExtResource( 7 )
 
 [node name="GrassPivot2" type="Node2D" parent="Ground3"]
-position = Vector2( 721, 245 )
+position = Vector2( 726, 245 )
 scale = Vector2( 0.428, 0.5 )
 
 [node name="BgFill" type="Polygon2D" parent="Ground3/GrassPivot2"]
@@ -434,7 +435,7 @@ scale = Vector2( 1, -1 )
 texture = ExtResource( 7 )
 
 [node name="Road1" type="Node2D" parent="Ground3"]
-position = Vector2( -32, 447 )
+position = Vector2( -27, 447 )
 scale = Vector2( 0.5, 0.6 )
 
 [node name="RoadFill" type="Sprite" parent="Ground3/Road1"]
@@ -486,10 +487,9 @@ scale = Vector2( 1.02, 0.5 )
 texture = ExtResource( 10 )
 
 [node name="FlowersSort" type="YSort" parent="Ground3"]
-position = Vector2( 63, 54 )
+position = Vector2( 68, 54 )
 
 [node name="Flowers2" type="YSort" parent="Ground3/FlowersSort"]
-
 material = SubResource( 63 )
 position = Vector2( -194, 211 )
 scale = Vector2( 0.5, 0.5 )
@@ -567,7 +567,6 @@ scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 8 )
 
 [node name="Flowers" type="YSort" parent="Ground3/FlowersSort"]
-
 material = ExtResource( 2 )
 position = Vector2( 246, 211 )
 scale = Vector2( 0.5, 0.5 )
@@ -633,7 +632,6 @@ scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 8 )
 
 [node name="Flowers3" type="YSort" parent="Ground3/FlowersSort"]
-
 material = SubResource( 64 )
 position = Vector2( 779, 211 )
 scale = Vector2( 0.5, 0.5 )
@@ -658,8 +656,7 @@ texture = ExtResource( 4 )
 
 [node name="Flower2Blue" type="Sprite" parent="Ground3/FlowersSort/Flowers3"]
 use_parent_material = true
-position = Vector2( 850, 214 )
-
+position = Vector2( 816, 198 )
 scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 5 )
 
@@ -694,7 +691,6 @@ scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 8 )
 
 [node name="Flowers4" type="YSort" parent="Ground3/FlowersSort"]
-
 material = SubResource( 64 )
 position = Vector2( 368, 196 )
 scale = Vector2( 0.5, 0.5 )

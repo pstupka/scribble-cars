@@ -1,6 +1,8 @@
 extends Area2D
 
 onready var star: Sprite = $Star/Star04
+onready var collect_player: AudioStreamPlayer = $CollectPlayer
+
 
 var particles_template = preload("res://source/utils/score_particles.tscn")
 
@@ -24,6 +26,8 @@ func _ready() -> void:
 	tween = create_tween().set_loops()
 	tween.tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.1).set_delay(rand_range(2.0, 10.0))
 	tween.tween_property(self, "modulate", Color.white, 0.1)
+	
+	collect_player.pitch_scale = rand_range(1.2, 1.3)
 
 
 func set_random_color():
@@ -49,6 +53,7 @@ func set_color_intensity(new_intensity: float):
 func _on_CollectableStar_body_entered(body: Node) -> void:
 	if not body.is_in_group("Player"): return
 
+	collect_player.play()
 	tween.pause()
 	hide()
 	$CollisionShape2D.set_deferred("disabled", true)
@@ -60,6 +65,7 @@ func _on_CollectableStar_body_entered(body: Node) -> void:
 	score_particles.modulate = color
 	score_particles.self_modulate = star.self_modulate
 	score_particles.global_position = global_position
+	
 
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:

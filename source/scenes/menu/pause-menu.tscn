@@ -3,24 +3,10 @@
 [ext_resource path="res://assets/fonts/LittleThings-ZX5Z.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://source/scenes/menu/pause-menu.gd" type="Script" id=2]
 [ext_resource path="res://assets/audio/pik.mp3" type="AudioStream" id=3]
-
-[sub_resource type="Shader" id=10]
-code = "shader_type canvas_item;
-
-uniform float lod: hint_range(0.0, 5) = 0.0;
-uniform bool apply = true;
-
-void fragment(){
-
-	if (apply) {
-		vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV, lod);
-		COLOR = color;
-	}
-}
-"
+[ext_resource path="res://resources/shaders/blur.gdshader" type="Shader" id=4]
 
 [sub_resource type="ShaderMaterial" id=11]
-shader = SubResource( 10 )
+shader = ExtResource( 4 )
 shader_param/lod = 0.0
 shader_param/apply = true
 
@@ -57,19 +43,19 @@ anchor_bottom = 1.0
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 material = SubResource( 11 )
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_right = 1280.0
+margin_bottom = 720.0
 color = Color( 0, 0, 0, 0 )
 
 [node name="CenterContainer" type="CenterContainer" parent="Control"]
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_right = 1280.0
+margin_bottom = 720.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer"]
-margin_left = 262.0
-margin_top = 134.0
-margin_right = 762.0
-margin_bottom = 465.0
+margin_left = 390.0
+margin_top = 194.0
+margin_right = 890.0
+margin_bottom = 525.0
 
 [node name="PauseLabel" type="RichTextLabel" parent="Control/CenterContainer/VBoxContainer"]
 margin_right = 500.0

@@ -1,36 +1,36 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://source/scenes/levels/firetruck.gd" type="Script" id=1]
 [ext_resource path="res://source/scenes/actors/player_car.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/sprites/road_fill.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/road_outline.png" type="Texture" id=4]
-[ext_resource path="res://assets/sprites/buildings/city_bg5.png" type="Texture" id=5]
-[ext_resource path="res://assets/sprites/stars/star3.png" type="Texture" id=6]
-[ext_resource path="res://assets/sprites/buildings/city_bg.png" type="Texture" id=7]
-[ext_resource path="res://assets/sprites/stars/star2.png" type="Texture" id=8]
-[ext_resource path="res://assets/sprites/stars/star1.png" type="Texture" id=9]
-[ext_resource path="res://assets/sprites/stars/star4.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/ground.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/foliage/flower1_pink..png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/foliage/flower1_red..png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/foliage/flower1_yellow..png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/foliage/flower2_pink.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/foliage/flower2_blue.png" type="Texture" id=10]
 [ext_resource path="res://source/utils/move_parallax_layer.gd" type="Script" id=11]
-[ext_resource path="res://source/utils/day_night_utils/day_night_modulate.tscn" type="PackedScene" id=12]
-[ext_resource path="res://source/scenes/props/Moon.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/sprites/foliage/flower2_red.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/bg_line2.png" type="Texture" id=13]
 [ext_resource path="res://source/scenes/props/Sun.tscn" type="PackedScene" id=14]
-[ext_resource path="res://source/utils/day_night_utils/day_night_tween.tscn" type="PackedScene" id=15]
+[ext_resource path="res://source/utils/day_night_utils/day_night_modulate.tscn" type="PackedScene" id=15]
 [ext_resource path="res://source/scenes/props/Cloud2.tscn" type="PackedScene" id=16]
-[ext_resource path="res://assets/sprites/buildings/city_bg2.png" type="Texture" id=17]
-[ext_resource path="res://assets/sprites/buildings/city_bg3.png" type="Texture" id=18]
-[ext_resource path="res://assets/sprites/buildings/city_bg4.png" type="Texture" id=19]
-[ext_resource path="res://assets/sprites/tree1.png" type="Texture" id=20]
+[ext_resource path="res://assets/sprites/buildings/house.png" type="Texture" id=17]
+[ext_resource path="res://assets/sprites/buildings/house3.png" type="Texture" id=18]
+[ext_resource path="res://assets/sprites/buildings/pavement.png" type="Texture" id=19]
+[ext_resource path="res://source/scenes/actors/npc/cat.tscn" type="PackedScene" id=20]
 [ext_resource path="res://source/scenes/menu/pause-menu.tscn" type="PackedScene" id=21]
 [ext_resource path="res://source/utils/enter_tween.gd" type="Script" id=22]
 [ext_resource path="res://source/scenes/props/Cloud3.tscn" type="PackedScene" id=23]
 [ext_resource path="res://source/scenes/props/Cloud4.tscn" type="PackedScene" id=24]
 [ext_resource path="res://assets/audio/Bike Rides - The Green Orbs.mp3" type="AudioStream" id=25]
-[ext_resource path="res://assets/sprites/buildings/city3.png" type="Texture" id=26]
-[ext_resource path="res://assets/sprites/buildings/city2.png" type="Texture" id=27]
-[ext_resource path="res://assets/sprites/buildings/city1..png" type="Texture" id=28]
-[ext_resource path="res://assets/sprites/buildings/city1_windows..png" type="Texture" id=29]
-[ext_resource path="res://assets/sprites/buildings/city3_windows..png" type="Texture" id=30]
-[ext_resource path="res://assets/sprites/buildings/city2_windows..png" type="Texture" id=31]
+[ext_resource path="res://assets/sprites/line_2.png" type="Texture" id=26]
+[ext_resource path="res://assets/sprites/raindrop.png" type="Texture" id=27]
+[ext_resource path="res://assets/sprites/bg_line1.png" type="Texture" id=28]
+[ext_resource path="res://assets/sprites/rain_splash.png" type="Texture" id=29]
+[ext_resource path="res://source/scenes/props/rainbow.tscn" type="PackedScene" id=30]
+[ext_resource path="res://source/scenes/actors/npc/pedestrian.tscn" type="PackedScene" id=33]
 
 [sub_resource type="Gradient" id=11]
 offsets = PoolRealArray( 0, 0.324713, 0.462644, 0.62069, 1 )
@@ -41,6 +41,137 @@ gradient = SubResource( 11 )
 width = 1400
 height = 800
 fill_to = Vector2( 0, 1 )
+
+[sub_resource type="StreamTexture" id=36]
+flags = 4
+load_path = "res://.import/tree1.png-1e3faf9e6f29f6130483ec280db52e2e.stex"
+
+[sub_resource type="StreamTexture" id=37]
+flags = 4
+load_path = "res://.import/tree1.png-1e3faf9e6f29f6130483ec280db52e2e.stex"
+
+[sub_resource type="ArrayMesh" id=35]
+surfaces/0 = {
+"aabb": AABB( 0, 5.9, 0, 1400, 494.1, 0 ),
+"array_data": PoolByteArray( 0, 0, 155, 68, 154, 153, 1, 65, 44, 190, 98, 63, 221, 181, 132, 60, 0, 0, 155, 68, 51, 51, 19, 65, 44, 190, 98, 63, 153, 187, 150, 60, 102, 230, 163, 68, 0, 0, 136, 65, 37, 195, 111, 63, 150, 67, 11, 61, 0, 64, 164, 68, 0, 0, 136, 65, 56, 70, 112, 63, 150, 67, 11, 61, 0, 0, 175, 68, 0, 0, 112, 65, 0, 0, 128, 63, 143, 194, 245, 60, 0, 0, 175, 68, 0, 0, 250, 67, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 250, 67, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 112, 65, 0, 0, 0, 0, 143, 194, 245, 60, 0, 0, 142, 66, 0, 0, 112, 65, 200, 185, 79, 61, 143, 194, 245, 60, 0, 0, 184, 66, 102, 102, 126, 65, 54, 149, 134, 61, 183, 64, 2, 61, 0, 0, 184, 66, 205, 204, 116, 65, 54, 149, 134, 61, 218, 172, 250, 60, 205, 204, 12, 67, 0, 0, 224, 64, 101, 248, 205, 61, 66, 96, 101, 60, 0, 0, 27, 67, 0, 0, 224, 64, 44, 190, 226, 61, 66, 96, 101, 60, 0, 0, 229, 67, 0, 0, 48, 65, 69, 127, 167, 62, 88, 57, 180, 60, 0, 0, 229, 67, 51, 51, 67, 65, 69, 127, 167, 62, 130, 226, 199, 60, 154, 153, 248, 67, 0, 0, 128, 65, 73, 213, 181, 62, 111, 18, 3, 61, 0, 64, 12, 68, 0, 0, 128, 65, 108, 42, 205, 62, 111, 18, 3, 61, 0, 64, 24, 68, 0, 0, 136, 65, 82, 184, 222, 62, 150, 67, 11, 61, 0, 64, 24, 68, 205, 204, 128, 65, 82, 184, 222, 62, 38, 228, 3, 61, 154, 57, 44, 68, 0, 0, 48, 65, 202, 240, 251, 62, 88, 57, 180, 60, 0, 128, 67, 68, 0, 0, 48, 65, 138, 254, 14, 63, 88, 57, 180, 60, 0, 64, 93, 68, 0, 0, 80, 65, 29, 212, 33, 63, 244, 253, 212, 60, 0, 64, 93, 68, 154, 153, 65, 65, 29, 212, 33, 63, 20, 63, 198, 60, 154, 185, 113, 68, 0, 0, 0, 65, 249, 205, 48, 63, 111, 18, 131, 60, 0, 128, 118, 68, 0, 0, 0, 65, 18, 76, 52, 63, 111, 18, 131, 60, 0, 0, 131, 68, 102, 102, 30, 65, 97, 162, 63, 63, 156, 51, 162, 60, 0, 0, 131, 68, 0, 0, 16, 65, 97, 162, 63, 63, 188, 116, 147, 60, 0, 0, 147, 68, 0, 0, 224, 64, 61, 10, 87, 63, 66, 96, 101, 60, 0, 0, 147, 68, 205, 204, 188, 64, 61, 10, 87, 63, 202, 84, 65, 60 ),
+"array_index_data": PoolByteArray( 28, 0, 0, 0, 1, 0, 3, 0, 4, 0, 5, 0, 5, 0, 6, 0, 7, 0, 7, 0, 8, 0, 9, 0, 9, 0, 10, 0, 11, 0, 11, 0, 12, 0, 13, 0, 15, 0, 16, 0, 17, 0, 17, 0, 18, 0, 19, 0, 19, 0, 20, 0, 21, 0, 21, 0, 22, 0, 23, 0, 23, 0, 24, 0, 25, 0, 25, 0, 26, 0, 27, 0, 27, 0, 28, 0, 1, 0, 2, 0, 3, 0, 5, 0, 5, 0, 7, 0, 9, 0, 9, 0, 11, 0, 13, 0, 17, 0, 19, 0, 21, 0, 21, 0, 23, 0, 25, 0, 25, 0, 27, 0, 1, 0, 1, 0, 2, 0, 5, 0, 9, 0, 13, 0, 14, 0, 21, 0, 25, 0, 1, 0, 5, 0, 9, 0, 14, 0, 17, 0, 21, 0, 1, 0, 5, 0, 14, 0, 15, 0, 17, 0, 1, 0, 5, 0, 5, 0, 15, 0, 17, 0 ),
+"blend_shape_data": [  ],
+"format": 262417,
+"index_count": 81,
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 29
+}
+
+[sub_resource type="ArrayMesh" id=34]
+surfaces/0 = {
+"aabb": AABB( 0, 0, 0, 608, 14, 0 ),
+"array_data": PoolByteArray( 205, 140, 250, 67, 0, 0, 128, 64, 78, 253, 82, 63, 37, 73, 146, 62, 51, 115, 7, 68, 0, 0, 128, 64, 86, 32, 100, 63, 37, 73, 146, 62, 0, 0, 14, 68, 51, 51, 51, 63, 108, 40, 111, 63, 205, 204, 76, 61, 0, 0, 14, 68, 102, 102, 6, 64, 108, 40, 111, 63, 153, 153, 25, 62, 0, 0, 24, 68, 0, 0, 160, 64, 0, 0, 128, 63, 110, 219, 182, 62, 0, 0, 24, 68, 0, 0, 96, 65, 0, 0, 128, 63, 0, 0, 128, 63, 154, 25, 197, 67, 0, 0, 96, 65, 157, 250, 37, 63, 0, 0, 128, 63, 0, 0, 47, 67, 0, 0, 16, 65, 81, 94, 147, 62, 73, 146, 36, 63, 0, 0, 47, 67, 102, 102, 30, 65, 81, 94, 147, 62, 80, 7, 53, 63, 0, 0, 104, 66, 0, 0, 96, 65, 81, 94, 195, 61, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 96, 65, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 192, 64, 0, 0, 0, 0, 183, 109, 219, 62, 154, 153, 175, 66, 0, 0, 0, 0, 170, 223, 19, 62, 0, 0, 0, 0, 154, 89, 182, 67, 0, 0, 0, 0, 211, 142, 25, 63, 0, 0, 0, 0 ),
+"array_index_data": PoolByteArray( 1, 0, 2, 0, 3, 0, 3, 0, 4, 0, 5, 0, 5, 0, 6, 0, 7, 0, 7, 0, 8, 0, 9, 0, 9, 0, 10, 0, 11, 0, 11, 0, 12, 0, 13, 0, 1, 0, 3, 0, 5, 0, 7, 0, 9, 0, 11, 0, 11, 0, 13, 0, 0, 0, 0, 0, 1, 0, 5, 0, 5, 0, 7, 0, 11, 0, 11, 0, 0, 0, 5, 0 ),
+"blend_shape_data": [  ],
+"format": 262417,
+"index_count": 36,
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 14
+}
+
+[sub_resource type="Shader" id=31]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+// Wind settings.
+uniform float speed = 1.0;
+uniform float minStrength : hint_range(0.0, 1.0) = 0.05;
+uniform float maxStrength : hint_range(0.0, 1.0) = 0.01;
+uniform float strengthScale = 100.0;
+uniform float interval = 3.5;
+uniform float detail = 1.0;
+uniform float distortion : hint_range(0.0, 1.0);
+uniform float heightOffset : hint_range(0.0, 1.0);
+
+// With the offset value, you can if you want different moves for each asset. Just put a random value (1, 2, 3) in the editor. Don't forget to mark the material as unique if you use this
+uniform float offset = 0; 
+
+
+float getWind(vec2 vertex, vec2 uv, float time){
+    float diff = pow(maxStrength - minStrength, 2.0);
+    float strength = clamp(minStrength + diff + sin(time / interval) * diff, minStrength, maxStrength) * strengthScale;
+    float wind = (sin(time) + cos(time * detail)) * strength * max(0.0, (1.0-uv.y) - heightOffset);
+    
+    return wind; 
+}
+
+void vertex() {
+    vec4 pos = WORLD_MATRIX * vec4(0.0, 0.0, 0.0, 1.0);
+    float time = TIME * speed + offset;
+    //float time = TIME * speed + pos.x * pos.y  ; not working when moving...
+    VERTEX.x += getWind(VERTEX.xy, UV, time);
+}"
+
+[sub_resource type="ShaderMaterial" id=33]
+shader = SubResource( 31 )
+shader_param/speed = 1.0
+shader_param/minStrength = 0.115
+shader_param/maxStrength = 0.01
+shader_param/strengthScale = 100.0
+shader_param/interval = 3.5
+shader_param/detail = 2.0
+shader_param/distortion = 0.017
+shader_param/heightOffset = 0.251
+shader_param/offset = 5.0
+
+[sub_resource type="ShaderMaterial" id=32]
+shader = SubResource( 31 )
+shader_param/speed = 1.0
+shader_param/minStrength = 0.1
+shader_param/maxStrength = 0.01
+shader_param/strengthScale = 100.0
+shader_param/interval = 4.0
+shader_param/detail = 2.0
+shader_param/distortion = 0.303
+shader_param/heightOffset = 0.236
+shader_param/offset = 10.0
+
+[sub_resource type="ParticlesMaterial" id=38]
+lifetime_randomness = 1.0
+emission_shape = 2
+emission_box_extents = Vector3( 640, 10, 1 )
+flag_disable_z = true
+direction = Vector3( 0, 1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1200.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 1.5
+scale_random = 1.0
+
+[sub_resource type="Gradient" id=42]
+offsets = PoolRealArray( 0, 0.485714, 1 )
+colors = PoolColorArray( 0.294118, 0.501961, 0.792157, 0.423529, 0.294118, 0.501961, 0.792157, 1, 0.294118, 0.501961, 0.792157, 0 )
+
+[sub_resource type="GradientTexture" id=43]
+gradient = SubResource( 42 )
+
+[sub_resource type="Curve" id=39]
+_data = [ Vector2( 0.0186567, 0.0272727 ), 0.0, -0.159762, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=40]
+curve = SubResource( 39 )
+
+[sub_resource type="ParticlesMaterial" id=41]
+lifetime_randomness = 0.54
+emission_shape = 2
+emission_box_extents = Vector3( 640, 200, 1 )
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_curve = SubResource( 40 )
+color_ramp = SubResource( 43 )
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -56,155 +187,18 @@ script = ExtResource( 1 )
 layer = -1
 
 [node name="CanvasModulate" type="CanvasModulate" parent="ParallaxBackground"]
-z_index = 10
 
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0, 1 )
+
+[node name="DayNightModulate" parent="ParallaxBackground/Sky" instance=ExtResource( 15 )]
+position = Vector2( 8, -10 )
+night_color = Color( 0.780392, 0.780392, 0.780392, 1 )
 
 [node name="Sky" type="Sprite" parent="ParallaxBackground/Sky"]
 position = Vector2( -693, -233 )
 texture = SubResource( 12 )
 centered = false
-
-[node name="DayNightModulate" parent="ParallaxBackground/Sky/Sky" instance=ExtResource( 12 )]
-position = Vector2( 22, 78 )
-scale = Vector2( 1, 1.292 )
-night_color = Color( 0.262745, 0.262745, 0.415686, 1 )
-
-[node name="Stars" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.05, 0.9 )
-motion_mirroring = Vector2( 1200, 0 )
-
-[node name="Pivot" type="Node2D" parent="ParallaxBackground/Stars"]
-position = Vector2( 0, 500 )
-
-[node name="DayNightModulate" parent="ParallaxBackground/Stars/Pivot" instance=ExtResource( 12 )]
-position = Vector2( 0, -484 )
-day_color = Color( 0.372549, 0.372549, 0.372549, 1 )
-
-[node name="DayNightTween" parent="ParallaxBackground/Stars/Pivot" instance=ExtResource( 15 )]
-day_position = 500.0
-night_position = -100.0
-night_trans_type = 5
-
-[node name="Star1" type="Sprite" parent="ParallaxBackground/Stars/Pivot"]
-modulate = Color( 3, 3, 3, 1 )
-light_mask = 0
-position = Vector2( 393, 148 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 9 )
-
-[node name="Star2" type="Sprite" parent="ParallaxBackground/Stars/Pivot"]
-modulate = Color( 3, 3, 3, 1 )
-light_mask = 0
-position = Vector2( 842, 77 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 8 )
-
-[node name="Star3" type="Sprite" parent="ParallaxBackground/Stars/Pivot"]
-modulate = Color( 3, 3, 3, 1 )
-light_mask = 0
-position = Vector2( 737, 129 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 6 )
-
-[node name="Star4" type="Sprite" parent="ParallaxBackground/Stars/Pivot"]
-modulate = Color( 3, 3, 3, 1 )
-light_mask = 0
-position = Vector2( 53, 48 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 10 )
-
-[node name="Star5" type="Sprite" parent="ParallaxBackground/Stars/Pivot"]
-modulate = Color( 3, 3, 3, 1 )
-light_mask = 0
-position = Vector2( 422, 74 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 9 )
-
-[node name="Star6" type="Sprite" parent="ParallaxBackground/Stars/Pivot"]
-modulate = Color( 3, 3, 3, 1 )
-light_mask = 0
-position = Vector2( 137, 171 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 9 )
-
-[node name="Star7" type="Sprite" parent="ParallaxBackground/Stars/Pivot"]
-modulate = Color( 3, 3, 3, 1 )
-light_mask = 0
-position = Vector2( 566, 125 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 8 )
-
-[node name="Star8" type="Sprite" parent="ParallaxBackground/Stars/Pivot"]
-modulate = Color( 3, 3, 3, 1 )
-light_mask = 0
-position = Vector2( 233, 148 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 6 )
-
-[node name="Star9" type="Sprite" parent="ParallaxBackground/Stars/Pivot"]
-modulate = Color( 3, 3, 3, 1 )
-light_mask = 0
-position = Vector2( 298, 72 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 9 )
-
-[node name="Star10" type="Sprite" parent="ParallaxBackground/Stars/Pivot"]
-modulate = Color( 3, 3, 3, 1 )
-light_mask = 0
-position = Vector2( 971, 162 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 9 )
-
-[node name="Star11" type="Sprite" parent="ParallaxBackground/Stars/Pivot"]
-modulate = Color( 3, 3, 3, 1 )
-light_mask = 0
-position = Vector2( 647, 18 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 9 )
-
-[node name="Star12" type="Sprite" parent="ParallaxBackground/Stars/Pivot"]
-modulate = Color( 3, 3, 3, 1 )
-light_mask = 0
-position = Vector2( 1000, -7 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 9 )
-
-[node name="Star13" type="Sprite" parent="ParallaxBackground/Stars/Pivot"]
-modulate = Color( 3, 3, 3, 1 )
-light_mask = 0
-position = Vector2( 1120, 163.875 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 9 )
-
-[node name="Star14" type="Sprite" parent="ParallaxBackground/Stars/Pivot"]
-modulate = Color( 3, 3, 3, 1 )
-light_mask = 0
-position = Vector2( 796, 19.875 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 9 )
-
-[node name="Star15" type="Sprite" parent="ParallaxBackground/Stars/Pivot"]
-modulate = Color( 3, 3, 3, 1 )
-light_mask = 0
-position = Vector2( 14, 157 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 8 )
-
-[node name="Star16" type="Sprite" parent="ParallaxBackground/Stars/Pivot"]
-modulate = Color( 3, 3, 3, 1 )
-light_mask = 0
-position = Vector2( 1154, 40 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 8 )
-
-[node name="Star17" type="Sprite" parent="ParallaxBackground/Stars/Pivot"]
-modulate = Color( 3, 3, 3, 1 )
-light_mask = 0
-position = Vector2( 973, 96 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 8 )
 
 [node name="MoonSun" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0, 0.98 )
@@ -213,267 +207,759 @@ motion_mirroring = Vector2( 1400, 0 )
 [node name="Sun" parent="ParallaxBackground/MoonSun" instance=ExtResource( 14 )]
 position = Vector2( 300, 0 )
 
-[node name="DayNightTween" parent="ParallaxBackground/MoonSun/Sun" instance=ExtResource( 15 )]
-night_position = 500.0
-
-[node name="Moon" parent="ParallaxBackground/MoonSun" instance=ExtResource( 13 )]
-position = Vector2( 1100, 500 )
-
-[node name="DayNightTween" parent="ParallaxBackground/MoonSun/Moon" instance=ExtResource( 15 )]
-day_position = 500.0
-
-[node name="DayNightModulate" parent="ParallaxBackground/MoonSun/Moon" instance=ExtResource( 12 )]
-position = Vector2( -1200, -484 )
-day_color = Color( 0.52549, 0.52549, 0.52549, 1 )
-
 [node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
 pause_mode = 2
-motion_scale = Vector2( 0.5, 0.95 )
-motion_mirroring = Vector2( 1200, 0 )
+motion_scale = Vector2( 0.1, 0.95 )
+motion_mirroring = Vector2( 1280, 0 )
 script = ExtResource( 11 )
+speed = 35.0
+
+[node name="DayNightModulate" parent="ParallaxBackground/Clouds" instance=ExtResource( 15 )]
+night_color = Color( 0.294118, 0.501961, 0.792157, 1 )
 
 [node name="Pivot" type="Node2D" parent="ParallaxBackground/Clouds"]
 
-[node name="DayNightTween" parent="ParallaxBackground/Clouds/Pivot" instance=ExtResource( 15 )]
-day_trans_type = 5
-night_position = 500.0
-
 [node name="Cloud5" parent="ParallaxBackground/Clouds/Pivot" instance=ExtResource( 24 )]
-position = Vector2( 481, -25 )
+position = Vector2( 685, -70 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="Cloud3" parent="ParallaxBackground/Clouds/Pivot" instance=ExtResource( 23 )]
-position = Vector2( 81, -48 )
+position = Vector2( 67, -15 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="Clouds2" type="ParallaxLayer" parent="ParallaxBackground"]
 pause_mode = 2
-motion_scale = Vector2( 0.5, 0.95 )
-motion_mirroring = Vector2( 1200, 0 )
+motion_scale = Vector2( 0.1, 0.95 )
+motion_mirroring = Vector2( 1280, 0 )
 script = ExtResource( 11 )
 speed = 30.0
 
+[node name="DayNightModulate" parent="ParallaxBackground/Clouds2" instance=ExtResource( 15 )]
+night_color = Color( 0.294118, 0.501961, 0.792157, 1 )
+
 [node name="Pivot" type="Node2D" parent="ParallaxBackground/Clouds2"]
 
-[node name="DayNightTween" parent="ParallaxBackground/Clouds2/Pivot" instance=ExtResource( 15 )]
-day_trans_type = 5
-night_position = 500.0
-
 [node name="Cloud5" parent="ParallaxBackground/Clouds2/Pivot" instance=ExtResource( 16 )]
-position = Vector2( 205, -114 )
+position = Vector2( 288, -110 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="Cloud3" parent="ParallaxBackground/Clouds2/Pivot" instance=ExtResource( 23 )]
-position = Vector2( 823, -8.99999 )
+position = Vector2( 1040, -95 )
 scale = Vector2( 0.7, 0.7 )
 
-[node name="BuildingsBg" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.28, 0.98 )
-motion_mirroring = Vector2( 1715, 0 )
+[node name="Ground" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.2, 0.85 )
+motion_mirroring = Vector2( 1800, 0 )
 
-[node name="CityBg2" type="Sprite" parent="ParallaxBackground/BuildingsBg"]
-modulate = Color( 0.52549, 0.505882, 0.533333, 1 )
-position = Vector2( 1311, 53 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 17 )
+[node name="RainbowSolo" parent="ParallaxBackground/Ground" instance=ExtResource( 30 )]
+position = Vector2( 259, 501 )
 
-[node name="CityBg" type="Sprite" parent="ParallaxBackground/BuildingsBg"]
-modulate = Color( 0.392157, 0.388235, 0.396078, 1 )
-position = Vector2( 475.4, -74.8 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 7 )
+[node name="GrassPivot" type="Node2D" parent="ParallaxBackground/Ground"]
+position = Vector2( 0, -35 )
 
-[node name="DayNightModulate" parent="ParallaxBackground/BuildingsBg" instance=ExtResource( 12 )]
-position = Vector2( 22, 78 )
-scale = Vector2( 1, 1.292 )
-night_color = Color( 0.4914, 0.4914, 0.78, 1 )
+[node name="BgFill" type="Polygon2D" parent="ParallaxBackground/Ground/GrassPivot"]
+light_mask = 5
+position = Vector2( -1, -18.5 )
+color = Color( 0.760784, 0.827451, 0.407843, 1 )
+polygon = PoolVector2Array( -16, 145, 4, 146, 110, 158.5, 174, 166, 250, 166.5, 319, 169.5, 437, 176.5, 490, 179.5, 558, 169.5, 619, 168.5, 712, 176.5, 754, 187.5, 788, 191.5, 874, 182.5, 945, 176.5, 977, 177.5, 1029, 175.5, 1107, 170, 1346, 181.5, 1491, 169.5, 1614, 144.5, 1698, 140.5, 1790, 145.5, 1791, 347.5, -16, 342 )
 
-[node name="BuildingsBg3" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.31, 0.95 )
-motion_mirroring = Vector2( 1200, 0 )
+[node name="BgLine1" type="Sprite" parent="ParallaxBackground/Ground/GrassPivot"]
+self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
+position = Vector2( 884, 145.5 )
+scale = Vector2( 1.2849, 1 )
+texture = ExtResource( 28 )
 
-[node name="CityBg3" type="Sprite" parent="ParallaxBackground/BuildingsBg3"]
-modulate = Color( 0.2673, 0.2646, 0.27, 1 )
-position = Vector2( 822.45, 135.6 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 18 )
+[node name="Tree5" type="Sprite" parent="ParallaxBackground/Ground"]
+light_mask = 4
+position = Vector2( 339.1, 111 )
+scale = Vector2( 0.15, 0.15 )
+texture = SubResource( 36 )
 
-[node name="CityBg4" type="Sprite" parent="ParallaxBackground/BuildingsBg3"]
-modulate = Color( 0.2673, 0.2646, 0.27, 1 )
-position = Vector2( 265.2, 138.35 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 18 )
+[node name="Tree6" type="Sprite" parent="ParallaxBackground/Ground"]
+light_mask = 4
+position = Vector2( 409.3, 109.725 )
+scale = Vector2( 0.15, 0.15 )
+texture = SubResource( 36 )
 
-[node name="DayNightModulate" parent="ParallaxBackground/BuildingsBg3" instance=ExtResource( 12 )]
-position = Vector2( 22, 78 )
-scale = Vector2( 1, 1.292 )
-night_color = Color( 0.4914, 0.4914, 0.78, 1 )
+[node name="Tree7" type="Sprite" parent="ParallaxBackground/Ground"]
+light_mask = 4
+position = Vector2( 549.4, 109.375 )
+scale = Vector2( 0.15, 0.15 )
+texture = SubResource( 36 )
 
-[node name="BuildingsBg2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.37, 0.91 )
-motion_mirroring = Vector2( 2100, 0 )
+[node name="Tree8" type="Sprite" parent="ParallaxBackground/Ground"]
+light_mask = 4
+position = Vector2( 429.1, 112.125 )
+scale = Vector2( 0.15, 0.15 )
+texture = SubResource( 36 )
 
-[node name="CityBg2" type="Sprite" parent="ParallaxBackground/BuildingsBg2"]
-modulate = Color( 0.721569, 0.709804, 0.72549, 1 )
-position = Vector2( 309.25, 44.25 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 17 )
+[node name="Tree1" type="Sprite" parent="ParallaxBackground/Ground"]
+light_mask = 4
+position = Vector2( 39.8, 97.5 )
+scale = Vector2( 0.2, 0.2 )
+texture = SubResource( 36 )
 
-[node name="CityBg4" type="Sprite" parent="ParallaxBackground/BuildingsBg2"]
-modulate = Color( 0.4732, 0.456, 0.48, 1 )
-position = Vector2( 1078, 88 )
+[node name="Tree3" type="Sprite" parent="ParallaxBackground/Ground"]
+light_mask = 4
+position = Vector2( 390.3, 93.25 )
+scale = Vector2( 0.2, 0.2 )
+texture = SubResource( 36 )
+
+[node name="Tree4" type="Sprite" parent="ParallaxBackground/Ground"]
+light_mask = 4
+position = Vector2( 1090.8, 91.5 )
+scale = Vector2( 0.2, 0.2 )
+texture = SubResource( 36 )
+
+[node name="Tree2" type="Sprite" parent="ParallaxBackground/Ground"]
+light_mask = 4
+position = Vector2( 489.3, 105.25 )
+scale = Vector2( 0.2, 0.2 )
+texture = SubResource( 36 )
+
+[node name="Ground2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.4, 0.92 )
+motion_mirroring = Vector2( 1400, 0 )
+
+[node name="GrassPivot" type="Node2D" parent="ParallaxBackground/Ground2"]
+position = Vector2( 78, -25 )
+
+[node name="BgFill" type="Polygon2D" parent="ParallaxBackground/Ground2/GrassPivot"]
+self_modulate = Color( 0.79, 0.79, 0.79, 1 )
+light_mask = 5
+color = Color( 0.929412, 0.882353, 0.619608, 1 )
+polygon = PoolVector2Array( -177, 237, -35, 210, 127, 201, 236, 189, 368, 201, 421, 197, 528, 197, 647, 173, 745, 173, 1130, 217, 1201, 236, 1216, 238, 1226, 237, 1223, 332, -181, 345 )
+
+[node name="BgLine2" type="Sprite" parent="ParallaxBackground/Ground2/GrassPivot"]
+self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
+position = Vector2( 525, 205 )
+texture = ExtResource( 13 )
+
+[node name="Tree3" type="Sprite" parent="ParallaxBackground/Ground2"]
+light_mask = 5
+position = Vector2( 263, 166 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 19 )
+texture = SubResource( 37 )
 
-[node name="CityBg5" type="Sprite" parent="ParallaxBackground/BuildingsBg2"]
-modulate = Color( 0.47451, 0.454902, 0.478431, 1 )
-position = Vector2( 1691, 93 )
+[node name="Tree4" type="Sprite" parent="ParallaxBackground/Ground2"]
+light_mask = 5
+position = Vector2( 1002, 159 )
 scale = Vector2( 0.3, 0.3 )
+texture = SubResource( 37 )
+
+[node name="Ground3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( -68, 65 )
+motion_scale = Vector2( 0.95, 1 )
+motion_mirroring = Vector2( 2800, 0 )
+
+[node name="GrassPivot2" type="Node2D" parent="ParallaxBackground/Ground3"]
+position = Vector2( -25, 158 )
+
+[node name="Ground" type="MeshInstance2D" parent="ParallaxBackground/Ground3/GrassPivot2"]
+modulate = Color( 0.541176, 0.690196, 0.376471, 1 )
+scale = Vector2( 2.00286, 1.292 )
+mesh = SubResource( 35 )
 texture = ExtResource( 5 )
 
-[node name="DayNightModulate" parent="ParallaxBackground/BuildingsBg2" instance=ExtResource( 12 )]
-position = Vector2( 22, 78 )
-scale = Vector2( 1, 1.292 )
-night_color = Color( 0.4914, 0.4914, 0.78, 1 )
+[node name="FgLine1" type="MeshInstance2D" parent="ParallaxBackground/Ground3/GrassPivot2"]
+self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
+position = Vector2( -45, 16 )
+scale = Vector2( 1.19243, 1 )
+mesh = SubResource( 34 )
+texture = ExtResource( 26 )
+
+[node name="FgLine2" type="MeshInstance2D" parent="ParallaxBackground/Ground3/GrassPivot2"]
+self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
+position = Vector2( 677, 16 )
+scale = Vector2( 1.14145, 1 )
+mesh = SubResource( 34 )
+texture = ExtResource( 26 )
+
+[node name="FgLine3" type="MeshInstance2D" parent="ParallaxBackground/Ground3/GrassPivot2"]
+self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
+position = Vector2( 1350, 16 )
+scale = Vector2( 1.19243, 1 )
+mesh = SubResource( 34 )
+texture = ExtResource( 26 )
+
+[node name="FgLine4" type="MeshInstance2D" parent="ParallaxBackground/Ground3/GrassPivot2"]
+self_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
+position = Vector2( 2072, 16 )
+scale = Vector2( 1.14145, 1 )
+mesh = SubResource( 34 )
+texture = ExtResource( 26 )
+
+[node name="Trees" type="YSort" parent="ParallaxBackground/Ground3"]
+
+[node name="Tree4" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+light_mask = 5
+position = Vector2( 2261.2, 108 )
+scale = Vector2( 0.25, 0.25 )
+texture = SubResource( 37 )
+
+[node name="Tree5" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+self_modulate = Color( 0.88, 0.88, 0.88, 1 )
+light_mask = 5
+position = Vector2( 2424, 103 )
+scale = Vector2( 0.31, 0.31 )
+texture = SubResource( 37 )
+
+[node name="Tree6" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+self_modulate = Color( 0.97, 0.962725, 0.9215, 1 )
+light_mask = 5
+position = Vector2( 2591, 140 )
+scale = Vector2( 0.3, 0.3 )
+texture = SubResource( 37 )
+
+[node name="Tree7" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+light_mask = 5
+position = Vector2( 2267.2, 154.75 )
+scale = Vector2( 0.25, 0.25 )
+texture = SubResource( 37 )
+
+[node name="Tree8" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+light_mask = 5
+position = Vector2( 2216.2, 125.75 )
+scale = Vector2( 0.31, 0.31 )
+texture = SubResource( 37 )
+
+[node name="Tree9" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+light_mask = 5
+position = Vector2( 2180.2, 129.75 )
+scale = Vector2( 0.3, 0.3 )
+texture = SubResource( 37 )
+
+[node name="Tree10" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+light_mask = 5
+position = Vector2( 2529.2, 137.75 )
+scale = Vector2( 0.31, 0.31 )
+texture = SubResource( 37 )
+
+[node name="Tree11" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+light_mask = 5
+position = Vector2( 2135.2, 142.75 )
+scale = Vector2( 0.25, 0.25 )
+texture = SubResource( 37 )
+
+[node name="Tree12" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+light_mask = 5
+position = Vector2( 2338.2, 146.75 )
+scale = Vector2( 0.3, 0.3 )
+texture = SubResource( 37 )
+
+[node name="Tree22" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+light_mask = 5
+position = Vector2( 2267.2, 154.75 )
+scale = Vector2( 0.31, 0.31 )
+texture = SubResource( 37 )
+
+[node name="Tree24" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+self_modulate = Color( 0.88, 0.88, 0.88, 1 )
+light_mask = 5
+position = Vector2( 2180.2, 129.75 )
+scale = Vector2( 0.3, 0.3 )
+texture = SubResource( 37 )
+
+[node name="Tree25" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+light_mask = 5
+position = Vector2( 2529.2, 137.75 )
+scale = Vector2( 0.31, 0.31 )
+texture = SubResource( 37 )
+
+[node name="Tree26" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+light_mask = 5
+position = Vector2( 2135.2, 142.75 )
+scale = Vector2( 0.25, 0.25 )
+texture = SubResource( 37 )
+
+[node name="Tree27" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+self_modulate = Color( 0.97, 0.962725, 0.9215, 1 )
+light_mask = 5
+position = Vector2( 2338.2, 146.75 )
+scale = Vector2( 0.3, 0.3 )
+texture = SubResource( 37 )
+
+[node name="Tree13" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+self_modulate = Color( 0.97, 0.962725, 0.9215, 1 )
+light_mask = 5
+position = Vector2( 2470, 132 )
+scale = Vector2( 0.31, 0.31 )
+texture = SubResource( 37 )
+
+[node name="Tree15" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+self_modulate = Color( 0.88, 0.88, 0.88, 1 )
+light_mask = 5
+position = Vector2( 2533.4, 110.75 )
+scale = Vector2( 0.3, 0.3 )
+texture = SubResource( 37 )
+
+[node name="Tree17" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+light_mask = 5
+position = Vector2( 2363, 116 )
+scale = Vector2( 0.3, 0.3 )
+texture = SubResource( 37 )
+
+[node name="Tree18" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+self_modulate = Color( 0.88, 0.88, 0.88, 1 )
+light_mask = 5
+position = Vector2( 2297, 117 )
+scale = Vector2( 0.25, 0.25 )
+texture = SubResource( 37 )
+
+[node name="Tree19" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+self_modulate = Color( 0.97, 0.962725, 0.9215, 1 )
+light_mask = 5
+position = Vector2( 2647.4, 110.75 )
+scale = Vector2( 0.31, 0.31 )
+texture = SubResource( 37 )
+
+[node name="Tree20" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+self_modulate = Color( 0.97, 0.962725, 0.9215, 1 )
+light_mask = 5
+position = Vector2( 2253.4, 115.75 )
+scale = Vector2( 0.3, 0.3 )
+texture = SubResource( 37 )
+
+[node name="Tree21" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+light_mask = 5
+position = Vector2( 2408, 155 )
+scale = Vector2( 0.31, 0.31 )
+texture = SubResource( 37 )
+
+[node name="House" type="Sprite" parent="ParallaxBackground/Ground3"]
+position = Vector2( 465, 6 )
+texture = ExtResource( 17 )
+
+[node name="House1" type="Sprite" parent="ParallaxBackground/Ground3"]
+position = Vector2( 1669, 41 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 18 )
+
+[node name="Pavement" type="Sprite" parent="ParallaxBackground/Ground3"]
+position = Vector2( 180, 283 )
+scale = Vector2( 2.12403, 0.495975 )
+texture = ExtResource( 19 )
+offset = Vector2( 219.728, 0.0541992 )
+
+[node name="Pavement2" type="Sprite" parent="ParallaxBackground/Ground3"]
+position = Vector2( 115, 482 )
+scale = Vector2( 2.12403, 0.495975 )
+texture = ExtResource( 19 )
+offset = Vector2( 219.728, 0.0541992 )
+
+[node name="Pavement3" type="Sprite" parent="ParallaxBackground/Ground3"]
+position = Vector2( 1573.59, 282.964 )
+scale = Vector2( 2.12403, 0.495975 )
+texture = ExtResource( 19 )
+offset = Vector2( 219.728, 0.0541992 )
+
+[node name="Pavement4" type="Sprite" parent="ParallaxBackground/Ground3"]
+position = Vector2( 1508.59, 481.964 )
+scale = Vector2( 2.12403, 0.495975 )
+texture = ExtResource( 19 )
+offset = Vector2( 219.728, 0.0541992 )
+
+[node name="Flowers4" type="Node2D" parent="ParallaxBackground/Ground3"]
+material = SubResource( 33 )
+position = Vector2( 551, 173 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Flower1Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
+use_parent_material = true
+position = Vector2( 46, 16 )
+texture = ExtResource( 6 )
+
+[node name="Flower1Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
+use_parent_material = true
+position = Vector2( -692, -12 )
+texture = ExtResource( 7 )
+
+[node name="Flower1Yellow" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
+use_parent_material = true
+position = Vector2( -426, -4 )
+texture = ExtResource( 8 )
+
+[node name="Flower2Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
+use_parent_material = true
+position = Vector2( -576, -18 )
+texture = ExtResource( 9 )
+
+[node name="Flower2Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
+use_parent_material = true
+position = Vector2( 80, 0 )
+texture = ExtResource( 12 )
+
+[node name="Flower2Red2" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
+use_parent_material = true
+position = Vector2( 86, 24 )
+texture = ExtResource( 12 )
+
+[node name="Flower2Blue3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
+use_parent_material = true
+position = Vector2( 42, 54 )
+texture = ExtResource( 10 )
+
+[node name="Flower2Red3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
+use_parent_material = true
+position = Vector2( -470, 6 )
+texture = ExtResource( 12 )
+
+[node name="Flowers2" type="Node2D" parent="ParallaxBackground/Ground3"]
+material = SubResource( 32 )
+position = Vector2( 112, 167 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Flower1Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( -71.4286, 35.7143 )
+texture = ExtResource( 6 )
+
+[node name="Flower1Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 92.8571, 37.1429 )
+texture = ExtResource( 7 )
+
+[node name="Flower1Yellow" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 344.286, 37.1429 )
+texture = ExtResource( 8 )
+
+[node name="Flower1Red2" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 714.286, 51.4286 )
+texture = ExtResource( 7 )
+
+[node name="Flower1Yellow2" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 190, 51.4286 )
+texture = ExtResource( 8 )
+
+[node name="Flower1Red3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 821.428, 24.2857 )
+texture = ExtResource( 7 )
+
+[node name="Flower1Yellow3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( -152.857, 11.4286 )
+texture = ExtResource( 8 )
+
+[node name="Flower1Red4" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 757.143, 42.8571 )
+texture = ExtResource( 7 )
+
+[node name="Flower1Yellow4" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 882.857, 25.7143 )
+texture = ExtResource( 8 )
+
+[node name="Flower2Blue" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 924.286, 27.1429 )
+texture = ExtResource( 10 )
+
+[node name="Flower2Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+position = Vector2( 74.2857, 8.57141 )
+texture = ExtResource( 9 )
+
+[node name="Flower2Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers2"]
+use_parent_material = true
+texture = ExtResource( 12 )
+
+[node name="Flowers3" type="Node2D" parent="ParallaxBackground/Ground3"]
+material = SubResource( 33 )
+position = Vector2( 370, 168 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Flower1Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
+use_parent_material = true
+position = Vector2( 597.143, 27.1429 )
+texture = ExtResource( 6 )
+
+[node name="Flower1Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
+use_parent_material = true
+position = Vector2( 500, 54.2857 )
+texture = ExtResource( 7 )
+
+[node name="Flower1Yellow" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
+use_parent_material = true
+position = Vector2( 310, 61.4286 )
+texture = ExtResource( 8 )
+
+[node name="Flower2Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
+use_parent_material = true
+position = Vector2( -320, 58.5714 )
+texture = ExtResource( 9 )
+
+[node name="Flower2Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
+use_parent_material = true
+position = Vector2( -235.714, 41.4286 )
+texture = ExtResource( 12 )
+
+[node name="Flower2Red2" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
+use_parent_material = true
+position = Vector2( 1272.86, 32.8571 )
+texture = ExtResource( 12 )
+
+[node name="Flower2Blue3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
+use_parent_material = true
+position = Vector2( 1311.43, 50 )
+texture = ExtResource( 10 )
+
+[node name="Flower2Red3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers3"]
+use_parent_material = true
+position = Vector2( -477.143, 48.5714 )
+texture = ExtResource( 12 )
+
+[node name="Flowers5" type="Node2D" parent="ParallaxBackground/Ground3"]
+material = SubResource( 33 )
+position = Vector2( 1669, 131 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Flower1Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers5"]
+use_parent_material = true
+position = Vector2( 324.286, 50 )
+texture = ExtResource( 6 )
+
+[node name="Flower1Yellow" type="Sprite" parent="ParallaxBackground/Ground3/Flowers5"]
+use_parent_material = true
+position = Vector2( 310, 61.4286 )
+texture = ExtResource( 8 )
+
+[node name="Flower2Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers5"]
+use_parent_material = true
+position = Vector2( -320, 58.5714 )
+texture = ExtResource( 9 )
+
+[node name="Flower2Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers5"]
+use_parent_material = true
+position = Vector2( -235.714, 41.4286 )
+texture = ExtResource( 12 )
+
+[node name="Flower2Red2" type="Sprite" parent="ParallaxBackground/Ground3/Flowers5"]
+use_parent_material = true
+position = Vector2( 330, 74.2857 )
+texture = ExtResource( 12 )
+
+[node name="Flower2Blue3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers5"]
+use_parent_material = true
+position = Vector2( 264.285, 54.2857 )
+texture = ExtResource( 10 )
+
+[node name="Flower2Red3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers5"]
+use_parent_material = true
+position = Vector2( -477.143, 48.5714 )
+texture = ExtResource( 12 )
+
+[node name="Flowers6" type="Node2D" parent="ParallaxBackground/Ground3"]
+material = SubResource( 32 )
+position = Vector2( 1379, 174 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Flower1Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers6"]
+use_parent_material = true
+position = Vector2( -71.4286, 35.7143 )
+texture = ExtResource( 6 )
+
+[node name="Flower1Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers6"]
+use_parent_material = true
+position = Vector2( 130, 32.8572 )
+texture = ExtResource( 7 )
+
+[node name="Flower1Yellow" type="Sprite" parent="ParallaxBackground/Ground3/Flowers6"]
+use_parent_material = true
+position = Vector2( 344.286, 37.1429 )
+texture = ExtResource( 8 )
+
+[node name="Flower1Red2" type="Sprite" parent="ParallaxBackground/Ground3/Flowers6"]
+use_parent_material = true
+position = Vector2( 714.286, 51.4286 )
+texture = ExtResource( 7 )
+
+[node name="Flower1Yellow2" type="Sprite" parent="ParallaxBackground/Ground3/Flowers6"]
+use_parent_material = true
+position = Vector2( 190, 51.4286 )
+texture = ExtResource( 8 )
+
+[node name="Flower1Red3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers6"]
+use_parent_material = true
+position = Vector2( 821.428, 24.2857 )
+texture = ExtResource( 7 )
+
+[node name="Flower1Yellow3" type="Sprite" parent="ParallaxBackground/Ground3/Flowers6"]
+use_parent_material = true
+position = Vector2( -152.857, 11.4286 )
+texture = ExtResource( 8 )
+
+[node name="Flower1Yellow4" type="Sprite" parent="ParallaxBackground/Ground3/Flowers6"]
+use_parent_material = true
+position = Vector2( 882.857, 25.7143 )
+texture = ExtResource( 8 )
+
+[node name="Flower2Blue" type="Sprite" parent="ParallaxBackground/Ground3/Flowers6"]
+use_parent_material = true
+position = Vector2( 924.286, 27.1429 )
+texture = ExtResource( 10 )
+
+[node name="Flower2Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers6"]
+use_parent_material = true
+texture = ExtResource( 12 )
 
 [node name="RoadParallax" type="ParallaxBackground" parent="."]
 layer = -1
 
-[node name="CanvasModulate" type="CanvasModulate" parent="RoadParallax"]
-z_index = 10
-
-[node name="Buildings" type="ParallaxLayer" parent="RoadParallax"]
-motion_scale = Vector2( 0.95, 1 )
-motion_mirroring = Vector2( 2250, 0 )
-
-[node name="ColorRect" type="ColorRect" parent="RoadParallax/Buildings"]
-margin_top = 281.0
-margin_right = 2350.0
-margin_bottom = 881.0
-color = Color( 0.62, 0.6138, 0.6076, 1 )
-
-[node name="City1" type="Sprite" parent="RoadParallax/Buildings"]
-position = Vector2( 364, 34 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 28 )
-
-[node name="City2" type="Sprite" parent="RoadParallax/Buildings"]
-position = Vector2( 1167, 38 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 27 )
-
-[node name="City3" type="Sprite" parent="RoadParallax/Buildings"]
-position = Vector2( 1884, 140 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 26 )
-
-[node name="windows" type="Node2D" parent="RoadParallax/Buildings"]
-
-[node name="City1_windows" type="Sprite" parent="RoadParallax/Buildings/windows"]
-position = Vector2( 326, 25 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 29 )
-
-[node name="City2_windows" type="Sprite" parent="RoadParallax/Buildings/windows"]
-position = Vector2( 1132, 101 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 31 )
-
-[node name="City3_windows" type="Sprite" parent="RoadParallax/Buildings/windows"]
-position = Vector2( 1891, 180 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 30 )
-
-[node name="DayNightModulate" parent="RoadParallax/Buildings/windows" instance=ExtResource( 12 )]
-position = Vector2( -1200, -484 )
-day_color = Color( 0.294118, 0.501961, 0.792157, 1 )
-night_color = Color( 2, 2, 0, 1 )
-
 [node name="Road" type="ParallaxLayer" parent="RoadParallax"]
 position = Vector2( -4, -4 )
-motion_mirroring = Vector2( 1260, 0 )
-
-[node name="Tree1" type="Sprite" parent="RoadParallax/Road"]
-position = Vector2( 301, 202 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 20 )
-
-[node name="Tree2" type="Sprite" parent="RoadParallax/Road"]
-position = Vector2( 1247, 219 )
-scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 20 )
-
-[node name="Tree3" type="Sprite" parent="RoadParallax/Road"]
-position = Vector2( 878, 202 )
-scale = Vector2( 0.55, 0.55 )
-texture = ExtResource( 20 )
-
-[node name="Tree4" type="Sprite" parent="RoadParallax/Road"]
-position = Vector2( 431, 191 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 20 )
+motion_mirroring = Vector2( 1510, 0 )
 
 [node name="Road1" type="Node2D" parent="RoadParallax/Road"]
-position = Vector2( 80, 442 )
+position = Vector2( 0, 450 )
+scale = Vector2( 1.2, 1 )
 
 [node name="RoadFill" type="Sprite" parent="RoadParallax/Road/Road1"]
 light_mask = 5
-position = Vector2( 53, 2 )
+position = Vector2( 154, 0 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
 [node name="RoadFill2" type="Sprite" parent="RoadParallax/Road/Road1"]
 light_mask = 5
-position = Vector2( 993.5, 2 )
+position = Vector2( 1094.5, 0 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
 [node name="RoadFill3" type="Sprite" parent="RoadParallax/Road/Road1"]
 light_mask = 5
-position = Vector2( 687.5, 2 )
+position = Vector2( 788.5, 0 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
 [node name="RoadFill4" type="Sprite" parent="RoadParallax/Road/Road1"]
 light_mask = 5
-position = Vector2( 371.5, 2 )
+position = Vector2( 472.5, 0 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
 [node name="RoadOutline" type="Sprite" parent="RoadParallax/Road/Road1"]
 light_mask = 5
-position = Vector2( 53, 0 )
+position = Vector2( 154, 0 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
 [node name="RoadOutline2" type="Sprite" parent="RoadParallax/Road/Road1"]
 light_mask = 5
-position = Vector2( 999, 0 )
+position = Vector2( 1100, 0 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
 [node name="RoadOutline3" type="Sprite" parent="RoadParallax/Road/Road1"]
 light_mask = 5
-position = Vector2( 684, 0 )
+position = Vector2( 785, 0 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
 [node name="RoadOutline4" type="Sprite" parent="RoadParallax/Road/Road1"]
 light_mask = 5
-position = Vector2( 368, 0 )
+position = Vector2( 469, 0 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
+[node name="CanvasModulate" type="CanvasModulate" parent="RoadParallax"]
+
 [node name="Actors" type="YSort" parent="."]
+
+[node name="Pedestrians" type="YSort" parent="Actors"]
+
+[node name="Pedestrian" parent="Actors/Pedestrians" instance=ExtResource( 33 )]
+position = Vector2( 348, 342 )
+can_discover = false
+
+[node name="Pedestrian2" parent="Actors/Pedestrians" instance=ExtResource( 33 )]
+position = Vector2( 760, 353 )
+can_discover = false
+
+[node name="Pedestrian3" parent="Actors/Pedestrians" instance=ExtResource( 33 )]
+position = Vector2( -969, 550 )
+can_discover = false
+
+[node name="Pedestrian4" parent="Actors/Pedestrians" instance=ExtResource( 33 )]
+position = Vector2( 1194, 353 )
+can_discover = false
+
+[node name="Pedestrian5" parent="Actors/Pedestrians" instance=ExtResource( 33 )]
+position = Vector2( 1692, 344 )
+can_discover = false
+
+[node name="Pedestrian7" parent="Actors/Pedestrians" instance=ExtResource( 33 )]
+position = Vector2( 1535, 552 )
+can_discover = false
+
+[node name="Pedestrian8" parent="Actors/Pedestrians" instance=ExtResource( 33 )]
+position = Vector2( 749, 537 )
+can_discover = false
+
+[node name="Pedestrian9" parent="Actors/Pedestrians" instance=ExtResource( 33 )]
+position = Vector2( -401, 533 )
+can_discover = false
+
+[node name="Pedestrian10" parent="Actors/Pedestrians" instance=ExtResource( 33 )]
+position = Vector2( -628, 337 )
+can_discover = false
+
+[node name="Pedestrian6" parent="Actors/Pedestrians" instance=ExtResource( 33 )]
+position = Vector2( -1571, 357 )
+can_discover = false
 
 [node name="Player" parent="Actors" instance=ExtResource( 2 )]
 position = Vector2( 0, 440 )
 camera_y_offset = -200.0
 
+[node name="CatsToRescue" type="YSort" parent="Actors"]
+
+[node name="Cat2" parent="Actors/CatsToRescue" instance=ExtResource( 20 )]
+position = Vector2( 1087, 308 )
+
+[node name="Cat3" parent="Actors/CatsToRescue" instance=ExtResource( 20 )]
+position = Vector2( -328, 499 )
+
+[node name="Cat4" parent="Actors/CatsToRescue" instance=ExtResource( 20 )]
+position = Vector2( -1355, 379 )
+
+[node name="ForegroundParallax" type="ParallaxBackground" parent="."]
+layer = 50
+
+[node name="CanvasModulate" type="CanvasModulate" parent="ForegroundParallax"]
+
+[node name="Rain" type="ParallaxLayer" parent="ForegroundParallax"]
+motion_mirroring = Vector2( 1280, 0 )
+
+[node name="Rain" type="Particles2D" parent="ForegroundParallax/Rain"]
+modulate = Color( 1, 1, 1, 0.5 )
+position = Vector2( 650, -314 )
+emitting = false
+amount = 250
+lifetime = 0.9
+visibility_rect = Rect2( -500, -500, 1000, 1000 )
+process_material = SubResource( 38 )
+texture = ExtResource( 27 )
+
+[node name="RainSplash" type="Particles2D" parent="ForegroundParallax/Rain"]
+position = Vector2( 642, 459 )
+emitting = false
+amount = 50
+lifetime = 0.4
+randomness = 0.83
+visibility_rect = Rect2( -500, -500, 1000, 1000 )
+process_material = SubResource( 41 )
+texture = ExtResource( 29 )
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
 
 [node name="PauseParallax" parent="." instance=ExtResource( 21 )]
+layer = 51
 
 [node name="EnterTweener" type="Node" parent="."]
 script = ExtResource( 22 )
@@ -484,3 +970,24 @@ pause_mode = 2
 stream = ExtResource( 25 )
 autoplay = true
 bus = "Background"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="CarSpawnTimer" type="Timer" parent="."]
+wait_time = 5.61
+autostart = true
+
+[node name="WeatherTimer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="CarSpawnTimer" to="." method="_on_CarSpawnTimer_timeout"]
+[connection signal="timeout" from="WeatherTimer" to="." method="_on_WeatherTimer_timeout"]

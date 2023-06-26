@@ -553,7 +553,7 @@ environment = SubResource( 1 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 5 )
-volume_db = 10.405
+volume_db = 10.0
 autoplay = true
 bus = "Background"
 
@@ -563,6 +563,7 @@ node_paths = [ NodePath("../Collectables"), NodePath("../ParallaxBackground/Star
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 100
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0

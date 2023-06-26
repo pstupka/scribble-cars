@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://source/scenes/props/rainbow.gd" type="Script" id=1]
+[ext_resource path="res://source/utils/day_night_utils/day_night_tween.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/sprites/rainbow_solo.png" type="Texture" id=3]
+
+[node name="Rainbow" type="Sprite"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+script = ExtResource( 1 )
+
+[node name="DayNightTween" parent="." instance=ExtResource( 2 )]
+day_position = 80.0
+night_position = 500.0
+
+[node name="RainbowTimer" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+
+[connection signal="timeout" from="RainbowTimer" to="." method="_on_RainbowTimer_timeout"]

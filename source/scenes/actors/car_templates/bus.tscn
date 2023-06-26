@@ -53,6 +53,30 @@ color_ramp = SubResource( 22 )
 
 [sub_resource type="Animation" id=16]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Bus/AnimationPivot:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Bus/ShadowPivot:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=17]
 resource_name = "jump"
@@ -171,7 +195,6 @@ centered = false
 
 [node name="AnimationPivot" type="Node2D" parent="."]
 position = Vector2( 0, 0.012 )
-scale = Vector2( 0.9, 1.1 )
 
 [node name="Sprites" type="Node2D" parent="AnimationPivot"]
 position = Vector2( 1.06396, -23.2806 )

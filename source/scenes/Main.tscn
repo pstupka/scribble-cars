@@ -56,13 +56,13 @@ load_path = "res://.import/tree1.png-1e3faf9e6f29f6130483ec280db52e2e.stex"
 offsets = PoolRealArray( 0, 0.206349, 0.957944 )
 colors = PoolColorArray( 1, 1, 1, 0.588235, 1, 1, 1, 0.266667, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=29]
+[sub_resource type="GradientTexture" id=32]
 gradient = SubResource( 25 )
 
 [sub_resource type="Curve" id=26]
 _data = [ Vector2( 0, 0.0477272 ), 0.0, 0.0, 0, 0, Vector2( 0.886792, 0.434091 ), 1.28026, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=30]
+[sub_resource type="CurveTexture" id=33]
 curve = SubResource( 26 )
 
 [sub_resource type="ParticlesMaterial" id=27]
@@ -74,9 +74,9 @@ initial_velocity = 20.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 damping = 10.17
-scale_curve = SubResource( 30 )
+scale_curve = SubResource( 33 )
 color = Color( 0.780392, 0.780392, 0.780392, 1 )
-color_ramp = SubResource( 29 )
+color_ramp = SubResource( 32 )
 
 [sub_resource type="Shader" id=31]
 code = "shader_type canvas_item;
@@ -523,7 +523,7 @@ texture = SubResource( 4 )
 
 [node name="Ground3" type="ParallaxLayer" parent="RoadParallax"]
 position = Vector2( -68, 65 )
-motion_scale = Vector2( 0.9, 0.95 )
+motion_scale = Vector2( 0.98, 0.95 )
 motion_mirroring = Vector2( 1400, 0 )
 
 [node name="DayNightModulate" parent="RoadParallax/Ground3" instance=ExtResource( 12 )]
@@ -975,9 +975,9 @@ object_time_offset = 0.05
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 100
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )

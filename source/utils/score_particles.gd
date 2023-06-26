@@ -10,11 +10,11 @@ func _ready() -> void:
 
 	var tween = create_tween()
 	
-	tween.tween_property(digit_0, "scale", Vector2(0.8, 0.8), 0.6)
+	tween.tween_property(digit_0, "scale", Vector2(1.6, 1.6), 0.6)
 	if Globals.score > 9: 
-		tween.parallel().tween_property(digit_1, "scale", Vector2(0.8, 0.8), 0.6)
-		digit_0.offset.x += 80
-		digit_1.offset.x -= 80
+		tween.parallel().tween_property(digit_1, "scale", Vector2(1.6, 1.6), 0.6)
+		digit_0.offset.x += 50
+		digit_1.offset.x -= 50
 	
 	tween.tween_property(digit_0, "modulate", Color("00ffffff"), 0.4).set_delay(0.2)
 	tween.parallel().tween_property(digit_1, "modulate", Color("00ffffff"), 0.4).set_delay(0.2)
