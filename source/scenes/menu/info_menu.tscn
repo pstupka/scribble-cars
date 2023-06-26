@@ -19,13 +19,13 @@ shader_param/apply = true
 
 [sub_resource type="DynamicFont" id=12]
 size = 64
-outline_size = 3
+outline_size = 9
 outline_color = Color( 0.129412, 0.129412, 0.137255, 1 )
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=13]
 size = 40
-outline_size = 3
+outline_size = 10
 outline_color = Color( 0.129412, 0.129412, 0.137255, 1 )
 font_data = ExtResource( 6 )
 
@@ -102,11 +102,13 @@ margin_left = 150.0
 margin_top = 100.0
 margin_right = 1120.0
 margin_bottom = 647.0
+mouse_filter = 2
 
 [node name="CreditsContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_right = 970.0
 margin_bottom = 411.0
 rect_pivot_offset = Vector2( -569, 16 )
+mouse_filter = 2
 size_flags_vertical = 3
 
 [node name="CreditsTitle" type="RichTextLabel" parent="MarginContainer/VBoxContainer/CreditsContainer"]
@@ -115,6 +117,7 @@ margin_right = 970.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 0, 50 )
 rect_clip_content = false
+mouse_filter = 2
 size_flags_horizontal = 3
 custom_fonts/bold_font = SubResource( 12 )
 custom_fonts/normal_font = SubResource( 13 )
@@ -176,19 +179,44 @@ Fonts
 > Little Things ( fontspace.com"
 scroll_active = false
 
-[node name="ControlsContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ControlsContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 visible = false
-margin_top = 177.0
+margin_top = 207.0
 margin_right = 970.0
-margin_bottom = 351.0
+margin_bottom = 411.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="ControlsTitle" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ControlsContainer"]
+margin_right = 970.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 3
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+bbcode_enabled = true
+bbcode_text = "[center][color=#ede19e][b]CONTROLS[/b][/color][/center]"
+meta_underlined = false
+text = "CONTROLS"
+scroll_active = false
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/ControlsContainer"]
+margin_top = 54.0
+margin_right = 970.0
+margin_bottom = 84.0
+custom_constants/separation = 30
+custom_styles/separator = SubResource( 14 )
+
 [node name="ControlsLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ControlsContainer"]
 unique_name_in_owner = true
+margin_top = 88.0
 margin_right = 970.0
-margin_bottom = 174.0
+margin_bottom = 204.0
 rect_clip_content = false
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/bold_font = SubResource( 10 )
@@ -229,15 +257,15 @@ margin_right = 970.0
 margin_bottom = 547.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CenterContainer"]
-margin_left = 375.0
-margin_right = 595.0
+margin_left = 379.0
+margin_right = 591.0
 margin_bottom = 108.0
 
 [node name="CreditsButton" type="TextureButton" parent="MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
 unique_name_in_owner = true
-margin_right = 108.0
+margin_right = 100.0
 margin_bottom = 108.0
-rect_min_size = Vector2( 108, 108 )
+rect_min_size = Vector2( 100, 100 )
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 10 )
 texture_focused = ExtResource( 10 )
@@ -246,8 +274,8 @@ stretch_mode = 5
 
 [node name="ControlsInfoButton" type="TextureButton" parent="MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
 unique_name_in_owner = true
-margin_left = 112.0
-margin_right = 220.0
+margin_left = 104.0
+margin_right = 212.0
 margin_bottom = 108.0
 rect_min_size = Vector2( 108, 108 )
 texture_normal = ExtResource( 7 )

@@ -523,7 +523,7 @@ texture = SubResource( 4 )
 
 [node name="Ground3" type="ParallaxLayer" parent="RoadParallax"]
 position = Vector2( -68, 65 )
-motion_scale = Vector2( 0.9, 0.95 )
+motion_scale = Vector2( 0.98, 0.95 )
 motion_mirroring = Vector2( 1400, 0 )
 
 [node name="DayNightModulate" parent="RoadParallax/Ground3" instance=ExtResource( 12 )]
@@ -975,9 +975,9 @@ object_time_offset = 0.05
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 100
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )

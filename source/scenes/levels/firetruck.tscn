@@ -389,6 +389,143 @@ scale = Vector2( 1.14145, 1 )
 mesh = SubResource( 34 )
 texture = ExtResource( 26 )
 
+[node name="Trees" type="YSort" parent="ParallaxBackground/Ground3"]
+
+[node name="Tree4" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+light_mask = 5
+position = Vector2( 2261.2, 108 )
+scale = Vector2( 0.25, 0.25 )
+texture = SubResource( 37 )
+
+[node name="Tree5" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+self_modulate = Color( 0.88, 0.88, 0.88, 1 )
+light_mask = 5
+position = Vector2( 2424, 103 )
+scale = Vector2( 0.31, 0.31 )
+texture = SubResource( 37 )
+
+[node name="Tree6" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+self_modulate = Color( 0.97, 0.962725, 0.9215, 1 )
+light_mask = 5
+position = Vector2( 2591, 140 )
+scale = Vector2( 0.3, 0.3 )
+texture = SubResource( 37 )
+
+[node name="Tree7" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+light_mask = 5
+position = Vector2( 2267.2, 154.75 )
+scale = Vector2( 0.25, 0.25 )
+texture = SubResource( 37 )
+
+[node name="Tree8" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+light_mask = 5
+position = Vector2( 2216.2, 125.75 )
+scale = Vector2( 0.31, 0.31 )
+texture = SubResource( 37 )
+
+[node name="Tree9" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+light_mask = 5
+position = Vector2( 2180.2, 129.75 )
+scale = Vector2( 0.3, 0.3 )
+texture = SubResource( 37 )
+
+[node name="Tree10" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+light_mask = 5
+position = Vector2( 2529.2, 137.75 )
+scale = Vector2( 0.31, 0.31 )
+texture = SubResource( 37 )
+
+[node name="Tree11" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+light_mask = 5
+position = Vector2( 2135.2, 142.75 )
+scale = Vector2( 0.25, 0.25 )
+texture = SubResource( 37 )
+
+[node name="Tree12" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+light_mask = 5
+position = Vector2( 2338.2, 146.75 )
+scale = Vector2( 0.3, 0.3 )
+texture = SubResource( 37 )
+
+[node name="Tree22" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+light_mask = 5
+position = Vector2( 2267.2, 154.75 )
+scale = Vector2( 0.31, 0.31 )
+texture = SubResource( 37 )
+
+[node name="Tree24" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+self_modulate = Color( 0.88, 0.88, 0.88, 1 )
+light_mask = 5
+position = Vector2( 2180.2, 129.75 )
+scale = Vector2( 0.3, 0.3 )
+texture = SubResource( 37 )
+
+[node name="Tree25" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+light_mask = 5
+position = Vector2( 2529.2, 137.75 )
+scale = Vector2( 0.31, 0.31 )
+texture = SubResource( 37 )
+
+[node name="Tree26" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+light_mask = 5
+position = Vector2( 2135.2, 142.75 )
+scale = Vector2( 0.25, 0.25 )
+texture = SubResource( 37 )
+
+[node name="Tree27" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+self_modulate = Color( 0.97, 0.962725, 0.9215, 1 )
+light_mask = 5
+position = Vector2( 2338.2, 146.75 )
+scale = Vector2( 0.3, 0.3 )
+texture = SubResource( 37 )
+
+[node name="Tree13" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+self_modulate = Color( 0.97, 0.962725, 0.9215, 1 )
+light_mask = 5
+position = Vector2( 2470, 132 )
+scale = Vector2( 0.31, 0.31 )
+texture = SubResource( 37 )
+
+[node name="Tree15" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+self_modulate = Color( 0.88, 0.88, 0.88, 1 )
+light_mask = 5
+position = Vector2( 2533.4, 110.75 )
+scale = Vector2( 0.3, 0.3 )
+texture = SubResource( 37 )
+
+[node name="Tree17" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+light_mask = 5
+position = Vector2( 2363, 116 )
+scale = Vector2( 0.3, 0.3 )
+texture = SubResource( 37 )
+
+[node name="Tree18" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+self_modulate = Color( 0.88, 0.88, 0.88, 1 )
+light_mask = 5
+position = Vector2( 2297, 117 )
+scale = Vector2( 0.25, 0.25 )
+texture = SubResource( 37 )
+
+[node name="Tree19" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+self_modulate = Color( 0.97, 0.962725, 0.9215, 1 )
+light_mask = 5
+position = Vector2( 2647.4, 110.75 )
+scale = Vector2( 0.31, 0.31 )
+texture = SubResource( 37 )
+
+[node name="Tree20" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+self_modulate = Color( 0.97, 0.962725, 0.9215, 1 )
+light_mask = 5
+position = Vector2( 2253.4, 115.75 )
+scale = Vector2( 0.3, 0.3 )
+texture = SubResource( 37 )
+
+[node name="Tree21" type="Sprite" parent="ParallaxBackground/Ground3/Trees"]
+light_mask = 5
+position = Vector2( 2408, 155 )
+scale = Vector2( 0.31, 0.31 )
+texture = SubResource( 37 )
+
 [node name="House" type="Sprite" parent="ParallaxBackground/Ground3"]
 position = Vector2( 465, 6 )
 texture = ExtResource( 17 )
@@ -822,6 +959,7 @@ texture = ExtResource( 29 )
 environment = SubResource( 1 )
 
 [node name="PauseParallax" parent="." instance=ExtResource( 21 )]
+layer = 51
 
 [node name="EnterTweener" type="Node" parent="."]
 script = ExtResource( 22 )
@@ -835,9 +973,9 @@ bus = "Background"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 100
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )

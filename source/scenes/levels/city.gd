@@ -13,6 +13,7 @@ export var scene_type = "city"
 
 
 func _ready() -> void:
+	$CanvasLayer.show()
 	randomize()
 	Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
 	$EnterTweener.connect("enter_tween_completed", self, "_on_enter_tween_completed")

@@ -13,6 +13,7 @@ onready var transition_color = $CanvasLayer/ColorRect
 export var scene_type = "space"
 
 func _ready() -> void:
+	$CanvasLayer.show()
 	for star in stars.get_children():
 		star.modulate = Color(randf(), 0.0, 0.0)
 		star.scale = star.scale * (randf() * 0.6 + 0.4)

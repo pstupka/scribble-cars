@@ -16,6 +16,7 @@ export var lanes_y_position = [410, 460]
 onready var random_car = preload("res://source/scenes/actors/random_car.tscn")
 
 func _ready():
+	$CanvasLayer.show()
 	randomize()
 	var _err = Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
 	_err = $EnterTweener.connect("enter_tween_completed", self, "_on_enter_tween_completed")

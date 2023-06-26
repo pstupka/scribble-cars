@@ -563,6 +563,7 @@ node_paths = [ NodePath("../Collectables"), NodePath("../ParallaxBackground/Star
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 100
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0

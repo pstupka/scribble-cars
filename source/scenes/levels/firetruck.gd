@@ -17,6 +17,7 @@ export var scene_type = "firetruck"
 var tween: SceneTreeTween = null
 
 func _ready() -> void:
+	$CanvasLayer.show()
 	randomize()
 	Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
 	$EnterTweener.connect("enter_tween_completed", self, "_on_enter_tween_completed")
@@ -30,8 +31,6 @@ func _ready() -> void:
 	get_tree().paused = false
 	$EnterTweener.apply_tween()
 	Globals.score = 0
-	
-
 
 
 func _on_CarSpawnTimer_timeout():

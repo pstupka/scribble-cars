@@ -26,7 +26,7 @@ var level_selection_scenes := [
 		"level": "res://source/scenes/levels/city.tscn"
 	},	
 	{
-		"scene": preload("res://source/scenes/menu/bg_scenes/city_scene.tscn"),
+		"scene": preload("res://source/scenes/menu/bg_scenes/firetruck_scene.tscn"),
 		"machine": preload("res://source/scenes/actors/car_templates/car_firetruck1.tscn"),
 		"level": "res://source/scenes/levels/firetruck.tscn"
 	},
@@ -38,10 +38,10 @@ onready var game_start_transition_rect = $GameStartTransitionRect
 onready var machine_pivot: Node2D = $MachinePivot
 var can_change_scene = true
 
+
 func _ready() -> void:
 	game_start_transition_rect.show()
 #	OS.set_window_maximized(true) # TODO: Make it on splash screen
-
 	Globals.daynight = Globals.DAY
 	
 	var tween = create_tween()
@@ -150,6 +150,7 @@ func _on_StartButton_pressed() -> void:
 
 
 func _on_InfoButton_pressed():
+	pik_sfx.play()
 	var info = load("res://source/scenes/menu/info_menu.tscn").instance()
 	add_child(info)
 	Events.connect("menu_overlay_freed", self, "set_buttons_focus", [true], CONNECT_ONESHOT)
@@ -157,6 +158,7 @@ func _on_InfoButton_pressed():
 
 
 func _on_SettingsButton_pressed():
+	pik_sfx.play()
 	var settings = load("res://source/scenes/menu/settings_menu.tscn").instance()
 	add_child(settings)
 	Events.connect("menu_overlay_freed", self, "set_buttons_focus", [true], CONNECT_ONESHOT)
