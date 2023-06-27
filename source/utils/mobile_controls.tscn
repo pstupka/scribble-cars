@@ -65,7 +65,7 @@ action = "move_down"
 position = Vector2( 1040, 480 )
 
 [node name="ButtonX" type="TouchScreenButton" parent="Buttons"]
-modulate = Color( 0.94902, 0.941176, 0.898039, 0.462745 )
+modulate = Color( 0.294118, 0.501961, 0.792157, 0.462745 )
 position = Vector2( -180, -60 )
 scale = Vector2( 1.5, 1.5 )
 normal = ExtResource( 6 )
@@ -73,25 +73,25 @@ pressed = ExtResource( 8 )
 action = "honk"
 
 [node name="ButtonY" type="TouchScreenButton" parent="Buttons"]
-modulate = Color( 0.94902, 0.941176, 0.898039, 0.462745 )
+modulate = Color( 0.929412, 0.882353, 0.619608, 0.462745 )
 position = Vector2( -60, -180 )
 scale = Vector2( 1.5, 1.5 )
 normal = ExtResource( 2 )
 pressed = ExtResource( 13 )
-action = "change_car"
+action = "jump"
 
 [node name="ButtonA" type="TouchScreenButton" parent="Buttons"]
-modulate = Color( 0.94902, 0.941176, 0.898039, 0.462745 )
-position = Vector2( 70, -60 )
+modulate = Color( 0.541176, 0.690196, 0.376471, 0.462745 )
+position = Vector2( -60, 70 )
 scale = Vector2( 1.5, 1.5 )
 normal = ExtResource( 16 )
 pressed = ExtResource( 14 )
 action = "lights"
 
 [node name="ButtonB" type="TouchScreenButton" parent="Buttons"]
-modulate = Color( 0.94902, 0.941176, 0.898039, 0.462745 )
-position = Vector2( -60, 70 )
+modulate = Color( 0.705882, 0.321569, 0.321569, 0.462745 )
+position = Vector2( 70, -60 )
 scale = Vector2( 1.5, 1.5 )
 normal = ExtResource( 1 )
 pressed = ExtResource( 5 )
-action = "jump"
+action = "change_car"

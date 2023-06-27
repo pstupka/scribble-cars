@@ -7,6 +7,7 @@ onready var sfx = $Sfx
 onready var jump_sfx = $JumpSfx
 onready var car_fill = $AnimationPivot/Sprites/CarFill
 onready var front_light_rays: Sprite = $AnimationPivot/FrontLight/FrontLightRays
+onready var shadow_pivot = $ShadowPivot
 
 
 export var speed := 150.0
@@ -54,10 +55,14 @@ func honk(random:bool = true) -> void:
 		Input.start_joy_vibration(0, 0.4, 0.0, 0.4)
 	if OS.get_name() == "Android" or OS.get_name() == "HTML5":
 		Input.vibrate_handheld(200)
-	tween.tween_property($AnimationPivot, "scale:y", 1.2, 0.15) 
-	tween.tween_property($AnimationPivot, "scale:y", 1.0, 0.15)
 	tween.tween_property($AnimationPivot, "scale:y", 1.2, 0.15)
+	tween.parallel().tween_property(shadow_pivot, "scale:y", 1.2, 0.15) 
 	tween.tween_property($AnimationPivot, "scale:y", 1.0, 0.15)
+	tween.parallel().tween_property(shadow_pivot, "scale:y", 1.0, 0.15)
+	tween.tween_property($AnimationPivot, "scale:y", 1.2, 0.15)
+	tween.parallel().tween_property(shadow_pivot, "scale:y", 1.2, 0.15)
+	tween.tween_property($AnimationPivot, "scale:y", 1.0, 0.15)
+	tween.parallel().tween_property(shadow_pivot, "scale:y", 1.0, 0.15)
 
 
 func set_color(new_color) -> void:

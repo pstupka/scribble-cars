@@ -326,6 +326,7 @@ stream = ExtResource( 5 )
 bus = "Sfx"
 
 [node name="PassengerDiscovery" type="Area2D" parent="." groups=["passengerDiscover"]]
+position = Vector2( 67, -2 )
 collision_layer = 64
 collision_mask = 0
 monitoring = false
@@ -342,6 +343,7 @@ collision_mask = 0
 monitoring = false
 
 [node name="PassengerEnterCollision" type="CollisionShape2D" parent="PassengerEnter"]
+position = Vector2( 9, 2 )
 shape = SubResource( 27 )
 disabled = true
 

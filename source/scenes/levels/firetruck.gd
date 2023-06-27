@@ -17,6 +17,7 @@ export var scene_type = "firetruck"
 var tween: SceneTreeTween = null
 
 func _ready() -> void:
+
 	$CanvasLayer.show()
 	randomize()
 	Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
@@ -28,7 +29,7 @@ func _ready() -> void:
 	tween.tween_callback(transition_color, "call_deferred", ["queue_free"])
 
 	yield(get_tree().create_timer(0.3),"timeout")
-	get_tree().paused = false
+
 	$EnterTweener.apply_tween()
 	Globals.score = 0
 

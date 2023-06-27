@@ -239,10 +239,6 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_4="Obstacle"
 2d_physics/layer_5="Wrapables"
 
-[physics]
-
-common/enable_pause_aware_picking=true
-
 [rendering]
 
 batching/lights/scissor_area_threshold=0.5

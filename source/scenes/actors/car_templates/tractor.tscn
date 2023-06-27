@@ -158,7 +158,6 @@ speed = 100.0
 can_change_color = false
 
 [node name="ShadowPivot" type="Node2D" parent="."]
-visible = false
 
 [node name="CarShadow" type="Sprite" parent="ShadowPivot"]
 self_modulate = Color( 0.34902, 0.34902, 0.34902, 0.160784 )

@@ -13,6 +13,7 @@ onready var transition_color = $CanvasLayer/ColorRect
 export var scene_type = "space"
 
 func _ready() -> void:
+
 	$CanvasLayer.show()
 	for star in stars.get_children():
 		star.modulate = Color(randf(), 0.0, 0.0)
@@ -31,7 +32,7 @@ func _ready() -> void:
 		asteroid.player_rocket = player
 	
 	Globals.score = 0
-		
+	
 	var tween = create_tween()
 	tween.set_pause_mode(SceneTreeTween.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(transition_color, "modulate", Color(0.0, 0.0, 0.0, 0.0), 1.0)

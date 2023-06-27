@@ -14,6 +14,9 @@ onready var engine_1_basic: Particles2D = $Pivot/AnimationPivot/Engine1Basic
 onready var ui_sfx: AudioStreamPlayer = $uiSfx
 onready var turbo_sfx: AudioStreamPlayer = $TurboSfx
 
+onready var rocket_fill_front = $Pivot/AnimationPivot/Rocket1Fill2
+onready var rocket_fill_body = $Pivot/AnimationPivot/Rocket1Fill1
+onready var rocket_engines = $Pivot/AnimationPivot/Rocket1Engines
 
 
 export var camera_zoom_speed_threshold = 500.0
@@ -40,6 +43,8 @@ func _input(event: InputEvent) -> void:
 		engine_2_particles.emitting = false
 #		turbo_sfx.volume_db = -60.0
 		turbo_sfx.pitch_scale = 0.8
+	if event.is_action_pressed("honk"):
+		change_color()
 
 func _process(_delta: float) -> void:
 
@@ -67,8 +72,14 @@ func _process(_delta: float) -> void:
 	if linear_velocity.length() > camera_zoom_speed_threshold: 
 		zoom_addition = clamp(linear_velocity.length()/3000.0, 0.0, 0.3)
 	$Camera2D.zoom = lerp($Camera2D.zoom, Vector2(1.0 + zoom_addition, 1.0 + zoom_addition), 0.01)
-	
 
-	
+
 func _physics_process(_delta: float) -> void:
 	set_applied_force(thrust.rotated(direction.angle()) * clamp(direction.length(), 0, 1))
+
+
+func change_color() -> void:
+	$PikSfx.play()
+	rocket_fill_front.self_modulate = Globals.colors_str[randi() % Globals.colors_str.size()]
+	rocket_fill_body.self_modulate = Globals.colors_str[randi() % Globals.colors_str.size()]
+	rocket_engines.self_modulate = Globals.colors_str[randi() % Globals.colors_str.size()]

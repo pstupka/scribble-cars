@@ -23,8 +23,11 @@ export var min_ladder_angle_deg := 0.0
 
 const PITCH_RAND = 0.05
 
+onready var shadow_pivot = $ShadowPivot
+
 var is_jumping := false
 var is_moving_ladder := false setget set_is_moving_ladder
+
 
 var tween : SceneTreeTween = null
 
@@ -88,10 +91,14 @@ func honk(random:bool = true) -> void:
 		Input.start_joy_vibration(0, 0.4, 0.0, 0.4)
 	if OS.get_name() == "Android" or OS.get_name() == "HTML5":
 		Input.vibrate_handheld(200)
-	tween.tween_property($AnimationPivot, "scale:y", 1.2, 0.15) 
-	tween.tween_property($AnimationPivot, "scale:y", 1.0, 0.15)
 	tween.tween_property($AnimationPivot, "scale:y", 1.2, 0.15)
+	tween.parallel().tween_property(shadow_pivot, "scale:y", 1.2, 0.15) 
 	tween.tween_property($AnimationPivot, "scale:y", 1.0, 0.15)
+	tween.parallel().tween_property(shadow_pivot, "scale:y", 1.0, 0.15)
+	tween.tween_property($AnimationPivot, "scale:y", 1.2, 0.15)
+	tween.parallel().tween_property(shadow_pivot, "scale:y", 1.2, 0.15)
+	tween.tween_property($AnimationPivot, "scale:y", 1.0, 0.15)
+	tween.parallel().tween_property(shadow_pivot, "scale:y", 1.0, 0.15)
 
 
 func set_color(new_color) -> void:
