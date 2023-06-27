@@ -17,6 +17,13 @@ func _input(event):
 		close_menu()
 
 
+func _notification(what):
+	if what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
+		_on_ExitButton_pressed()
+	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
+		_on_ExitButton_pressed()
+
+
 func close_menu() -> void:
 	if _close_guard: return
 	_close_guard = true

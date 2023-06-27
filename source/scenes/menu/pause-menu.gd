@@ -27,6 +27,13 @@ func _input(event: InputEvent) -> void:
 		pause()
 
 
+func _notification(what):
+	if what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
+		_on_BackButton_pressed()
+	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
+		_on_BackButton_pressed()
+
+
 func tween_pause_menu(target_blur: float, target_percent_visible: float) -> void:
 	if tween:
 		tween.kill()

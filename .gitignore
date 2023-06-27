@@ -7,3 +7,6 @@ export.cfg
 .mono/
 data_*/
 # *.import
+
+# Android build files
+/android
