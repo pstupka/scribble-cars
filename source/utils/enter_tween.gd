@@ -10,8 +10,9 @@ export var object_time_offset: = 0.1
 func _ready() -> void:
 	pause_mode = Node.PAUSE_MODE_PROCESS
 	for node in node_paths:
-		var obj = get_node(node)
-		obj.visible = false
+		var obj = get_node_or_null(node)
+		if obj: 
+			obj.visible = false
 
 func apply_tween():
 	if !node_paths: return

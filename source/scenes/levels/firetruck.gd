@@ -17,7 +17,7 @@ export var scene_type = "firetruck"
 var tween: SceneTreeTween = null
 
 func _ready() -> void:
-
+	get_tree().paused = true
 	$CanvasLayer.show()
 	randomize()
 	Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")

@@ -269,49 +269,51 @@ position = Vector2( 884, 145.5 )
 scale = Vector2( 1.2849, 1 )
 texture = ExtResource( 28 )
 
-[node name="Tree5" type="Sprite" parent="ParallaxBackground/Ground"]
+[node name="Trees" type="Node2D" parent="ParallaxBackground/Ground"]
+
+[node name="Tree5" type="Sprite" parent="ParallaxBackground/Ground/Trees"]
 light_mask = 4
 position = Vector2( 339.1, 111 )
 scale = Vector2( 0.15, 0.15 )
 texture = SubResource( 36 )
 
-[node name="Tree6" type="Sprite" parent="ParallaxBackground/Ground"]
+[node name="Tree6" type="Sprite" parent="ParallaxBackground/Ground/Trees"]
 light_mask = 4
 position = Vector2( 409.3, 109.725 )
 scale = Vector2( 0.15, 0.15 )
 texture = SubResource( 36 )
 
-[node name="Tree7" type="Sprite" parent="ParallaxBackground/Ground"]
+[node name="Tree7" type="Sprite" parent="ParallaxBackground/Ground/Trees"]
 light_mask = 4
 position = Vector2( 549.4, 109.375 )
 scale = Vector2( 0.15, 0.15 )
 texture = SubResource( 36 )
 
-[node name="Tree8" type="Sprite" parent="ParallaxBackground/Ground"]
+[node name="Tree8" type="Sprite" parent="ParallaxBackground/Ground/Trees"]
 light_mask = 4
 position = Vector2( 429.1, 112.125 )
 scale = Vector2( 0.15, 0.15 )
 texture = SubResource( 36 )
 
-[node name="Tree1" type="Sprite" parent="ParallaxBackground/Ground"]
+[node name="Tree1" type="Sprite" parent="ParallaxBackground/Ground/Trees"]
 light_mask = 4
 position = Vector2( 39.8, 97.5 )
 scale = Vector2( 0.2, 0.2 )
 texture = SubResource( 36 )
 
-[node name="Tree3" type="Sprite" parent="ParallaxBackground/Ground"]
+[node name="Tree3" type="Sprite" parent="ParallaxBackground/Ground/Trees"]
 light_mask = 4
 position = Vector2( 390.3, 93.25 )
 scale = Vector2( 0.2, 0.2 )
 texture = SubResource( 36 )
 
-[node name="Tree4" type="Sprite" parent="ParallaxBackground/Ground"]
+[node name="Tree4" type="Sprite" parent="ParallaxBackground/Ground/Trees"]
 light_mask = 4
 position = Vector2( 1090.8, 91.5 )
 scale = Vector2( 0.2, 0.2 )
 texture = SubResource( 36 )
 
-[node name="Tree2" type="Sprite" parent="ParallaxBackground/Ground"]
+[node name="Tree2" type="Sprite" parent="ParallaxBackground/Ground/Trees"]
 light_mask = 4
 position = Vector2( 489.3, 105.25 )
 scale = Vector2( 0.2, 0.2 )
@@ -535,25 +537,27 @@ position = Vector2( 1669, 41 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 18 )
 
-[node name="Pavement" type="Sprite" parent="ParallaxBackground/Ground3"]
+[node name="Pavement" type="Node2D" parent="ParallaxBackground/Ground3"]
+
+[node name="Pavement" type="Sprite" parent="ParallaxBackground/Ground3/Pavement"]
 position = Vector2( 180, 283 )
 scale = Vector2( 2.12403, 0.495975 )
 texture = ExtResource( 19 )
 offset = Vector2( 219.728, 0.0541992 )
 
-[node name="Pavement2" type="Sprite" parent="ParallaxBackground/Ground3"]
+[node name="Pavement2" type="Sprite" parent="ParallaxBackground/Ground3/Pavement"]
 position = Vector2( 115, 482 )
 scale = Vector2( 2.12403, 0.495975 )
 texture = ExtResource( 19 )
 offset = Vector2( 219.728, 0.0541992 )
 
-[node name="Pavement3" type="Sprite" parent="ParallaxBackground/Ground3"]
+[node name="Pavement3" type="Sprite" parent="ParallaxBackground/Ground3/Pavement"]
 position = Vector2( 1573.59, 282.964 )
 scale = Vector2( 2.12403, 0.495975 )
 texture = ExtResource( 19 )
 offset = Vector2( 219.728, 0.0541992 )
 
-[node name="Pavement4" type="Sprite" parent="ParallaxBackground/Ground3"]
+[node name="Pavement4" type="Sprite" parent="ParallaxBackground/Ground3/Pavement"]
 position = Vector2( 1508.59, 481.964 )
 scale = Vector2( 2.12403, 0.495975 )
 texture = ExtResource( 19 )
@@ -963,6 +967,7 @@ layer = 51
 
 [node name="EnterTweener" type="Node" parent="."]
 script = ExtResource( 22 )
+node_paths = [ NodePath("../ParallaxBackground/Sky/Sky"), NodePath("../ParallaxBackground/MoonSun/Sun"), NodePath("../ParallaxBackground/Clouds/Pivot"), NodePath("../ParallaxBackground/Clouds2/Pivot"), NodePath("../ParallaxBackground/Ground/GrassPivot"), NodePath("../ParallaxBackground/Ground3/GrassPivot2"), NodePath("../ParallaxBackground/Ground2/GrassPivot"), NodePath("../ParallaxBackground/Ground/Trees"), NodePath("../ParallaxBackground/Ground2/Tree3"), NodePath("../ParallaxBackground/Ground2/Tree4"), NodePath("../ParallaxBackground/Ground3/Trees"), NodePath("../ParallaxBackground/Ground3/House"), NodePath("../ParallaxBackground/Ground3/Pavement"), NodePath("../ParallaxBackground/Ground3/Flowers4"), NodePath("../ParallaxBackground/Ground3/Flowers2"), NodePath("../ParallaxBackground/Ground3/Flowers3"), NodePath("../ParallaxBackground/Ground3/Flowers5"), NodePath("../ParallaxBackground/Ground3/Flowers6"), NodePath("../RoadParallax/Road/Road1"), NodePath("../Actors/Pedestrians"), NodePath("../Actors/CatsToRescue"), NodePath("../Actors/Player"), NodePath("../ParallaxBackground/Ground/RainbowSolo") ]
 object_time_offset = 0.05
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
