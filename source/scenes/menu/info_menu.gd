@@ -6,6 +6,7 @@ onready var credits_button = $"%CreditsButton"
 onready var credits_label = $"%CreditsLabel"
 onready var controls_container = $MarginContainer/VBoxContainer/ControlsContainer
 onready var credits_container = $MarginContainer/VBoxContainer/CreditsContainer
+onready var controls_pad_container = $MarginContainer/VBoxContainer/ControlsPadContainer
 
 
 onready var pik_sfx = $PikSfx
@@ -26,6 +27,10 @@ func _ready():
 	var tween2 = create_tween()
 	
 	tween2.set_loops().tween_property(scrollbar, "value", scrollbar.max_value, 15.0).from(-scrollbar.page)
+
+	credits_container.show()
+	controls_container.hide()
+	controls_pad_container.hide()
 
 
 func _input(event):
@@ -63,10 +68,17 @@ func _on_CreditsButton_pressed():
 	pik_sfx.play()
 	credits_container.show()
 	controls_container.hide()
-
+	controls_pad_container.hide()
 
 func _on_ControlsInfoButton_pressed():
 	pik_sfx.play()
 	credits_container.hide()
 	controls_container.show()
+	controls_pad_container.hide()
 
+
+func _on_ControlsPadInfoButton_pressed():
+	pik_sfx.play()
+	credits_container.hide()
+	controls_container.hide()
+	controls_pad_container.show()

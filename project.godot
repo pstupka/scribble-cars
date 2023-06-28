@@ -56,7 +56,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Scribble Machines"
+config/name="Johny's Doodles Wroom Scadoodles"
 config/description="Relaxing game where you drive your machines and collect things"
 run/main_scene="res://source/scenes/menu/menu.tscn"
 boot_splash/bg_color=Color( 0.129412, 0.129412, 0.137255, 1 )
