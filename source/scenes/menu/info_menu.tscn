@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/sprites/ui/menu_popup_panel.png" type="Texture" id=1]
 [ext_resource path="res://resources/shaders/blur.gdshader" type="Shader" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://assets/sprites/ui/menu_controls.png" type="Texture" id=12]
 [ext_resource path="res://assets/sprites/ui/menu_controls_pad_button.png" type="Texture" id=13]
 [ext_resource path="res://assets/sprites/ui/menu_controls_pad_button_pressed.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/ui/menu_controls_keyboard.png" type="Texture" id=15]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 2 )
@@ -41,18 +42,6 @@ outline_color = Color( 0.129412, 0.129412, 0.137255, 1 )
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=8]
-size = 32
-outline_size = 3
-outline_color = Color( 0.129412, 0.129412, 0.137255, 1 )
-font_data = ExtResource( 6 )
-
-[sub_resource type="DynamicFont" id=10]
-size = 40
-outline_size = 3
-outline_color = Color( 0.129412, 0.129412, 0.137255, 1 )
-font_data = ExtResource( 6 )
-
-[sub_resource type="DynamicFont" id=11]
 size = 32
 outline_size = 3
 outline_color = Color( 0.129412, 0.129412, 0.137255, 1 )
@@ -190,51 +179,9 @@ mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ControlsTitle" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ControlsContainer"]
-margin_right = 970.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 0, 50 )
-rect_clip_content = false
-mouse_filter = 2
-size_flags_horizontal = 3
-custom_fonts/bold_font = SubResource( 12 )
-custom_fonts/normal_font = SubResource( 13 )
-bbcode_enabled = true
-bbcode_text = "[center][color=#ede19e][b]CONTROLS[/b][/color][/center]"
-meta_underlined = false
-text = "CONTROLS"
-scroll_active = false
-
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/ControlsContainer"]
-margin_top = 54.0
-margin_right = 970.0
-margin_bottom = 84.0
-custom_constants/separation = 30
-custom_styles/separator = SubResource( 14 )
-
-[node name="ControlsLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ControlsContainer"]
-unique_name_in_owner = true
-margin_top = 88.0
-margin_right = 970.0
-margin_bottom = 411.0
-rect_clip_content = false
-mouse_filter = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/bold_font = SubResource( 10 )
-custom_fonts/normal_font = SubResource( 11 )
-bbcode_enabled = true
-bbcode_text = "[center][color=#b45252][b]Keyboard[/b][/color]
-[color=#d3a068]WSAD, Arrows / Movement[/color]
-[color=#d3a068]Space, Enter, Z, X / Actions[/color]
-[color=#d3a068]P / Pause[/color]
-[/center]"
-text = "Keyboard
-WSAD, Arrows / Movement
-Space, Enter, Z, X / Actions
-P / Pause
-"
-scroll_active = false
+[node name="MenuControlsKeyboard" type="Sprite" parent="MarginContainer/VBoxContainer/ControlsContainer"]
+position = Vector2( 505, 207 )
+texture = ExtResource( 15 )
 
 [node name="ControlsPadContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 visible = false

@@ -24,15 +24,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.70710678"
-     inkscape:cx="567.09964"
-     inkscape:cy="482.24682"
+     inkscape:cx="370.52395"
+     inkscape:cy="482.24683"
      inkscape:document-units="px"
-     inkscape:current-layer="layer39"
+     inkscape:current-layer="layer34"
      showgrid="false"
      showguides="true"
      inkscape:window-width="1920"
-     inkscape:window-height="1163"
-     inkscape:window-x="3840"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      showborder="true"
@@ -689,8 +689,7 @@
        inkscape:groupmode="layer"
        id="layer34"
        inkscape:label="U+000045 E"
-       style="display:none"
-       sodipodi:insensitive="true">
+       style="display:inline">
       <path
          d=""
          id="path1790" />
@@ -905,7 +904,8 @@
        inkscape:groupmode="layer"
        id="layer39"
        inkscape:label="U+000027 '"
-       style="display:inline">
+       style="display:none"
+       sodipodi:insensitive="true">
       <path
          d=""
          id="path707" />
