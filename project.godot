@@ -65,10 +65,10 @@ config/quit_on_go_back=false
 
 [autoload]
 
+Settings="*res://source/globals/settings.gd"
 Events="*res://source/globals/events.gd"
 Globals="*res://source/globals/globals.gd"
 CheatCodeDetector="*res://source/globals/cheat_code_detector.gd"
-SettingsManager="*res://source/globals/settings_manager.gd"
 
 [debug]
 

@@ -1,0 +1,61 @@
+extends Node
+
+signal setting_changed(setting, value)
+
+var settings_file = "user://settings.bin"
+
+enum TEXTURE_QUALITY {LOW, HIGH}
+
+var settings_dict = {
+	"sfx_mute": false,
+	"music_mute": false,
+	"sound_volume": 50,
+	"fullscreen": false,
+	"on_screen_controls_visible": false,
+	"vibrations_enabled": true,
+	"texture_quality": TEXTURE_QUALITY.HIGH,
+}
+
+
+func _ready():
+	load_settings()
+	
+	for key in settings_dict.keys():
+		set(key, settings_dict[key])
+
+
+func get(key):
+	if not settings_dict.has(key):
+		return
+	return settings_dict[key]
+
+
+func set(key, value):
+	if not settings_dict.has(key): 
+		return
+	
+	settings_dict[key] = value
+	match key:
+		"music_mute":
+			AudioServer.set_bus_mute(1, settings_dict["music_mute"])
+
+	emit_signal("setting_changed", key, value)
+
+
+func load_settings() -> void:
+	var f = File.new()
+	if f.file_exists(settings_file):
+		f.open_encrypted_with_pass(settings_file, File.READ, OS.get_unique_id())
+		for key in settings_dict.keys():
+			settings_dict[key] = f.get_var()
+			print(key + ": " + str(settings_dict[key]) + " loaded")
+		f.close()
+
+
+func save_settings() -> void:
+	var f = File.new()
+	f.open_encrypted_with_pass(settings_file, File.WRITE, OS.get_unique_id())
+	for key in settings_dict.keys():
+		f.store_var(settings_dict[key])
+		print(key + ": " + str(settings_dict[key]) + " stored")
+	f.close()

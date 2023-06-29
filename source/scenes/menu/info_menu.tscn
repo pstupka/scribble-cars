@@ -258,8 +258,3 @@ margin_bottom = 647.0
 [node name="PikSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 bus = "Sfx"
-
-[connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/ControlsInfoButton" to="." method="_on_ControlsInfoButton_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/ControlsPadInfoButton" to="." method="_on_ControlsPadInfoButton_pressed"]

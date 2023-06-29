@@ -7,7 +7,7 @@ onready var credits_label = $"%CreditsLabel"
 onready var controls_container = $MarginContainer/VBoxContainer/ControlsContainer
 onready var credits_container = $MarginContainer/VBoxContainer/CreditsContainer
 onready var controls_pad_container = $MarginContainer/VBoxContainer/ControlsPadContainer
-
+onready var controls_pad_info_button = $"%ControlsPadInfoButton"
 
 onready var pik_sfx = $PikSfx
 
@@ -31,6 +31,8 @@ func _ready():
 	credits_container.show()
 	controls_container.hide()
 	controls_pad_container.hide()
+	
+	register_buttons()
 
 
 func _input(event):
@@ -40,9 +42,16 @@ func _input(event):
 
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST:
-		_on_ExitButton_pressed()
+		close_menu()
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
-		_on_ExitButton_pressed()
+		close_menu()
+
+
+func register_buttons() -> void:
+	credits_button.connect("pressed", self, "_on_button_pressed", [credits_button])
+	controls_info_button.connect("pressed", self, "_on_button_pressed", [controls_info_button])
+	controls_pad_info_button.connect("pressed", self, "_on_button_pressed", [controls_pad_info_button])
+	$ExitButton.connect("pressed", self, "_on_button_pressed", [$ExitButton])
 
 
 func close_menu() -> void:
@@ -59,26 +68,22 @@ func close_menu() -> void:
 	tween.tween_callback(self, "queue_free")
 
 
-func _on_ExitButton_pressed():
+func _on_button_pressed(button) -> void:
 	pik_sfx.play()
-	close_menu()
+	
+	match button.name:
+		"CreditsButton":
+			credits_container.show()
+			controls_container.hide()
+			controls_pad_container.hide()
+		"ControlsInfoButton":
+			credits_container.hide()
+			controls_container.show()
+			controls_pad_container.hide()
+		"ControlsPadInfoButton":
+			credits_container.hide()
+			controls_container.hide()
+			controls_pad_container.show()
+		"ExitButton": 
+			close_menu()
 
-
-func _on_CreditsButton_pressed():
-	pik_sfx.play()
-	credits_container.show()
-	controls_container.hide()
-	controls_pad_container.hide()
-
-func _on_ControlsInfoButton_pressed():
-	pik_sfx.play()
-	credits_container.hide()
-	controls_container.show()
-	controls_pad_container.hide()
-
-
-func _on_ControlsPadInfoButton_pressed():
-	pik_sfx.play()
-	credits_container.hide()
-	controls_container.hide()
-	controls_pad_container.show()

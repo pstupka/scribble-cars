@@ -24,7 +24,7 @@
 [ext_resource path="res://source/utils/enter_tween.gd" type="Script" id=22]
 [ext_resource path="res://source/scenes/props/Cloud3.tscn" type="PackedScene" id=23]
 [ext_resource path="res://source/scenes/props/Cloud4.tscn" type="PackedScene" id=24]
-[ext_resource path="res://assets/audio/Bike Rides - The Green Orbs.mp3" type="AudioStream" id=25]
+[ext_resource path="res://assets/audio/pixabay/happy-ukulele-song-8347.mp3" type="AudioStream" id=25]
 [ext_resource path="res://assets/sprites/line_2.png" type="Texture" id=26]
 [ext_resource path="res://assets/sprites/raindrop.png" type="Texture" id=27]
 [ext_resource path="res://assets/sprites/bg_line1.png" type="Texture" id=28]
@@ -973,6 +973,7 @@ object_time_offset = 0.05
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 25 )
+volume_db = -7.137
 autoplay = true
 bus = "Background"
 

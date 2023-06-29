@@ -25,9 +25,9 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.70710678"
      inkscape:cx="370.52395"
-     inkscape:cy="482.24683"
+     inkscape:cy="487.90368"
      inkscape:document-units="px"
-     inkscape:current-layer="layer34"
+     inkscape:current-layer="layer33"
      showgrid="false"
      showguides="true"
      inkscape:window-width="1920"
@@ -661,8 +661,7 @@
        inkscape:groupmode="layer"
        id="layer33"
        inkscape:label="U+000047 G"
-       style="display:none"
-       sodipodi:insensitive="true">
+       style="display:inline">
       <path
          d=""
          id="path913" />
@@ -689,7 +688,8 @@
        inkscape:groupmode="layer"
        id="layer34"
        inkscape:label="U+000045 E"
-       style="display:inline">
+       style="display:none"
+       sodipodi:insensitive="true">
       <path
          d=""
          id="path1790" />
