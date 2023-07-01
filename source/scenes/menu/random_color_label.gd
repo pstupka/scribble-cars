@@ -2,7 +2,7 @@ extends RichTextLabel
 
 const COLORS := [
 	"#4b80ca",
-	"#68c2d3",
+#	"#68c2d3",
 	"#ede19e",
 	"#b45252",
 	"#d3a068",
@@ -14,7 +14,7 @@ const COLORS := [
 	"#c2d368",
 ]
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	randomize()
 	var text_buffer := ""

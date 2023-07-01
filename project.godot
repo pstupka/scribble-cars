@@ -58,17 +58,17 @@ _global_script_class_icons={
 
 config/name="Johny's Doodles Wroom Scadoodles"
 config/description="Relaxing game where you drive your machines and collect things"
-run/main_scene="res://source/scenes/menu/menu.tscn"
-boot_splash/bg_color=Color( 0.129412, 0.129412, 0.137255, 1 )
+run/main_scene="res://source/scenes/menu/splash_screen.tscn"
+boot_splash/show_image=false
 config/icon="res://assets/icon.png"
 config/quit_on_go_back=false
 
 [autoload]
 
+Settings="*res://source/globals/settings.gd"
 Events="*res://source/globals/events.gd"
 Globals="*res://source/globals/globals.gd"
 CheatCodeDetector="*res://source/globals/cheat_code_detector.gd"
-SettingsManager="*res://source/globals/settings_manager.gd"
 
 [debug]
 
