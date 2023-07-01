@@ -23,12 +23,12 @@
 [ext_resource path="res://assets/sprites/npc/human2.png" type="Texture" id=21]
 [ext_resource path="res://assets/sprites/npc/human3.png" type="Texture" id=22]
 
-[sub_resource type="Gradient" id=13]
+[sub_resource type="Gradient" id=67]
 offsets = PoolRealArray( 0, 0.575, 0.739286, 0.871429, 1 )
 colors = PoolColorArray( 0.407843, 0.760784, 0.827451, 1, 0.407843, 0.760784, 0.827451, 1, 0.601415, 0.805903, 0.750313, 1, 0.947912, 0.937853, 0.882309, 1, 0.94902, 0.941176, 0.898039, 1 )
 
 [sub_resource type="GradientTexture2D" id=58]
-gradient = SubResource( 13 )
+gradient = SubResource( 67 )
 width = 1280
 height = 400
 fill_to = Vector2( 0, 1 )

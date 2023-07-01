@@ -4,16 +4,18 @@ signal setting_changed(setting, value)
 
 var settings_file = "user://settings.bin"
 
-enum TEXTURE_QUALITY {LOW, HIGH}
 
 var settings_dict = {
 	"sfx_mute": false,
 	"music_mute": false,
-	"sound_volume": -6,
+	"music_volume": -10,
+	"sfx_volume": -3,
+	"master_volume": -6,
+	"master_mute": false,
 	"fullscreen": false,
 	"on_screen_controls_visible": false,
 	"vibrations_enabled": true,
-	"texture_quality": TEXTURE_QUALITY.HIGH,
+	"low_quality_textures": false,
 }
 
 func _ready():
@@ -35,15 +37,21 @@ func set(key, value):
 	
 	settings_dict[key] = value
 	match key:
+		"master_mute":
+			AudioServer.set_bus_mute(0, settings_dict[key])
 		"music_mute":
 			AudioServer.set_bus_mute(1, settings_dict[key])
 		"sfx_mute":
 			AudioServer.set_bus_mute(2, settings_dict[key])
-		"sound_volume":
+		"master_volume":
 			AudioServer.set_bus_volume_db(0, settings_dict[key])
+		"music_volume":
+			AudioServer.set_bus_volume_db(1, settings_dict[key])
+		"sfx_volume":
+			AudioServer.set_bus_volume_db(2, settings_dict[key])
 		"fullscreen":
 			OS.window_fullscreen = settings_dict[key]
-		"texture_quality":
+		"low_quality_textures":
 			VisualServer.texture_set_shrink_all_x2_on_set_data(settings_dict[key])
 	emit_signal("setting_changed", key, settings_dict[key])
 

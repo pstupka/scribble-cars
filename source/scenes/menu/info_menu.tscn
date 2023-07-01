@@ -183,6 +183,10 @@ size_flags_vertical = 3
 position = Vector2( 505, 207 )
 texture = ExtResource( 15 )
 
+[node name="MenuControlsKeyboard2" type="Sprite" parent="MarginContainer/VBoxContainer/ControlsContainer"]
+position = Vector2( 505, 207 )
+texture = ExtResource( 15 )
+
 [node name="ControlsPadContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 visible = false
 margin_top = 207.0
