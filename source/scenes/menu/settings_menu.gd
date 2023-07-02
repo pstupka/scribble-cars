@@ -23,6 +23,9 @@ func _ready():
 	tween.tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.4) \
 		 .from(Color(1.0, 1.0, 1.0, 0.0))
 
+	if OS.get_name() == "Android" or OS.get_name() == "HTML5":
+		$"%Fullscreen".hide()
+
 	set_initial()
 	register_controls()
 

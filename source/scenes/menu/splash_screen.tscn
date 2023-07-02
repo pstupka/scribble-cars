@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/fonts/LittleThings-ZX5Z.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://source/scenes/menu/random_color_label.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://source/scenes/props/Cloud2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://source/scenes/props/Cloud3.tscn" type="PackedScene" id=6]
 [ext_resource path="res://source/utils/move_parallax_layer.gd" type="Script" id=7]
+[ext_resource path="res://assets/stup_games_logo.png" type="Texture" id=8]
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
@@ -24,7 +25,7 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "fade_in"
-length = 4.0
+length = 11.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("TransitionRect:color")
 tracks/0/interp = 1
@@ -32,10 +33,68 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.2, 1, 2.8, 3.8 ),
+"times": PoolRealArray( 0.2, 1.5, 9.8, 11.3 ),
 "transitions": PoolRealArray( 1, 1.8025, 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MadeWithGodot:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4.5, 6.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("StupLogo:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 5.8, 7 ),
+"transitions": PoolRealArray( 1, 1.62451, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("MadeWithGodot")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 6.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "show"
+}, {
+"args": [  ],
+"method": "hide"
+} ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("StupLogo")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 5.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
+}, {
+"args": [  ],
+"method": "show"
+} ]
 }
 
 [sub_resource type="Gradient" id=13]
@@ -53,7 +112,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 4 )
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MadeWithGodot" type="MarginContainer" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -63,30 +123,30 @@ custom_constants/margin_top = 100
 custom_constants/margin_left = 20
 custom_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MadeWithGodot"]
 margin_left = 20.0
 margin_top = 100.0
 margin_right = 1260.0
 margin_bottom = 700.0
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="MadeWithGodot/VBoxContainer"]
 margin_right = 1240.0
 margin_bottom = 256.0
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/CenterContainer"]
+[node name="TextureRect" type="TextureRect" parent="MadeWithGodot/VBoxContainer/CenterContainer"]
 margin_left = 492.0
 margin_right = 748.0
 margin_bottom = 256.0
 texture = ExtResource( 3 )
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="MadeWithGodot/VBoxContainer"]
 margin_top = 260.0
 margin_right = 1240.0
 margin_bottom = 270.0
 custom_constants/separation = 10
 custom_styles/separator = SubResource( 2 )
 
-[node name="MadeWithLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="MadeWithLabel" type="RichTextLabel" parent="MadeWithGodot/VBoxContainer"]
 margin_top = 274.0
 margin_right = 1240.0
 margin_bottom = 354.0
@@ -100,7 +160,7 @@ text = "MADE WITH"
 scroll_active = false
 script = ExtResource( 2 )
 
-[node name="GodotLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="GodotLabel" type="RichTextLabel" parent="MadeWithGodot/VBoxContainer"]
 margin_top = 358.0
 margin_right = 1240.0
 margin_bottom = 478.0
@@ -118,11 +178,24 @@ script = ExtResource( 2 )
 autoplay = "fade_in"
 anims/fade_in = SubResource( 4 )
 
-[node name="TransitionRect" type="ColorRect" parent="."]
-visible = false
+[node name="StupLogo" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
+custom_constants/margin_right = 100
+custom_constants/margin_top = 200
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 200
+
+[node name="TextureRect" type="TextureRect" parent="StupLogo"]
+margin_left = 100.0
+margin_top = 200.0
+margin_right = 1180.0
+margin_bottom = 520.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 6
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -166,5 +239,11 @@ position = Vector2( 268, 621 )
 
 [node name="Cloud6" parent="ParallaxBackground/Clouds3" instance=ExtResource( 6 )]
 position = Vector2( 600, 356 )
+
+[node name="TransitionRect" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
