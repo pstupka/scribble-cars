@@ -244,6 +244,7 @@ max_value = 1.0
 step = 0.01
 
 [node name="Fullscreen" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Column1"]
+unique_name_in_owner = true
 margin_top = 312.0
 margin_right = 281.0
 margin_bottom = 412.0
