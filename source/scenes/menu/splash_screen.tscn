@@ -25,7 +25,7 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "fade_in"
-length = 11.5
+length = 11.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("TransitionRect:color")
 tracks/0/interp = 1
@@ -33,7 +33,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.2, 1.5, 9.8, 11.3 ),
+"times": PoolRealArray( 0.2, 1.5, 9, 10.5 ),
 "transitions": PoolRealArray( 1, 1.8025, 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
@@ -45,7 +45,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 4.5, 6.2 ),
+"times": PoolRealArray( 0, 3.7, 5.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -69,7 +69,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 6.2 ),
+"times": PoolRealArray( 0, 5.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -213,7 +213,7 @@ script = ExtResource( 7 )
 position = Vector2( 350, 127 )
 
 [node name="Cloud3" parent="ParallaxBackground/Clouds" instance=ExtResource( 6 )]
-position = Vector2( 92, 264 )
+position = Vector2( 169, 264 )
 
 [node name="Cloud8" parent="ParallaxBackground/Clouds" instance=ExtResource( 6 )]
 position = Vector2( 1068, 621 )
@@ -238,7 +238,7 @@ speed = 15.0
 position = Vector2( 268, 621 )
 
 [node name="Cloud6" parent="ParallaxBackground/Clouds3" instance=ExtResource( 6 )]
-position = Vector2( 600, 356 )
+position = Vector2( 691, 314 )
 
 [node name="TransitionRect" type="ColorRect" parent="."]
 visible = false

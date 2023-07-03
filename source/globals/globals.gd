@@ -99,3 +99,10 @@ func set_daynight(new_state):
 	if new_state in [DAY, NIGHT]:
 		daynight = new_state
 		Events.emit_signal("time_of_day_changed", new_state)
+
+
+func vibrate() -> void:
+	if (Input.get_connected_joypads().size() > 0 and Settings.get("vibrations_enabled")):
+		Input.start_joy_vibration(0, 0.4, 0.0, 0.4)
+	if (OS.get_name() == "Android" or OS.get_name() == "HTML5") and Settings.get("vibrations_enabled"):
+		Input.vibrate_handheld(200)

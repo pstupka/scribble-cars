@@ -65,7 +65,10 @@ func load_settings() -> void:
 			print(key + ": " + str(settings_dict[key]) + " loaded")
 		f.close()
 	else: 
+		if OS.get_name() == "Android" or OS.get_name() == "HTML5": 
+			set("on_screen_controls_visible", true)
 		save_settings()
+
 
 func save_settings() -> void:
 	var f = File.new()

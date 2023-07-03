@@ -151,11 +151,12 @@ bbcode_text = "[center][color=#b45252][b]Programming & Design[/b][/color]
 [color=#c2d368]> Jan Stupka[/color]
 
 [color=#7b7243][b]Music[/b][/color]
-[color=#cf8acb]> Ukulele by Benjamin Tissot ( bensound.com[/color]
-[color=#c2d368]> Little Idea by Benjamin Tissot ( bensound.com[/color]
+[color=#cf8acb]> Jigsaw Puzzle by The Green Orbs[/color]
+[color=#c2d368]> Mr. Turtle  by The Green Orbs[/color]
 [color=#4b80ca]> Bike Rides by The Green Orbs[/color]
+[color=#8ab060]> Goat by Wayne Jones[/color]
 
-[color=#868188][b]Fonts[/b][/color]
+[color=#868188][b]Font[/b][/color]
 [color=#b2b47e]> Little Things ( fontspace.com[/color][/center]"
 meta_underlined = false
 text = "Programming & Design
@@ -168,11 +169,12 @@ Graphics
 > Jan Stupka
 
 Music
-> Ukulele by Benjamin Tissot ( bensound.com
-> Little Idea by Benjamin Tissot ( bensound.com
+> Jigsaw Puzzle by The Green Orbs
+> Mr. Turtle  by The Green Orbs
 > Bike Rides by The Green Orbs
+> Goat by Wayne Jones
 
-Fonts
+Font
 > Little Things ( fontspace.com"
 scroll_active = false
 

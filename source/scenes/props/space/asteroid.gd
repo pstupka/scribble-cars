@@ -43,6 +43,7 @@ func _on_Asteroid_body_entered(_body: Node) -> void:
 	var tween = create_tween()
 	tween.parallel().tween_callback(explosion, "queue_free").set_delay(2.001)
 	boing_stream.play()
+	Globals.vibrate()
 
 func _on_screen_exited() -> void:
 	collision.set_deferred("disabled", false)

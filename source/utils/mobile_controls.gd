@@ -1,9 +1,8 @@
 extends CanvasLayer
 class_name MobileControls
 
+
 func _ready():
-	hide()
-	if OS.get_name() != "Android" and OS.get_name() != "HTML5": 
+	if not Settings.get("on_screen_controls_visible"):
 		queue_free()
-	else: 
-		show()
+

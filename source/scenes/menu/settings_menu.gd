@@ -61,7 +61,6 @@ func register_controls() -> void:
 	vibration_button.connect("toggled", self, "_on_button_toggled", [vibration_button])
 	low_quality_textures_button.connect("toggled", self, "_on_button_toggled", [low_quality_textures_button])
 	fullscreen_button.connect("toggled", self, "_on_button_toggled", [fullscreen_button])
-
 	
 	master_volume.connect("value_changed", self, "_on_volume_changed", [master_volume])
 	music_slider.connect("value_changed", self, "_on_volume_changed", [music_slider])

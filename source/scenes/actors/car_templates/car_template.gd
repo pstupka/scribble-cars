@@ -51,10 +51,8 @@ func honk(random:bool = true) -> void:
 	honk.pitch_scale = rand_range(1.0 - PITCH_RAND, 1.0 + PITCH_RAND)
 	honk.play()
 	var tween = create_tween()
-	if (Input.get_connected_joypads().size() > 0):
-		Input.start_joy_vibration(0, 0.4, 0.0, 0.4)
-	if OS.get_name() == "Android" or OS.get_name() == "HTML5":
-		Input.vibrate_handheld(200)
+	Globals.vibrate()
+	
 	tween.tween_property($AnimationPivot, "scale:y", 1.2, 0.15)
 	tween.parallel().tween_property(shadow_pivot, "scale:y", 1.2, 0.15) 
 	tween.tween_property($AnimationPivot, "scale:y", 1.0, 0.15)
