@@ -5,7 +5,7 @@ onready var bg: Node2D = $Bg
 onready var level_previous: TextureButton = $"%LevelPrevious"
 onready var level_next: TextureButton = $"%LevelNext"
 onready var background_music = $SFX/BackgroundMusic
-
+var can_start_game = true
 
 var current_level_selected := 0
 
@@ -36,18 +36,19 @@ onready var level_selection_transition_rect: ColorRect = $LevelSelectionTransiti
 onready var game_start_transition_rect = $GameStartTransitionRect
 
 onready var machine_pivot: Node2D = $MachinePivot
-var can_change_scene = true
+var can_change_scene = false setget set_can_change_scene
 
 
 func _ready() -> void:
 	game_start_transition_rect.show()
-#	OS.set_window_maximized(true) # TODO: Make it on splash screen
+
 	Globals.daynight = Globals.DAY
 	
 	var tween = create_tween()
 	
 	tween.tween_property(game_start_transition_rect, "color", Color(0.0, 0.0, 0.0, 0.0), 0.6)
-	tween.tween_callback(game_start_transition_rect, "hide", [])
+	tween.tween_callback(game_start_transition_rect, "hide")
+	tween.tween_callback(self, "set_can_change_scene", [true])
 	
 	var machine = $MachinePivot/Kia
 	if machine.has_method("set_animation_loop"):
@@ -56,6 +57,7 @@ func _ready() -> void:
 		machine.animation_player.play("move")
 	
 	level_next.grab_focus()
+	Events.connect("menu_overlay_freed", self, "_on_menu_overlay_freed")
 	
 
 func _input(_event: InputEvent) -> void:
@@ -139,6 +141,10 @@ func _on_LevelNext_pressed() -> void:
 
 
 func _on_StartButton_pressed() -> void:
+	if not can_change_scene: return # Guard for double click during splash fade out
+	if not can_start_game: return
+	
+	can_start_game = false
 	$ButtonsContainer/StartButton.disabled = true
 	pik_sfx.play()
 	
@@ -146,7 +152,7 @@ func _on_StartButton_pressed() -> void:
 	game_start_transition_rect.show()
 	tween.tween_property(game_start_transition_rect, "color", Color(0.0, 0.0, 0.0, 1.0), 0.5)
 	tween.parallel().tween_property(background_music, "volume_db", -40.0, 0.5)
-	tween.tween_callback(self, "start_game", [])
+	tween.tween_callback(self, "start_game")
 
 
 func _on_InfoButton_pressed():
@@ -155,6 +161,7 @@ func _on_InfoButton_pressed():
 	add_child(info)
 	Events.connect("menu_overlay_freed", self, "set_buttons_focus", [true], CONNECT_ONESHOT)
 	set_buttons_focus(false)
+	can_start_game = false
 
 
 func _on_SettingsButton_pressed():
@@ -163,9 +170,17 @@ func _on_SettingsButton_pressed():
 	add_child(settings)
 	Events.connect("menu_overlay_freed", self, "set_buttons_focus", [true], CONNECT_ONESHOT)
 	set_buttons_focus(false)
+	can_start_game = false
 
 
 func _on_ExitButton_pressed():
 	pik_sfx.play()
 	var tween = create_tween().tween_callback(get_tree(), "quit").set_delay(0.3)
 
+
+func _on_menu_overlay_freed():
+	can_start_game = true
+
+
+func set_can_change_scene(val: bool):
+	can_change_scene = val

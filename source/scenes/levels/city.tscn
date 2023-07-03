@@ -456,7 +456,6 @@ polygon = PoolVector2Array( 42, 164, 532, 146, 538, 92, 534, 38, 544, 7, 515, -2
 
 [node name="DayNightModulate" parent="RoadParallax/Buildings/City4/Windows" instance=ExtResource( 12 )]
 position = Vector2( -1200, -484 )
-scale = Vector2( 1, 1 )
 day_color = Color( 0.294118, 0.501961, 0.792157, 1 )
 night_color = Color( 2, 2, 0, 1 )
 
@@ -615,7 +614,7 @@ autoplay = true
 bus = "Background"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 100
+layer = 99
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]

@@ -19,7 +19,8 @@
 [ext_resource path="res://source/utils/mobile_controls.gd" type="Script" id=17]
 
 [node name="MobileControls" type="CanvasLayer"]
-layer = 100
+pause_mode = 2
+layer = 98
 script = ExtResource( 17 )
 
 [node name="Arrows" type="Node2D" parent="."]

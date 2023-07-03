@@ -978,7 +978,7 @@ autoplay = true
 bus = "Background"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 100
+layer = 99
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]

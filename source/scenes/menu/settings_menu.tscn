@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/sprites/ui/menu_popup_panel.png" type="Texture" id=1]
 [ext_resource path="res://resources/shaders/blur.gdshader" type="Shader" id=2]
@@ -6,9 +6,14 @@
 [ext_resource path="res://assets/sprites/ui/menu_exit_button.png" type="Texture" id=4]
 [ext_resource path="res://assets/sprites/ui/menu_exit_button_pressed.png" type="Texture" id=5]
 [ext_resource path="res://assets/audio/pik.mp3" type="AudioStream" id=6]
-[ext_resource path="res://assets/sprites/ui/menu_settings_button.png" type="Texture" id=7]
-[ext_resource path="res://assets/sprites/ui/menu_settings_button_pressed.png" type="Texture" id=8]
 [ext_resource path="res://assets/fonts/LittleThings-ZX5Z.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://assets/sprites/ui/menu_slider_bg.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/ui/menu_grabber.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/ui/menu_grabber_highlight.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/ui/menu_speaker_mute.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/ui/menu_speaker.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/ui/menu_checkbox.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/ui/menu_checkbox_tick.png" type="Texture" id=16]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 2 )
@@ -33,6 +38,16 @@ font_data = ExtResource( 9 )
 size = 48
 outline_size = 3
 font_data = ExtResource( 9 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 300, 11 )
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
 
 [node name="SettingsMenu" type="Control"]
 anchor_right = 1.0
@@ -80,13 +95,13 @@ custom_constants/margin_bottom = 73
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_left = 150.0
 margin_top = 100.0
-margin_right = 1153.0
+margin_right = 1120.0
 margin_bottom = 647.0
 mouse_filter = 2
 
 [node name="SettingsTitle" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_right = 1003.0
+margin_right = 970.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 0, 50 )
 rect_clip_content = false
@@ -102,261 +117,276 @@ scroll_active = false
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 margin_top = 54.0
-margin_right = 1003.0
+margin_right = 970.0
 margin_bottom = 58.0
 custom_styles/separator = SubResource( 5 )
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 62.0
-margin_right = 1003.0
+margin_right = 970.0
 margin_bottom = 547.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_top = 20
+custom_constants/margin_left = -20
 custom_constants/margin_bottom = 20
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+margin_left = -20.0
 margin_top = 20.0
-margin_right = 1003.0
+margin_right = 970.0
 margin_bottom = 465.0
 
-[node name="Column1" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 margin_right = 521.0
 margin_bottom = 445.0
 
-[node name="Music" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Column1"]
-margin_right = 497.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 0, 100 )
-size_flags_horizontal = 0
-
-[node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Column1/Music"]
-margin_right = 99.0
-margin_bottom = 100.0
-size_flags_vertical = 3
-custom_colors/font_outline_modulate = Color( 0.0156863, 0.0156863, 0.0156863, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Music"
-align = 1
-valign = 1
-
-[node name="MuteMusicButton" type="TextureButton" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Column1/Music"]
-unique_name_in_owner = true
-margin_left = 103.0
-margin_right = 193.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 90, 0 )
-toggle_mode = true
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 8 )
-expand = true
-stretch_mode = 5
-
-[node name="MusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Column1/Music"]
-unique_name_in_owner = true
-margin_left = 197.0
-margin_right = 497.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 300, 0 )
-size_flags_horizontal = 3
-size_flags_vertical = 1
-max_value = 0.8
-step = 0.01
-
-[node name="SFX" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Column1"]
-margin_top = 104.0
-margin_right = 470.0
-margin_bottom = 204.0
-rect_min_size = Vector2( 0, 100 )
-size_flags_horizontal = 0
-
-[node name="SfxLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Column1/SFX"]
-margin_right = 72.0
-margin_bottom = 100.0
-size_flags_vertical = 3
-custom_colors/font_outline_modulate = Color( 0.0156863, 0.0156863, 0.0156863, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Sfx"
-align = 1
-valign = 1
-
-[node name="MuteSFXButton" type="TextureButton" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Column1/SFX"]
-unique_name_in_owner = true
-margin_left = 76.0
-margin_right = 166.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 90, 0 )
-toggle_mode = true
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 8 )
-expand = true
-stretch_mode = 5
-
-[node name="SfxSlider" type="HSlider" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Column1/SFX"]
-unique_name_in_owner = true
-margin_left = 170.0
-margin_right = 470.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 300, 0 )
-size_flags_horizontal = 3
-size_flags_vertical = 1
-max_value = 1.0
-step = 0.01
-
-[node name="Volume" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Column1"]
-margin_top = 208.0
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/CenterContainer"]
+margin_top = 83.0
 margin_right = 521.0
-margin_bottom = 308.0
-rect_min_size = Vector2( 0, 100 )
+margin_bottom = 361.0
 size_flags_horizontal = 0
+size_flags_vertical = 0
+columns = 3
 
-[node name="MasterVolumeLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Column1/Volume"]
+[node name="MasterVolumeLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/CenterContainer/GridContainer"]
 margin_right = 123.0
-margin_bottom = 100.0
+margin_bottom = 90.0
 size_flags_vertical = 1
-custom_colors/font_outline_modulate = Color( 0.0156863, 0.0156863, 0.0156863, 1 )
+custom_colors/font_color = Color( 0.705882, 0.321569, 0.321569, 1 )
+custom_colors/font_outline_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "Volume"
-align = 1
+align = 2
 valign = 1
 
-[node name="MuteMasterButton" type="TextureButton" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Column1/Volume"]
+[node name="MuteMasterButton" type="TextureButton" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/CenterContainer/GridContainer"]
 unique_name_in_owner = true
 margin_left = 127.0
 margin_right = 217.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 90, 0 )
+margin_bottom = 90.0
+rect_min_size = Vector2( 90, 90 )
 toggle_mode = true
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 8 )
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 13 )
 expand = true
 stretch_mode = 5
 
-[node name="MasterSlider" type="HSlider" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Column1/Volume"]
+[node name="MasterSlider" type="HSlider" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/CenterContainer/GridContainer"]
 unique_name_in_owner = true
 margin_left = 221.0
 margin_right = 521.0
-margin_bottom = 100.0
+margin_bottom = 90.0
 rect_min_size = Vector2( 300, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 1
+custom_icons/grabber_highlight = ExtResource( 12 )
+custom_icons/grabber = ExtResource( 11 )
+custom_styles/slider = SubResource( 7 )
+custom_styles/grabber_area_highlight = SubResource( 8 )
+custom_styles/grabber_area = SubResource( 9 )
 max_value = 1.0
 step = 0.01
 
-[node name="Fullscreen" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Column1"]
-unique_name_in_owner = true
-margin_top = 312.0
-margin_right = 281.0
-margin_bottom = 412.0
-rect_min_size = Vector2( 0, 100 )
-size_flags_horizontal = 0
-
-[node name="FullscreenLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Column1/Fullscreen"]
-margin_right = 187.0
-margin_bottom = 100.0
-size_flags_vertical = 1
-custom_colors/font_outline_modulate = Color( 0.0156863, 0.0156863, 0.0156863, 1 )
+[node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/CenterContainer/GridContainer"]
+margin_top = 94.0
+margin_right = 123.0
+margin_bottom = 184.0
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0.294118, 0.501961, 0.792157, 1 )
+custom_colors/font_outline_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
 custom_fonts/font = SubResource( 4 )
-text = "Fullscreen"
-align = 1
+text = "Music"
+align = 2
 valign = 1
 
-[node name="FullscreenButton" type="TextureButton" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Column1/Fullscreen"]
+[node name="MuteMusicButton" type="TextureButton" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/CenterContainer/GridContainer"]
 unique_name_in_owner = true
-margin_left = 191.0
-margin_right = 281.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 90, 0 )
+margin_left = 127.0
+margin_top = 94.0
+margin_right = 217.0
+margin_bottom = 184.0
+rect_min_size = Vector2( 90, 90 )
 toggle_mode = true
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 8 )
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 13 )
 expand = true
 stretch_mode = 5
 
-[node name="Column2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="MusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/CenterContainer/GridContainer"]
+unique_name_in_owner = true
+margin_left = 221.0
+margin_top = 94.0
+margin_right = 521.0
+margin_bottom = 184.0
+rect_min_size = Vector2( 300, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_icons/grabber_highlight = ExtResource( 12 )
+custom_icons/grabber = ExtResource( 11 )
+custom_styles/slider = SubResource( 7 )
+custom_styles/grabber_area_highlight = SubResource( 8 )
+custom_styles/grabber_area = SubResource( 9 )
+max_value = 0.8
+step = 0.01
+
+[node name="SfxLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/CenterContainer/GridContainer"]
+margin_top = 188.0
+margin_right = 123.0
+margin_bottom = 278.0
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0.541176, 0.690196, 0.376471, 1 )
+custom_colors/font_outline_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Sfx"
+align = 2
+valign = 1
+
+[node name="MuteSFXButton" type="TextureButton" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/CenterContainer/GridContainer"]
+unique_name_in_owner = true
+margin_left = 127.0
+margin_top = 188.0
+margin_right = 217.0
+margin_bottom = 278.0
+rect_min_size = Vector2( 90, 90 )
+toggle_mode = true
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 13 )
+expand = true
+stretch_mode = 5
+
+[node name="SfxSlider" type="HSlider" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/CenterContainer/GridContainer"]
+unique_name_in_owner = true
+margin_left = 221.0
+margin_top = 188.0
+margin_right = 521.0
+margin_bottom = 278.0
+rect_min_size = Vector2( 300, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_icons/grabber_highlight = ExtResource( 12 )
+custom_icons/grabber = ExtResource( 11 )
+custom_styles/slider = SubResource( 7 )
+custom_styles/grabber_area_highlight = SubResource( 8 )
+custom_styles/grabber_area = SubResource( 9 )
+max_value = 1.0
+step = 0.01
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 margin_left = 525.0
-margin_right = 1003.0
+margin_right = 555.0
 margin_bottom = 445.0
+custom_constants/separation = 30
+custom_styles/separator = SubResource( 10 )
+
+[node name="Center" type="CenterContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+margin_left = 559.0
+margin_right = 965.0
+margin_bottom = 445.0
+
+[node name="Column2" type="GridContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Center"]
+margin_top = 41.0
+margin_right = 406.0
+margin_bottom = 403.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/vseparation = 14
+columns = 2
 
-[node name="OnScreenControls" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Column2"]
-margin_right = 478.0
-margin_bottom = 49.0
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Column2/OnScreenControls"]
-margin_right = 329.0
-margin_bottom = 49.0
+[node name="FullscreenLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Center/Column2"]
+margin_right = 322.0
+margin_bottom = 80.0
 size_flags_vertical = 1
-custom_colors/font_outline_modulate = Color( 0.0156863, 0.0156863, 0.0156863, 1 )
+custom_colors/font_color = Color( 0.811765, 0.541176, 0.796078, 1 )
+custom_colors/font_outline_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
 custom_fonts/font = SubResource( 4 )
-text = "OnScreenControls"
-align = 1
+text = "Fullscreen"
 valign = 1
 
-[node name="OnScreenControlsButton" type="TextureButton" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Column2/OnScreenControls"]
+[node name="FullscreenButton" type="TextureButton" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Center/Column2"]
 unique_name_in_owner = true
-margin_left = 333.0
-margin_right = 423.0
-margin_bottom = 49.0
-rect_min_size = Vector2( 90, 0 )
+margin_left = 326.0
+margin_right = 406.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
 toggle_mode = true
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 8 )
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 16 )
 expand = true
 stretch_mode = 5
 
-[node name="Vibration" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Column2"]
-margin_top = 53.0
-margin_right = 478.0
-margin_bottom = 102.0
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Column2/Vibration"]
-margin_right = 169.0
-margin_bottom = 49.0
+[node name="ScreenControlsLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Center/Column2"]
+margin_top = 94.0
+margin_right = 322.0
+margin_bottom = 174.0
 size_flags_vertical = 1
-custom_colors/font_outline_modulate = Color( 0.0156863, 0.0156863, 0.0156863, 1 )
+custom_colors/font_color = Color( 0.827451, 0.627451, 0.407843, 1 )
+custom_colors/font_outline_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
 custom_fonts/font = SubResource( 4 )
-text = "Vibration"
-align = 1
+text = "Screen Controls "
 valign = 1
 
-[node name="VibrationButton" type="TextureButton" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Column2/Vibration"]
+[node name="OnScreenControlsButton" type="TextureButton" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Center/Column2"]
 unique_name_in_owner = true
-margin_left = 173.0
-margin_right = 263.0
-margin_bottom = 49.0
-rect_min_size = Vector2( 90, 0 )
+margin_left = 326.0
+margin_top = 94.0
+margin_right = 406.0
+margin_bottom = 174.0
+rect_min_size = Vector2( 80, 80 )
+rect_pivot_offset = Vector2( 90, 90 )
 toggle_mode = true
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 8 )
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 16 )
 expand = true
 stretch_mode = 5
 
-[node name="LowQualityTextures" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Column2"]
-margin_top = 106.0
-margin_right = 478.0
-margin_bottom = 155.0
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Column2/LowQualityTextures"]
-margin_right = 384.0
-margin_bottom = 49.0
+[node name="VibrationLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Center/Column2"]
+margin_top = 188.0
+margin_right = 322.0
+margin_bottom = 268.0
 size_flags_vertical = 1
-custom_colors/font_outline_modulate = Color( 0.0156863, 0.0156863, 0.0156863, 1 )
+custom_colors/font_color = Color( 0.635294, 0.862745, 0.780392, 1 )
+custom_colors/font_outline_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
 custom_fonts/font = SubResource( 4 )
-text = "LowQualityTextures"
-align = 1
+text = "Vibrations"
 valign = 1
 
-[node name="LowQualityTexturesButton" type="TextureButton" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Column2/LowQualityTextures"]
+[node name="VibrationButton" type="TextureButton" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Center/Column2"]
 unique_name_in_owner = true
-margin_left = 388.0
-margin_right = 478.0
-margin_bottom = 49.0
-rect_min_size = Vector2( 90, 0 )
+margin_left = 326.0
+margin_top = 188.0
+margin_right = 406.0
+margin_bottom = 268.0
+rect_min_size = Vector2( 80, 80 )
+rect_pivot_offset = Vector2( 90, 90 )
 toggle_mode = true
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 8 )
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 16 )
+expand = true
+stretch_mode = 5
+
+[node name="LQLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Center/Column2"]
+margin_top = 282.0
+margin_right = 322.0
+margin_bottom = 362.0
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.929412, 0.882353, 0.619608, 1 )
+custom_colors/font_outline_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Low quality"
+valign = 1
+
+[node name="LowQualityTexturesButton" type="TextureButton" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Center/Column2"]
+unique_name_in_owner = true
+margin_left = 326.0
+margin_top = 282.0
+margin_right = 406.0
+margin_bottom = 362.0
+rect_min_size = Vector2( 80, 80 )
+rect_pivot_offset = Vector2( 90, 90 )
+toggle_mode = true
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 16 )
 expand = true
 stretch_mode = 5
 

@@ -16,6 +16,7 @@ var settings_dict = {
 	"on_screen_controls_visible": false,
 	"vibrations_enabled": true,
 	"low_quality_textures": false,
+	"test": true
 }
 
 func _ready():
@@ -60,9 +61,11 @@ func load_settings() -> void:
 	var f = File.new()
 	if f.file_exists(settings_file):
 		f.open_encrypted_with_pass(settings_file, File.READ, OS.get_unique_id())
+
 		for key in settings_dict.keys():
-			set(key, f.get_var())
-			print(key + ": " + str(settings_dict[key]) + " loaded")
+			if f.get_position() < f.get_len():
+				set(key, f.get_var())
+				print(key + ": " + str(settings_dict[key]) + " loaded")
 		f.close()
 	else: 
 		if OS.get_name() == "Android" or OS.get_name() == "HTML5": 

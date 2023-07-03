@@ -51,6 +51,7 @@ func register_buttons() -> void:
 	credits_button.connect("pressed", self, "_on_button_pressed", [credits_button])
 	controls_info_button.connect("pressed", self, "_on_button_pressed", [controls_info_button])
 	controls_pad_info_button.connect("pressed", self, "_on_button_pressed", [controls_pad_info_button])
+
 	$ExitButton.connect("pressed", self, "_on_button_pressed", [$ExitButton])
 
 

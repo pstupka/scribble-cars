@@ -29,6 +29,7 @@ func _ready():
 	set_initial()
 	register_controls()
 
+
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		close_menu()
@@ -52,6 +53,7 @@ func set_initial() -> void:
 	on_screen_controls_button.set_pressed_no_signal(Settings.get("on_screen_controls_visible"))
 	vibration_button.set_pressed_no_signal(Settings.get("vibrations_enabled"))
 	low_quality_textures_button.set_pressed_no_signal(Settings.get("low_quality_textures"))
+
 
 func register_controls() -> void:
 	mute_music_button.connect("toggled", self, "_on_button_toggled", [mute_music_button])

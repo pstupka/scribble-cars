@@ -13,7 +13,7 @@ onready var pik_sfx: AudioStreamPlayer = $PikSfx
 var pause_menu_active = false
 
 var tween: SceneTreeTween = null
-
+var exit_guard := false
 
 func _ready() -> void:
 	if OS.get_name() == "HTML5":
@@ -23,6 +23,7 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if exit_guard: return
 	if event.is_action_pressed("pause"):
 		pause()
 
@@ -50,6 +51,7 @@ func tween_pause_menu(target_blur: float, target_percent_visible: float) -> void
 	if (target_percent_visible == 0.0):
 		tween.tween_callback(self, "hide")
 
+
 func pause() -> void:
 	if get_tree().paused != pause_menu_active: return
 	
@@ -65,10 +67,12 @@ func pause() -> void:
 
 
 func _on_QuitButton_pressed() -> void:
+	exit_guard = true
 	get_tree().quit()
 
 
 func _on_MainMenuButton_pressed() -> void:
+	exit_guard = true
 	pik_sfx.play()
 	
 	if tween:

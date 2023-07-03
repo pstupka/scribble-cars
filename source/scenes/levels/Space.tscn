@@ -562,7 +562,7 @@ script = ExtResource( 6 )
 node_paths = [ NodePath("../Collectables"), NodePath("../ParallaxBackground/Stars/Stars"), NodePath("../Actors/Rocket") ]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 100
+layer = 99
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
