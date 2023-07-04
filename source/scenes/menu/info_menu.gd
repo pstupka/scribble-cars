@@ -24,8 +24,8 @@ func _ready():
 	var scrollbar = credits_label.get_v_scroll() as VScrollBar
 	scrollbar.allow_greater = true
 	scrollbar.allow_lesser = true
-	var tween2 = create_tween()
 	
+	var tween2 = create_tween()
 	tween2.set_loops().tween_property(scrollbar, "value", scrollbar.max_value, 15.0).from(-scrollbar.page)
 
 	credits_container.show()

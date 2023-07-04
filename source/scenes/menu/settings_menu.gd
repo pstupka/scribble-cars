@@ -52,9 +52,16 @@ func set_initial() -> void:
 	sfx_slider.value = db2linear(Settings.get("sfx_volume"))
 	master_volume.value = db2linear(Settings.get("master_volume"))
 	fullscreen_button.set_pressed_no_signal(Settings.get("fullscreen"))
+	fullscreen_button.get_child(0).visible = fullscreen_button.pressed
+	
 	on_screen_controls_button.set_pressed_no_signal(Settings.get("on_screen_controls_visible"))
+	on_screen_controls_button.get_child(0).visible = on_screen_controls_button.pressed
+	
 	vibration_button.set_pressed_no_signal(Settings.get("vibrations_enabled"))
+	vibration_button.get_child(0).visible = vibration_button.pressed
+	
 	low_quality_textures_button.set_pressed_no_signal(Settings.get("low_quality_textures"))
+	low_quality_textures_button.get_child(0).visible = low_quality_textures_button.pressed
 
 
 func register_controls() -> void:
@@ -103,6 +110,8 @@ func _on_volume_changed(value, slider) -> void:
 
 
 func _on_button_toggled(pressed, button):
+	pik_sfx.play()
+	
 	match button.name:
 		"MuteMusicButton":
 			Settings.set("music_mute", pressed)
@@ -112,11 +121,15 @@ func _on_button_toggled(pressed, button):
 			Settings.set("master_mute", pressed)
 		"FullscreenButton":
 			Settings.set("fullscreen", pressed)
+			button.get_child(0).visible = pressed
 		"OnScreenControlsButton":
 			Settings.set("on_screen_controls_visible", pressed)
+			button.get_child(0).visible = pressed
 		"VibrationButton":
 			Settings.set("vibrations_enabled", pressed)
+			button.get_child(0).visible = pressed
 			if pressed:
 				Globals.vibrate()
 		"LowQualityTexturesButton":
 			Settings.set("low_quality_textures", pressed)
+			button.get_child(0).visible = pressed

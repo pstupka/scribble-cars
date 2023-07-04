@@ -167,7 +167,9 @@ size_flags_vertical = 3
 custom_fonts/bold_font = SubResource( 7 )
 custom_fonts/normal_font = SubResource( 8 )
 bbcode_enabled = true
-bbcode_text = "[center][color=#b45252][b]Programming & Design[/b][/color]
+bbcode_text = "[center][img=300px]res://assets/stup_games_logo.png[/img]
+
+[color=#b45252][b]Programming & Design[/b][/color]
 [color=#d3a068]> Patryk Stupka[/color]
 
 [color=#e5ceb4][b]Sound Effects[/b][/color]
@@ -185,7 +187,9 @@ bbcode_text = "[center][color=#b45252][b]Programming & Design[/b][/color]
 [color=#868188][b]Font[/b][/color]
 [color=#b2b47e]> Little Things ( fontspace.com[/color][/center]"
 meta_underlined = false
-text = "Programming & Design
+text = "
+
+Programming & Design
 > Patryk Stupka
 
 Sound Effects
