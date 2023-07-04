@@ -5,6 +5,7 @@ onready var mute_music_button = $"%MuteMusicButton"
 onready var mute_sfx_button = $"%MuteSFXButton"
 onready var mute_master_button = $"%MuteMasterButton"
 onready var master_volume = $"%MasterSlider"
+onready var fullscreen_label = $"%FullscreenLabel"
 onready var fullscreen_button = $"%FullscreenButton"
 onready var music_slider = $"%MusicSlider"
 onready var sfx_slider = $"%SfxSlider"
@@ -24,7 +25,8 @@ func _ready():
 		 .from(Color(1.0, 1.0, 1.0, 0.0))
 
 	if OS.get_name() == "Android" or OS.get_name() == "HTML5":
-		$"%Fullscreen".hide()
+		fullscreen_label.hide()
+		fullscreen_button.hide()
 
 	set_initial()
 	register_controls()
@@ -114,5 +116,7 @@ func _on_button_toggled(pressed, button):
 			Settings.set("on_screen_controls_visible", pressed)
 		"VibrationButton":
 			Settings.set("vibrations_enabled", pressed)
+			if pressed:
+				Globals.vibrate()
 		"LowQualityTexturesButton":
 			Settings.set("low_quality_textures", pressed)

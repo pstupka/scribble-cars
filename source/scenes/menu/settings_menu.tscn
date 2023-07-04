@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/sprites/ui/menu_popup_panel.png" type="Texture" id=1]
 [ext_resource path="res://resources/shaders/blur.gdshader" type="Shader" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/sprites/ui/menu_exit_button.png" type="Texture" id=4]
 [ext_resource path="res://assets/sprites/ui/menu_exit_button_pressed.png" type="Texture" id=5]
 [ext_resource path="res://assets/audio/pik.mp3" type="AudioStream" id=6]
+[ext_resource path="res://assets/sprites/ui/line.png" type="Texture" id=7]
 [ext_resource path="res://assets/fonts/LittleThings-ZX5Z.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://assets/sprites/ui/menu_slider_bg.png" type="Texture" id=10]
 [ext_resource path="res://assets/sprites/ui/menu_grabber.png" type="Texture" id=11]
@@ -47,7 +48,9 @@ region_rect = Rect2( 0, 0, 300, 11 )
 
 [sub_resource type="StyleBoxEmpty" id=9]
 
-[sub_resource type="StyleBoxEmpty" id=10]
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 18, 400 )
 
 [node name="SettingsMenu" type="Control"]
 anchor_right = 1.0
@@ -274,14 +277,14 @@ step = 0.01
 
 [node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 margin_left = 525.0
-margin_right = 555.0
+margin_right = 565.0
 margin_bottom = 445.0
-custom_constants/separation = 30
+custom_constants/separation = 40
 custom_styles/separator = SubResource( 10 )
 
 [node name="Center" type="CenterContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
-margin_left = 559.0
-margin_right = 965.0
+margin_left = 569.0
+margin_right = 975.0
 margin_bottom = 445.0
 
 [node name="Column2" type="GridContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Center"]
@@ -294,13 +297,14 @@ custom_constants/vseparation = 14
 columns = 2
 
 [node name="FullscreenLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Center/Column2"]
+unique_name_in_owner = true
 margin_right = 322.0
 margin_bottom = 80.0
 size_flags_vertical = 1
 custom_colors/font_color = Color( 0.811765, 0.541176, 0.796078, 1 )
 custom_colors/font_outline_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
 custom_fonts/font = SubResource( 4 )
-text = "Fullscreen"
+text = "Fullscreen "
 valign = 1
 
 [node name="FullscreenButton" type="TextureButton" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Center/Column2"]
@@ -348,7 +352,7 @@ size_flags_vertical = 1
 custom_colors/font_color = Color( 0.635294, 0.862745, 0.780392, 1 )
 custom_colors/font_outline_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
 custom_fonts/font = SubResource( 4 )
-text = "Vibrations"
+text = "Vibrations "
 valign = 1
 
 [node name="VibrationButton" type="TextureButton" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Center/Column2"]
@@ -373,7 +377,7 @@ size_flags_vertical = 1
 custom_colors/font_color = Color( 0.929412, 0.882353, 0.619608, 1 )
 custom_colors/font_outline_modulate = Color( 0.129412, 0.129412, 0.137255, 1 )
 custom_fonts/font = SubResource( 4 )
-text = "Low quality"
+text = "Low quality "
 valign = 1
 
 [node name="LowQualityTexturesButton" type="TextureButton" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Center/Column2"]

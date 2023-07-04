@@ -13,7 +13,6 @@ onready var brum: AudioStreamPlayer2D = $Brum
 onready var ladder_sfx = $LadderSfx
 
 
-
 export var speed := 150.0
 export var can_change_color:bool = true
 export var color : Color setget set_color

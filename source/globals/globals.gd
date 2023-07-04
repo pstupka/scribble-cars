@@ -35,18 +35,19 @@ var car_templates:Dictionary = {
 	"bus6": preload("res://source/scenes/actors/car_templates/bus6.tscn"),
 	"firetruck1": preload("res://source/scenes/actors/car_templates/car_firetruck1.tscn"),
 	"firetruck2": preload("res://source/scenes/actors/car_templates/car_firetruck2.tscn"),
+	"firetruck3": preload("res://source/scenes/actors/car_templates/car_firetruck3.tscn"),
 	"car_kia": preload("res://source/scenes/actors/car_templates/car_kia.tscn"),
 }
 
 var available_cars: = {
 	"forest": ["car_kia", "car_template", "tractor", "car1", "tractor2", "car3", "car4", "cabrio", "bus2", "car_police"],
 	"city": ["bus3", "bus6", "bus4", "bus", "fish_bus", "bus5", "car_ambulance", "car_police"],
-	"firetruck": ["firetruck1", "firetruck2"]
+	"firetruck": ["firetruck1", "firetruck2", "firetruck3"]
 }
 
 var available_random_cars: = {
-	"forest": ["car_template", "car_kia", "tractor", "car1", "tractor2", "car3", "car4", "bus2", "car_police"],
-	"city": ["car3", "car_kia", "cabrio", "car1", "car_template", "car_ambulance", "car4", "car_police"],
+	"forest": ["car_template", "car_kia", "tractor", "car1", "tractor2", "car3", "car4", "bus2", "car_police", "firetruck1"],
+	"city": ["car3", "car_kia", "cabrio", "car1", "car_template", "car_ambulance", "car4", "car_police", "firetruck1"],
 	"firetruck": ["car3", "car_kia", "cabrio", "car1", "car_template", "car_ambulance", "car4", "car_police", "bus3", "bus5"]
 }
 

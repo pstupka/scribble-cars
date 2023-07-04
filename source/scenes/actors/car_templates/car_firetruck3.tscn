@@ -2,15 +2,15 @@
 
 [ext_resource path="res://source/utils/day_night_utils/day_night_modulate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/audio/hop.mp3" type="AudioStream" id=2]
-[ext_resource path="res://assets/sprites/cars/firetrucks/firetruck2_ladder.png" type="Texture" id=3]
-[ext_resource path="res://assets/sprites/cars/firetrucks/firetruck2_outline.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/cars/firetrucks/firetruck3_shadow.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/cars/firetrucks/firetruck3.png" type="Texture" id=4]
 [ext_resource path="res://source/scenes/actors/car_templates/car_firetruck.gd" type="Script" id=5]
 [ext_resource path="res://assets/sprites/light.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/fume2.png" type="Texture" id=7]
 [ext_resource path="res://assets/sprites/star_05.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/cars/firetrucks/firetruck3_ladder.png" type="Texture" id=9]
 [ext_resource path="res://assets/audio/pibi.mp3" type="AudioStream" id=10]
 [ext_resource path="res://source/scenes/Siren.tscn" type="PackedScene" id=11]
-[ext_resource path="res://assets/sprites/cars/firetrucks/firetruck2_shadow.png" type="Texture" id=12]
 [ext_resource path="res://assets/audio/bus_doors.mp3" type="AudioStream" id=13]
 [ext_resource path="res://assets/audio/ioio.mp3" type="AudioStream" id=15]
 
@@ -58,7 +58,7 @@ resource_name = "jump"
 length = 1.5
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("firetruck2/AnimationPivot:position")
+tracks/0/path = NodePath("firetruck3/AnimationPivot:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -70,7 +70,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0.012 ), Vector2( 0, -100 ), Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("firetruck2/AnimationPivot:scale")
+tracks/1/path = NodePath("firetruck3/AnimationPivot:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -82,7 +82,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.8, 1.2 ), Vector2( 1, 1 ), Vector2( 1.05, 0.95 ), Vector2( 1.05, 0.95 ), Vector2( 1.2, 0.8 ), Vector2( 1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("firetruck2/ShadowPivot:scale")
+tracks/2/path = NodePath("firetruck3/ShadowPivot:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -94,7 +94,7 @@ tracks/2/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.8, 1.2 ), Vector2( 1.5, 1.5 ), Vector2( 1.05, 0.95 ), Vector2( 1.05, 0.95 ), Vector2( 1.2, 0.8 ), Vector2( 1, 1 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("firetruck2/ShadowPivot:modulate")
+tracks/3/path = NodePath("firetruck3/ShadowPivot:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -111,7 +111,7 @@ resource_name = "move"
 length = 2.5
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("firetruck2/AnimationPivot:scale")
+tracks/0/path = NodePath("firetruck3/AnimationPivot:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -123,7 +123,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ) ]
 }
 tracks/1/type = "audio"
-tracks/1/path = NodePath("firetruck2/Brum")
+tracks/1/path = NodePath("firetruck3/Brum")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -137,7 +137,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 )
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("firetruck2/ShadowPivot:scale")
+tracks/2/path = NodePath("firetruck3/ShadowPivot:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -149,30 +149,30 @@ tracks/2/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ) ]
 }
 
-[node name="firetruck2" type="Node2D"]
+[node name="firetruck3" type="Node2D"]
 script = ExtResource( 5 )
 speed = 180.0
 can_change_color = false
-max_ladder_angle_deg = 50.0
-min_ladder_angle_deg = 13.0
+max_ladder_angle_deg = 60.0
+min_ladder_angle_deg = 20.0
 
 [node name="ShadowPivot" type="Node2D" parent="."]
 
 [node name="LadderPivot" type="Node2D" parent="ShadowPivot"]
-position = Vector2( 225, 69 )
+position = Vector2( 194, 52 )
 rotation = -0.523599
 scale = Vector2( 1, -0.5 )
 
 [node name="Firetruck1Ladder" type="Sprite" parent="ShadowPivot/LadderPivot"]
 self_modulate = Color( 0, 0, 0, 0.0941176 )
 position = Vector2( -99.6122, -2.53331 )
-texture = ExtResource( 3 )
+texture = ExtResource( 9 )
 offset = Vector2( -9, 0 )
 
 [node name="Firetruck2Shadow" type="Sprite" parent="ShadowPivot"]
 self_modulate = Color( 1, 1, 1, 0.0941176 )
-position = Vector2( 1, 44 )
-texture = ExtResource( 12 )
+position = Vector2( 1, 32 )
+texture = ExtResource( 3 )
 
 [node name="AnimationPivot" type="Node2D" parent="."]
 position = Vector2( 0, 0.012 )
@@ -186,12 +186,12 @@ position = Vector2( 32, -62.731 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="LadderPivot" type="Node2D" parent="AnimationPivot/Sprites"]
-position = Vector2( 226, -91.731 )
+position = Vector2( 199, -86.731 )
 rotation = 0.523599
 
 [node name="Firetruck1Ladder" type="Sprite" parent="AnimationPivot/Sprites/LadderPivot"]
 position = Vector2( -99.6122, -2.53331 )
-texture = ExtResource( 3 )
+texture = ExtResource( 9 )
 offset = Vector2( -9, 0 )
 
 [node name="CatDiscovery" type="Area2D" parent="AnimationPivot/Sprites/LadderPivot" groups=["passengerDiscover"]]
@@ -205,18 +205,18 @@ shape = SubResource( 35 )
 disabled = true
 
 [node name="Siren" parent="AnimationPivot/Sprites" instance=ExtResource( 11 )]
-position = Vector2( -128.5, -141.231 )
+position = Vector2( -157, -97.731 )
 scale = Vector2( 0.568182, 0.575 )
 color_start = Color( 0.690196, 0.686275, 0.654902, 1 )
 color_end = Color( 0.211765, 0.360784, 0.568627, 1 )
 
 [node name="Firetruck1" type="Sprite" parent="AnimationPivot/Sprites"]
-position = Vector2( 0, -75 )
+position = Vector2( 0, -52 )
 texture = ExtResource( 4 )
 
 [node name="Particles2D" type="Particles2D" parent="AnimationPivot"]
 light_mask = 0
-position = Vector2( 220, -28.012 )
+position = Vector2( 181, -22.012 )
 amount = 6
 lifetime = 1.2
 local_coords = false
@@ -227,7 +227,7 @@ texture = ExtResource( 7 )
 self_modulate = Color( 1, 0, 0, 1 )
 light_mask = 0
 material = SubResource( 29 )
-position = Vector2( 211, -39.012 )
+position = Vector2( 186, -41.012 )
 rotation = -1.5708
 scale = Vector2( 0.175271, 0.208771 )
 texture = ExtResource( 8 )
@@ -238,7 +238,7 @@ night_color = Color( 1.5, 1.5, 1.5, 1 )
 [node name="FrontLight" type="Sprite" parent="AnimationPivot"]
 self_modulate = Color( 0.65, 0.617825, 0.4355, 1 )
 material = SubResource( 30 )
-position = Vector2( -150, -82.012 )
+position = Vector2( -169, -26.012 )
 rotation = 3.14158
 scale = Vector2( 0.138467, 0.138466 )
 texture = ExtResource( 8 )
