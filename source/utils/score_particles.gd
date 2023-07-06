@@ -15,6 +15,7 @@ func _ready() -> void:
 		tween.parallel().tween_property(digit_1, "scale", Vector2(1.6, 1.6), 0.6)
 		digit_0.offset.x += 50
 		digit_1.offset.x -= 50
+	tween.parallel().tween_property($Pivot, "position", (200*Vector2.UP).rotated(deg2rad(rand_range(-30.0, 30.0))), 0.6)
 	
 	tween.tween_property(digit_0, "modulate", Color("00ffffff"), 0.4).set_delay(0.2)
 	tween.parallel().tween_property(digit_1, "modulate", Color("00ffffff"), 0.4).set_delay(0.2)

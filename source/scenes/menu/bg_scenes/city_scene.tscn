@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://assets/sprites/road_fill.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/road_outline.png" type="Texture" id=2]
@@ -11,12 +11,9 @@
 [ext_resource path="res://assets/sprites/buildings/city3.png" type="Texture" id=9]
 [ext_resource path="res://assets/sprites/buildings/city_bg2.png" type="Texture" id=10]
 [ext_resource path="res://assets/sprites/buildings/city_bg3.png" type="Texture" id=11]
-[ext_resource path="res://assets/sprites/npc/human1.png" type="Texture" id=16]
+[ext_resource path="res://source/scenes/props/family_animated.tscn" type="PackedScene" id=12]
 [ext_resource path="res://source/utils/day_night_utils/day_night_modulate.tscn" type="PackedScene" id=17]
 [ext_resource path="res://source/utils/move_parallax_layer.gd" type="Script" id=18]
-[ext_resource path="res://assets/sprites/npc/human2.png" type="Texture" id=19]
-[ext_resource path="res://assets/sprites/npc/human3.png" type="Texture" id=20]
-[ext_resource path="res://assets/sprites/cars/car2_frontlight.png" type="Texture" id=21]
 [ext_resource path="res://assets/sprites/buildings/city1.png" type="Texture" id=22]
 
 [sub_resource type="Gradient" id=11]
@@ -131,47 +128,6 @@ surfaces/0 = {
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 18
-}
-
-[sub_resource type="Animation" id=59]
-resource_name = "idle"
-length = 0.8
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Humans/Human3:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
-"transitions": PoolRealArray( 1, 1.8025, 1, 1.8025, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0.95, 1.05 ), Vector2( 1, 1 ), Vector2( 0.95, 1.05 ), Vector2( 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Humans/Human2:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.1, 0.3, 0.5, 0.7 ),
-"transitions": PoolRealArray( 1.8025, 1, 1.8025, 1 ),
-"update": 0,
-"values": [ Vector2( 0.95, 1.05 ), Vector2( 1, 1 ), Vector2( 0.95, 1.05 ), Vector2( 1, 1 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Humans/Human1:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.4, 0.8 ),
-"transitions": PoolRealArray( 1, 1.8025, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0.95, 1.05 ), Vector2( 1, 1 ) ]
 }
 
 [node name="CityScene" type="ParallaxBackground"]
@@ -310,7 +266,6 @@ polygon = PoolVector2Array( 42, 164, 532, 146, 538, 92, 534, 38, 544, 7, 515, -2
 
 [node name="DayNightModulate" parent="Buildings/City4/Windows" instance=ExtResource( 17 )]
 position = Vector2( -1200, -484 )
-scale = Vector2( 1, 1 )
 day_color = Color( 0.294118, 0.501961, 0.792157, 1 )
 night_color = Color( 2, 2, 0, 1 )
 
@@ -344,40 +299,9 @@ position = Vector2( -3238, -605 )
 day_color = Color( 0.294118, 0.501961, 0.792157, 1 )
 night_color = Color( 2, 2, 0, 1 )
 
-[node name="Humans" type="Node2D" parent="Buildings"]
-position = Vector2( -966, -122 )
+[node name="Humans" parent="Buildings" instance=ExtResource( 12 )]
+position = Vector2( 483, 454 )
 scale = Vector2( 0.3, 0.3 )
-
-[node name="Shadow" type="Sprite" parent="Buildings/Humans"]
-self_modulate = Color( 0.52549, 0.505882, 0.533333, 0.509804 )
-position = Vector2( 4334.25, 1892.26 )
-rotation = -0.0215981
-scale = Vector2( 8.79515, 1.82041 )
-texture = ExtResource( 21 )
-
-[node name="Human3" type="Sprite" parent="Buildings/Humans"]
-position = Vector2( 4300, 1890 )
-texture = ExtResource( 20 )
-centered = false
-offset = Vector2( -85, -277 )
-
-[node name="Human2" type="Sprite" parent="Buildings/Humans"]
-position = Vector2( 4400, 1895 )
-scale = Vector2( 0.975, 1.025 )
-texture = ExtResource( 19 )
-centered = false
-offset = Vector2( -65, -262 )
-
-[node name="Human1" type="Sprite" parent="Buildings/Humans"]
-position = Vector2( 4350, 1895 )
-texture = ExtResource( 16 )
-centered = false
-offset = Vector2( -60, -148 )
-
-[node name="HumansAnim" type="AnimationPlayer" parent="Buildings/Humans"]
-root_node = NodePath("../..")
-autoplay = "idle"
-anims/idle = SubResource( 59 )
 
 [node name="Ground3" type="ParallaxLayer" parent="."]
 position = Vector2( 0, 70 )

@@ -266,7 +266,7 @@ size_flags_horizontal = 3
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
+color = Color( 0.129412, 0.129412, 0.137255, 1 )
 
 [connection signal="pressed" from="LevelSelectionButtons/HBoxContainer/LevelPrevious" to="." method="_on_LevelPrevious_pressed"]
 [connection signal="pressed" from="LevelSelectionButtons/HBoxContainer/LevelNext" to="." method="_on_LevelNext_pressed"]

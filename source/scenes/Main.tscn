@@ -977,12 +977,11 @@ object_time_offset = 0.05
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 101
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
+color = Color( 0.129412, 0.129412, 0.137255, 1 )
 
 [connection signal="timeout" from="AppleTimer" to="." method="_on_AppleTimer_timeout"]
 [connection signal="timeout" from="CarSpawnTimer" to="." method="_on_CarSpawnTimer_timeout"]

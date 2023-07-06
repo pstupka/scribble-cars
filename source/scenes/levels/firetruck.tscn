@@ -570,7 +570,7 @@ scale = Vector2( 0.5, 0.5 )
 
 [node name="Flower1Pink" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
 use_parent_material = true
-position = Vector2( 46, 16 )
+position = Vector2( 46, 18 )
 texture = ExtResource( 6 )
 
 [node name="Flower1Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
@@ -590,7 +590,7 @@ texture = ExtResource( 9 )
 
 [node name="Flower2Red" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
 use_parent_material = true
-position = Vector2( 80, 0 )
+position = Vector2( 80, 2 )
 texture = ExtResource( 12 )
 
 [node name="Flower2Red2" type="Sprite" parent="ParallaxBackground/Ground3/Flowers4"]
@@ -979,12 +979,11 @@ bus = "Background"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 99
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
+color = Color( 0.129412, 0.129412, 0.137255, 1 )
 
 [node name="CarSpawnTimer" type="Timer" parent="."]
 wait_time = 5.61

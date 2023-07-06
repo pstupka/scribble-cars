@@ -46,7 +46,7 @@ func _ready() -> void:
 	
 	var tween = create_tween()
 	
-	tween.tween_property(game_start_transition_rect, "color", Color(0.0, 0.0, 0.0, 0.0), 0.6)
+	tween.tween_property(game_start_transition_rect, "color", Color(0.13, 0.13, 0.14, 0.0), 0.6)
 	tween.tween_callback(game_start_transition_rect, "hide")
 	tween.tween_callback(self, "set_can_change_scene", [true])
 	
@@ -88,7 +88,7 @@ func change_level_selection(next_level: int) -> void:
 	machine.hide()
 	
 	tween.tween_callback(level_selection_transition_rect, "show", [])
-	tween.tween_property(level_selection_transition_rect, "color", Color(0.0, 0.0, 0.0, 1.0), 0.3)
+	tween.tween_property(level_selection_transition_rect, "color", Color(0.13, 0.13, 0.14, 1.0), 0.3)
 	tween.tween_callback(level_bg, "show")
 	if bg.get_child_count() > 1:
 		tween.tween_callback(bg.get_child(0), "call_deferred", ["queue_free"])
@@ -96,7 +96,7 @@ func change_level_selection(next_level: int) -> void:
 		tween.tween_callback(machine_pivot.get_child(0), "call_deferred", ["queue_free"])
 	tween.parallel().tween_callback(machine, "show")
 
-	tween.tween_property(level_selection_transition_rect, "color", Color(0.0, 0.0, 0.0, 0.0), 0.3)
+	tween.tween_property(level_selection_transition_rect, "color", Color(0.13, 0.13, 0.14, 0.0), 0.3)
 	
 	if machine.has_method("set_animation_loop"):
 		machine.set_animation_loop("move", true)
@@ -150,9 +150,9 @@ func _on_StartButton_pressed() -> void:
 	
 	var tween = create_tween()
 	game_start_transition_rect.show()
-	tween.tween_property(game_start_transition_rect, "color", Color(0.0, 0.0, 0.0, 1.0), 0.5)
+	tween.tween_property(game_start_transition_rect, "color", Color(0.13, 0.13, 0.14, 1.0), 0.6)
 	tween.parallel().tween_property(background_music, "volume_db", -40.0, 0.5)
-	tween.tween_callback(self, "start_game")
+	tween.tween_callback(self, "start_game").set_delay(0.1)
 
 
 func _on_InfoButton_pressed():
@@ -174,6 +174,8 @@ func _on_SettingsButton_pressed():
 
 
 func _on_ExitButton_pressed():
+	can_start_game = false
+	can_change_scene = false
 	pik_sfx.play()
 	var tween = create_tween().tween_callback(get_tree(), "quit").set_delay(0.3)
 

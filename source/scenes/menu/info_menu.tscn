@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://assets/sprites/ui/menu_popup_panel.png" type="Texture" id=1]
 [ext_resource path="res://resources/shaders/blur.gdshader" type="Shader" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://assets/sprites/ui/menu_controls_pad_button.png" type="Texture" id=13]
 [ext_resource path="res://assets/sprites/ui/menu_controls_pad_button_pressed.png" type="Texture" id=14]
 [ext_resource path="res://assets/sprites/ui/menu_controls_keyboard.png" type="Texture" id=15]
+[ext_resource path="res://source/scenes/props/family_animated.tscn" type="PackedScene" id=16]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 2 )
@@ -455,3 +456,7 @@ stretch_mode = 5
 [node name="PikSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 bus = "Sfx"
+
+[node name="Humans" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1011, 554 )
+scale = Vector2( 0.5, 0.5 )

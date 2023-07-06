@@ -204,15 +204,15 @@ position = Vector2( -174.904, -2.94225 )
 shape = SubResource( 35 )
 disabled = true
 
-[node name="Siren" parent="AnimationPivot/Sprites" instance=ExtResource( 11 )]
-position = Vector2( -128.5, -141.231 )
-scale = Vector2( 0.568182, 0.575 )
-color_start = Color( 0.690196, 0.686275, 0.654902, 1 )
-color_end = Color( 0.211765, 0.360784, 0.568627, 1 )
-
 [node name="Firetruck1" type="Sprite" parent="AnimationPivot/Sprites"]
 position = Vector2( 0, -75 )
 texture = ExtResource( 4 )
+
+[node name="Siren" parent="AnimationPivot/Sprites" instance=ExtResource( 11 )]
+position = Vector2( -129, -143.481 )
+scale = Vector2( 0.454546, 0.5125 )
+color_start = Color( 0.690196, 0.686275, 0.654902, 1 )
+color_end = Color( 0.211765, 0.360784, 0.568627, 1 )
 
 [node name="Particles2D" type="Particles2D" parent="AnimationPivot"]
 light_mask = 0

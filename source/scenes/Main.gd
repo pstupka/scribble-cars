@@ -15,15 +15,16 @@ export var lanes_y_position = [410, 460]
 
 onready var random_car = preload("res://source/scenes/actors/random_car.tscn")
 
+
 func _ready():
 	$CanvasLayer.show()
 	randomize()
-	var _err = Events.connect("time_of_day_changed", self, "_on_time_of_day_changed")
+	var _err = Events.connect ("time_of_day_changed", self, "_on_time_of_day_changed")
 	_err = $EnterTweener.connect("enter_tween_completed", self, "_on_enter_tween_completed")
 
 	var tween = create_tween()
 	tween.set_pause_mode(SceneTreeTween.TWEEN_PAUSE_PROCESS)
-	tween.tween_property(transition_color, "modulate", Color(0.0, 0.0, 0.0, 0.0), 1.0)
+	tween.tween_property(transition_color, "modulate", Color(0.13, 0.13, 0.14, 0.0), 1.0).set_delay(0.3)
 	tween.tween_callback(transition_color, "call_deferred", ["queue_free"])
 
 	yield(get_tree().create_timer(0.3),"timeout")

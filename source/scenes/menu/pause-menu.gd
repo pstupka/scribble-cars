@@ -88,7 +88,7 @@ func _on_MainMenuButton_pressed() -> void:
 	tween.parallel().tween_property(buttons_container, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.5)
 
 	tween.tween_callback(overlay_texture.material, "set_shader_param", ["apply", false])
-	tween.parallel().tween_property(overlay_texture, "color", Color.black, 1.0)
+	tween.parallel().tween_property(overlay_texture, "color", Color(0.13, 0.13, 0.14, 1.0), 1.0)
 	tween.tween_callback(get_tree(), "set_pause", [false])
 	tween.tween_callback(get_tree(), "change_scene", ["res://source/scenes/menu/menu.tscn"])
 

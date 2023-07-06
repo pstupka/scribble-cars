@@ -13,7 +13,6 @@ onready var transition_color = $CanvasLayer/ColorRect
 export var scene_type = "space"
 
 func _ready() -> void:
-
 	$CanvasLayer.show()
 	for star in stars.get_children():
 		star.modulate = Color(randf(), 0.0, 0.0)
@@ -35,10 +34,10 @@ func _ready() -> void:
 	
 	var tween = create_tween()
 	tween.set_pause_mode(SceneTreeTween.TWEEN_PAUSE_PROCESS)
-	tween.tween_property(transition_color, "modulate", Color(0.0, 0.0, 0.0, 0.0), 1.0)
+	tween.tween_property(transition_color, "modulate", Color(0.13, 0.13, 0.14, 0.0), 1.0).set_delay(0.3)
 	tween.tween_callback(transition_color, "call_deferred", ["queue_free"])
 	
-	yield(get_tree().create_timer(0.3),"timeout")
+	yield(get_tree().create_timer(0.4),"timeout")
 	get_tree().paused = true
 	var _err = enter_tweener.connect("enter_tween_completed", self, "_on_enter_tween_completed")
 	enter_tweener.apply_tween()
