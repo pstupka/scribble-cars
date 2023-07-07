@@ -56,7 +56,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Johny's Doodles Vroom Scadoodles"
+config/name="Johnny's Doodles Vroom Scadoodles"
 config/description="Relaxing game where you drive your machines and collect things"
 run/main_scene="res://source/scenes/menu/splash_screen.tscn"
 boot_splash/show_image=false

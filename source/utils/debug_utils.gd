@@ -2,7 +2,7 @@ extends Node
 
 
 func _ready():
-	if not OS.has_feature("debug_utils"):
+	if not OS.has_feature("debug"):
 		call_deferred("queue_free")
 		return
 
@@ -30,7 +30,7 @@ func take_screenshot() -> void:
 	# Setup path and screenshot filename
 	var date = OS.get_datetime()
 	var path = "user://screenshots"
-	var file_name = "screenshot-%d-%02d-%02dT%02d:%02d:%02d" % [date.year, date.month, date.day, date.hour, date.minute, date.second]
+	var file_name = "screenshot-%d-%02d-%02dT%02d.%02d.%02d" % [date.year, date.month, date.day, date.hour, date.minute, date.second]
 	var dir = Directory.new()
 	if not dir.dir_exists(path):
 		dir.make_dir(path)
