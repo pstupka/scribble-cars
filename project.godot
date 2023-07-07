@@ -69,6 +69,7 @@ Settings="*res://source/globals/settings.gd"
 Events="*res://source/globals/events.gd"
 Globals="*res://source/globals/globals.gd"
 CheatCodeDetector="*res://source/globals/cheat_code_detector.gd"
+DebugUtils="*res://source/utils/debug_utils.gd"
 
 [debug]
 
@@ -79,6 +80,8 @@ gdscript/warnings/return_value_discarded=false
 
 window/size/width=1280
 window/size/height=720
+window/size/test_width=1920
+window/size/test_height=1080
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
