@@ -4,7 +4,7 @@
 [ext_resource path="res://source/scenes/actors/player_rocket.tscn" type="PackedScene" id=2]
 [ext_resource path="res://source/scenes/props/space/asteroid.tscn" type="PackedScene" id=3]
 [ext_resource path="res://source/scenes/menu/pause-menu.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/audio/youtube-library/Goat - Wayne Jones.mp3" type="AudioStream" id=5]
+[ext_resource path="res://assets/audio/youtube-library/Goat_Wayne_Jones.mp3" type="AudioStream" id=5]
 [ext_resource path="res://source/utils/enter_tween.gd" type="Script" id=6]
 [ext_resource path="res://resources/shaders/wobble_shader.tres" type="Material" id=7]
 [ext_resource path="res://source/scenes/levels/Space.gd" type="Script" id=8]

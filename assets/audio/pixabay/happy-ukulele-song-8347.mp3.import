@@ -11,5 +11,5 @@ dest_files=[ "res://.import/happy-ukulele-song-8347.mp3-a6f3b874e5741813fe96d093
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

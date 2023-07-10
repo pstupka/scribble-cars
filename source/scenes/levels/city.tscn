@@ -24,7 +24,7 @@
 [ext_resource path="res://source/utils/enter_tween.gd" type="Script" id=22]
 [ext_resource path="res://source/scenes/props/Cloud3.tscn" type="PackedScene" id=23]
 [ext_resource path="res://source/scenes/props/Cloud4.tscn" type="PackedScene" id=24]
-[ext_resource path="res://assets/audio/youtube-library/Bike Rides - The Green Orbs.mp3" type="AudioStream" id=25]
+[ext_resource path="res://assets/audio/youtube-library/Bike_Rides_The_Green_Orbs.mp3" type="AudioStream" id=25]
 [ext_resource path="res://assets/sprites/buildings/city3.png" type="Texture" id=26]
 [ext_resource path="res://assets/sprites/buildings/city2.png" type="Texture" id=27]
 [ext_resource path="res://source/scenes/actors/npc/pedestrian.tscn" type="PackedScene" id=32]
