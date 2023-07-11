@@ -69,7 +69,7 @@ Settings="*res://source/globals/settings.gd"
 Events="*res://source/globals/events.gd"
 Globals="*res://source/globals/globals.gd"
 CheatCodeDetector="*res://source/globals/cheat_code_detector.gd"
-DebugUtils="*res://source/utils/debug_utils.gd"
+DebugUtils="res://source/utils/debug_utils.gd"
 
 [debug]
 
