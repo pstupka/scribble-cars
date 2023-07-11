@@ -17,15 +17,13 @@ onready var turbo_sfx: AudioStreamPlayer = $TurboSfx
 onready var rocket_fill_front = $Pivot/AnimationPivot/Rocket1Fill2
 onready var rocket_fill_body = $Pivot/AnimationPivot/Rocket1Fill1
 onready var rocket_engines = $Pivot/AnimationPivot/Rocket1Engines
+onready var camera = $Camera2D 
 
 
 export var camera_zoom_speed_threshold = 500.0
 var thrust := Vector2.ZERO
 var direction := Vector2.ZERO
 
-
-func _ready() -> void:
-	Globals.camera= $Camera2D 
 
 
 func _input(event: InputEvent) -> void:
@@ -67,11 +65,13 @@ func _process(_delta: float) -> void:
 			engine_1_basic.emitting = false
 			
 		thrust = Vector2.ZERO
-	
+		
 	var zoom_addition = 0
+	
 	if linear_velocity.length() > camera_zoom_speed_threshold: 
 		zoom_addition = clamp(linear_velocity.length()/3000.0, 0.0, 0.3)
-	$Camera2D.zoom = lerp($Camera2D.zoom, Vector2(1.0 + zoom_addition, 1.0 + zoom_addition), 0.01)
+	
+	camera.zoom = lerp(camera.zoom, Vector2(1.0 + zoom_addition, 1.0 + zoom_addition), 0.01)
 
 
 func _physics_process(_delta: float) -> void:

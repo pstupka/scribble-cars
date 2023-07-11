@@ -1,12 +1,12 @@
 [gd_scene load_steps=32 format=2]
 
-[ext_resource path="res://assets/audio/hop.mp3" type="AudioStream" id=1]
+[ext_resource path="res://assets/audio/hop.wav" type="AudioStream" id=1]
 [ext_resource path="res://source/utils/day_night_utils/day_night_modulate.tscn" type="PackedScene" id=2]
 [ext_resource path="res://source/scenes/actors/car_templates/bus.gd" type="Script" id=3]
-[ext_resource path="res://assets/audio/pibi2.mp3" type="AudioStream" id=4]
-[ext_resource path="res://assets/audio/z_drogi.mp3" type="AudioStream" id=5]
+[ext_resource path="res://assets/audio/pibi2.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/audio/z_drogi.wav" type="AudioStream" id=5]
 [ext_resource path="res://assets/sprites/star_05.png" type="Texture" id=6]
-[ext_resource path="res://assets/audio/pibi.mp3" type="AudioStream" id=7]
+[ext_resource path="res://assets/audio/pibi.wav" type="AudioStream" id=7]
 [ext_resource path="res://assets/sprites/fume2.png" type="Texture" id=8]
 [ext_resource path="res://assets/sprites/cars/car2_backlight.png" type="Texture" id=9]
 [ext_resource path="res://assets/sprites/light.png" type="Texture" id=10]
@@ -14,10 +14,10 @@
 [ext_resource path="res://assets/sprites/cars/bus_shadow.png" type="Texture" id=12]
 [ext_resource path="res://assets/sprites/cars/bus_wheels.png" type="Texture" id=13]
 [ext_resource path="res://assets/sprites/cars/bus_outline.png" type="Texture" id=14]
-[ext_resource path="res://assets/audio/brum3.mp3" type="AudioStream" id=15]
 [ext_resource path="res://assets/sprites/cars/bus_doors.png" type="Texture" id=16]
-[ext_resource path="res://assets/audio/bus_doors.mp3" type="AudioStream" id=17]
+[ext_resource path="res://assets/audio/bus_doors.wav" type="AudioStream" id=17]
 [ext_resource path="res://assets/sprites/star_06.png" type="Texture" id=18]
+[ext_resource path="res://assets/audio/brum3.wav" type="AudioStream" id=19]
 
 [sub_resource type="CanvasItemMaterial" id=19]
 blend_mode = 1
@@ -181,7 +181,7 @@ tracks/1/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 15 )
+"stream": ExtResource( 19 )
 } ],
 "times": PoolRealArray( 0 )
 }
@@ -299,7 +299,7 @@ process_material = SubResource( 25 )
 texture = ExtResource( 8 )
 
 [node name="Brum" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 15 )
+stream = ExtResource( 19 )
 volume_db = -5.0
 max_distance = 1000.0
 bus = "Sfx"

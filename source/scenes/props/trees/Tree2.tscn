@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/sprites/trees/tree2_outline.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/trees/tree2_fill2.png" type="Texture" id=3]
 [ext_resource path="res://source/scenes/props/trees/Tree.gd" type="Script" id=4]
-[ext_resource path="res://assets/audio/pop.mp3" type="AudioStream" id=5]
+[ext_resource path="res://assets/audio/pop.wav" type="AudioStream" id=5]
 [ext_resource path="res://source/utils/day_night_utils/day_night_rotate.gd" type="Script" id=6]
 [ext_resource path="res://assets/sprites/tree2.png" type="Texture" id=7]
 

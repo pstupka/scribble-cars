@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/sprites/stars/star4.png" type="Texture" id=1]
 [ext_resource path="res://source/scenes/props/space/collectable_star.gd" type="Script" id=2]
 [ext_resource path="res://assets/sprites/space/star_04.png" type="Texture" id=3]
-[ext_resource path="res://assets/audio/pik.mp3" type="AudioStream" id=4]
+[ext_resource path="res://assets/audio/pik.wav" type="AudioStream" id=4]
 
 [sub_resource type="CanvasItemMaterial" id=2]
 blend_mode = 1

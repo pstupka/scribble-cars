@@ -8,11 +8,11 @@
 [ext_resource path="res://source/scenes/actors/player_rocket.gd" type="Script" id=6]
 [ext_resource path="res://assets/sprites/space/star.png" type="Texture" id=7]
 [ext_resource path="res://source/utils/mobile_controls.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/audio/brum2.mp3" type="AudioStream" id=9]
 [ext_resource path="res://assets/sprites/fume2.png" type="Texture" id=10]
-[ext_resource path="res://assets/audio/uiiiii.mp3" type="AudioStream" id=11]
-[ext_resource path="res://assets/audio/brum.mp3" type="AudioStream" id=12]
-[ext_resource path="res://assets/audio/pik.mp3" type="AudioStream" id=13]
+[ext_resource path="res://assets/audio/uiiiii.wav" type="AudioStream" id=11]
+[ext_resource path="res://assets/audio/brum.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/audio/pik.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/audio/brum2.wav" type="AudioStream" id=14]
 
 [sub_resource type="Gradient" id=33]
 offsets = PoolRealArray( 0, 0.148387, 0.522581 )
@@ -105,26 +105,12 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.9, 1.05 ), Vector2( 1, 1 ) ]
 }
 tracks/1/type = "audio"
-tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/path = NodePath("TurboSfx")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = false
+tracks/1/enabled = true
 tracks/1/keys = {
-"clips": [ {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 9 )
-} ],
-"times": PoolRealArray( 0 )
-}
-tracks/2/type = "audio"
-tracks/2/path = NodePath("TurboSfx")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
@@ -222,7 +208,6 @@ __meta__ = {
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 smoothing_enabled = true
-smoothing_speed = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -233,7 +218,7 @@ anims/RESET = SubResource( 32 )
 anims/move = SubResource( 31 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
+stream = ExtResource( 14 )
 volume_db = -3.0
 bus = "Sfx"
 
@@ -249,3 +234,10 @@ bus = "Sfx"
 [node name="PikSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
 bus = "Sfx"
+
+[node name="Label" type="Label" parent="."]
+margin_left = -41.0
+margin_top = -78.0
+margin_right = 64.0
+margin_bottom = -11.0
+text = "asdgasdg"

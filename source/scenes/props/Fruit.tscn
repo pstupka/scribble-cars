@@ -7,7 +7,7 @@
 [ext_resource path="res://source/utils/day_night_utils/day_night_modulate.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/sprites/props/pear_fill.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/props/pear_outline.png" type="Texture" id=7]
-[ext_resource path="res://assets/audio/mniam.mp3" type="AudioStream" id=8]
+[ext_resource path="res://assets/audio/mniam.wav" type="AudioStream" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 34.0147

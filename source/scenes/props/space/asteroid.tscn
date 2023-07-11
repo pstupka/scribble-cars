@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/sprites/space/asteroid_4.png" type="Texture" id=1]
 [ext_resource path="res://source/scenes/props/space/asteroid.gd" type="Script" id=2]
-[ext_resource path="res://assets/audio/boing.mp3" type="AudioStream" id=3]
+[ext_resource path="res://assets/audio/boing.wav" type="AudioStream" id=3]
 
 [node name="Asteroid" type="RigidBody2D"]
 collision_mask = 2

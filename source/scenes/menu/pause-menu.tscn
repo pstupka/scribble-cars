@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/fonts/LittleThings-ZX5Z.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://source/scenes/menu/pause-menu.gd" type="Script" id=2]
-[ext_resource path="res://assets/audio/pik.mp3" type="AudioStream" id=3]
+[ext_resource path="res://assets/audio/pik.wav" type="AudioStream" id=3]
 [ext_resource path="res://resources/shaders/blur.gdshader" type="Shader" id=4]
 
 [sub_resource type="ShaderMaterial" id=11]
