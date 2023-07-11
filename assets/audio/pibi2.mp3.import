@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/pibi2.mp3-42f99657a4895a57dccb67f009d013c4.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/pibi2.mp3"
+dest_files=[ "res://.import/pibi2.mp3-42f99657a4895a57dccb67f009d013c4.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

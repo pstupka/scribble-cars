@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Goat_Wayne_Jones.mp3-79c1ba79d970911dff5f0e726e5a34b3.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/youtube-library/Goat_Wayne_Jones.mp3"
+dest_files=[ "res://.import/Goat_Wayne_Jones.mp3-79c1ba79d970911dff5f0e726e5a34b3.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

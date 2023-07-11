@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Jigsaw_Puzzle_The_Green_Orbs.mp3-ff64c67f9618fbfd0e9ec95c7809e28d.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/youtube-library/Jigsaw_Puzzle_The_Green_Orbs.mp3"
+dest_files=[ "res://.import/Jigsaw_Puzzle_The_Green_Orbs.mp3-ff64c67f9618fbfd0e9ec95c7809e28d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/miau.mp3-1701668bd38035d6bcdfa35cdd112f0e.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/miau.mp3"
+dest_files=[ "res://.import/miau.mp3-1701668bd38035d6bcdfa35cdd112f0e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
