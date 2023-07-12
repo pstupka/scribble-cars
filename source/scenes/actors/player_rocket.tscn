@@ -234,10 +234,3 @@ bus = "Sfx"
 [node name="PikSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
 bus = "Sfx"
-
-[node name="Label" type="Label" parent="."]
-margin_left = -41.0
-margin_top = -78.0
-margin_right = 64.0
-margin_bottom = -11.0
-text = "asdgasdg"
