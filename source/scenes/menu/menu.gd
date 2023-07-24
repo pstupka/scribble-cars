@@ -5,6 +5,9 @@ onready var bg: Node2D = $Bg
 onready var level_previous: TextureButton = $"%LevelPrevious"
 onready var level_next: TextureButton = $"%LevelNext"
 onready var background_music = $SFX/BackgroundMusic
+onready var settings_button = $ButtonsContainer/SettingsButton
+
+
 var can_start_game = true
 
 var current_level_selected := 0
@@ -40,6 +43,12 @@ var can_change_scene = false setget set_can_change_scene
 
 
 func _ready() -> void:
+	if OS.get_name() == "HTML5":
+		$ButtonsContainer/ExitButton.hide()
+		$"%LevelPrevious".focus_neighbour_right = $ButtonsContainer/SettingsButton.get_path()
+		$"%LevelPrevious".focus_neighbour_bottom = $ButtonsContainer/SettingsButton.get_path()
+		$"%LevelPrevious".focus_next = $ButtonsContainer/SettingsButton.get_path()
+	
 	game_start_transition_rect.show()
 
 	Globals.daynight = Globals.DAY
