@@ -4,11 +4,11 @@ on:
     branches:
       - master
       # - staging
-      - "feature/**"
+      #- "feature/**"
 env:
   GODOT_VERSION: 3.5.2
   EXPORT_NAME: vroom-scadoodles
-  ITCH_IO: false #set to true if you want to enable automatic itch.io deploy
+  ITCH_IO: true #set to true if you want to enable automatic itch.io deploy
   RELEASE_ANDROID: false #set to  true if you want to enable automatic android release export
 
 jobs:
@@ -51,7 +51,7 @@ jobs:
           PACKAGE: itch.zip
 
   export-linux:
-    if: false
+    if: true
     name: Linux Export
     runs-on: ubuntu-20.04
     container:
@@ -85,7 +85,7 @@ jobs:
           PACKAGE: itch.zip
 
   export-web:
-    if: false
+    if: true
     name: Web Export
     runs-on: ubuntu-20.04
     container:
@@ -162,7 +162,7 @@ jobs:
           PACKAGE: itch.zip
 
   export-android:
-    if: false
+    if: true
     name: Android Export
     runs-on: ubuntu-20.04
     container:
