@@ -4,7 +4,7 @@ on:
     branches:
       - master
       # - staging
-       - "feature/**"
+      - "feature/**"
 env:
   GODOT_VERSION: 3.5.2
   EXPORT_NAME: vroom-scadoodles
