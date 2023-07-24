@@ -29,7 +29,10 @@ jobs:
         run: |
           mkdir -v -p build/windows
           godot -v --export "Windows Desktop" ./build/windows/$EXPORT_NAME.exe
-          godot -s ./source/utils/replace_icon.gd ./assets/icon.ico ./build/windows/$EXPORT_NAME.exe
+      - name: Change Icon
+        run: |
+          cd ./build/windows
+          godot -s ../../source/utils/replace_icon.gd ../../assets/icon.ico $EXPORT_NAME.exe
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
@@ -48,7 +51,7 @@ jobs:
           PACKAGE: itch.zip
 
   export-linux:
-    if: true
+    if: false
     name: Linux Export
     runs-on: ubuntu-20.04
     container:
@@ -82,7 +85,7 @@ jobs:
           PACKAGE: itch.zip
 
   export-web:
-    if: true
+    if: false
     name: Web Export
     runs-on: ubuntu-20.04
     container:
@@ -159,6 +162,7 @@ jobs:
           PACKAGE: itch.zip
 
   export-android:
+    if: false
     name: Android Export
     runs-on: ubuntu-20.04
     container:
