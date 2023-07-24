@@ -61,6 +61,7 @@ config/description="Relaxing game where you drive your machines and collect thin
 run/main_scene="res://source/scenes/menu/splash_screen.tscn"
 boot_splash/show_image=false
 config/icon="res://assets/icon-bg.png"
+config/windows_native_icon="res://assets/icon.ico"
 config/quit_on_go_back=false
 
 [autoload]

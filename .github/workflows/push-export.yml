@@ -4,7 +4,7 @@ on:
     branches:
       - master
       # - staging
-      # - "feature/**"
+      #- "feature/**"
 env:
   GODOT_VERSION: 3.5.2
   EXPORT_NAME: vroom-scadoodles
@@ -29,6 +29,10 @@ jobs:
         run: |
           mkdir -v -p build/windows
           godot -v --export "Windows Desktop" ./build/windows/$EXPORT_NAME.exe
+      - name: Change Icon
+        run: |
+          cd ./build/windows
+          godot -s ../../source/utils/replace_icon.gd ../../assets/icon.ico $EXPORT_NAME.exe
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
@@ -158,6 +162,7 @@ jobs:
           PACKAGE: itch.zip
 
   export-android:
+    if: true
     name: Android Export
     runs-on: ubuntu-20.04
     container:
