@@ -4,11 +4,11 @@ on:
     branches:
       - master
       # - staging
-      # - "feature/**"
+       - "feature/**"
 env:
   GODOT_VERSION: 3.5.2
   EXPORT_NAME: vroom-scadoodles
-  ITCH_IO: true #set to true if you want to enable automatic itch.io deploy
+  ITCH_IO: false #set to true if you want to enable automatic itch.io deploy
   RELEASE_ANDROID: false #set to  true if you want to enable automatic android release export
 
 jobs:
@@ -29,6 +29,7 @@ jobs:
         run: |
           mkdir -v -p build/windows
           godot -v --export "Windows Desktop" ./build/windows/$EXPORT_NAME.exe
+          godot -s ./source/utils/replace_icon.gd ./assets/icon.ico ./build/windows/$EXPORT_NAME.exe
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
