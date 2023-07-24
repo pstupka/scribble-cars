@@ -19,7 +19,6 @@ export var color : Color setget set_color
 export var ladder_speed := 0.5
 export var max_ladder_angle_deg := 40.0
 export var min_ladder_angle_deg := 0.0
-
 const PITCH_RAND = 0.05
 
 onready var shadow_pivot = $ShadowPivot
@@ -47,16 +46,6 @@ func _ready() -> void:
 	front_light_rays.self_modulate = Color("#808080")
 
 
-func _input(event):
-	if Input.is_action_pressed("jump") and not is_moving_ladder and ladder_pivot.rotation_degrees != max_ladder_angle_deg:
-		tween_ladder(max_ladder_angle_deg)
-		speed = speed * 0.2
-		
-	if Input.is_action_pressed("lights") and not is_moving_ladder and ladder_pivot.rotation_degrees != min_ladder_angle_deg:
-		tween_ladder(min_ladder_angle_deg)
-		speed = speed * 5
-
-
 func tween_ladder(ladder_rot: float) -> void:
 	if tween:
 		if tween.is_valid():
@@ -72,7 +61,15 @@ func tween_ladder(ladder_rot: float) -> void:
 
 
 func jump() -> void:
-	pass
+	if not is_moving_ladder and ladder_pivot.rotation_degrees != max_ladder_angle_deg:
+		tween_ladder(max_ladder_angle_deg)
+		speed = speed * 0.2
+
+
+func lights() -> void:
+	if not is_moving_ladder and ladder_pivot.rotation_degrees != min_ladder_angle_deg:
+		tween_ladder(min_ladder_angle_deg)
+		speed = speed * 5
 
 
 func honk(random:bool = true) -> void:

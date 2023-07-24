@@ -33,7 +33,9 @@ func _input(event):
 	
 	if event.is_action_pressed("change_car"):
 		change_car()
-
+	
+	if event.is_action_pressed("lights") and car.has_method("lights"):
+		car.lights()
 
 func _physics_process(_delta: float) -> void:
 	previous_direction = direction

@@ -20,6 +20,9 @@ func _ready():
 	car.animation_player.connect("animation_finished", self, "_on_car_animation_finished")
 	car.animation_player.play("move")
 
+	if str(car.name).find("firetruck", 0) >= 0:
+		$CarDiscoverArea/CollisionShape2D.disabled = true
+
 func _physics_process(_delta) -> void:
 	if not can_move:
 		if car.animation_player.get_current_animation() == "move": car.animation_player.stop()
